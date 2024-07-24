@@ -1,13 +1,12 @@
 name: Publish to GH Pages
+
 on:
   push:
     branches:
       - main
   pull_request:
 
-
 jobs:
-  # Build job
   build:
     runs-on: ubuntu-latest
     env:
@@ -16,41 +15,43 @@ jobs:
       - name: Install Hugo CLI
         run: |
           wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb          
-      
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
       - name: Install Dart Sass
         run: sudo snap install dart-sass
-      
-      - name: Checkout
+
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Checkout destination
-        uses: actions/checkout@v4
-        if: github.ref == 'refs/heads/main'
-        with:
-          ref: gh-pages
-          path: built-site
-      
-      - name: Install Node.js dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
       - name: Build with Hugo
         env:
           HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
           HUGO_ENVIRONMENT: production
           TZ: America/Los_Angeles
         run: |
-          hugo server -D      
-      
-      - name: Deploy
-        if: github.ref == 'refs/heads/main'
+          hugo --gc --minify
+
+      - name: Checkout gh-pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: built-site
+
+      - name: Copy files to gh-pages
         run: |
-          cp -R public/* ${GITHUB_WORKSPACE}/built-site/
-          cd ${GITHUB_WORKSPACE}/built-site
+          cp -R public/* built-site/
+        
+      - name: Commit and push changes
+        run: |
+          cd built-site
+          git config user.name 'GitHub Actions'
+          git config user.email 'actions@github.com'
           git add .
-          git config user.name 'Hoang Do'
-          git config user.email 'tuanhoang2do2311@gmail.com'
-          git commit -m 'Updated site'
+          git commit -m 'Update site content'
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

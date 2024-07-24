@@ -1,15 +1,16 @@
 +++
-title = 'Insertion Sort'
-date = 2024-07-18T19:42:53+07:00
-draft = true
-description = "This is a description"
+title = '20240724 Insertion Sort'
+date = 2024-07-24T19:03:42+07:00
+draft = false
+description = ""
 image = "/images/avatar.png"
 imageBig = "/images/avatar.png"
-categories = ["general", "test"]
+categories = ["general"]
 authors = ["Tomodachii"]
-avatar = "/images/avatar.png"
-math = true
+avatar = "images/avatar.png"
+math = false
 +++
+
 
 # Insertion sort
 Insertion sort works the way you might sort a hand of playing cards
