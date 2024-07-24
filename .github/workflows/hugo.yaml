@@ -42,9 +42,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           TZ: America/Los_Angeles
         run: |
-          hugo \
-            --gc \
-            --minify         
+          hugo server -D      
       
       - name: Deploy
         if: github.ref == 'refs/heads/main'
