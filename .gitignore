@@ -1,0 +1,17 @@
+# Ignore Hugo-generated content
+public/
+
+# Ignore Hugo generated files
+*.bak
+*.cache
+
+# Ignore temporary files
+*.swp
+*.swo
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore build artifacts
+resources/_gen/
