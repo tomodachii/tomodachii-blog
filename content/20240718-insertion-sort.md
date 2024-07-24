@@ -1,5 +1,5 @@
 +++
-title = 'My First Post'
+title = 'Insertion Sort'
 date = 2024-07-18T19:42:53+07:00
 draft = true
 description = "This is a description"

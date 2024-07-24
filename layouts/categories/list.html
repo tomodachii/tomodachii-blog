@@ -1,10 +1,10 @@
 {{ define "main" }} {{ if eq .RelPermalink "/categories/" }}
   {{ range .Site.Taxonomies.categories.ByCount }}
-    <a href="/categories/{{ .Name }}"></a>
-    # {{ .Name }} <small>({{.Count}})</small>
+    <a href="/categories/{{ .Name }}">
+      # {{ .Name }} <small>({{.Count}})</small>
+    </a>
   {{ end }}
 {{ else }}
-
 <div class="list">
   {{ range .Paginator.Pages }}
   <div class="listItem">
