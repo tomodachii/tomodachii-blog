@@ -32,7 +32,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           TZ: America/Los_Angeles
         run: |
-          hugo --gc --minify --baseURL "https://tomodachii.github.io/tomodachii-blog/"
+          hugo
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
@@ -40,18 +40,14 @@ jobs:
           ref: gh-pages
           path: built-site
 
-      - name: Copy files to gh-pages
+      - name: Deploy
+        if: github.ref == 'refs/heads/main'
         run: |
-          cp -R public/* built-site/
-        
-      - name: Commit and push changes
-        run: |
-          cd built-site
-          git config user.name 'GitHub Actions'
-          git config user.email 'actions@github.com'
+          cp -R public/* ${GITHUB_WORKSPACE}/built-site/
+          cd ${GITHUB_WORKSPACE}/built-site
           git add .
-          git commit -m 'Update site content'
+          git config user.name 'Hoang Do'
+          git config user.email 'tuanhoang2do2311@gmail.com'
+          git commit -m 'Updated site'
           git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
