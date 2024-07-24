@@ -32,7 +32,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           TZ: America/Los_Angeles
         run: |
-          hugo --gc --minify
+          hugo --gc --minify --baseURL "https://tomodachii.github.io/tomodachii-blog/"
 
       - name: Checkout gh-pages branch
         uses: actions/checkout@v4
