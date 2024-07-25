@@ -7,8 +7,8 @@ image = "/images/avatar.png"
 imageBig = "/images/avatar.png"
 categories = ["general"]
 authors = ["Tomodachii"]
-avatar = "images/avatar.png"
-math = false
+avatar = "/images/avatar.png"
+math = true
 +++
 
 
