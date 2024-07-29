@@ -1,11 +1,11 @@
 +++
-title = '20240724 Insertion Sort'
+title = 'Insertion Sort'
 date = 2024-07-24T19:03:42+07:00
 draft = false
 description = ""
-image = "/images/avatar.png"
+image = "/images/20240724-insertion-sort.png"
 imageBig = "/images/avatar.png"
-categories = ["general"]
+categories = ["dsa"]
 authors = ["Tomodachii"]
 avatar = "/images/avatar.png"
 math = true
