@@ -1,7 +1,7 @@
 :root {
   --bg: #0b1529;
   --bgSoft: #1f3050;
-  --text: #dee4eb;
+  --text: #ebdbca;
   --textSoft: #cbd2d9;
 }
 
@@ -24,7 +24,7 @@ body {
 }
 
 body.light {
-  --bg: #dee4eb;
+  --bg: #ebdbca;
   --text: #0b1529;
 }
 
