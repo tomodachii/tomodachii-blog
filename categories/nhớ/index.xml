@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
-    <link>https://tomodachii.com/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <title>Nhớ on My New Hugo Site</title>
+    <link>https://tomodachii.com/categories/nh%E1%BB%9B/</link>
+    <description>Recent content in Nhớ on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 07 Jan 2025 22:51:13 +0700</lastBuildDate>
-    <atom:link href="https://tomodachii.com/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tomodachii.com/categories/nh%E1%BB%9B/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>There once was a cat who slept in this pot.</title>
       <link>https://tomodachii.com/20250107-ngay-xua-co-mot-con-meo-ngu-trong-chau-do/</link>
       <pubDate>Tue, 07 Jan 2025 22:51:13 +0700</pubDate>
       <guid>https://tomodachii.com/20250107-ngay-xua-co-mot-con-meo-ngu-trong-chau-do/</guid>
       <description>&lt;p&gt;Họ xới tung cả một vạt cỏ lớn dưới gốc dừa để trồng cây hoa gì đó. Nay anh tìm thấy cái bát cơm ba đặt cạnh anh mèo, anh buồn lắm nhưng cũng chẳng trách họ được bởi họ đâu có biết đấy là nơi em nằm.&lt;/p&gt;&#xA;&lt;p&gt;Gần đây anh chơi stardrew valley suốt ngày. Cứ mỗi đêm lúc bánh gấu đã đi ngủ (hoặc anh nghĩ vậy), anh lại bí mật chơi stardrew valley một mình tại trang trại nhỏ của anh nơi anh trồng những bông cải cúc và hướng dương. Ở đây mọi thứ cũng thật yên bình. Có bướm, có hoa, có nhạc lễ hội và hơn cả là ở đây, trứng muối bé xíu vẫn nằm lăn lóc bên bát nước đợi anh mỗi ngày, cho đến hết phần đời còn lại của mình. Anh luôn tự hỏi liệu có phải tất cả những tội ác không tên của mình đã bị một bàn tay vô hình nào đó gom lại từng chút một mà trút lên đầu trứng muối như một sự trừng phạt. Khốn nạn thay, anh luôn ghét bản thân mình bởi lẽ sao lại là nó cơ chứ? Nó còn bé lắm, nó có làm gì ai đâu? Sao không phải là tôi, đồ chó chết tôi mới là thằng khốn nên chết mẹ đi cho đỡ chật đất. Nhưng mọi thứ lại chẳng hoạt động như vậy bởi lẽ số phận đã an bài, bởi lẽ những hàng và cột của chúng mình đã được xếp ngay ngắn bởi một bàn tay cợt nhả nào đó nên giờ anh mới ở đây, khóc thương em. Em thân yêu, anh luôn ước mình có thể đổi bằng sạch những ngày mưa của mình để em lại được ngắm mưa lần nữa.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Insertion Sort</title>
-      <link>https://tomodachii.com/20240724-insertion-sort/</link>
-      <pubDate>Wed, 24 Jul 2024 19:03:42 +0700</pubDate>
-      <guid>https://tomodachii.com/20240724-insertion-sort/</guid>
-      <description>&lt;h1 id=&#34;insertion-sort&#34;&gt;Insertion sort&lt;/h1&gt;&#xA;&lt;p&gt;Insertion sort works the way you might sort a hand of playing cards&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Start with an empty left hand; all cards are in a pile on the table&lt;/li&gt;&#xA;&lt;li&gt;With your right hand, pick up the first card in the pile&lt;/li&gt;&#xA;&lt;li&gt;Insert the card into the correct position in your left hand&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;pseudocode&#34;&gt;Pseudocode&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;INSERTION-SORT(A, n)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1    for i = 2 to n&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2        key = A[i]&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;3        // Insert A[i] into the sorted subarray A[1:i - 1]&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;4        j = i - 1&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;5        while j &amp;gt; 0 and A[j] &amp;gt; key&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;6            A[j + 1] = A[j]&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;7            j = j - 1&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;8        A[j + 1] = key&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Explain by a little example&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
