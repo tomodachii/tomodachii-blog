@@ -1,7 +1,7 @@
 :root {
   --bg: #0b1529;
   --bgSoft: #1f3050;
-  --text: #ebdbca;
+  --text: #cbd2d9;
   --textSoft: #cbd2d9;
 }
 
@@ -25,7 +25,9 @@ body {
 
 body.light {
   --bg: #ebdbca;
-  --text: #0b1529;
+  --bgSoft: #000;
+  --text: #000;
+  --textSoft: #fff;
 }
 
 a {
@@ -83,18 +85,18 @@ a {
 .toggle {
   width: 40px;
   height: 20px;
-  border-radius: 50px;
+  /* border-radius: 50px; */
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  background-color: var(--bgSoft);
-  border: 0.5px solid var(--textSoft);
-  padding: 5px;
+  /* display: flex; */
+  /* align-items: center; */
+  /* gap: 5px; */
+  /* background-color: var(--bgSoft); */
+  /* border: 0.5px solid var(--textSoft); */
+  /* padding: 5px; */
   position: relative;
 }
 
-.ball {
+/* .ball {
   width: 19px;
   height: 19px;
   border-radius: 50%;
@@ -107,6 +109,18 @@ a {
 .light .ball {
   left: unset;
   right: 0;
+} */
+
+#sun {
+  display: none;
+}
+
+.light #moon {
+  display: none;
+}
+
+.light #sun {
+  display: block;
 }
 
 /* NAVBAR END */
