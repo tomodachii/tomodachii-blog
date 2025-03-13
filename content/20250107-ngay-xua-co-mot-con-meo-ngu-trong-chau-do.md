@@ -1,7 +1,7 @@
 +++
 title = 'There once was a cat who slept in this pot.'
 date = 2025-01-07T22:51:13+07:00
-draft = false
+draft = true
 description = ""
 image = "/images/20250107-ngay-xua-co-mot-con-meo-ngu-trong-chau-do.jpg"
 imageBig = "/images/20250107-ngay-xua-co-mot-con-meo-ngu-trong-chau-do-1.jpg"
