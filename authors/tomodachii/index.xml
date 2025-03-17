@@ -20,7 +20,7 @@
       <link>https://tomodachii.com/6.041sc-continuous-random-variables/</link>
       <pubDate>Mon, 17 Mar 2025 12:11:38 +0700</pubDate>
       <guid>https://tomodachii.com/6.041sc-continuous-random-variables/</guid>
-      <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;</description>
+      <description>&lt;h1 id=&#34;gaussian-normal-pdf&#34;&gt;Gaussian (normal) PDF&lt;/h1&gt;&#xA;&lt;p&gt;If you have a phenomenon in which you measure a certain quantity, but that quantity is made up of lots and lots of random contributions.&lt;/p&gt;&#xA;&lt;p&gt;Then your random variable is actually the sum of lots and lots of independent little random variable. And no matter what kind of distribution the little random variables have, their sum will turn out to have approximately a normal distribution.&lt;/p&gt;&#xA;&lt;p&gt;$\rightarrow$ This makes the normal distribution to arise very nartually in lots and lots of context. Whenever you have noise that&amp;rsquo;s comprise of lots of different independent pieces of noise, then the end result will be a random normal variable.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

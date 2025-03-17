@@ -6,7 +6,7 @@
     <link rel="stylesheet" href=/styles/style.css>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
-    <link rel="icon" href="images/lain-sicp.png">
+    <link rel="icon" href="/images/lain-sicp.png">
     <title>Tomodachii</title>
     <head>
 </head>
@@ -84,85 +84,85 @@
     <div class="container">
         
         
-<div class="list">
-  
-  
+  <div class="list">
     
+    
+      
+        
+      
+    
+      
+        
       
     
   
     
-      
+      <div class="section">
+        <button class="toggleButton" onclick="toggleSection('Random')">
+          Random
+        </button>
+        <div id="Random" class="sectionContent">
+          
+            <div class="listItem">
+              
+              <div class="listItemTexts">
+                <div class="listItemTitle">
+                  <a href="https://tomodachii.com/20240724-insertion-sort/">
+                    - Insertion Sort 
+                    (<time datetime="Jul 24, 2024">Jul 24, 2024</time>)
+                    
+                  </a>
+                </div>
+                
+                
+                
+              </div>
+            </div>
+          
+        </div>
+      </div>
     
-  
-
-  
-    <div class="section">
-      <button class="toggleButton" onclick="toggleSection('Random')">
-        Random
-      </button>
-      <div id="Random" class="sectionContent">
-        
-          <div class="listItem">
-            
-            <div class="listItemTexts">
-              <div class="listItemTitle">
-                <a href="https://tomodachii.com/20240724-insertion-sort/">
-                  - Insertion Sort 
-                  (<time datetime="Jul 24, 2024">Jul 24, 2024</time>)
-                  
-                </a>
+      <div class="section">
+        <button class="toggleButton" onclick="toggleSection('6.041SC Probabilistic Systems Analysis and Applied Probability')">
+          6.041SC Probabilistic Systems Analysis and Applied Probability
+        </button>
+        <div id="6.041SC Probabilistic Systems Analysis and Applied Probability" class="sectionContent">
+          
+            <div class="listItem">
+              
+              <div class="listItemTexts">
+                <div class="listItemTitle">
+                  <a href="https://tomodachii.com/6.041sc-continuous-random-variables/">
+                    - Lecture 8: Continuous Random Variables 
+                    (<time datetime="Mar 17, 2025">Mar 17, 2025</time>)
+                    
+                  </a>
+                </div>
+                
+                
+                
               </div>
-              
-              
-              
             </div>
-          </div>
-        
+          
+        </div>
       </div>
-    </div>
-  
-    <div class="section">
-      <button class="toggleButton" onclick="toggleSection('6.041SC Probabilistic Systems Analysis and Applied Probability')">
-        6.041SC Probabilistic Systems Analysis and Applied Probability
-      </button>
-      <div id="6.041SC Probabilistic Systems Analysis and Applied Probability" class="sectionContent">
-        
-          <div class="listItem">
-            
-            <div class="listItemTexts">
-              <div class="listItemTitle">
-                <a href="https://tomodachii.com/6.041sc-continuous-random-variables/">
-                  - Lecture 8: Continuous Random Variables 
-                  (<time datetime="Mar 17, 2025">Mar 17, 2025</time>)
-                  
-                </a>
-              </div>
-              
-              
-              
-            </div>
-          </div>
-        
-      </div>
-    </div>
-  
+    
 </div>
-
+  
 <script>
-  function toggleSection(sectionId) {
+function toggleSection(sectionId) {
     var content = document.getElementById(sectionId);
     var button = document.querySelector(`[onclick="toggleSection('${sectionId}')"]`);
-  
+
     if (content.style.display === "block") {
-      content.style.display = "none";
-      button.classList.remove("active");
+    content.style.display = "none";
+    button.classList.remove("active");
     } else {
-      content.style.display = "block";
-      button.classList.add("active");
+    content.style.display = "block";
+    button.classList.add("active");
     }
-  }
-  
+}
+
 </script>
 
         <div class="footer">
@@ -175,9 +175,7 @@
     <a href="https://github.com/tomodachii">
         github
     </a>
-    <a href="https://www.linkedin.com/in/hoang-do-tuan-a811431b1/">
-        linkedin
-    </a>
+    
   </div>
 </div>
 

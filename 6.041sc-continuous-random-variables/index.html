@@ -6,9 +6,16 @@
     <link rel="stylesheet" href=/styles/style.css>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
-    <link rel="icon" href="images/lain-sicp.png">
+    <link rel="icon" href="/images/lain-sicp.png">
     <title>Tomodachii</title>
-    <head>
+    <head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 </head>
 </head>
 <body>
@@ -97,7 +104,7 @@
                     
                 </span>
                 
-                    <a href="https://tomodachii.com/categories/general/" class="singleCategory">general</a>
+                    <a href="https://tomodachii.com/categories/probability/" class="singleCategory">probability</a>
                 
             </div>
             <time>Mar 17, 2025</time>
@@ -105,7 +112,41 @@
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><h1 id="heading"></h1>
+        <div class="singleContent"><h1 id="gaussian-normal-pdf">Gaussian (normal) PDF</h1>
+<p>If you have a phenomenon in which you measure a certain quantity, but that quantity is made up of lots and lots of random contributions.</p>
+<p>Then your random variable is actually the sum of lots and lots of independent little random variable. And no matter what kind of distribution the little random variables have, their sum will turn out to have approximately a normal distribution.</p>
+<p>$\rightarrow$ This makes the normal distribution to arise very nartually in lots and lots of context. Whenever you have noise that&rsquo;s comprise of lots of different independent pieces of noise, then the end result will be a random normal variable.</p>
+<h2 id="standard-normal-gaussian-random-variables">Standard normal (Gaussian) random variables</h2>
+<ul>
+<li>Standard normal $\mathcal{N}(0, 1)$: $f_X(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}$ <details>
+    <summary>why $\frac{1}{\sqrt{2\pi}}$ ?</summary>
+     
+$\int_{-\infty}^{\infty}e^{-x^2/2} \, dx = \sqrt{2\pi}$ 
+
+</details>
+  </li>
+</ul>
+<p><img src="/images/6.041SC-continuous-random-variables-standard-normal-explain.png" alt="&ldquo;Standard Normal Explanation&rdquo;" title="Standard Normal Explanation"></p>
+<ul>
+<li>$\mathbb{E}[X] = 0$</li>
+<li>$\text{Var}(X) = \mathbb{E}[X^2] - 0 = 1$ <details>
+    <summary>Integrate by parts</summary>
+    
+$
+u = x
+$
+<br>
+$
+dv = xe^{-x^2/2} \, dx \rightarrow v = -e^{-x^2/2}
+$
+$$
+\int udv = uv - \int vdu = \frac{1}{\sqrt{2\pi}}(-xe^{-x^2/2}\Big|_{-\infty}^{\infty} + \int_{-\infty}^{\infty}e^{-x^2/2} \, dx) = 0 + 1 = 1
+$$
+
+</details>
+  </li>
+</ul>
+<h3 id="example-310-memorylessness-of-the-exponential-pdf">Example 3.10: Memorylessness of the exponential PDF</h3>
 </div>
         
     </div>
@@ -121,9 +162,7 @@
     <a href="https://github.com/tomodachii">
         github
     </a>
-    <a href="https://www.linkedin.com/in/hoang-do-tuan-a811431b1/">
-        linkedin
-    </a>
+    
   </div>
 </div>
 
