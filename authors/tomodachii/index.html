@@ -86,43 +86,84 @@
         
 <div class="list">
   
-  <div class="listItem">
-    <img
-      src=/images/20240724-insertion-sort.png
-      alt=Insertion&#32;Sort
-      class="listItemImage"
-      loading="lazy"
-    />
-    <div class="listItemTexts">
-      <h1 class="listItemTitle">
-        <a href="https://tomodachii.com/20240724-insertion-sort/">Insertion Sort</a>
-      </h1>
-      <p class="listItemDesc"></p>
-      <div class="listItemDetail">
-        <img
-          src="/images/avatar.png"
-          loading="lazy"
-          alt=""
-          class="listItemAvatar"
-        />
-        <span
-          >
-          <a href="https://tomodachii.com/authors/tomodachii/">Tomodachii</a>
-          </span
-        >
-        <time datetime="Jul 24, 2024"
-          >Jul 24, 2024</time
-        >
-      </div>
-      <div class="listItemCategories">
+  
+    
+      
+    
+  
+    
+      
+    
+  
+
+  
+    <div class="section">
+      <button class="toggleButton" onclick="toggleSection('Random')">
+        Random
+      </button>
+      <div id="Random" class="sectionContent">
         
-        <a class="listItemCategory" href=https://tomodachii.com/categories/dsa/>dsa</a>
+          <div class="listItem">
+            
+            <div class="listItemTexts">
+              <div class="listItemTitle">
+                <a href="https://tomodachii.com/20240724-insertion-sort/">
+                  - Insertion Sort 
+                  (<time datetime="Jul 24, 2024">Jul 24, 2024</time>)
+                  
+                </a>
+              </div>
+              
+              
+              
+            </div>
+          </div>
         
       </div>
     </div>
-  </div>
+  
+    <div class="section">
+      <button class="toggleButton" onclick="toggleSection('6.041SC Probabilistic Systems Analysis and Applied Probability')">
+        6.041SC Probabilistic Systems Analysis and Applied Probability
+      </button>
+      <div id="6.041SC Probabilistic Systems Analysis and Applied Probability" class="sectionContent">
+        
+          <div class="listItem">
+            
+            <div class="listItemTexts">
+              <div class="listItemTitle">
+                <a href="https://tomodachii.com/6.041sc-continuous-random-variables/">
+                  - Lecture 8: Continuous Random Variables 
+                  (<time datetime="Mar 17, 2025">Mar 17, 2025</time>)
+                  
+                </a>
+              </div>
+              
+              
+              
+            </div>
+          </div>
+        
+      </div>
+    </div>
   
 </div>
+
+<script>
+  function toggleSection(sectionId) {
+    var content = document.getElementById(sectionId);
+    var button = document.querySelector(`[onclick="toggleSection('${sectionId}')"]`);
+  
+    if (content.style.display === "block") {
+      content.style.display = "none";
+      button.classList.remove("active");
+    } else {
+      content.style.display = "block";
+      button.classList.add("active");
+    }
+  }
+  
+</script>
 
         <div class="footer">
   <div class="footerLinks">

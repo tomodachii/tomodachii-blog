@@ -86,39 +86,55 @@
         
 <div class="list">
   
-  <div class="listItem">
-    <img
-      src=ZgotmplZ
-      alt=Tomodachii
-      class="listItemImage"
-      loading="lazy"
-    />
-    <div class="listItemTexts">
-      <h1 class="listItemTitle">
-        <a href="https://tomodachii.com/authors/tomodachii/">Tomodachii</a>
-      </h1>
-      <p class="listItemDesc"></p>
-      <div class="listItemDetail">
-        <img
-          src=""
-          loading="lazy"
-          alt=""
-          class="listItemAvatar"
-        />
-        <span
-          ></span
-        >
-        <time datetime="Jul 24, 2024"
-          >Jul 24, 2024</time
-        >
-      </div>
-      <div class="listItemCategories">
+  
+    
+      
+    
+  
+
+  
+    <div class="section">
+      <button class="toggleButton" onclick="toggleSection('')">
+        
+      </button>
+      <div id="" class="sectionContent">
+        
+          <div class="listItem">
+            
+            <div class="listItemTexts">
+              <div class="listItemTitle">
+                <a href="https://tomodachii.com/authors/tomodachii/">
+                  - Tomodachii 
+                  (<time datetime="Mar 17, 2025">Mar 17, 2025</time>)
+                  
+                </a>
+              </div>
+              
+              
+              
+            </div>
+          </div>
         
       </div>
     </div>
-  </div>
   
 </div>
+
+<script>
+  function toggleSection(sectionId) {
+    var content = document.getElementById(sectionId);
+    var button = document.querySelector(`[onclick="toggleSection('${sectionId}')"]`);
+  
+    if (content.style.display === "block") {
+      content.style.display = "none";
+      button.classList.remove("active");
+    } else {
+      content.style.display = "block";
+      button.classList.add("active");
+    }
+  }
+  
+</script>
 
         <div class="footer">
   <div class="footerLinks">
