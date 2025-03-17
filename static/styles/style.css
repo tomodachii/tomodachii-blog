@@ -19,13 +19,14 @@ body {
     font-style: normal; */
 
   font-family: "IBM Plex Mono", monospace;
+  /* font-family: Arial, Helvetica, sans-serif; */
   font-weight: 500;
   font-style: normal;
 }
 
 body.light {
   --bg: #ebdbca;
-  --bgSoft: #000;
+  --bgSoft: #303030;
   --text: #000;
   --textSoft: #fff;
 }
@@ -51,6 +52,7 @@ a {
 
 .navbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   height: 100px;
@@ -154,7 +156,7 @@ a {
   display: flex;
   align-items: center;
   gap: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .listItemImage {
@@ -195,6 +197,52 @@ a {
   color: var(--textSoft);
   font-size: 14px;
 }
+
+/* Style the toggle button */
+.toggleButton {
+  background-color: var(--bg);
+  color: var(--text);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-size: 18px;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+/* Add an arrow icon */
+.toggleButton::after {
+  content: "▶"; /* Right arrow */
+  transition: transform 0.3s ease;
+  font-size: 16px;
+}
+
+/* Rotate arrow when active */
+.toggleButton.active::after {
+  transform: rotate(90deg);
+}
+
+/* Style the content section */
+.sectionContent {
+  display: none; /* Hide by default */
+  padding: 10px;
+  /* background-color: rgba(255, 255, 255, 0.8); */
+  /* border-left: 3px solid #007bff; */
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+/* List item styling */
+/* .listItem {
+  margin-left: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+} */
 
 /* LIST END */
 
@@ -259,7 +307,7 @@ a {
 
 .singleContent {
   flex: 3;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 32px;
 }
 

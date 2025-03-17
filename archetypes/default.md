@@ -9,4 +9,6 @@ categories = ["general"]
 authors = ["Tomodachii"]
 avatar = "images/avatar.png"
 math = false
+section = "Random"
+weight = 0
 +++

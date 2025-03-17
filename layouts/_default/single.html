@@ -17,7 +17,9 @@
             </div>
             <time>{{ dateFormat .Site.Params.dateFormat .Date }}</time>
         </div>
-        <img src="{{ .Params.imageBig }}" alt="{{ .Title }}" class="singleHeadImg">
+        {{ if .Params.imageBig }}
+            <img src="{{ .Params.imageBig }}" alt="{{ .Title }}" class="singleHeadImg">
+        {{ end }}
     </div>
     <div class="singleBottom">
         <div class="singleContent">{{ .Content }}</div>

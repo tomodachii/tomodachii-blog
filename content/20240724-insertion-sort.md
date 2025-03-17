@@ -9,6 +9,8 @@ categories = ["dsa"]
 authors = ["Tomodachii"]
 avatar = "/images/avatar.png"
 math = true
+section = "Random"
+weight = 1
 +++
 
 

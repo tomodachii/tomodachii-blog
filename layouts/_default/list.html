@@ -1,45 +1,83 @@
 {{ define "main" }}
 <div class="list">
+  {{ $sections := slice }}
   {{ range .Paginator.Pages }}
-  <div class="listItem">
-    <img
-      src={{
-      .Params.Image
-      }}
-      alt={{
-      .Title
-      }}
-      class="listItemImage"
-      loading="lazy"
-    />
-    <div class="listItemTexts">
-      <h1 class="listItemTitle">
-        <a href="{{.Permalink}}">{{ .Title }}</a>
-      </h1>
-      <p class="listItemDesc">{{.Params.description}}</p>
-      <div class="listItemDetail">
-        <img
-          src="{{.Params.avatar}}"
-          loading="lazy"
-          alt=""
-          class="listItemAvatar"
-        />
-        <span
-          >{{ range (.GetTerms "authors") }}
-          <a href="{{.Permalink}}">{{ .Name }}</a>
-          {{ end }}</span
-        >
-        <time datetime="{{ dateFormat .Site.Params.dateFormat .Date}}"
-          >{{ dateFormat .Site.Params.dateFormat .Date}}</time
-        >
-      </div>
-      <div class="listItemCategories">
-        {{ range (.GetTerms "categories") }}
-        <a class="listItemCategory" href={{ .Permalink }}>{{ .Name }}</a>
+    {{ if not (in $sections .Params.section) }}
+      {{ $sections = $sections | append .Params.section }}
+    {{ end }}
+  {{ end }}
+
+  {{ range $section := $sections }}
+    <div class="section">
+      <button class="toggleButton" onclick="toggleSection('{{ $section }}')">
+        {{ $section }}
+      </button>
+      <div id="{{ $section }}" class="sectionContent">
+        {{ range sort (where $.Paginator.Pages "Params.section" $section) ".Params.weight" "acs" }}
+          <div class="listItem">
+            {{/*  <img
+              src={{
+              .Params.Image
+              }}
+              alt={{
+              .Title
+              }}
+              class="listItemImage"
+              loading="lazy"
+            />  */}}
+            <div class="listItemTexts">
+              <div class="listItemTitle">
+                <a href="{{ .Permalink }}">
+                  - {{ .Title }} 
+                  (<time datetime="{{ dateFormat .Site.Params.dateFormat .Date}}">{{ dateFormat .Site.Params.dateFormat .Date}}</time>)
+                  {{/*  {{ range (.GetTerms "categories") }}
+                    <a class="listItemCategory" href="{{ .Permalink }}">{{ .Name }}</a>
+                  {{ end }}  */}}
+                </a>
+              </div>
+              {{/*  <p class="listItemDesc">{{ .Params.description }}</p>  */}}
+              {{/*  <div class="listItemDetail">
+                <img
+                  src="{{.Params.avatar}}"
+                  loading="lazy"
+                  alt=""
+                  class="listItemAvatar"
+                />
+                <span
+                  >{{ range (.GetTerms "authors") }}
+                  <a href="{{.Permalink}}">{{ .Name }}</a>
+                  {{ end }}</span
+                >
+                <time datetime="{{ dateFormat .Site.Params.dateFormat .Date}}"
+                  >{{ dateFormat .Site.Params.dateFormat .Date}}</time
+                >
+              </div>  */}}
+              {{/*  <div class="listItemCategories">
+                {{ range (.GetTerms "categories") }}
+                  <a class="listItemCategory" href="{{ .Permalink }}">{{ .Name }}</a>
+                {{ end }}
+              </div>  */}}
+            </div>
+          </div>
         {{ end }}
       </div>
     </div>
-  </div>
   {{ end }}
 </div>
+
+<script>
+  function toggleSection(sectionId) {
+    var content = document.getElementById(sectionId);
+    var button = document.querySelector(`[onclick="toggleSection('${sectionId}')"]`);
+  
+    if (content.style.display === "block") {
+      content.style.display = "none";
+      button.classList.remove("active");
+    } else {
+      content.style.display = "block";
+      button.classList.add("active");
+    }
+  }
+  
+</script>
 {{ end }}
