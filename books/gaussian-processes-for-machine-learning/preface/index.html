@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta name="generator" content="Hugo 0.140.2">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href=/styles/style.css>
@@ -9,7 +8,14 @@
     
     <link rel="icon" href="/images/lain-sicp.png">
     <title>Tomodachii</title>
-    <head>
+    <head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 </head>
 </head>
 <body>
@@ -85,133 +91,34 @@
     <div class="container">
         
         
-  <div class="list">
-    
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-    
-  
-    
-      <div class="section">
-        <button class="toggleButton" onclick="toggleSection('Random')">
-          Random
-        </button>
-        <div id="Random" class="sectionContent">
-          
-            <div class="listItem">
-              
-              <div class="listItemTexts">
-                <div class="listItemTitle">
-                  <a href="https://tomodachii.com/random/20240724-insertion-sort/">
-                    - Insertion Sort 
-                    (<time datetime="Jul 24, 2024">Jul 24, 2024</time>)
+<div class="single">
+    <div class="singleHead">
+        <div class="singleHeadTexts">
+            <h1 class="singleHeadTitle">Preface</h1>
+            <p class="singleHeadDesc"></p>
+            <div class="singleHeadDetail">
+                <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
+                <span>
                     
-                  </a>
-                </div>
+                        <a href="https://tomodachii.com/authors/tomodachii/">Tomodachii</a>
+                    
+                </span>
                 
+                    <a href="https://tomodachii.com/categories/machine-learning/" class="singleCategory">machine-learning</a>
                 
+                    <a href="https://tomodachii.com/categories/gaussian-process/" class="singleCategory">gaussian-process</a>
                 
-              </div>
             </div>
-          
+            <time>Mar 17, 2025</time>
         </div>
-      </div>
-    
-      <div class="section">
-        <button class="toggleButton" onclick="toggleSection('Gaussian Processes for Machine Learning')">
-          Gaussian Processes for Machine Learning
-        </button>
-        <div id="Gaussian Processes for Machine Learning" class="sectionContent">
-          
-            <div class="listItem">
-              
-              <div class="listItemTexts">
-                <div class="listItemTitle">
-                  <a href="https://tomodachii.com/books/gaussian-processes-for-machine-learning/preface/">
-                    - Preface 
-                    (<time datetime="Mar 17, 2025">Mar 17, 2025</time>)
-                    
-                  </a>
-                </div>
-                
-                
-                
-              </div>
-            </div>
-          
-            <div class="listItem">
-              
-              <div class="listItemTexts">
-                <div class="listItemTitle">
-                  <a href="https://tomodachii.com/books/gaussian-processes-for-machine-learning/chapter-2-regression/">
-                    - Chapter 2: Regression 
-                    (<time datetime="Mar 17, 2025">Mar 17, 2025</time>)
-                    
-                  </a>
-                </div>
-                
-                
-                
-              </div>
-            </div>
-          
-        </div>
-      </div>
-    
-      <div class="section">
-        <button class="toggleButton" onclick="toggleSection('6.041SC Probabilistic Systems Analysis and Applied Probability')">
-          6.041SC Probabilistic Systems Analysis and Applied Probability
-        </button>
-        <div id="6.041SC Probabilistic Systems Analysis and Applied Probability" class="sectionContent">
-          
-            <div class="listItem">
-              
-              <div class="listItemTexts">
-                <div class="listItemTitle">
-                  <a href="https://tomodachii.com/courses/6.041sc/lecture-8-continuous-random-variables/">
-                    - Lecture 8: Continuous Random Variables 
-                    (<time datetime="Mar 17, 2025">Mar 17, 2025</time>)
-                    
-                  </a>
-                </div>
-                
-                
-                
-              </div>
-            </div>
-          
-        </div>
-      </div>
-    
+        
+    </div>
+    <div class="singleBottom">
+        <div class="singleContent"><p><a href="/pdfs/books/gaussian-processes-for-machine-learning/gp-symbols-notation.pdf">Symbols and Notation</a></p>
 </div>
-  
-<script>
-function toggleSection(sectionId) {
-    var content = document.getElementById(sectionId);
-    var button = document.querySelector(`[onclick="toggleSection('${sectionId}')"]`);
-
-    if (content.style.display === "block") {
-    content.style.display = "none";
-    button.classList.remove("active");
-    } else {
-    content.style.display = "block";
-    button.classList.add("active");
-    }
-}
-
-</script>
+        
+    </div>
+</div>
 
         <div class="footer">
   <div class="footerLinks">
