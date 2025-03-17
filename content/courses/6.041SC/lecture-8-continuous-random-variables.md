@@ -25,7 +25,7 @@ $\rightarrow$ This makes the normal distribution to arise very nartually in lots
 $\int_{-\infty}^{\infty}e^{-x^2/2} \, dx = \sqrt{2\pi}$ 
 {{< /toggle >}}
 
-!["Standard Normal Explanation"](/images/6.041SC-continuous-random-variables-standard-normal-explain.png "Standard Normal Explanation")
+!["Standard Normal Explanation"](/images/courses/6.041SC/lecture-8-continuous-random-variables/standard-normal-explain.png "Standard Normal Explanation")
 
 
 * $\mathbb{E}[X] = 0$
