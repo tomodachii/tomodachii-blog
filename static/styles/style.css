@@ -3,6 +3,8 @@
   --bgSoft: #1f3050;
   --text: #cbd2d9;
   --textSoft: #cbd2d9;
+  --postColor: #10987F;
+  --defColor: rgba(37, 37, 37, 0.2);
 }
 
 * {
@@ -29,6 +31,7 @@ body.light {
   --bgSoft: #303030;
   --text: #000;
   --textSoft: #fff;
+  --defColor: rgba(101, 106, 109, 0.2);
 }
 
 a {
@@ -284,6 +287,12 @@ details summary {
   line-height: 32px;
 }
 
+.singleContent a {
+  color: var(--postColor);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
 .singleContent p {
   margin: 20px 0px;
 }
@@ -385,4 +394,105 @@ details summary {
   .container {
     max-width: 475px;
   }
+}
+
+/* MARKER */
+.marked {
+  position: relative;
+  display: inline-block;
+  padding: 0px 3px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.marked::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--postColor);
+  opacity: 0.7; /* Adjust transparency */
+  z-index: -1;
+  border-radius: inherit;
+}
+
+/* END MARKER */
+
+/* CALLOUT */
+.callout {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px;
+  border-radius: 1px;
+  margin: 16px 0;
+  font-size: 16px;
+  border-left: 4px solid;
+  position: relative;
+  gap: 10px;
+}
+
+/* .callout-icon {
+  font-size: 22px;
+  line-height: 1;
+  flex-shrink: 0;
+} */
+
+.callout-content {
+  flex: 1;
+}
+
+/* Type-Based Colors */
+.callout-info {
+  background-color: rgba(0, 150, 255, 0.1);
+  border-color: #0096ff;
+  color: #0056b3;
+}
+
+.callout-warning {
+  background-color: rgba(255, 165, 0, 0.1);
+  border-color: #ffa500;
+  color: #b37400;
+}
+
+.callout-success {
+  background-color: rgba(0, 200, 0, 0.1);
+  border-color: #00c800;
+  color: #007500;
+}
+
+.callout-danger {
+  background-color: rgba(255, 0, 0, 0.1);
+  border-color: #ff0000;
+  color: #a00000;
+}
+
+/* END CALLOUT */
+
+/* DEFINITION */
+.define {
+    display: flex;
+    align-items: flex-start;
+    padding: 12px;
+    border-radius: 1px;
+    margin: 16px 0;
+    font-size: 16px;
+    border-left: 4px solid var(--postColor);
+    background-color: rgba(16, 152, 127, 0.15); /* Subtle but noticeable */
+    color: var(--text);
+    position: relative;
+    gap: 10px;
+}
+
+/* Adjust the icon size */
+.define-icon {
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+}
+
+.define-content {
+  flex-grow: 1; /* Allow content to take remaining space */
+}
+
+/* Dark Mode Support */
+body.light .define {
+    background-color: var(--defColor);
 }

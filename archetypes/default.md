@@ -11,4 +11,5 @@ avatar = "/images/avatar.png"
 math = false
 section = "Random"
 weight = 0
+postColor = "{{ index (shuffle (index .Site.Data.postColors "postColors")) 0 }}"
 +++

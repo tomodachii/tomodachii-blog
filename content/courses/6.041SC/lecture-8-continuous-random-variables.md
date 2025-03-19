@@ -11,17 +11,20 @@ avatar = "/images/avatar.png"
 math = true
 section = "6.041SC Probabilistic Systems Analysis and Applied Probability"
 weight = 8
+postColor = "#5D8B0D"
 +++
 
 # Gaussian (normal) PDF
+[Important in the theory of probability: Centrail limit theorem](http://example.com).
+
 If you have a phenomenon in which you measure a certain quantity, but that quantity is made up of lots and lots of random contributions.
 
-Then your random variable is actually the sum of lots and lots of independent little random variable. And no matter what kind of distribution the little random variables have, their sum will turn out to have approximately a normal distribution.
+Then your random variable is actually the sum of lots and lots of independent little random variable. And no matter what kind of distribution the little random variables have, {{< marker >}}their sum will turn out to have approximately a normal distribution.{{< /marker >}}
 
 $\rightarrow$ This makes the normal distribution to arise very nartually in lots and lots of context. Whenever you have noise that's comprise of lots of different independent pieces of noise, then the end result will be a random normal variable.
 
 ## Standard normal (Gaussian) random variables
-* Standard normal $\mathcal{N}(0, 1)$: $f_X(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}$ {{< toggle "why $\frac{1}{\sqrt{2\pi}}$ ?" >}} 
+* So what is standard normal? {{< define label="Standard Normal">}}$$X \sim \mathcal{N}(0, 1): f_X(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}$$ {{< /define >}} {{< toggle "why $\frac{1}{\sqrt{2\pi}}$ ?" >}} 
 $\int_{-\infty}^{\infty}e^{-x^2/2} \, dx = \sqrt{2\pi}$ 
 {{< /toggle >}}
 
@@ -42,7 +45,9 @@ $$
 $$
 {{< /toggle >}}
 
-
+{{< define icon="definition" >}}
+A **theorem** is a statement that has been proven to be true based on logic and previously established statements.
+{{< /define >}}
 
 
 ### Example 3.10: Memorylessness of the exponential PDF

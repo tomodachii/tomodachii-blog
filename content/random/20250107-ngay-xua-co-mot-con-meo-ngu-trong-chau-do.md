@@ -11,6 +11,7 @@ avatar = "/images/avatar.png"
 math = false
 section = "Random"
 weight = 2
+postColor = "#10987F"
 +++
 
 Họ xới tung cả một vạt cỏ lớn dưới gốc dừa để trồng cây hoa gì đó. Nay anh tìm thấy cái bát cơm ba đặt cạnh anh mèo, anh buồn lắm nhưng cũng chẳng trách họ được bởi họ đâu có biết đấy là nơi em nằm.

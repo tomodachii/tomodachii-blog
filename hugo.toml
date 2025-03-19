@@ -8,3 +8,6 @@ title = 'My New Hugo Site'
 [taxonomies]
   category = "categories"
   author = "authors"
+
+[markup.goldmark.renderer]
+  unsafe = true

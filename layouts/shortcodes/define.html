@@ -1,0 +1,13 @@
+<div class="define">
+    {{ if .Get "label" }}
+        <span class="define-label">
+            {{ .Get "label" }}
+        </span>
+    {{ else if .Get "icon" }}
+        <span class="define-icon">
+            {{ if eq (.Get "icon") "definition" }}𐰋𐰍𐰃𐰤{{ end }}
+            {{ if eq (.Get "icon") "theorem" }}𐰃𐰠𐰆𐰢{{ end }}
+        </span>
+    {{ end }}
+    <div class="define-content">{{ .Inner | markdownify }}</div>
+</div>

@@ -11,6 +11,7 @@ avatar = "/images/avatar.png"
 math = true
 section = "Gaussian Processes for Machine Learning"
 weight = 0
+postColor = "#10987F"
 +++
 
 [Symbols and Notation](/pdfs/books/gaussian-processes-for-machine-learning/gp-symbols-notation.pdf)

@@ -11,6 +11,7 @@ avatar = "/images/avatar.png"
 math = true
 section = "Random"
 weight = 1
+postColor = "#10987F"
 +++
 
 

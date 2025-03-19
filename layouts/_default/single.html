@@ -1,4 +1,10 @@
 {{ define "main" }}
+<style>
+    :root {
+      --postColor: {{ .Params.postColor | default "#10987F" }};
+    }
+  </style>
+
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
