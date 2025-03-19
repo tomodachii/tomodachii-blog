@@ -91,6 +91,12 @@
     <div class="container">
         
         
+<style>
+    :root {
+      --postColor: #5D8B0D;
+    }
+  </style>
+
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
@@ -113,12 +119,22 @@
     </div>
     <div class="singleBottom">
         <div class="singleContent"><h1 id="gaussian-normal-pdf">Gaussian (normal) PDF</h1>
+<p><a href="http://example.com">Important in the theory of probability: Centrail limit theorem</a>.</p>
 <p>If you have a phenomenon in which you measure a certain quantity, but that quantity is made up of lots and lots of random contributions.</p>
-<p>Then your random variable is actually the sum of lots and lots of independent little random variable. And no matter what kind of distribution the little random variables have, their sum will turn out to have approximately a normal distribution.</p>
+<p>Then your random variable is actually the sum of lots and lots of independent little random variable. And no matter what kind of distribution the little random variables have, <span class="marked">their sum will turn out to have approximately a normal distribution.</span>
+</p>
 <p>$\rightarrow$ This makes the normal distribution to arise very nartually in lots and lots of context. Whenever you have noise that&rsquo;s comprise of lots of different independent pieces of noise, then the end result will be a random normal variable.</p>
 <h2 id="standard-normal-gaussian-random-variables">Standard normal (Gaussian) random variables</h2>
 <ul>
-<li>Standard normal $\mathcal{N}(0, 1)$: $f_X(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}$ <details>
+<li>So what is standard normal? <div class="define">
+    
+        <span class="define-label">
+            Standard Normal
+        </span>
+    
+    <div class="define-content">$$X \sim \mathcal{N}(0, 1): f_X(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}$$</div>
+</div>
+ <details>
     <summary>why $\frac{1}{\sqrt{2\pi}}$ ?</summary>
      
 $\int_{-\infty}^{\infty}e^{-x^2/2} \, dx = \sqrt{2\pi}$ 
@@ -146,6 +162,16 @@ $$
 </details>
   </li>
 </ul>
+<div class="define">
+    
+        <span class="define-icon">
+            𐰋𐰍𐰃𐰤
+            
+        </span>
+    
+    <div class="define-content">A <strong>theorem</strong> is a statement that has been proven to be true based on logic and previously established statements.</div>
+</div>
+
 <h3 id="example-310-memorylessness-of-the-exponential-pdf">Example 3.10: Memorylessness of the exponential PDF</h3>
 </div>
         
