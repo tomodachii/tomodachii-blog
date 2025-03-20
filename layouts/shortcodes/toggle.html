@@ -1,5 +1,8 @@
 <details>
-    <summary>{{ .Get 0 }}</summary>
-    {{ .Inner }}
+    <summary>{{ .Get "title" }}</summary>
+    {{ if eq (.Get "raw") "true" }}
+        {{ .Inner }} <!-- No markdownify -->
+    {{ else }}
+        {{ .Inner | markdownify }} <!-- Apply markdownify -->
+    {{ end }}
 </details>
-  

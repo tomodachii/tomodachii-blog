@@ -24,7 +24,7 @@ Then your random variable is actually the sum of lots and lots of independent li
 $\rightarrow$ This makes the normal distribution to arise very nartually in lots and lots of context. Whenever you have noise that's comprise of lots of different independent pieces of noise, then the end result will be a random normal variable.
 
 ## Standard normal (Gaussian) random variables
-* So what is standard normal? {{< define label="Standard Normal">}}$$X \sim \mathcal{N}(0, 1): f_X(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}$$ {{< /define >}} {{< toggle "why $\frac{1}{\sqrt{2\pi}}$ ?" >}} 
+* So what is standard normal? {{< define icon="definition" label="STANDARD NORMAL">}}$$X \sim \mathcal{N}(0, 1): f_X(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}$$ {{< /define >}} {{< toggle title="why $\frac{1}{\sqrt{2\pi}}$ ?" >}} 
 $\int_{-\infty}^{\infty}e^{-x^2/2} \, dx = \sqrt{2\pi}$ 
 {{< /toggle >}}
 
@@ -32,16 +32,18 @@ $\int_{-\infty}^{\infty}e^{-x^2/2} \, dx = \sqrt{2\pi}$
 
 
 * $\mathbb{E}[X] = 0$
-* $\text{Var}(X) = \mathbb{E}[X^2] - 0 = 1$ {{< toggle "Integrate by parts" >}}
+* $\text{Var}(X) = \mathbb{E}[X^2] - 0 = 1$ {{< toggle title="Integrate by parts" raw="true">}}
+
 $
 u = x
 $
-<br>
+
 $
 dv = xe^{-x^2/2} \, dx \rightarrow v = -e^{-x^2/2}
 $
+
 $$
-\int udv = uv - \int vdu = \frac{1}{\sqrt{2\pi}}(-xe^{-x^2/2}\Big|_{-\infty}^{\infty} + \int_{-\infty}^{\infty}e^{-x^2/2} \, dx) = 0 + 1 = 1
+\int udv = uv - \int vdu = \frac{1}{\sqrt{2\pi}}(-xe^{-x^2/2}\Big|_{-\infty}^{\infty} + \int_{-\infty}^{\infty} e^{-x^2/2} \, dx) = 0 + 1 = 1
 $$
 {{< /toggle >}}
 

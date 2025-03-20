@@ -69,7 +69,7 @@ $$
 * $\varepsilon$: additive Gaussian noise.
     + Noise assumption: $\varepsilon \sim \mathcal{N}(0, \sigma_n^2)$
 
-{{< toggle "Often a bias weight or offset is included!" >}}
+{{< toggle title="Often a bias weight or offset is included!" >}}
 <ul>
     <li>Allows the model to shift up or down rather than always passing through the origin. 
     <li>But this can be implemented by augmenting the input vector $x$ with an additional element $x_0 = 1$:

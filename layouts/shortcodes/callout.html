@@ -3,7 +3,7 @@
         {{ if eq (.Get "type") "info" }}ℹ️{{ end }}
         {{ if eq (.Get "type") "warning" }}⚠️{{ end }}
         {{ if eq (.Get "type") "success" }}✅{{ end }}
-        {{ if eq (.Get "type") "danger" }}🚨{{ end }}
+        {{ if eq (.Get "type") "danger" }}❗{{ end }}
     </span>
     <div class="callout-content">{{ .Inner | markdownify }}</div>
 </div>
