@@ -27,7 +27,8 @@ body {
 }
 
 body.light {
-  --bg: #ebdbca;
+  /* --bg: #ebdbca; */
+  --bg: #fff;
   --bgSoft: #303030;
   --text: #000;
   --textSoft: #fff;
@@ -294,7 +295,7 @@ details summary {
 }
 
 .singleContent p {
-  margin: 20px 0px;
+  margin: 15px 0px 0px 0px;
 }
 
 .singleContent h1 {
@@ -424,17 +425,11 @@ details summary {
   padding: 12px;
   border-radius: 1px;
   margin: 16px 0;
-  font-size: 16px;
+  /* font-size: 16px; */
   border-left: 4px solid;
   position: relative;
   gap: 10px;
 }
-
-/* .callout-icon {
-  font-size: 22px;
-  line-height: 1;
-  flex-shrink: 0;
-} */
 
 .callout-content {
   flex: 1;
@@ -444,25 +439,26 @@ details summary {
 .callout-info {
   background-color: rgba(0, 150, 255, 0.1);
   border-color: #0096ff;
-  color: #0056b3;
+  /* color: #0056b3; */
 }
 
 .callout-warning {
   background-color: rgba(255, 165, 0, 0.1);
   border-color: #ffa500;
-  color: #b37400;
+  /* color: #b37400; */
 }
 
 .callout-success {
   background-color: rgba(0, 200, 0, 0.1);
   border-color: #00c800;
-  color: #007500;
+  /* color: #007500; */
 }
 
 .callout-danger {
   background-color: rgba(255, 0, 0, 0.1);
   border-color: #ff0000;
-  color: #a00000;
+  /* color: #c61212;
+  font-weight: bold; */
 }
 
 /* END CALLOUT */
@@ -495,4 +491,52 @@ details summary {
 /* Dark Mode Support */
 body.light .define {
     background-color: var(--defColor);
+}
+
+
+/* TABLE */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid var(--text);
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: var(--defColor);
+}
+
+.anchor-link {
+  margin-left: 8px;
+  text-decoration: none;
+  opacity: 0.6;
+  font-size: 0.8em;
+}
+
+.copy-button {
+  margin-left: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  vertical-align: middle;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.copy-button .copy-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--text); /* Default color */
+}
+
+.copy-button:hover .copy-icon {
+  color: #555; /* Darker on hover */
+}
+
+.copy-button .copy-icon.success {
+  color: var(--postColor);
 }

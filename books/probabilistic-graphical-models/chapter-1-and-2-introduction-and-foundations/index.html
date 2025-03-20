@@ -93,14 +93,14 @@
         
 <style>
     :root {
-      --postColor: #10987F;
+      --postColor: #B10053;
     }
   </style>
 
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Preface</h1>
+            <h1 class="singleHeadTitle">Chapter 1 &#43; 2: Introduction and Foundations</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
@@ -110,17 +110,35 @@
                     
                 </span>
                 
-                    <a href="https://tomodachii.com/categories/machine-learning/" class="singleCategory">machine-learning</a>
-                
-                    <a href="https://tomodachii.com/categories/gaussian-process/" class="singleCategory">gaussian-process</a>
+                    <a href="https://tomodachii.com/categories/general/" class="singleCategory">general</a>
                 
             </div>
-            <time>Mar 17, 2025</time>
+            <time>Mar 19, 2025</time>
         </div>
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><p><a href="/pdfs/books/gaussian-processes-for-machine-learning/gp-symbols-notation.pdf">Symbols and Notation</a></p>
+        <div class="singleContent"><h1 id="independence-and-conditional-independence">Independence and Conditional Independence</h1>
+<h2 id="independence">Independence</h2>
+<ul>
+<li>Random variables $X$ and $Y$ are <strong>not independent</strong>, i.e., $X \not\perp\!\!\!\perp Y$, if there exists two values of $Y$, say $y_1$ and $y_2$, such that
+$$
+P(X \mid Y = y_1) \neq P(X \mid Y = y_2).
+$$</li>
+</ul>
+<h1 id="number-of-parameteres-of-a-distribution">Number of parameteres of a distribution</h1>
+<p>Given discrete random variables $X_1, \dots, X_n$ that take $\alpha_1, \dots, \alpha_n$ values, respectively, number of parameters to represent:</p>
+<ul>
+<li>$P(X_1, X_2, \dots, X_n) \rightarrow \alpha_1 \alpha_2 \dots \alpha_n$.</li>
+<li>$P(X_1 \mid X_2, \dots, X_n) \rightarrow (\alpha_1 - 1) \alpha_2 \dots \alpha_n$.
+<details>
+    <summary>explain</summary>
+    
+        <img src="/images/books/probabilistic-graphical-models/chapter1+2/number-of-params.png" alt="&ldquo;Number of params&rdquo;" title="Number of params"> 
+    
+</details>
+</li>
+</ul>
 </div>
         
     </div>

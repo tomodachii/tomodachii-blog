@@ -6,7 +6,7 @@
     <link rel="stylesheet" href=/styles/style.css>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
-    <link rel="icon" href="images/lain-sicp.png">
+    <link rel="icon" href="/images/lain-sicp.png">
     <title>Tomodachii</title>
     <head>
 </head>
@@ -84,45 +84,57 @@
     <div class="container">
         
          
-<div class="list">
-  
-  <div class="listItem">
-    <img
-      src=ZgotmplZ
-      alt=Lecture&#32;8:&#32;Continuous&#32;Random&#32;Variables
-      class="listItemImage"
-      loading="lazy"
-    />
-    <div class="listItemTexts">
-      <h1 class="listItemTitle">
-        <a href="https://tomodachii.com/6.041sc-continuous-random-variables/">Lecture 8: Continuous Random Variables</a>
-      </h1>
-      <p class="listItemDesc"></p>
-      <div class="listItemDetail">
-        <img
-          src="/images/avatar.png"
-          loading="lazy"
-          alt=""
-          class="listItemAvatar"
-        />
-        <span
-          >
-          <a href="https://tomodachii.com/authors/tomodachii/">Tomodachii</a>
-          </span
-        >
-        <time datetime="Mar 17, 2025"
-          >Mar 17, 2025</time
-        >
-      </div>
-      <div class="listItemCategories">
+  <div class="list">
+    
+    
+      
         
-        <a class="listItemCategory" href=https://tomodachii.com/categories/general/>general</a>
-        
-      </div>
-    </div>
-  </div>
+      
+    
   
+    
+      <div class="section">
+        <button class="toggleButton" onclick="toggleSection('Probabilistic Graphical Models')">
+          Probabilistic Graphical Models
+        </button>
+        <div id="Probabilistic Graphical Models" class="sectionContent">
+          
+            <div class="listItem">
+              
+              <div class="listItemTexts">
+                <div class="listItemTitle">
+                  <a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-1-and-2-introduction-and-foundations/">
+                    - Chapter 1 &#43; 2: Introduction and Foundations 
+                    (<time datetime="Mar 19, 2025">Mar 19, 2025</time>)
+                    
+                  </a>
+                </div>
+                
+                
+                
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    
 </div>
+  
+<script>
+function toggleSection(sectionId) {
+    var content = document.getElementById(sectionId);
+    var button = document.querySelector(`[onclick="toggleSection('${sectionId}')"]`);
+
+    if (content.style.display === "block") {
+    content.style.display = "none";
+    button.classList.remove("active");
+    } else {
+    content.style.display = "block";
+    button.classList.add("active");
+    }
+}
+
+</script>
  
         <div class="footer">
   <div class="footerLinks">
@@ -134,9 +146,7 @@
     <a href="https://github.com/tomodachii">
         github
     </a>
-    <a href="https://www.linkedin.com/in/hoang-do-tuan-a811431b1/">
-        linkedin
-    </a>
+    
   </div>
 </div>
 

@@ -93,14 +93,14 @@
         
 <style>
     :root {
-      --postColor: #10987F;
+      --postColor: #E03838;
     }
   </style>
 
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Preface</h1>
+            <h1 class="singleHeadTitle">Chapter 3: The Bayesian Network Representation</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
@@ -110,17 +110,72 @@
                     
                 </span>
                 
-                    <a href="https://tomodachii.com/categories/machine-learning/" class="singleCategory">machine-learning</a>
-                
-                    <a href="https://tomodachii.com/categories/gaussian-process/" class="singleCategory">gaussian-process</a>
+                    <a href="https://tomodachii.com/categories/probabilistic-graphical-models/" class="singleCategory">probabilistic graphical models</a>
                 
             </div>
-            <time>Mar 17, 2025</time>
+            <time>Mar 19, 2025</time>
         </div>
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><p><a href="/pdfs/books/gaussian-processes-for-machine-learning/gp-symbols-notation.pdf">Symbols and Notation</a></p>
+        <div class="singleContent"><div class="callout callout-info">
+    <span class="callout-icon">
+        ℹ️
+        
+        
+        
+    </span>
+    <div class="callout-content"><strong>Goal:</strong> represent a joint Distribution $P$ over some set of random variables $\mathcal{X} = \{X_1, \dots, X_n\}$.</div>
+</div>
+
+
+<details>
+    <summary>But why Joint Distribution ?</summary>
+    
+        <p>Because If we have the <strong>joint distribution</strong>, we can calculate any probability using the <strong>condition</strong> and <strong>marginal distribution</strong></p>
+<p><a href="https://www.youtube.com/watch?v=NWA-yYCJsMw&amp;list=PL7xML77VWUYooSM6Rao8GZ5bHt4tmCp2e&amp;ab_channel=easylearning">Motivation Example</a></p>
+ 
+    
+</details>
+
+<h1 id="exploiting-independence-properties">Exploiting Independence Properties</h1>
+<h2 id="parameterizing-the-joint-distribution">Parameterizing the Joint Distribution</h2>
+<p>Consider a simple setting:</p>
+<ul>
+<li>$X_i$ represents binary event (coin toss, yes/no COVID cause, etc) $\rightarrow$ Parameterizing the joint distribution $P(X_1, \dots, X_n)$ requires <span class="marked">$2^n - 1$ params.</span>
+ (<a href="/books/probabilistic-graphical-models/chapter-1-and-2-introduction-and-foundations/#number-of-parameteres-of-a-distribution">Recall</a>)</li>
+<li>Assume events are <strong>marginally independent</strong>: $(X_i \perp\!\!\!\perp X_j)$ for every $i, j$. $\rightarrow$ $P(X_1, \dots, X_n) = P(X_1) \dots P(X_n)$.
+<ul>
+<li>Can use <span class="marked">$n$ params</span>
+ $\theta_1, \dots, \theta_n$ to parameterize $P(X_1) \dots P(X_n)$. $$ P(X_1, \dots, X_n) = \prod_i \theta_{xi} $$
+<ul>
+<li>$\theta_{xi} = \theta_i$ if $x_i = x_i^1$,</li>
+<li>$\theta_{xi} = 1 - \theta_i$ if $x_i = x_i^0$,</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>From $2^n - 1$ to $n$ is a dramatic reduction in the number of parameters, and the key point is:
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content">Independencies can reduce the number of parameters.</div>
+</div>
+
+</p>
+<p>The same applies to conditional indepence. Consider the classic setting in the book:
+<details>
+    <summary>The Student Example</summary>
+    
+        <img src="/images/books/probabilistic-graphical-models/chapter3/student-ex.png" alt="Student"> 
+    
+</details>
+</p>
 </div>
         
     </div>
