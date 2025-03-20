@@ -437,6 +437,8 @@ details summary {
 
 .callout-content {
   flex: 1;
+  overflow-x: auto; /* Allow scrolling inside */
+  display: block;
 }
 
 /* Type-Based Colors */
@@ -504,7 +506,9 @@ body.light .callout-danger {
 }
 
 .define-content {
-  flex-grow: 1; /* Allow content to take remaining space */
+  flex-grow: 1;
+  overflow-x: auto; /* Allow scrolling inside */
+  display: block;
 }
 
 /* Dark Mode Support */
