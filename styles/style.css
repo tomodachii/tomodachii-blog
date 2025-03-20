@@ -284,7 +284,7 @@ details summary {
 
 .singleContent {
   flex: 3;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 32px;
 }
 
@@ -294,20 +294,20 @@ details summary {
   font-weight: bold;
 }
 
-.singleContent p {
+/* .singleContent p {
   margin: 15px 0px 0px 0px;
-}
+} */
 
 .singleContent h1 {
-  margin: 20px 0px;
+  margin: 15px 0px;
 }
 
 .singleContent h2 {
-  margin: 20px 0px;
+  margin: 15px 0px;
 }
 
 .singleContent h3 {
-  margin: 20px 0px;
+  margin: 15px 0px;
 }
 
 .singleContent img {
@@ -411,7 +411,7 @@ details summary {
   position: absolute;
   inset: 0;
   background-color: var(--postColor);
-  opacity: 0.7; /* Adjust transparency */
+  opacity: 0.8; /* Adjust transparency */
   z-index: -1;
   border-radius: inherit;
 }
@@ -429,6 +429,10 @@ details summary {
   border-left: 4px solid;
   position: relative;
   gap: 10px;
+}
+
+.callout p {
+  margin: 0;
 }
 
 .callout-content {
@@ -461,6 +465,22 @@ details summary {
   font-weight: bold; */
 }
 
+body.light .callout-info {
+  background-color: rgba(0, 150, 255, 0.2);
+}
+
+body.light .callout-warning {
+  background-color: rgba(255, 165, 0, 0.2);
+}
+
+body.light .callout-success {
+  background-color: rgba(0, 200, 0, 0.2);
+}
+
+body.light .callout-danger {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
 /* END CALLOUT */
 
 /* DEFINITION */
@@ -470,7 +490,6 @@ details summary {
     padding: 12px;
     border-radius: 1px;
     margin: 16px 0;
-    font-size: 16px;
     border-left: 4px solid var(--postColor);
     background-color: rgba(16, 152, 127, 0.15); /* Subtle but noticeable */
     color: var(--text);
