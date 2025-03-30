@@ -1,0 +1,6 @@
+<div class="image-text-block {{ .Get "align" }}">
+    <img src="{{ .Get "image" }}" alt="{{ .Get "alt" }}" style="max-width: {{ .Get "width" | default "50%" }};">
+    <div class="image-text-content">
+      {{ .Inner | markdownify }}
+    </div>
+</div>

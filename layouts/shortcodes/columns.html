@@ -1,0 +1,14 @@
+{{- $columns := split .Inner "<--->" -}}
+{{- $raw := .Get "raw" | default "false" -}}
+
+<div class="columns">
+  {{- range $columns }}
+  <div class="column">
+    {{- if eq $raw "true" }}
+      {{ . }}
+    {{- else }}
+      {{ . | markdownify }}
+    {{- end }}
+  </div>
+  {{- end }}
+</div>

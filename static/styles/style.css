@@ -284,7 +284,7 @@ details summary {
 
 .singleContent {
   flex: 3;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 32px;
 }
 
@@ -437,7 +437,7 @@ details summary {
 
 .callout-content {
   flex: 1;
-  overflow-x: auto; /* Allow scrolling inside */
+  /* overflow-x: auto; Allow scrolling inside */
   display: block;
 }
 
@@ -563,3 +563,36 @@ th {
 .copy-button .copy-icon.success {
   color: var(--postColor);
 }
+
+/* TEXT AND IMG */
+.image-text-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.image-text-block img {
+  max-width: 50%;
+  height: auto;
+}
+
+.image-text-block.right {
+  flex-direction: row-reverse;
+}
+
+.image-text-content {
+  flex: 1;             /* Ensures it takes up remaining space */
+  overflow-x: auto;    /* Allows KaTeX equations to scroll if needed */
+}
+
+/* columns */
+.columns {
+  display: flex;
+  gap: 16px;
+}
+.columns > div {
+  flex: 1;
+}
+
+/* end columns */
