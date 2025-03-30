@@ -93,14 +93,14 @@
         
 <style>
     :root {
-      --postColor: #E03838;
+      --postColor: #E90808;
     }
   </style>
 
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Chapter 3: The Bayesian Network Representation</h1>
+            <h1 class="singleHeadTitle">Chapter 5: Local Probabilistic Models</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
@@ -113,50 +113,178 @@
                     <a href="https://tomodachii.com/categories/probabilistic-graphical-models/" class="singleCategory">probabilistic graphical models</a>
                 
             </div>
-            <time>Mar 19, 2025</time>
+            <time>Mar 28, 2025</time>
         </div>
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><div class="callout callout-info">
-    <span class="callout-icon">
-        ℹ️
-        
-        
-        
-    </span>
-    <div class="callout-content"><strong>Goal:</strong> represent a joint Distribution $P$ over some set of random variables $\mathcal{X} = \{X_1, \dots, X_n\}$.</div>
-</div>
-
-
+        <div class="singleContent"><h1 id="continuous-variables">Continuous Variables</h1>
+<p>Some variables (e.g., position, velocity, temperature, pressure) are best modeled in a continuous space.</p>
 <details>
-    <summary>But why Joint Distribution ?</summary>
+    <summary>Discretization and its limitations</summary>
     
-        <p>Because If we have the <strong>joint distribution</strong>, we can calculate any probability using the <strong>condition</strong> and <strong>marginal distribution</strong></p>
-<p><a href="https://www.youtube.com/watch?v=NWA-yYCJsMw&amp;list=PL7xML77VWUYooSM6Rao8GZ5bHt4tmCp2e&amp;ab_channel=easylearning">Motivation Example</a></p>
- 
+        <p><strong>Example:</strong> A robot moving in 2D environment, where it position is described by x and y coordinates.</p>
+<ul>
+<li>Approximate position using a discrete grid with 15 cm per cell.
+<ul>
+<li><strong>Computational Infeasibility:</strong> Suppose each coordinate (x, y) has 1000 possible values $\rightarrow$ 1000 $\times$ 1000 = 1,000,000 possible discrete positions.</li>
+<li><strong>Loss of Structure:</strong> Break the natural continuity of the robot&rsquo;s position.</li>
+<li><strong>Lack of Smooth Transitions:</strong>
+<ul>
+<li>Basic continuity assumptions imply relationships between probabilities of nearby positions (i.e., smooth transitions),</li>
+<li>discrete models struggle to capture this property $\rightarrow$ Can not guarantee that nearby positions have similar probabilities.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul> 
     
 </details>
 
-<h1 id="exploiting-independence-properties">Exploiting Independence Properties</h1>
-<h2 id="parameterizing-the-joint-distribution">Parameterizing the Joint Distribution</h2>
-<p>Consider a simple setting:</p>
+<p>BN requires the CPD $P(X \mid \text{Pa}_X)$ represent a distribution over $X$, for every assignment of values $\text{pa}_X$ to $\text{Pa}_X$.</p>
 <ul>
-<li>$X_i$ represents binary event (coin toss, yes/no COVID cause, etc) $\rightarrow$ Parameterizing the joint distribution $P(X_1, \dots, X_n)$ requires <span class="marked">$2^n - 1$ params.</span>
- (<a href="/books/probabilistic-graphical-models/chapter-1-and-2-introduction-and-foundations/#number-of-parameteres-of-a-distribution">Recall</a>)</li>
-<li>Assume events are <strong>marginally independent</strong>: $(X_i \perp\!\!\!\perp X_j)$ for every $i, j$. $\rightarrow$ $P(X_1, \dots, X_n) = P(X_1) \dots P(X_n)$.
+<li>$X$ might be continous.</li>
+<li>Some of $X$&rsquo;s parents might be continuous as well.</li>
+</ul>
+<br/>
+<p><strong>Example</strong></p>
 <ul>
-<li>Can use <span class="marked">$n$ params</span>
- $\theta_1, \dots, \theta_n$ to parameterize $P(X_1) \dots P(X_n)$. $$ P(X_1, \dots, X_n) = \prod_i \theta_{xi} $$
+<li>Continuous Temperature (T) variable.</li>
+<li>Sensor (S) that measures the temperature in a room.
 <ul>
-<li>$\theta_{xi} = \theta_i$ if $x_i = x_i^1$,</li>
-<li>$\theta_{xi} = 1 - \theta_i$ if $x_i = x_i^0$,</li>
+<li>This sensor is not perfect $\rightarrow$ the senor is around the right temperature but not quite.
+Sensor S is normal distribution around T (true Temperature) with some standard deviation $\sigma$
+<img src="/images/books/probabilistic-graphical-models/chapter5/t-ex.png" alt="&ldquo;Temparature example&rdquo;"></li>
 </ul>
 </li>
 </ul>
+<h2 id="linear-gaussian-cpd">Linear Gaussian CPD</h2>
+<div class="image-text-block left">
+    <img src="/images/books/probabilistic-graphical-models/chapter5/linear-gaussian-cpd.png" alt="Linear Gaussian CPD" style="max-width: 40%;">
+    <div class="image-text-content">
+      <p>Let $Y$ be a continuous variable with continuous parents $X_1, \dots X_k$. $Y$ has a linear Gaussian model if there are parameters $w_0, \dots w_k$ and $\sigma^2$ such that:
+$$
+p(Y \mid X_1, \dots , X_k) = \mathcal{N}(w_0 + w_1X_1 + \dots + w_kX_k; \sigma^2).
+$$
+$$
+\Leftrightarrow (Y \mid X_1, \dots, X_k) \sim \mathcal{N}(w_0 + \sum w_iX_i; \sigma^2).
+$$</p>
+<p>In vector notation,
+$$
+p(Y \mid \bf{x}) = \mathcal{N}(w_0 +  \bf{w}^\intercal \bf{X}; \sigma^2).
+$$</p>
+
+    </div>
+</div>
+
+<p>Y is a linear function of the variables $X_1, \dots X_k$, with the addition of Gaussian noise:
+$$
+Y = w_0 + w_1X_1 + \dots + w_kX_k + \epsilon,
+$$
+with $\epsilon \sim \mathcal{N}(0, \sigma^2). $</p>
+<br>
+<p><strong>Example 1: Car Motion</strong>
+<div class="image-text-block left">
+    <img src="/images/books/probabilistic-graphical-models/chapter5/car-ex.png" alt="Linear Gaussian CPD" style="max-width: 15%;">
+    <div class="image-text-content">
+      <p>Car moving along straight line</p>
+<ul>
+<li>At $t$ second
+<ul>
+<li>Position: $X^t$ (at meter #510).</li>
+<li>Velocity: $V^t$ (15 m/s).</li>
+</ul>
+</li>
+<li>Then at $t + 1$
+<ul>
+<li>Position: $X^{t + 1} = X^t + V^t$ (expect: #525).</li>
+</ul>
 </li>
 </ul>
-<p>From $2^n - 1$ to $n$ is a dramatic reduction in the number of parameters, and the key point is:
+    </div>
+</div>
+
+If there is stochasticity in motion, then it is much more realistic to describe the car&rsquo;s position $X^{t + 1}$ using a Gaussian distribution:
+$$
+X^{(t + 1)} \sim \mathcal{N}(525, 5).
+$$</p>
+<p><strong>Example 2: Temperature</strong></p>
+<div class="image-text-block right">
+    <img src="/images/books/probabilistic-graphical-models/chapter5/t-ex-1.png" alt="Linear Gaussian CPD" style="max-width: 30%;">
+    <div class="image-text-content">
+      <p>$T$: The temperature now.</p>
+<p>$T&rsquo;$: The temperature soon. Depends on $T$ and $O$.</p>
+<p>$P(T&rsquo;)$ is a Gaussian around a mean that&rsquo;s defined as a combination of T and O. One possible combination:</p>
+<p>$$
+T&rsquo; \sim \mathcal{N}(\alpha T + (1 - \alpha)O; \sigma{T}^2).
+$$</p>
+
+    </div>
+</div>
+
+<h2 id="conditional-linear-gaussian-cpd">Conditional Linear Gaussian CPD</h2>
+<div class="image-text-block left">
+    <img src="/images/books/probabilistic-graphical-models/chapter5/conditional-linear-gaussian-cpd.png" alt="Linear Gaussian CPD" style="max-width: 50%;">
+    <div class="image-text-content">
+      <p>Let $Y$ be a continuous variable,</p>
+<ul>
+<li>its discrete parents $A = \{A_1, \dots A_m\}$.</li>
+<li>its continuous parents $X = \{X_1, \dots X_k\}$.</li>
+</ul>
+<p>$Y$ has a conditional linear Gaussian (CLG) model if for every $a \in \text{Val}(A)$, there are</p>
+<ul>
+<li>$k + 1$ parameters $w_{a0}, \dots w_{ak}$</li>
+<li>and a variance $\sigma_a^2$ such that:
+$$
+p(Y \mid A = a, X) = \mathcal{N}(w_{a0} + \sum_{i=1}^{k}w_{ai}X_i; \sigma_a^2).
+$$</li>
+</ul>
+
+    </div>
+</div>
+
+<p><strong>Example: Temperature</strong></p>
+<div class="image-text-block right">
+    <img src="/images/books/probabilistic-graphical-models/chapter5/t-ex-2.png" alt="Linear Gaussian CPD" style="max-width: 30%;">
+    <div class="image-text-content">
+      <p>$D$: The Door can be opened or closed.</p>
+<ul>
+<li>$T&rsquo; \sim \mathcal{N}(\alpha_0 T + (1 - \alpha_0)O; \sigma{0T}^2)$ if $D = 0$.</li>
+<li>$T&rsquo; \sim \mathcal{N}(\alpha_1 T + (1 - \alpha_1)O; \sigma{1T}^2)$ if $D = 1$.</li>
+</ul>
+    </div>
+</div>
+
+<div class="callout callout-warning">
+    <span class="callout-icon">
+        
+        ⚠️
+        
+        
+    </span>
+    <div class="callout-content"><ul>
+<li>Each combination of the discrete parents $A$ leads to a different set of coefficients $w_{a0}, \dots w_{ak} \rightarrow$ create a different Gaussian component (CPD of continuous var) with different mean and variance.</li>
+<li>$P(Y \mid X) = \sum_a P(A = a \mid X) \cdot \mathcal{N} (w_{a0} + \sum_{i=1}^k w_{ai}X_i; \sigma_a^2)$.</li>
+</ul>
+</div>
+</div>
+
+
+<h3 id="conditional-linear-gaussian-network">Conditional Linear Gaussian Network</h3>
+<div class="define">
+    
+    
+        <span class="define-icon">
+            𐰋𐰍𐰃𐰤
+            
+        </span>
+    
+
+    
+
+    <div class="define-content">A Bayesian network is called a CLG network if every discrete variable has only discrete parents and every continuous variable has a CLG CPD.</div>
+</div>
+
 <div class="callout callout-danger">
     <span class="callout-icon">
         
@@ -164,218 +292,21 @@
         
         ❗
     </span>
-    <div class="callout-content">Independencies can reduce the number of parameters.</div>
-</div>
-
-</p>
-<p>The same applies to <strong>Conditional Indepence</strong>.</p>
-<p>Consider a smaller picture: the joint distribution $ P(X_1, X_2, X_3, X_4) $. Using the chain rule,</p>
-<p>$$
-P(X_1, X_2, X_3, X_4) = P(X_4 \mid X_3, X_2, X_1) P(X_3 \mid X_2, X_1) P(X_2 \mid X_1) P(X_1)
-$$</p>
-<span class="marked">If $ (X_4 \perp\!\!\!\perp X_1, X_2 \mid X_3) \in \mathcal{I}(P) $,</span>
-
-<p>then $
-P(X_4 \mid X_3, X_2, X_1) = P(X_4 \mid X_3)
-$ $ \rightarrow $
-<span class="marked"># of required parameters for this CPD reduces</span>
- from $ 2^3 = 8 $ to $ 2^1 = 2 $.</p>
-<p>The joint distribution becomes</p>
-<p>$$
-P(X_1, X_2, X_3, X_4) = P(X_4 \mid X_3) P(X_3 \mid X_2, X_1) P(X_2 \mid X_1) P(X_1)
-$$</p>
-<p>The total number of parameters reduces from $ 2^4 - 1 = 15 $ to $2 + 2^2 + 2 + 1 = 9$.</p>
-<div class="callout callout-warning">
-    <span class="callout-icon">
-        
-        ⚠️
-        
-        
-    </span>
-    <div class="callout-content"><p>So it&rsquo;s all about finding conditional independencies and factorize the joint distribution accordingly, but</p>
-<ol>
-<li>How to find the conditional independencies (CIs) $\mathcal{I}(P)$ from the data?</li>
-<li>Given the CIs, how to factorize the joint distribution? Can we somehow visualize the factorization? $\rightarrow$ Bayesian networks!</li>
-</ol></div>
+    <div class="callout-content">The CLG model does not allow for continuous variables to have discrete children.</div>
 </div>
 
 
-<h1 id="bayesian-networks">Bayesian Networks</h1>
-<div class="define">
-    
-    
-        <span class="define-icon">
-            𐰋𐰍𐰃𐰤
-            
-        </span>
-    
-
-    
-        <span class="define-label">
-            Bayesian Network
-        </span>
-    
-
-    <div class="define-content"><ul>
-<li>A directed <strong>acyclic</strong> graph (<strong>DAG</strong>) G whose nodes represent the random variables $X_1, \dots, X_n$.</li>
-<li>For each node $X_i$, a CPD $ P(X_i \mid \text{Par}_G(X_i)) $.</li>
-<li>The BN represents a joint distribution via the chain rule for Bayesian networks:</li>
-</ul>
-<p>$$
-P(X_1, \dots, X_n) = \prod_i P(X_i \mid \text{Pa}_G(X_i))
-$$</p></div>
-</div>
-
-<ul>
-<li>$P$ is a legal distribution:
-<ul>
-<li>$P \leq 0$ ($P$ is a product of CPDs and CPDs are non-negative).</li>
-<li>$\sum P = 1$.
 <details>
-    <summary>Proof</summary>
+    <summary>Why?</summary>
     
-        
-    <img src="/images/books/probabilistic-graphical-models/chapter3/sum-p-eq-1.png" alt="Proof">
-     
+        <ul>
+<li>Discrete vars are represented using Conditional Probability Table (CPT), which requires a probability for each possible value of the discrete variable, given the values of its parents.</li>
+<li>If the parent is continuous, the number of possible values is infinite $\rightarrow$ need an infinite-sized CPT.</li>
+<li>This mean we would need to define $P(Y \mid X)$ as a continuous function of $X$ rather than a discrete table.</li>
+</ul>
+ 
     
 </details>
-</li>
-</ul>
-</li>
-</ul>
-<p>Example
-<img src="/images/books/probabilistic-graphical-models/chapter3/bn-ex-paper.png" alt="&ldquo;simple Bayesian network showing two potential diseases&rdquo;">
-(a) A simple Bayesian network showing two potential diseases, <strong>P</strong>neumonia and <strong>T</strong>uberculosis,</p>
-<ul>
-<li>either of which may cause a patient to have Lung <strong>I</strong>nfiltrates.</li>
-<li>The lung infiltrates may show up on an <strong>X</strong>Ray;</li>
-<li>there is also a separate <strong>S</strong>putum Smear test for tuberculosis.</li>
-</ul>
-<p>All of the r.v are Boolean.</p>
-<p>(b) The same Bayesian network, together with the conditional probability tables.</p>
-<h1 id="reasoning-patterns">Reasoning Patterns</h1>
-<p><a href="https://leimao.github.io/blog/Intercausal-Reasoning/">Check this out</a></p>
-<div class="image-text-block left">
-    <img src="/images/books/probabilistic-graphical-models/chapter3/reasoning-patterns.png" alt="Student Example" style="max-width: 30%;">
-    <div class="image-text-content">
-      <p>$X_1, X_2$: Causes,</p>
-<p>$Y$: Effect.</p>
-
-    </div>
-</div>
-
-<h2 id="causal-reasoning">Causal Reasoning</h2>
-<p><div class="define">
-    
-    
-        <span class="define-icon">
-            𐰋𐰍𐰃𐰤
-            
-        </span>
-    
-
-    
-
-    <div class="define-content"><p><span class="marked">From various causes predict the “downstream” efects</span>
-, is <strong>predictive</strong> or <strong>causal reasoning</strong>.</p>
-<p>Given $X_1$ and/or $X_2$, computing $P(Y \mid X_1), P(Y \mid X_2)$ and $P(Y \mid X_1, X_2)$.</p>
-</div>
-</div>
-
-<strong>Student Example</strong></p>
-<ul>
-<li>$P(l^1) \approx 0.5$, the probability of a student getting the reference letter given that we know nothing about him.</li>
-</ul>
-<p>We can condition on some variables (causes) and ask how that would change our probability $P(l^1)$.</p>
-<ul>
-<li>
-<p>$P(l^1 \mid i^0) \approx 0.39$, if we know that the student is not so smart, the probability of him getting reference letter goes down.</p>
-</li>
-<li>
-<p>$P(l^1 \mid i^0, d^0) \approx 0.51$, if we now know that the class is easy, then the probability of the student getting high grade increases, thus he is more likely to get that refer letter.</p>
-</li>
-</ul>
-<h2 id="evidential-reasoning">Evidential Reasoning</h2>
-<div class="define">
-    
-    
-        <span class="define-icon">
-            𐰋𐰍𐰃𐰤
-            
-        </span>
-    
-
-    
-
-    <div class="define-content"><p><span class="marked">From effect to cause</span>
-, is called <strong>diagnostic</strong> or <strong>evidential reasoning</strong>.</p>
-<p>Given $Y$, computing $P(X_1 \mid Y), P(X_2 \mid Y)$ and $P(X_1, X_2 \mid Y)$.</p>
-</div>
-</div>
-
-<p><strong>Student Example</strong></p>
-<p>We can condition on the Grade and ask what happens to the probability of its parents or its ancestors.</p>
-<ul>
-<li>Initially,
-<ul>
-<li>$P(d^1) \approx 0.4$, the probability that the class is difficult, and</li>
-<li>$P(i^1) \approx 0.3$, the probability that the student is intelligent.</li>
-</ul>
-</li>
-</ul>
-<p>But now, with the additional evidence that the student has terrible grade $g^3$,</p>
-<ul>
-<li>Evidentially,
-<ul>
-<li>$P(i^1 \mid g^3) \approx 0.08$, the probability that the student is intelligent goes down, but</li>
-<li>$P(g^1 \mid g^3) \approx 0.08$, the probability that the class is difficult goes up as well.</li>
-</ul>
-</li>
-</ul>
-<h2 id="intercausal-reasoning">Intercausal Reasoning</h2>
-<div class="define">
-    
-    
-        <span class="define-icon">
-            𐰋𐰍𐰃𐰤
-            
-        </span>
-    
-
-    
-
-    <div class="define-content"><p>Explaining away is  an instance of a general reasoning pattern called <strong>intercausal reasoning</strong>, that is <span class="marked">reasoning between the causes with a common effect.</span></p>
-<ul>
-<li>Given $X_1$ and $Y$, compute $P(X_2 \mid X_1, Y)$</li>
-<li>Given $X_2$ and $Y$, compute $P(X_1 \mid X_2, Y)$</li>
-</ul></div>
-</div>
-
-<p><strong>Student Example</strong></p>
-<p>Say, if a student gets low grade, he might not be so smart</p>
-<ul>
-<li>$P(i^1 \mid g^3) \approx 0.079$.</li>
-</ul>
-<p>On the other hand, if we now discover that the class is hard,</p>
-<ul>
-<li>$P(i^1 \mid g^3, d^1) \approx 0.11$, the probability that the student is smart slightly increases.</li>
-</ul>
-<p>$\rightarrow$ we have <strong>explained away</strong> the poor grade via the dificulty of the class.</p>
-<p><strong>Example 2:</strong></p>
-<p>We have fever and a sore throat, and are concerned about mononucleosis.</p>
-<p>Doctor then tells us that we have flu.</p>
-<p>Having the flu does not prohibit us from having mononucleosis. Yet, having the flu provides an alternative explanation of our symptoms, thereby reducing substantially the probability of mononucleosis.</p>
-<div class="callout callout-warning">
-    <span class="callout-icon">
-        
-        ⚠️
-        
-        
-    </span>
-    <div class="callout-content">Even if $X_1$ and $X_2$ are marginally indepedent ($X_1 \perp\!\!\!\perp X_2$); given $Y$, then $X_1 \not\perp\!\!\!\perp X_2 \mid Y$ (Collider).
-<a href="https://www.coursera.org/learn/probabilistic-graphical-models/lecture/KMjHs/reasoning-patterns">Proof</a></div>
-</div>
-
 
 </div>
         
