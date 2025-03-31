@@ -14,6 +14,10 @@ weight = 8
 postColor = "#5D8B0D"
 +++
 
+# Continuous Random Variables and PDFs
+{{< define icon="definition" >}}
+{{< /define >}}
+
 # Gaussian (normal) PDF
 [Important in the theory of probability: Centrail limit theorem](http://example.com).
 
@@ -46,10 +50,6 @@ $$
 \int udv = uv - \int vdu = \frac{1}{\sqrt{2\pi}}(-xe^{-x^2/2}\Big|_{-\infty}^{\infty} + \int_{-\infty}^{\infty} e^{-x^2/2} \, dx) = 0 + 1 = 1
 $$
 {{< /toggle >}}
-
-{{< define icon="definition" >}}
-A **theorem** is a statement that has been proven to be true based on logic and previously established statements.
-{{< /define >}}
 
 
 ### Example 3.10: Memorylessness of the exponential PDF
