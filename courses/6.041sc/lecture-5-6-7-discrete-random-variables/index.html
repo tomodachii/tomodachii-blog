@@ -93,14 +93,14 @@
         
 <style>
     :root {
-      --postColor: #5D8B0D;
+      --postColor: #B10053;
     }
   </style>
 
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Lecture 8: Continuous Random Variables</h1>
+            <h1 class="singleHeadTitle">Lecture 5 &#43; 6 &#43; 7: Discrete Random Variables</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
@@ -113,12 +113,16 @@
                     <a href="https://tomodachii.com/categories/probability/" class="singleCategory">probability</a>
                 
             </div>
-            <time>Mar 17, 2025</time>
+            <time>Mar 31, 2025</time>
         </div>
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><h1 id="continuous-random-variables-and-pdfs">Continuous Random Variables and PDFs</h1>
+        <div class="singleContent"><h1 id="cumulative-distribution-function">Cumulative Distribution Function</h1>
+<ul>
+<li>Another method to describe the distribution of random variables.</li>
+<li>Advantage: Can be defined for any kind of random variable (discrete, continuous, and mixed).</li>
+</ul>
 <div class="define">
     
     
@@ -130,67 +134,81 @@
 
     
 
-    <div class="define-content"></div>
+    <div class="define-content">The CDF of discrete random variable $X$:
+$$
+F_X(x) = P(X \leq x) = \sum_{k \leq x}p_X(k), \quad \text{for all } x \in \mathbb{R}
+$$</div>
 </div>
 
-<h1 id="gaussian-normal-pdf">Gaussian (normal) PDF</h1>
-<p><a href="http://example.com">Important in the theory of probability: Centrail limit theorem</a>.</p>
-<p>If you have a phenomenon in which you measure a certain quantity, but that quantity is made up of lots and lots of random contributions.</p>
-<p>Then your random variable is actually the sum of lots and lots of independent little random variable. And no matter what kind of distribution the little random variables have, <span class="marked">their sum will turn out to have approximately a normal distribution.</span>
-</p>
-<p>$\rightarrow$ This makes the normal distribution to arise very nartually in lots and lots of context. Whenever you have noise that&rsquo;s comprise of lots of different independent pieces of noise, then the end result will be a random normal variable.</p>
-<h2 id="standard-normal-gaussian-random-variables">Standard normal (Gaussian) random variables</h2>
-<ul>
-<li>So what is standard normal? <div class="define">
-    
-    
-        <span class="define-icon">
-            𐰋𐰍𐰃𐰤
-            
-        </span>
-    
-
-    
-        <span class="define-label">
-            STANDARD NORMAL
-        </span>
-    
-
-    <div class="define-content">$$X \sim \mathcal{N}(0, 1): f_X(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}$$</div>
-</div>
- <details>
-    <summary>why $\frac{1}{\sqrt{2\pi}}$ ?</summary>
-    
-        $\int_{-\infty}^{\infty}e^{-x^2/2} , dx = \sqrt{2\pi}$ 
-    
-</details>
+<div class="image-text-block left">
+    <img src="/images/courses/6.041SC/lecture-3-4-5-discrete-random-variables/CDF-explaination.png" alt="CDF explaination" style="max-width: 40%;">
+    <div class="image-text-content">
+      <ul>
+<li>
+<p>CDF $F_X$ &ldquo;accumulate&rdquo; probability &ldquo;up to&rdquo; x.</p>
+</li>
+<li>
+<p>Think of CDF as running a sliding window across PMF and adding up the probabilities associated with each outcome as that window passes by.</p>
 </li>
 </ul>
-<p><img src="/images/courses/6.041SC/lecture-8-continuous-random-variables/standard-normal-explain.png" alt="&ldquo;Standard Normal Explanation&rdquo;" title="Standard Normal Explanation"></p>
-<ul>
-<li>$\mathbb{E}[X] = 0$</li>
-<li>$\text{Var}(X) = \mathbb{E}[X^2] - 0 = 1$ <details>
-    <summary>Integrate by parts</summary>
+
+    </div>
+</div>
+
+<h2 id="properties-of-cdf">Properties of CDF</h2>
+<div class="image-text-block left">
+    <img src="/images/courses/6.041SC/lecture-3-4-5-discrete-random-variables/CDF-ex.png" alt="Example" style="max-width: 50%;">
+    <div class="image-text-content">
+      <ol>
+<li>
+<p>$F_X$ is monotonically nondecreasing:
+$$
+\text{if } x \leq y \text{, then } F_X(x) \leq F_X(y).
+$$</p>
+</li>
+<li>
+<p>$F_X$ tends to 0 as $x \to -\infty$, and to 1 as $x \to \infty$.</p>
+</li>
+<li>
+<p>for all $k \in \mathbb{Z}$
+$$
+F_X(k) = \sum_{i = -\infty}^{k}p_X(i),
+$$</p>
+</li>
+</ol>
+<p>$$
+p_X(k) = P(X \leq k) - P(X \leq k - 1) = F_X(k) - F_X(k - 1),
+$$</p>
+
+    </div>
+</div>
+
+<details>
+    <summary>proof for (2)</summary>
     
-        
-
-$
-u = x
-$
-
-$
-dv = xe^{-x^2/2} \, dx \rightarrow v = -e^{-x^2/2}
-$
-
+        <p>By the axiom of probability,
 $$
-\int udv = uv - \int vdu = \frac{1}{\sqrt{2\pi}}(-xe^{-x^2/2}\Big|_{-\infty}^{\infty} + \int_{-\infty}^{\infty} e^{-x^2/2} \, dx) = 0 + 1 = 1
+\lim_{x\to+\infty}F_X(x) = 1.
 $$
+Using complement rule,
+$$
+P(X &gt; x) = 1 - P(X \leq x) =  1 - F_X(x).
+$$
+Recall
+$$
+P(X \in \mathbb{R}) = 1.
+$$
+Thus,
+$$
+\lim_{x \to -\infty} 1 - F_X(x) = P(X &gt; -\infty) = 1 \text{ (Because X is always in some real-valued range)}
+$$</p>
+<p>$$
+\Leftrightarrow \lim_{x \to -\infty} F_X(x) = 0.
+$$</p>
  
     
 </details>
-</li>
-</ul>
-<h3 id="example-310-memorylessness-of-the-exponential-pdf">Example 3.10: Memorylessness of the exponential PDF</h3>
+
 </div>
         
     </div>
