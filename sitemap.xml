@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tomodachii.com/books/density-estimation-for-statistics-and-data-analysis/chapter-1-and-2-introduction/</loc>
+    <lastmod>2025-04-03T20:56:10+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/books/computers-and-intractability/chapter-1-computers-complexity-and-intractability/</loc>
+    <lastmod>2025-04-02T08:20:25+07:00</lastmod>
+  </url><url>
     <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-1-and-2-introduction-and-foundations/</loc>
     <lastmod>2025-03-19T20:33:47+07:00</lastmod>
   </url><url>
@@ -10,6 +16,9 @@
   </url><url>
     <loc>https://tomodachii.com/books/gaussian-processes-for-machine-learning/chapter-2-regression/</loc>
     <lastmod>2025-03-17T23:02:53+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/books/density-estimation-for-statistics-and-data-analysis/chapter-3-the-kernel-method-for-univariate-data/</loc>
+    <lastmod>2025-04-03T21:18:46+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-3-the-bayesian-network-representation/</loc>
     <lastmod>2025-03-19T16:14:14+07:00</lastmod>
@@ -25,6 +34,9 @@
   </url><url>
     <loc>https://tomodachii.com/courses/6.041sc/lecture-8-continuous-random-variables/</loc>
     <lastmod>2025-03-17T12:11:38+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-9-exact-inference-variable-elimination/</loc>
+    <lastmod>2025-04-03T14:02:26+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/authors/</loc>
     <lastmod>2025-04-04T15:18:40+07:00</lastmod>
@@ -47,14 +59,17 @@
     <loc>https://tomodachii.com/authors/tomodachii/</loc>
     <lastmod>2025-04-04T15:18:40+07:00</lastmod>
   </url><url>
+    <loc>https://tomodachii.com/categories/probabilistic-graphical-models/</loc>
+    <lastmod>2025-04-03T14:02:26+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/categories/complexity-theory/</loc>
+    <lastmod>2025-04-02T08:20:25+07:00</lastmod>
+  </url><url>
     <loc>https://tomodachii.com/courses/</loc>
     <lastmod>2025-03-31T09:22:14+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/categories/probability/</loc>
     <lastmod>2025-03-31T09:22:14+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/categories/probabilistic-graphical-models/</loc>
-    <lastmod>2025-03-28T08:30:11+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/categories/general/</loc>
     <lastmod>2025-03-19T20:33:47+07:00</lastmod>

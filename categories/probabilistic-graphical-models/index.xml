@@ -6,7 +6,7 @@
     <description>Recent content in Probabilistic Graphical Models on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 28 Mar 2025 08:30:11 +0700</lastBuildDate>
+    <lastBuildDate>Thu, 03 Apr 2025 14:02:26 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/categories/probabilistic-graphical-models/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chapter 3: The Bayesian Network Representation</title>
@@ -21,6 +21,13 @@
       <pubDate>Fri, 28 Mar 2025 08:30:11 +0700</pubDate>
       <guid>https://tomodachii.com/books/probabilistic-graphical-models/chapter-5-local-probabilistic-models/</guid>
       <description>&lt;h1 id=&#34;continuous-variables&#34;&gt;Continuous Variables&lt;/h1&gt;&#xA;&lt;p&gt;Some variables (e.g., position, velocity, temperature, pressure) are best modeled in a continuous space.&lt;/p&gt;&#xA;&lt;details&gt;&#xA;    &lt;summary&gt;Discretization and its limitations&lt;/summary&gt;&#xA;    &#xA;        &lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt; A robot moving in 2D environment, where it position is described by x and y coordinates.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Approximate position using a discrete grid with 15 cm per cell.&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Computational Infeasibility:&lt;/strong&gt; Suppose each coordinate (x, y) has 1000 possible values $\rightarrow$ 1000 $\times$ 1000 = 1,000,000 possible discrete positions.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Loss of Structure:&lt;/strong&gt; Break the natural continuity of the robot&amp;rsquo;s position.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Lack of Smooth Transitions:&lt;/strong&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Basic continuity assumptions imply relationships between probabilities of nearby positions (i.e., smooth transitions),&lt;/li&gt;&#xA;&lt;li&gt;discrete models struggle to capture this property $\rightarrow$ Can not guarantee that nearby positions have similar probabilities.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt; &#xA;    &#xA;&lt;/details&gt;&#xA;&#xA;&lt;p&gt;BN requires the CPD $P(X \mid \text{Pa}_X)$ represent a distribution over $X$, for every assignment of values $\text{pa}_X$ to $\text{Pa}_X$.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Chapter 9 Exact Inference Variable Elimination</title>
+      <link>https://tomodachii.com/books/probabilistic-graphical-models/chapter-9-exact-inference-variable-elimination/</link>
+      <pubDate>Thu, 03 Apr 2025 14:02:26 +0700</pubDate>
+      <guid>https://tomodachii.com/books/probabilistic-graphical-models/chapter-9-exact-inference-variable-elimination/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>

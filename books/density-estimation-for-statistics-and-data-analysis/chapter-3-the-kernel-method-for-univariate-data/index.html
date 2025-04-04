@@ -93,14 +93,14 @@
         
 <style>
     :root {
-      --postColor: #10987F;
+      --postColor: #FF5103;
     }
   </style>
 
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Lecture 5 &#43; 6 &#43; 7: Discrete Random Variables - Examples and Exercises</h1>
+            <h1 class="singleHeadTitle">Chapter 3: The kernel method for univariate data</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
@@ -110,39 +110,93 @@
                     
                 </span>
                 
-                    <a href="https://tomodachii.com/categories/probability/" class="singleCategory">probability</a>
+                    <a href="https://tomodachii.com/categories/kde/" class="singleCategory">kde</a>
                 
             </div>
-            <time>Mar 31, 2025</time>
+            <time>Apr 3, 2025</time>
         </div>
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><h1 id="cumulative-distribution-function">Cumulative Distribution Function</h1>
-<h3 id="example-39">Example 3.9</h3>
-<p>I toss a coin twice. Let X be the number of observed heads. Find the CDF of X.</p>
-<p><strong>Answer</strong></p>
-<p>$X =$ {the number of observed heads}</p>
-<p>$X \sim Binomial(2, \frac{1}{2})$, $R_X = \{0, 1, 2\}$.</p>
+        <div class="singleContent"><h1 id="introduction">Introduction</h1>
+<h2 id="notation-and-conventions">Notation and conventions</h2>
+<p>$X_1, \dots X_n$: a sample of indepdent, identically distributed observations from a continuous univariate distribution.</p>
+<p>$f$: the PDF, which we&rsquo;re trying to estimate.</p>
+<p>$\hat{f}$: the kernel estimator with</p>
+<ul>
+<li>kernel K,</li>
+<li>window width h.</li>
+</ul>
+<h2 id="measures-of-discrepancy">Measures of discrepancy</h2>
+<p>When considering estimation at a single point, a natural measure is the <strong>mean square error (MES)</strong>.</p>
+<h3 id="mean-square-error">Mean Square Error</h3>
 <p>$$
-p_X(k) = \binom{n}{k} p^k (1 - p)^{n - k}, \quad \text{for } k = 0, 1, 2.
-$$</p>
+\text{MSE}_x (\hat{f}) = \mathbb{E}\{ \hat{f}(x) - f(x) \}^2. \quad (3.1)
+$$
+By standard elementary properties of mean and variance,
+$$
+\text{MSE}_x (\hat{f}) = \{\mathbb{E}[\hat{f}(x)] - f(x)\}^2 + \text{Var}(\hat{f}(x)).
+$$
+<details>
+    <summary>verification</summary>
+    
+        <p>Let $\mu = E[\hat{f}(x)]$,</p>
 <p>$$
-F_X(x) = P(X \leq x) = \sum_{k \leq x}p_X(k).
+\hat{f}(x) - f(x) = (\hat{f}(x) - \mu) + (\mu - f(x)).
 $$</p>
 <ul>
-<li>$F_X(0) = p_X(0 \leq x &lt; 1) = p_X(0) = 1 \times \frac{1}{2}^0 \times \frac{1}{2}^{2 - 0} = \frac{1}{4}$</li>
-<li>$F_X(1) = p_X(1 \leq x &lt; 2) = p_X(0) = p_X(0) + p_X(1) = \frac{1}{4} + 2 \times \frac{1}{2}^1 \times \frac{1}{2}^{2 - 1} = \frac{3}{4}$</li>
-<li>$F_X(2) = p_X(x \geq 2) = p_X(0) = p_X(0) + p_X(1) + p_X(2) = \frac{3}{4} + 1 \times \frac{1}{2}^2 + \frac{1}{2}^{2 - 2} = 1$</li>
+<li>$(\hat{f}(x) - \mu)$: deviation of $\hat{f}(x)$ from its mean.</li>
+<li>$(\mu - f(x))$: bias.</li>
 </ul>
 <p>$$
-F_X(x) =
-\begin{cases}
-0, &amp; \text{for } x &lt; 0 \\
-\frac{1}{4}, &amp; \text{for } 0 \leq x &lt; 1 \\
-\frac{3}{4}, &amp; \text{for } 1 \leq x &lt; 2 \\
-1, &amp; \text{for } x \geq 2
-\end{cases}
+\mathbb{E}[(\hat{f}(x) - f(x))^2] = \mathbb{E}[(\hat{f}(x) - \mu)^2] + \mathbb{E}[2(\hat{f}(x) - \mu)(\mu - f(x))] + \mathbb{E}[(\mu - f(x))^2]
+$$</p>
+<ul>
+<li>$(\mu - f(x))$ is constant.</li>
+<li>$\mathbb{E}[(\hat{f}(x) - \mu)] = \mathbb{E}[\hat{f}(x)] - \mu = 0$ (by above definition).</li>
+</ul>
+<p>Thus,</p>
+<p>$$
+\begin{align*}
+\mathbb{E}[(\hat{f}(x) - f(x))^2] &amp;= \mathbb{E}[(\hat{f}(x) - \mu)^2] + (\mu - f(x))^2 \\
+&amp;= \text{Var}(\hat{f}(x)) + (\mathbb{E}[\hat{f}(x)] - f(x))^2.
+\end{align*}
+$$</p>
+<p>The sum of the squared bias and the variance at x. There&rsquo;s a trade-off between the bias and variance terms.</p>
+ 
+    
+</details>
+</p>
+<h3 id="integrated-mean-square-error">Integrated Mean Square Error</h3>
+<p>$$
+\text{MISE}(\hat{f}) = \mathbb{E}\int \{\hat{f}(x) - f(x)\}^2 \, dx.
+$$</p>
+<p>Alternative,
+$$
+\begin{align*}
+\text{MISE}(f) &amp;= \int E { \hat{f}(x) - f(x) }^2 \,dx \\
+&amp;= \int \text{MSE}_x(\hat{f}) \,dx \\
+&amp;= \int { E \hat{f}(x) - f(x) }^2 \,dx + \int \text{var} \, \hat{f}(x) \,dx,
+\end{align*}
+$$</p>
+<h1 id="elementary-finite-sample-properties">Elementary finite sample properties</h1>
+<p>Suppose $\hat{f}$ is the general weight function estimate
+$$
+\hat{f}(t) = \frac{1}{n} \sum_{i = 1}^{n} w(X_i, t).
+$$</p>
+<p>where $w(x, y)$ is a function of two arguments which satisfies:
+$$
+\int_{-\infty}^{\infty} w(x, y) \, dy = 1
+$$</p>
+<p>and</p>
+<p>$$
+w(x, y) \geq 0 \quad \text{for all } x \text{ and } y.
+$$</p>
+<p>Then,
+$$
+\begin{align*}
+\mathbb{E}[\hat{f}(t)] = \frac{1}{n} \sum E[w(X_i, t)] = \int w(x, t) \, f(x) \, dx
+\end{align*}
 $$</p>
 </div>
         

@@ -93,14 +93,14 @@
         
 <style>
     :root {
-      --postColor: #10987F;
+      --postColor: #FF5103;
     }
   </style>
 
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Lecture 5 &#43; 6 &#43; 7: Discrete Random Variables - Examples and Exercises</h1>
+            <h1 class="singleHeadTitle">Chapter 1: Computers, Complexity and Intractability</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
@@ -110,40 +110,224 @@
                     
                 </span>
                 
-                    <a href="https://tomodachii.com/categories/probability/" class="singleCategory">probability</a>
+                    <a href="https://tomodachii.com/categories/complexity-theory/" class="singleCategory">complexity theory</a>
                 
             </div>
-            <time>Mar 31, 2025</time>
+            <time>Apr 2, 2025</time>
         </div>
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><h1 id="cumulative-distribution-function">Cumulative Distribution Function</h1>
-<h3 id="example-39">Example 3.9</h3>
-<p>I toss a coin twice. Let X be the number of observed heads. Find the CDF of X.</p>
-<p><strong>Answer</strong></p>
-<p>$X =$ {the number of observed heads}</p>
-<p>$X \sim Binomial(2, \frac{1}{2})$, $R_X = \{0, 1, 2\}$.</p>
-<p>$$
-p_X(k) = \binom{n}{k} p^k (1 - p)^{n - k}, \quad \text{for } k = 0, 1, 2.
-$$</p>
-<p>$$
-F_X(x) = P(X \leq x) = \sum_{k \leq x}p_X(k).
-$$</p>
+        <div class="singleContent"><h1 id="problems">Problems</h1>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content"><p>Contain</p>
+<ol>
+<li>a general description of all its params, and</li>
+<li>a statement of what propaearties the solution, is required to satisfy.</li>
+</ol></div>
+</div>
+
+<p>An <span class="marked">instance</span>
+ of the problem: specifying particular params.</p>
+<br/>
+<p><strong>Example:</strong> Traveling Saleman Problem</p>
+<p>Params:</p>
 <ul>
-<li>$F_X(0) = p_X(0 \leq x &lt; 1) = p_X(0) = 1 \times \frac{1}{2}^0 \times \frac{1}{2}^{2 - 0} = \frac{1}{4}$</li>
-<li>$F_X(1) = p_X(1 \leq x &lt; 2) = p_X(0) = p_X(0) + p_X(1) = \frac{1}{4} + 2 \times \frac{1}{2}^1 \times \frac{1}{2}^{2 - 1} = \frac{3}{4}$</li>
-<li>$F_X(2) = p_X(x \geq 2) = p_X(0) = p_X(0) + p_X(1) + p_X(2) = \frac{3}{4} + 1 \times \frac{1}{2}^2 + \frac{1}{2}^{2 - 2} = 1$</li>
+<li>$C = \{c_1, \dots, c_n\} \rightarrow$ cities.</li>
+<li>$d(c_i, c_j)$.</li>
 </ul>
-<p>$$
-F_X(x) =
-\begin{cases}
-0, &amp; \text{for } x &lt; 0 \\
-\frac{1}{4}, &amp; \text{for } 0 \leq x &lt; 1 \\
-\frac{3}{4}, &amp; \text{for } 1 \leq x &lt; 2 \\
-1, &amp; \text{for } x \geq 2
-\end{cases}
-$$</p>
+<p>Solution:</p>
+<ul>
+<li>an ordering $&lt;c_{\pi(1)}, c_{\pi(2)}, \dots, c_{\pi(m)}&gt;$ of cities that minimizes
+$$
+[\sum_{i = 1}^{m - 1} d(c_{\pi(i)}, c_{\pi(i + 1)})] + d(c_{\pi(m)}, c_{\pi(1)})
+$$</li>
+</ul>
+<div class="callout callout-info">
+    <span class="callout-icon">
+        ℹ️
+        
+        
+        
+    </span>
+    <div class="callout-content">a tour starts at $c_{\pi(1)}$, visits each city in sequence, then back to $c_{\pi(1)}$ from $c_{\pi(m)}$</div>
+</div>
+
+
+<p>One instance:
+<div class="image-text-block left">
+    <img src="/images/books/computers-and-intractability/chapter-1/problem-instance-ex.png" alt="" style="max-width: 20%;">
+    <div class="image-text-content">
+      <ul>
+<li>$C = {c_1, c_2, c_3, c_4}$.</li>
+<li>$d(c_1, c_2) = 10$, $\dots$</li>
+</ul>
+<p>$\rightarrow$ a solution $&lt;c_1, c_2, c_4, c_3&gt;$.</p>
+    </div>
+</div>
+</p>
+<h1 id="algorithms">Algorithms</h1>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content">General, step-by-step procedures for solving problems.</div>
+</div>
+
+<p>Think of them as being computer programs.</p>
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content"><p>An algorithm is said to solve a problem $\Pi$ if</p>
+<ul>
+<li>that algorithm can be applied to any instance $I$ of $\Pi$ and</li>
+<li>is guaranteed always to produce a solution for that instance $I$.</li>
+</ul></div>
+</div>
+
+
+<h1 id="intractable">Intractable</h1>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content">A problem is intractable if it is so hard that no polynomial time algorithm can possibly solve it.</div>
+</div>
+
+<p>A problem has not been &ldquo;well-solved&rdquo; until a polynomial time algorithm is known for it.</p>
+<h2 id="encoding-scheme">Encoding Scheme</h2>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content">A way of representing problem instances using symbols, typically as string.</div>
+</div>
+
+<p>Algorithm operates on encoded inputs, not abstract objects $\rightarrow$ <span class="marked">choice of encoding scheme affects SIZE of inputs (n).</span>
+</p>
+<br/>
+<p><strong>Example</strong>
+<div class="image-text-block left">
+    <img src="/images/books/computers-and-intractability/chapter-1/encoding-scheme-ex.png" alt="" style="max-width: 10%;">
+    <div class="image-text-content">
+      <p>Graph $G = (V, E)$,</p>
+<p>vertices $V = \{V_1, V_2, V_3, V_4\}$,</p>
+<p>edges $E = \{(V_1, V_2), (V_2, V_3)\}$.</p>
+
+    </div>
+</div>
+</p>
+<br/>
+<table>
+  <thead>
+      <tr>
+          <th>Encoding Scheme</th>
+          <th>String</th>
+          <th>Length</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Vertex list, Edge list</td>
+          <td>V[1]V[2]V[3]V[4](V[1]V[2])(V[2]V[3])</td>
+          <td>36</td>
+      </tr>
+      <tr>
+          <td>Neighbor list</td>
+          <td>(V[2])(V[1]V[3])(V[2])()</td>
+          <td>24</td>
+      </tr>
+      <tr>
+          <td>Adjacency matrix rows</td>
+          <td>0100/1010/0010/0000</td>
+          <td>19</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="provably-intractable-problems">Provably Intractable Problems</h2>
+<p>two different causes of intractability:</p>
+<ol>
+<li>Problems that require an exponential amount of time to solve
+<ul>
+<li>typical definition of an intractable problem.</li>
+</ul>
+</li>
+<li>Problems where the solution itself is too large to describe concisely
+<ul>
+<li>might not be hard to compute, but their output is so vast that it cannot be expressed with a polynomial-length formula.</li>
+<li>Example: A variant of the Traveling Salesman Problem (TSP) where we want to find all tours with a total length $B$ or less.
+<ul>
+<li>There could be an exponentially large number of valid tours shorter than B.</li>
+<li>No polynomial-time algorithm can list all of them. <details>
+    <summary>explain</summary>
+    
+        
+    Since the saleman must visit every city exactly once, the number of possible routes: $(n - 1)!$
+    <br/>
+    Say, even if half of them satisfy the B constraint, time complexity to explicitly list (n - 1)! routes is still
+    $$
+    \mathcal{O}(\frac{(n - 1)!}{2}) = \mathcal{O}(n!)
+    $$
+
+    Using <a href="https://en.wikipedia.org/wiki/Stirling%27s_approximation">Stirling's Approximation</a>
+    $$
+    n! \sim \sqrt{2\pi n}(\frac{n}{e})^n.
+    $$
+    This grows faster than exponential time algorithm. Even if a polynomial-time algorithm exists to check whether a route is valid, writing down all valid routes would take an exponential amount of space.
+     
+    
+</details>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>The 2nd type can be regarded as a sign that the problem is not defined realistically, bc we are asking for more information than we could ever hope to use.</p>
+<p>Thus, the focus is primarily on the first type: problems that <strong>requires exponential time</strong> to solve.</p>
+<h3 id="undecidable-problems">Undecidable Problems</h3>
+<p>Turing proved that
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content">some problems are so hard that they are &ldquo;undecidable&rdquo;, in the sense that no algorithm can solve them at all.</div>
+</div>
+</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Halting_problem">The halting problem</a></li>
+<li><a href="https://arxiv.org/pdf/2208.08560">Finitely Presented Groups&rsquo; Triviality Problem (Rabin, 1958)</a>.</li>
+<li>Hilbert’s Tenth Problem (Matijasevic, 1970).</li>
+<li>Tiling the Plane Problem (Berger, 1966).</li>
+</ul>
+<h3 id="intractable-but-decidable-problems">Intractable but Decidable Problems</h3>
+<p>Meyer &amp; Stockmeyer (1972) and Fischer &amp; Rabin (1974).</p>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content">Decidable but intractable problems have solutions, but they take exponential time using deterministic algorithms.</div>
+</div>
+
 </div>
         
     </div>

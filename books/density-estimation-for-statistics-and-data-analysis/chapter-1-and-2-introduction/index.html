@@ -93,14 +93,14 @@
         
 <style>
     :root {
-      --postColor: #10987F;
+      --postColor: #FF5103;
     }
   </style>
 
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Lecture 5 &#43; 6 &#43; 7: Discrete Random Variables - Examples and Exercises</h1>
+            <h1 class="singleHeadTitle">Chapter 1 &#43; 2: Introduction and Survey of existing methods</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
@@ -110,40 +110,49 @@
                     
                 </span>
                 
-                    <a href="https://tomodachii.com/categories/probability/" class="singleCategory">probability</a>
+                    <a href="https://tomodachii.com/categories/kde/" class="singleCategory">kde</a>
                 
             </div>
-            <time>Mar 31, 2025</time>
+            <time>Apr 3, 2025</time>
         </div>
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><h1 id="cumulative-distribution-function">Cumulative Distribution Function</h1>
-<h3 id="example-39">Example 3.9</h3>
-<p>I toss a coin twice. Let X be the number of observed heads. Find the CDF of X.</p>
-<p><strong>Answer</strong></p>
-<p>$X =$ {the number of observed heads}</p>
-<p>$X \sim Binomial(2, \frac{1}{2})$, $R_X = \{0, 1, 2\}$.</p>
-<p>$$
-p_X(k) = \binom{n}{k} p^k (1 - p)^{n - k}, \quad \text{for } k = 0, 1, 2.
+        <div class="singleContent"><h1 id="density-estimation">Density Estimation</h1>
+<p>Consider random variable $X$ that has PDF $f$
+$$
+P(a &lt; X &lt; b) = \int_{a}^{b} f(x) dx, \quad \text{for all } a &lt; b.
 $$</p>
-<p>$$
-F_X(x) = P(X \leq x) = \sum_{k \leq x}p_X(k).
-$$</p>
+<p>Known: A set of observed data points sample from an unknow PDF.
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content">Density estimation is the construction of an estimate of the density function from the observed data.</div>
+</div>
+</p>
+<p>This book focuses on <strong>nonparametric</strong> approach.</p>
+<h1 id="histograms">Histograms</h1>
+<p>Given</p>
 <ul>
-<li>$F_X(0) = p_X(0 \leq x &lt; 1) = p_X(0) = 1 \times \frac{1}{2}^0 \times \frac{1}{2}^{2 - 0} = \frac{1}{4}$</li>
-<li>$F_X(1) = p_X(1 \leq x &lt; 2) = p_X(0) = p_X(0) + p_X(1) = \frac{1}{4} + 2 \times \frac{1}{2}^1 \times \frac{1}{2}^{2 - 1} = \frac{3}{4}$</li>
-<li>$F_X(2) = p_X(x \geq 2) = p_X(0) = p_X(0) + p_X(1) + p_X(2) = \frac{3}{4} + 1 \times \frac{1}{2}^2 + \frac{1}{2}^{2 - 2} = 1$</li>
+<li>origin $x_0$</li>
+<li>bin width $h$</li>
 </ul>
-<p>$$
-F_X(x) =
-\begin{cases}
-0, &amp; \text{for } x &lt; 0 \\
-\frac{1}{4}, &amp; \text{for } 0 \leq x &lt; 1 \\
-\frac{3}{4}, &amp; \text{for } 1 \leq x &lt; 2 \\
-1, &amp; \text{for } x \geq 2
-\end{cases}
-$$</p>
+<p>The bins of the histogram is the intervals $[x_0 + mh, x_0 + (m + 1)h]$ for $m \in \mathbb{Z}$.</p>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content">The histogram
+$$
+\hat{f}(x) = \frac{1}{nh}
+$$</div>
+</div>
+
 </div>
         
     </div>
