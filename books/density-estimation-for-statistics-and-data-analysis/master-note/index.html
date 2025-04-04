@@ -8,7 +8,14 @@
     
     <link rel="icon" href="/images/lain-sicp.png">
     <title>Tomodachii</title>
-    <head>
+    <head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 </head>
 </head>
 <body>
@@ -84,168 +91,111 @@
     <div class="container">
         
         
-  <div class="list">
-    
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-    
-      
-    
-      
-        
-      
-    
-      
-    
-  
-    
-      <div class="section">
-        <button class="toggleButton" onclick="toggleSection('Probabilistic Graphical Models')">
-          Probabilistic Graphical Models
-        </button>
-        <div id="Probabilistic Graphical Models" class="sectionContent">
-          
-            <div class="listItem">
-              
-              <div class="listItemTexts">
-                <div class="listItemTitle">
-                  <a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-1-and-2-introduction-and-foundations/">
-                    - Chapter 1 &#43; 2: Introduction and Foundations 
-                    (<time datetime="Mar 19, 2025">Mar 19, 2025</time>)
-                    
-                  </a>
-                </div>
-                
-                
-                
-              </div>
-            </div>
-          
-            <div class="listItem">
-              
-              <div class="listItemTexts">
-                <div class="listItemTitle">
-                  <a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-3-the-bayesian-network-representation/">
-                    - Chapter 3: The Bayesian Network Representation 
-                    (<time datetime="Mar 19, 2025">Mar 19, 2025</time>)
-                    
-                  </a>
-                </div>
-                
-                
-                
-              </div>
-            </div>
-          
-            <div class="listItem">
-              
-              <div class="listItemTexts">
-                <div class="listItemTitle">
-                  <a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-5-local-probabilistic-models/">
-                    - Chapter 5: Local Probabilistic Models 
-                    (<time datetime="Mar 28, 2025">Mar 28, 2025</time>)
-                    
-                  </a>
-                </div>
-                
-                
-                
-              </div>
-            </div>
-          
-        </div>
-      </div>
-    
-      <div class="section">
-        <button class="toggleButton" onclick="toggleSection('Gaussian Processes for Machine Learning')">
-          Gaussian Processes for Machine Learning
-        </button>
-        <div id="Gaussian Processes for Machine Learning" class="sectionContent">
-          
-            <div class="listItem">
-              
-              <div class="listItemTexts">
-                <div class="listItemTitle">
-                  <a href="https://tomodachii.com/books/gaussian-processes-for-machine-learning/preface/">
-                    - Preface 
-                    (<time datetime="Mar 17, 2025">Mar 17, 2025</time>)
-                    
-                  </a>
-                </div>
-                
-                
-                
-              </div>
-            </div>
-          
-            <div class="listItem">
-              
-              <div class="listItemTexts">
-                <div class="listItemTitle">
-                  <a href="https://tomodachii.com/books/gaussian-processes-for-machine-learning/chapter-2-regression/">
-                    - Chapter 2: Regression 
-                    (<time datetime="Mar 17, 2025">Mar 17, 2025</time>)
-                    
-                  </a>
-                </div>
-                
-                
-                
-              </div>
-            </div>
-          
-        </div>
-      </div>
-    
-      <div class="section">
-        <button class="toggleButton" onclick="toggleSection('Density Estimation for Statistics and Data Analysis')">
-          Density Estimation for Statistics and Data Analysis
-        </button>
-        <div id="Density Estimation for Statistics and Data Analysis" class="sectionContent">
-          
-            <div class="listItem">
-              
-              <div class="listItemTexts">
-                <div class="listItemTitle">
-                  <a href="https://tomodachii.com/books/density-estimation-for-statistics-and-data-analysis/master-note/">
-                    - Master Note 
-                    (<time datetime="Apr 4, 2025">Apr 4, 2025</time>)
-                    
-                  </a>
-                </div>
-                
-                
-                
-              </div>
-            </div>
-          
-        </div>
-      </div>
-    
-</div>
-  
-<script>
-function toggleSection(sectionId) {
-    var content = document.getElementById(sectionId);
-    var button = document.querySelector(`[onclick="toggleSection('${sectionId}')"]`);
-
-    if (content.style.display === "block") {
-    content.style.display = "none";
-    button.classList.remove("active");
-    } else {
-    content.style.display = "block";
-    button.classList.add("active");
+<style>
+    :root {
+      --postColor: #10987F;
     }
-}
+  </style>
 
+<div class="single">
+    <div class="singleHead">
+        <div class="singleHeadTexts">
+            <h1 class="singleHeadTitle">Master Note</h1>
+            <p class="singleHeadDesc"></p>
+            <div class="singleHeadDetail">
+                <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
+                <span>
+                    
+                        <a href="https://tomodachii.com/authors/tomodachii/">Tomodachii</a>
+                    
+                </span>
+                
+                    <a href="https://tomodachii.com/categories/kde/" class="singleCategory">kde</a>
+                
+            </div>
+            <time>Apr 4, 2025</time>
+        </div>
+        
+    </div>
+    <div class="singleBottom">
+        <div class="singleContent"><h1 id="histograms">Histograms</h1>
+<p><strong>a priori bining</strong>: the bin boundaries are determined before observing the data.</p>
+<ul>
+<li>choose the number of bins and their widths based on some theoretical considerations or prior knowledge about the data.</li>
+</ul>
+<p><strong>Data-Dependent Binning</strong>: This method involves determining the bin boundaries based on the observations</p>
+<ul>
+<li>analyze the data first and then decide how to bin it. For example, you could use techniques that adapt the bin widths based on the density of the data (e.g., variable-width bins where denser areas have narrower bins).</li>
+<li>clustering or data-driven approaches.</li>
+</ul>
+<h1 id="the-naive-estimator">The naive estimator</h1>
+<p>If the random variable $X$ has density $f$, then
+$$
+f(x) = \lim_{h \to 0} \frac{1}{2h} P(x - h &lt; X &lt; x + h).
+$$</p>
+<p>We have an x and we&rsquo;re looking for its neighbours in a $2h$ bin.</p>
+<p>For any given $h$, we can estimate $P(x - h &lt; X &lt; x + h)$ by the proportion of the sample falling in the interval $(x - h, x + h)$. Thus a natural estimator $\hat{f}$ of the density is given by choosing a small number $h$</p>
+<p>$$
+\hat{f}(x) = \frac{\#\{X_1, \dots, X_n \text{ falling in } (x - h, x + h)\}}{2hn}.
+$$</p>
+<p>Define the weight function
+$$
+w(x) =
+\begin{cases}
+\frac{1}{2}, &amp; \text{if } |x| &lt; 1 \\
+0, &amp; \text{otherwise}
+\end{cases}
+$$</p>
+<p>This weight function serves as a simple indicator function that determines whether a given point $x$ should contribute to the density estimate.</p>
+<p>Then
+$$
+\hat{f}(x) = \frac{1}{n} \sum_{i=1}^{n} \frac{1}{h} w\left( \frac{x - X_i}{h} \right).
+$$</p>
+<ul>
+<li>The weight function $w$ defines a box of width $2h$ centered at $x$. If $|x - X_i| &lt; h$ (falls within this box), it contributes equally to the density estimate, else it got ignored.</li>
+<li>The function assigns an equal weight to all points within the interval $(x - h, x + h)$.</li>
+</ul>
+</div>
+        
+    </div>
+</div>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(function(heading) {
+            if (heading.id) {
+                
+                let copyButton = document.createElement("button");
+                copyButton.innerHTML = `
+                    <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M9 2h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3v2h3a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4H9v2z"></path>
+                        <path d="M14 6H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zM3 4h11a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"></path>
+                    </svg>
+                `;
+                copyButton.classList.add("copy-button");
+    
+                copyButton.onclick = function() {
+                    navigator.clipboard.writeText(window.location.href.split("#")[0] + "#" + heading.id);
+                    copyButton.innerHTML = `
+                        <svg class="copy-icon success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M20.285 6.715l-9 9a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L10 13.586l8.293-8.293a1 1 0 0 1 1.414 1.422z"></path>
+                        </svg>
+                    `; 
+                    setTimeout(() => copyButton.innerHTML = `
+                        <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M9 2h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3v2h3a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4H9v2z"></path>
+                            <path d="M14 6H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zM3 4h11a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"></path>
+                        </svg>
+                    `, 400);
+                };
+    
+                
+                heading.appendChild(copyButton);
+            }
+        });
+    });
 </script>
 
         <div class="footer">
