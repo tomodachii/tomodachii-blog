@@ -34,6 +34,9 @@ Given
 
 The bins of the histogram is the intervals $[x_0 + mh, x_0 + (m + 1)h]$ for $m \in \mathbb{Z}$.
 
-The histogram
 {{< define >}}
+The histogram
+$$
+\hat{f}(x) = \frac{1}{nh}
+$$
 {{< /define >}}
