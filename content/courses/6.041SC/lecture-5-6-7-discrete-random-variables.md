@@ -75,3 +75,14 @@ $$
 $$
 
 {{< /toggle >}}
+
+## Useful formulas
+For all $a \leq b$,
+$$
+P(a < X \leq b) = P(X \leq b) - P(X \leq a) = F_X(b) - F_X(a).
+$$
+
+CDF gives us $P(X \leq x)$. To find $P(X < x)$, for a discrete random variable
+$$
+P(X < x) = P(X \leq x) - P(X = x) = F_X(x) - P_X(x).
+$$

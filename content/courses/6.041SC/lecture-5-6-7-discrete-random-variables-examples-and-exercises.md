@@ -33,7 +33,16 @@ $$
 F_X(x) = P(X \leq x) = \sum_{k \leq x}p_X(k).
 $$
 
-* $F_X(0) = p_X(0) = 1 * \frac{1}{2}^0 * \frac{1}{2}^{2 - 0} = \frac{1}{4}$
-* $F_X(1) = p_X(0) + p_X(1) = \frac{1}{4} +   
- = \frac{1}{4}$
-* $F_X(2) = 1 * \frac{1}{2}^0 * \frac{1}{2}^{2 - 0} = \frac{1}{4}$
+* $F_X(0) = p_X(0 \leq x < 1) = p_X(0) = 1 \times \frac{1}{2}^0 \times \frac{1}{2}^{2 - 0} = \frac{1}{4}$
+* $F_X(1) = p_X(1 \leq x < 2) = p_X(0) = p_X(0) + p_X(1) = \frac{1}{4} + 2 \times \frac{1}{2}^1 \times \frac{1}{2}^{2 - 1} = \frac{3}{4}$
+* $F_X(2) = p_X(x \geq 2) = p_X(0) = p_X(0) + p_X(1) + p_X(2) = \frac{3}{4} + 1 \times \frac{1}{2}^2 + \frac{1}{2}^{2 - 2} = 1$
+
+$$
+F_X(x) =
+\begin{cases} 
+0, & \text{for } x < 0 \\\
+\frac{1}{4}, & \text{for } 0 \leq x < 1 \\\
+\frac{3}{4}, & \text{for } 1 \leq x < 2 \\\
+1, & \text{for } x \geq 2
+\end{cases}
+$$
