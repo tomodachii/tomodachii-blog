@@ -32,7 +32,7 @@ $$
 $$
 By standard elementary properties of mean and variance,
 $$
-\text{MSE}_x (\hat{f}) = \\{\mathbb{E}[\hat{f}(x)] - f(x)\\}^2 + \text{Var}(\hat{f}(x)).
+\text{MSE}_x (\hat{f}) = (\mathbb{E}[\hat{f}(x)] - f(x))^2 + \text{Var}(\hat{f}(x)).
 $$
 {{< toggle title="verification">}}
 Let $\mu = E[\hat{f}(x)]$,
@@ -69,9 +69,9 @@ $$
 Alternative,
 $$
 \begin{align*}
-\text{MISE}(f) &= \int E \{ \hat{f}(x) - f(x) \}^2 \\,dx \\\
+\text{MISE}(f) &= \int \mathbb{E} \\\{ \hat{f}(x) - f(x) \\\}^2 \\,dx \\\
 &= \int \text{MSE}_x(\hat{f}) \\,dx \\\
-&= \int \{ E \hat{f}(x) - f(x) \}^2 \\,dx + \int \text{var} \\, \hat{f}(x) \\,dx,
+&= \int ( E \hat{f}(x) - f(x) )^2 \\,dx + \int \text{Var} \\, (\hat{f}(x)) \\,dx.
 \end{align*}
 $$
 
@@ -92,9 +92,33 @@ $$
 w(x, y) \geq 0 \quad \text{for all } x \text{ and } y.
 $$
 
-Then,
+Then for $X_i \sim f(x)$ (true PDF),
 $$
 \begin{align*}
-\mathbb{E}[\hat{f}(t)] = \frac{1}{n} \sum E[w(X_i, t)] = \int w(x, t) \\\, f(x) \\\, dx
+\mathbb{E}[\hat{f}(t)] &= \frac{1}{n} \sum E[w(X_i, t)] \quad \text{(linearity)} \\\
+&= \int w(x, t) \\\, f(x) \\\, dx \quad \text{(LOTUS)}
 \end{align*}
 $$
+
+$$
+\begin{align*}
+\text{Var}(\hat{f}(t)) &= \text{Var}(\frac{1}{n} \sum_{i = 1}^{n} \text{Var}(w(X_i, t))) \\\
+&= \frac{1}{n^2} \sum_{i = 1}^{n} \text{Var}(w(X_i, t))
+\end{align*}
+$$
+
+Since all $w(X_i, t)$ are identically distributed, this simplified to:
+$$
+\begin{align*}
+\text{Var}(\hat{f}(t)) &= \frac{1}{n^2} n \text{Var}(w(X_i, t)) \\\
+&= \frac{1}{n} \text{Var}(w(X_i, t)) \\\
+&= \frac{1}{n} [\int w(x, t)^2 f(x) dx - \\\{\int w(x, t) f(x) dx\\\}^2].
+\end{align*}
+$$
+
+## Kernel estimate
+{{< define >}}
+$$
+w(x, y) = \frac{1}{h} K (\frac{y - x}{h}).
+$$
+{{< /define >}}
