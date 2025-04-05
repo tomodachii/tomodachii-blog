@@ -141,18 +141,141 @@ $$</p>
 <li>bin width $h$</li>
 </ul>
 <p>The bins of the histogram is the intervals $[x_0 + mh, x_0 + (m + 1)h]$ for $m \in \mathbb{Z}$.</p>
+<p>The histogram
 <div class="define">
     
     
 
     
 
-    <div class="define-content">The histogram
-$$
+    <div class="define-content">$$
 \hat{f}(x) = \frac{1}{nh}
 $$</div>
 </div>
+</p>
+<p><strong>a priori bining</strong>: the bin boundaries are determined before observing the data.</p>
+<ul>
+<li>choose the number of bins and their widths based on some theoretical considerations or prior knowledge about the data.</li>
+</ul>
+<p><strong>Data-Dependent Binning</strong>: This method involves determining the bin boundaries based on the observations</p>
+<ul>
+<li>analyze the data first and then decide how to bin it. For example, you could use techniques that adapt the bin widths based on the density of the data (e.g., variable-width bins where denser areas have narrower bins).</li>
+<li>clustering or data-driven approaches.</li>
+</ul>
+<h1 id="the-naive-estimator">The naive estimator</h1>
+<p>If the random variable $X$ has density $f$, then
+$$
+f(x) = \lim_{h \to 0} \frac{1}{2h} P(x - h &lt; X &lt; x + h).
+$$</p>
+<p>We have an x and we&rsquo;re looking for its neighbours in a $2h$ bin.</p>
+<p>For any given $h$, we can estimate $P(x - h &lt; X &lt; x + h)$ by the proportion of the sample falling in the interval $(x - h, x + h)$. Thus a natural estimator $\hat{f}$ of the density is given by choosing a small number $h$</p>
+<div class="define">
+    
+    
 
+    
+
+    <div class="define-content">$$
+\hat{f}(x) = \frac{\#\{X_1, \dots, X_n \text{ falling in } (x - h, x + h)\}}{2hn}.
+$$</div>
+</div>
+
+<p>Define the weight function
+$$
+w(x) =
+\begin{cases}
+\frac{1}{2}, &amp; \text{if } |x| &lt; 1 \\
+0, &amp; \text{otherwise}
+\end{cases}
+$$</p>
+<p>This weight function serves as a simple indicator function that determines whether a given point $x$ should contribute to the density estimate.</p>
+<p>Then
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content">$$
+\hat{f}(x) = \frac{1}{n} \sum_{i=1}^{n} \frac{1}{h} w\left( \frac{x - X_i}{h} \right).
+$$</div>
+</div>
+</p>
+<ul>
+<li>The weight function $w$ defines a box of width $2h$ centered at $x$.</li>
+<li>If $|x - X_i| &lt; h$ (falls within this box) $\rightarrow$ contributes equally to the density estimate, else it got ignored.</li>
+<li>The function assigns an equal weight to all points within the interval $(x - h, x + h)$.</li>
+</ul>
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content">Instead of fixed bin, naive estimator &ldquo;centers&rdquo; the estimate around x.</div>
+</div>
+
+
+<div class="callout callout-warning">
+    <span class="callout-icon">
+        
+        ⚠️
+        
+        
+    </span>
+    <div class="callout-content"><ul>
+<li>$\hat{f}(x)$ is not continuos
+<ul>
+<li>has jump at $X_i \pm h$</li>
+</ul>
+</li>
+<li>&ldquo;zero deviation everywhere&rdquo;
+<ul>
+<li>within $(X_i - h, X_i + h)$, $\hat{f}(x)$ is flat (constant).</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<h1 id="the-kernel-estimator">The kernel estimator</h1>
+<p>Replace the weight function $w$ by a kernel function $K$ such that
+$$
+\int_{-\infty}^{\infty} K(x) \, dx = 1.
+$$</p>
+<p>Usually but not always, $K$ will be a symmetric PDF (normal, for instance).</p>
+<p>The kernel estimator with kernel $K$
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content">$$
+\hat{f}(x) = \frac{1}{nh} \sum_{i = 1}^{n} K(\frac{x - X_i}{h}).
+$$</div>
+</div>
+
+where $h$ is the window width (or smoothing parameter or bandwidth).</p>
+<div class="image-text-block left">
+    <img src="/images/books/density-estimation-for-statistics-and-data-analysis/chapter-1-and-2/kernel-estimator-ex.png" alt="" style="max-width: 30%;">
+    <div class="image-text-content">
+      <p>The kernel estimator is a sum of &ldquo;bumps&rdquo; placed at the observations.</p>
+<ul>
+<li>The kernel function $K$ determines the shape of the bumps.</li>
+<li>The window width $h$ determines their width.</li>
+</ul>
+    </div>
+</div>
+
+<p>In KDE, the bandwidth (or window width) is fixed across the entire data sample. This causes issues when the data has a long tail, as smaller densities in the tails may create spurious noise in the estimated density function.</p>
+<ul>
+<li>If the bandwidth is too small, the estimate is very noisy, particularly in the tails.</li>
+<li>If the bandwidth is too large, the KDE smooths out important details in the central part of the distribution.</li>
+</ul>
+<h1 id="the-nearest-neighbour-method">The nearest neighbour method</h1>
 </div>
         
     </div>

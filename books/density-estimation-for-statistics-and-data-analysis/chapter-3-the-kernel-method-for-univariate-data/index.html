@@ -135,7 +135,7 @@
 $$
 By standard elementary properties of mean and variance,
 $$
-\text{MSE}_x (\hat{f}) = \{\mathbb{E}[\hat{f}(x)] - f(x)\}^2 + \text{Var}(\hat{f}(x)).
+\text{MSE}_x (\hat{f}) = (\mathbb{E}[\hat{f}(x)] - f(x))^2 + \text{Var}(\hat{f}(x)).
 $$
 <details>
     <summary>verification</summary>
@@ -174,9 +174,9 @@ $$</p>
 <p>Alternative,
 $$
 \begin{align*}
-\text{MISE}(f) &amp;= \int E { \hat{f}(x) - f(x) }^2 \,dx \\
+\text{MISE}(f) &amp;= \int \mathbb{E} \{ \hat{f}(x) - f(x) \}^2 \,dx \\
 &amp;= \int \text{MSE}_x(\hat{f}) \,dx \\
-&amp;= \int { E \hat{f}(x) - f(x) }^2 \,dx + \int \text{var} \, \hat{f}(x) \,dx,
+&amp;= \int ( E \hat{f}(x) - f(x) )^2 \,dx + \int \text{Var} \, (\hat{f}(x)) \,dx.
 \end{align*}
 $$</p>
 <h1 id="elementary-finite-sample-properties">Elementary finite sample properties</h1>
@@ -192,12 +192,39 @@ $$</p>
 <p>$$
 w(x, y) \geq 0 \quad \text{for all } x \text{ and } y.
 $$</p>
-<p>Then,
+<p>Then for $X_i \sim f(x)$ (true PDF),
 $$
 \begin{align*}
-\mathbb{E}[\hat{f}(t)] = \frac{1}{n} \sum E[w(X_i, t)] = \int w(x, t) \, f(x) \, dx
+\mathbb{E}[\hat{f}(t)] &amp;= \frac{1}{n} \sum E[w(X_i, t)] \quad \text{(linearity)} \\
+&amp;= \int w(x, t) \, f(x) \, dx \quad \text{(LOTUS)}
 \end{align*}
 $$</p>
+<p>$$
+\begin{align*}
+\text{Var}(\hat{f}(t)) &amp;= \text{Var}(\frac{1}{n} \sum_{i = 1}^{n} \text{Var}(w(X_i, t))) \\
+&amp;= \frac{1}{n^2} \sum_{i = 1}^{n} \text{Var}(w(X_i, t))
+\end{align*}
+$$</p>
+<p>Since all $w(X_i, t)$ are identically distributed, this simplified to:
+$$
+\begin{align*}
+\text{Var}(\hat{f}(t)) &amp;= \frac{1}{n^2} n \text{Var}(w(X_i, t)) \\
+&amp;= \frac{1}{n} \text{Var}(w(X_i, t)) \\
+&amp;= \frac{1}{n} [\int w(x, t)^2 f(x) dx - \{\int w(x, t) f(x) dx\}^2].
+\end{align*}
+$$</p>
+<h2 id="kernel-estimate">Kernel estimate</h2>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content">$$
+w(x, y) = \frac{1}{h} K (\frac{y - x}{h}).
+$$</div>
+</div>
+
 </div>
         
     </div>

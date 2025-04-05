@@ -118,44 +118,7 @@
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><h1 id="histograms">Histograms</h1>
-<p><strong>a priori bining</strong>: the bin boundaries are determined before observing the data.</p>
-<ul>
-<li>choose the number of bins and their widths based on some theoretical considerations or prior knowledge about the data.</li>
-</ul>
-<p><strong>Data-Dependent Binning</strong>: This method involves determining the bin boundaries based on the observations</p>
-<ul>
-<li>analyze the data first and then decide how to bin it. For example, you could use techniques that adapt the bin widths based on the density of the data (e.g., variable-width bins where denser areas have narrower bins).</li>
-<li>clustering or data-driven approaches.</li>
-</ul>
-<h1 id="the-naive-estimator">The naive estimator</h1>
-<p>If the random variable $X$ has density $f$, then
-$$
-f(x) = \lim_{h \to 0} \frac{1}{2h} P(x - h &lt; X &lt; x + h).
-$$</p>
-<p>We have an x and we&rsquo;re looking for its neighbours in a $2h$ bin.</p>
-<p>For any given $h$, we can estimate $P(x - h &lt; X &lt; x + h)$ by the proportion of the sample falling in the interval $(x - h, x + h)$. Thus a natural estimator $\hat{f}$ of the density is given by choosing a small number $h$</p>
-<p>$$
-\hat{f}(x) = \frac{\#\{X_1, \dots, X_n \text{ falling in } (x - h, x + h)\}}{2hn}.
-$$</p>
-<p>Define the weight function
-$$
-w(x) =
-\begin{cases}
-\frac{1}{2}, &amp; \text{if } |x| &lt; 1 \\
-0, &amp; \text{otherwise}
-\end{cases}
-$$</p>
-<p>This weight function serves as a simple indicator function that determines whether a given point $x$ should contribute to the density estimate.</p>
-<p>Then
-$$
-\hat{f}(x) = \frac{1}{n} \sum_{i=1}^{n} \frac{1}{h} w\left( \frac{x - X_i}{h} \right).
-$$</p>
-<ul>
-<li>The weight function $w$ defines a box of width $2h$ centered at $x$. If $|x - X_i| &lt; h$ (falls within this box), it contributes equally to the density estimate, else it got ignored.</li>
-<li>The function assigns an equal weight to all points within the interval $(x - h, x + h)$.</li>
-</ul>
-</div>
+        <div class="singleContent"></div>
         
     </div>
 </div>
