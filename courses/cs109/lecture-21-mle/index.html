@@ -93,14 +93,14 @@
         
 <style>
     :root {
-      --postColor: #B10053;
+      --postColor: #5D8B0D;
     }
   </style>
 
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Lecture 5 &#43; 6 &#43; 7: Discrete Random Variables</h1>
+            <h1 class="singleHeadTitle">Lecture 21: MLE</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
@@ -113,118 +113,143 @@
                     <a href="https://tomodachii.com/categories/probability/" class="singleCategory">probability</a>
                 
             </div>
-            <time>Mar 31, 2025</time>
+            <time>Apr 7, 2025</time>
         </div>
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><h1 id="cumulative-distribution-function">Cumulative Distribution Function</h1>
-<ul>
-<li>Another method to describe the distribution of random variables.</li>
-<li>Advantage: Can be defined for any kind of random variable (discrete, continuous, and mixed).</li>
+        <div class="singleContent"><h1 id="parameters-estimation">Parameters Estimation</h1>
+<h2 id="what-are-parameters">What are Parameters?</h2>
+<div class="columns">
+  <div class="column">
+      <ul>
+<li>$Y = mX + b$</li>
+<li>$\mathcal{N}(\mu, \sigma^2)$</li>
 </ul>
-<div class="define">
-    
-    
-        <span class="define-icon">
-            𐰋𐰍𐰃𐰤
-            
-        </span>
-    
 
-    
+  </div>
+  <div class="column">
+      <p>$\theta = (m, b)$</p>
+<p>$\theta = (\mu, \sigma^2)$</p>
 
-    <div class="define-content">The CDF of discrete random variable $X$:
-$$
-F_X(x) = P(X \leq x) = \sum_{k \leq x}p_X(k), \quad \text{for all } x \in \mathbb{R}
-$$</div>
+  </div>
+</div>
+<p>Parametric models: Given model, <strong>params</strong> yield actual distribution</p>
+<ul>
+<li>$\theta$ can be a vector of params.</li>
+</ul>
+<div class="image-text-block left">
+    <img src="/images/courses/CS109/lecture-21-mle/ml-model.png" alt="" style="max-width: 40%;">
+    <div class="image-text-content">
+      
+    </div>
 </div>
 
-<div class="image-text-block left">
-    <img src="/images/courses/6.041SC/lecture-3-4-5-discrete-random-variables/CDF-explaination.png" alt="CDF explaination" style="max-width: 40%;">
+<h2 id="maximum-likelihood-with-poisson">Maximum Likelihood with Poisson</h2>
+<p><div class="image-text-block ">
+    <img src="/images/courses/CS109/lecture-21-mle/mle-poisson.png" alt="" style="max-width: 50%;">
     <div class="image-text-content">
-      <ul>
-<li>
-<p>CDF $F_X$ &ldquo;accumulate&rdquo; probability &ldquo;up to&rdquo; x.</p>
-</li>
-<li>
-<p>Think of CDF as running a sliding window across PMF and adding up the probabilities associated with each outcome as that window passes by.</p>
-</li>
-</ul>
+      <p>IID (Independent and Identically Distributed) rv $X_1, \dots, X_n$</p>
+<p>$X_i \sim \text{Poi}(\lambda)$</p>
+<ol>
+<li>PMF: $$f(x_i \mid \lambda) = \frac{e^{-\lambda}\lambda^{x_i}}{x_i!}$$</li>
+<li>Likelihood of all the data (given a particular $\lambda$):
+$$
+\begin{align*}
+L(\lambda) &amp;= f(x_1 \dots x_n \mid \lambda)\\
+&amp;= \prod_{i = 1}^{n} f(x_i \mid \lambda) \quad \text{(IID)}\\
+&amp;= \prod_{i = 1}^n \frac{e^{-\lambda}\lambda^{x_i}}{x_i!}
+\end{align*}
+$$</li>
+</ol>
 
     </div>
 </div>
 
-<h2 id="properties-of-cdf">Properties of CDF</h2>
-<div class="image-text-block left">
-    <img src="/images/courses/6.041SC/lecture-3-4-5-discrete-random-variables/CDF-ex.png" alt="Example" style="max-width: 50%;">
-    <div class="image-text-content">
-      <ol>
-<li>
-<p>$F_X$ is monotonically nondecreasing:
+3. Log-likelihood:</p>
+<p>The log&rsquo;s gonna go live inside the house and break down the columns as it goes there.
 $$
-\text{if } x \leq y \text{, then } F_X(x) \leq F_X(y).
+LL(\lambda) = \log\prod_{i = 1}^n \frac{e^{-\lambda}\lambda^{x_i}}{x_i!} = \sum_{i = 1}^n \log \frac{e^{-\lambda}\lambda^{x_i}}{x_i!} = \boxed{ \sum_{i = 1}^n - \lambda + x_i \, \log{\lambda} - \log{x_i!} }
 $$</p>
-</li>
-<li>
-<p>$F_X$ tends to 0 as $x \to -\infty$, and to 1 as $x \to \infty$.</p>
-</li>
-<li>
-<p>for all $k \in \mathbb{Z}$
+<p>We want to choose the $\lambda$ to make this expression as large as possible $\rightarrow argmax$ of this log-likelihood.</p>
+<ol start="4">
+<li>Differentiate w.r.t. $\lambda$, and set to 0:
 $$
-F_X(k) = \sum_{i = -\infty}^{k}p_X(i),
-$$</p>
-</li>
+\frac{\partial LL(\lambda)}{\partial \lambda} = \sum_{i=1}^{n} \left( -1 + \frac{x_i}{\lambda} \right) = -n + \frac{1}{\lambda} \sum_{i=1}^{n} x_i
+$$</li>
 </ol>
 <p>$$
-p_X(k) = P(X \leq k) - P(X \leq k - 1) = F_X(k) - F_X(k - 1),
+\Leftrightarrow 0 = -n + \frac{1}{\lambda} \sum_{i=1}^{n} x_i \Leftrightarrow \lambda = \frac{1}{n} \sum_{i=1}^{n} x_i
 $$</p>
-
-    </div>
+<div class="callout callout-info">
+    <span class="callout-icon">
+        ℹ️
+        
+        
+        
+    </span>
+    <div class="callout-content">MLE of Poisson is just the sample mean.</div>
 </div>
 
+
+<h2 id="maximum-likelihood-with-bernoulli">Maximum Likelihood with Bernoulli</h2>
+<p>$D = [0, 1, 0, 0, 1, \dots, 0]$</p>
+<p>IID (Independent and Identically Distributed) rv $X_1, \dots, X_n$</p>
+<p>$X_i \sim \text{Ber}(p)$</p>
+<p>What is $\theta_{MLE} = p_{MLE}$?</p>
+<ol>
+<li>Determine formula for $LL(\theta)$
+$$
+LL(\theta) = \sum_{i = 1}^{n} \log f(X_i \mid p)
+$$
+with
+$$
+f(X_i \mid p) =
+\begin{cases}
+p, &amp; \text{if } X_i = 1 \\
+1 - p, &amp; \text{if } X_i = 0
+\end{cases}
+$$
+Wait, this is very cute and helpful but it&rsquo;s not at all differentiable? Let&rsquo;s see Chris Piech&rsquo;s slickiest trick!</li>
+</ol>
 <details>
-    <summary>proof for (2)</summary>
+    <summary>Differentiable PMF for Bernoulli</summary>
     
-        <p>By the axiom of probability,
-$$
-\lim_{x\to+\infty}F_X(x) = 1.
-$$
-Using complement rule,
-$$
-P(X &gt; x) = 1 - P(X \leq x) =  1 - F_X(x).
-$$
-Recall
-$$
-P(X \in \mathbb{R}) = 1.
-$$
-Thus,
-$$
-\lim_{x \to -\infty} 1 - F_X(x) = P(X &gt; -\infty) = 1 \text{ (Because X is always in some real-valued range)}
-$$</p>
-<p>$$
-\Leftrightarrow \lim_{x \to -\infty} F_X(x) = 0.
-$$</p>
- 
+         
     
 </details>
 
-<h2 id="quantiles">Quantiles</h2>
-<p>CDF $F$ is strictly monotonically increasing + $F$ is <strong>bijective</strong></p>
+<h1 id="optimization-argmax">Optimization (argmax)</h1>
+<h2 id="gradient-descent">Gradient Descent</h2>
+<div class="image-text-block ">
+    <img src="/images/courses/CS109/lecture-21-mle/gradient.png" alt="" style="max-width: 40%;">
+    <div class="image-text-content">
+      <p>Calculate deriviative of the likelihood given every $\theta$ for the blue curve would be too computationaly expensive.</p>
 <ul>
-<li><strong>Injective</strong> (one-to-one): $f(x_1) = f(x_2) \Rightarrow x_1 = x_2$.</li>
-<li><strong>Surjective</strong> (onto): The range of $f$ covers the entire domain.</li>
+<li>Start with any $\theta$.
+<ul>
+<li>look at the likelihood of your $\theta$ $\rightarrow$ look at the deriviative at that point to see which way to go.</li>
+<li>can&rsquo;t see the whole curve.</li>
 </ul>
-<p>$\Rightarrow$ it has an inverse, called <strong>inverse cdf</strong>, or <strong>percent point function (ppf)</strong>, or <strong>quantile function</strong>.</p>
-<h2 id="useful-formulas">Useful formulas</h2>
-<p>For all $a \leq b$,
+</li>
+</ul>
+<p>We don&rsquo;t care abt the likelihood, we care abt the $\theta$ that gives the likelihood.</p>
+
+    </div>
+</div>
+
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content">Repeat many times
 $$
-P(a &lt; X \leq b) = P(X \leq b) - P(X \leq a) = F_X(b) - F_X(a).
-$$</p>
-<p>CDF gives us $P(X \leq x)$. To find $P(X &lt; x)$, for a discrete random variable
-$$
-P(X &lt; x) = P(X \leq x) - P(X = x) = F_X(x) - P_X(x).
-$$</p>
+\theta_j^{\text{new}} = \theta_j^{\text{old}} + \eta \cdot \frac{\partial LL(\theta_j^{\text{old}})}{\partial \theta_j^{\text{old}}}
+$$</div>
+</div>
+
 </div>
         
     </div>

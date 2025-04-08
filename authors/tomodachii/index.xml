@@ -6,7 +6,7 @@
     <description>Recent content in Tomodachii on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Apr 2025 20:58:08 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 07 Apr 2025 16:29:46 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/authors/tomodachii/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chapter 1 &#43; 2: Introduction and Survey of existing methods</title>
@@ -98,6 +98,13 @@
       <pubDate>Thu, 03 Apr 2025 14:02:26 +0700</pubDate>
       <guid>https://tomodachii.com/books/probabilistic-graphical-models/chapter-9-exact-inference-variable-elimination/</guid>
       <description></description>
+    </item>
+    <item>
+      <title>Lecture 21: MLE</title>
+      <link>https://tomodachii.com/courses/cs109/lecture-21-mle/</link>
+      <pubDate>Mon, 07 Apr 2025 16:29:46 +0700</pubDate>
+      <guid>https://tomodachii.com/courses/cs109/lecture-21-mle/</guid>
+      <description>&lt;h1 id=&#34;parameters-estimation&#34;&gt;Parameters Estimation&lt;/h1&gt;&#xA;&lt;h2 id=&#34;what-are-parameters&#34;&gt;What are Parameters?&lt;/h2&gt;&#xA;&lt;div class=&#34;columns&#34;&gt;&#xA;  &lt;div class=&#34;column&#34;&gt;&#xA;      &lt;ul&gt;&#xA;&lt;li&gt;$Y = mX + b$&lt;/li&gt;&#xA;&lt;li&gt;$\mathcal{N}(\mu, \sigma^2)$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;column&#34;&gt;&#xA;      &lt;p&gt;$\theta = (m, b)$&lt;/p&gt;&#xA;&lt;p&gt;$\theta = (\mu, \sigma^2)$&lt;/p&gt;&#xA;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;Parametric models: Given model, &lt;strong&gt;params&lt;/strong&gt; yield actual distribution&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$\theta$ can be a vector of params.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;image-text-block left&#34;&gt;&#xA;    &lt;img src=&#34;https://tomodachii.com/images/courses/CS109/lecture-21-mle/ml-model.png&#34; alt=&#34;&#34; style=&#34;max-width: 40%;&#34;&gt;&#xA;    &lt;div class=&#34;image-text-content&#34;&gt;&#xA;      &#xA;    &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;h2 id=&#34;maximum-likelihood-with-poisson&#34;&gt;Maximum Likelihood with Poisson&lt;/h2&gt;&#xA;&lt;p&gt;&lt;div class=&#34;image-text-block &#34;&gt;&#xA;    &lt;img src=&#34;https://tomodachii.com/images/courses/CS109/lecture-21-mle/mle-poisson.png&#34; alt=&#34;&#34; style=&#34;max-width: 50%;&#34;&gt;&#xA;    &lt;div class=&#34;image-text-content&#34;&gt;&#xA;      &lt;p&gt;IID (Independent and Identically Distributed) rv $X_1, \dots, X_n$&lt;/p&gt;&#xA;&lt;p&gt;$X_i \sim \text{Poi}(\lambda)$&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;PMF: $$f(x_i \mid \lambda) = \frac{e^{-\lambda}\lambda^{x_i}}{x_i!}$$&lt;/li&gt;&#xA;&lt;li&gt;Likelihood of all the data (given a particular $\lambda$):&#xA;$$&#xA;\begin{align*}&#xA;L(\lambda) &amp;amp;= f(x_1 \dots x_n \mid \lambda)\\&#xA;&amp;amp;= \prod_{i = 1}^{n} f(x_i \mid \lambda) \quad \text{(IID)}\\&#xA;&amp;amp;= \prod_{i = 1}^n \frac{e^{-\lambda}\lambda^{x_i}}{x_i!}&#xA;\end{align*}&#xA;$$&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&#xA;    &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;3. Log-likelihood:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Master Note</title>
