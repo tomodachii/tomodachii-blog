@@ -6,8 +6,15 @@
     <description>Recent content in Probability on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Mar 2025 09:22:14 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 06 Apr 2025 20:58:08 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/categories/probability/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chapter 2: Probability - Univariate Models</title>
+      <link>https://tomodachii.com/books/probabilistic-machine-learning-an-introduction/chapter-2-probability-univariate-models/</link>
+      <pubDate>Sun, 06 Apr 2025 20:58:08 +0700</pubDate>
+      <guid>https://tomodachii.com/books/probabilistic-machine-learning-an-introduction/chapter-2-probability-univariate-models/</guid>
+      <description>&lt;h1 id=&#34;what-is-probability&#34;&gt;What is probability?&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Bayesian&lt;/strong&gt; interpretation of probability: used to quantify our uncertainty or ignorance about something $\rightarrow$ related to INFORMATION rather than repeated trials.&lt;/p&gt;&#xA;&lt;h2 id=&#34;types-of-uncertainty&#34;&gt;Types of uncertainty&lt;/h2&gt;&#xA;&lt;div class=&#34;columns&#34;&gt;&#xA;  &lt;div class=&#34;column&#34;&gt;&#xA;      &lt;p&gt;&lt;strong&gt;epistemic (model) uncertainty&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;epistemology is the philosophical term used to describe the study of knowledge.&lt;/li&gt;&#xA;&lt;li&gt;due to our ignorance of the underlying hidden causes or mechanism generating our data.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;column&#34;&gt;&#xA;      &lt;p&gt;&lt;strong&gt;aleatoric (data) uncertainty&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;aleatoric means &amp;ldquo;dice&amp;rdquo;.&lt;/li&gt;&#xA;&lt;li&gt;arises from intrinsic variability, which cannot be reduced even if we collect more data.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;  &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;h2 id=&#34;probability-as-an-extension-of-logic&#34;&gt;Probability as an extension of logic&lt;/h2&gt;&#xA;&lt;h3 id=&#34;probability-of-a-conjunction-of-two-events&#34;&gt;Probability of a conjunction of two events&lt;/h3&gt;&#xA;&lt;h3 id=&#34;joint-probability&#34;&gt;Joint probability&lt;/h3&gt;&#xA;&lt;h1 id=&#34;random-variables&#34;&gt;Random Variables&lt;/h1&gt;&#xA;&lt;h3 id=&#34;quantiles&#34;&gt;Quantiles&lt;/h3&gt;&#xA;&lt;details&gt;&#xA;    &lt;summary&gt;Recall&lt;/summary&gt;&#xA;    &#xA;        &lt;p&gt;A function $f$ has an inverse $f^{-1}$ if:&#xA;$$&#xA;f(f^{-1}(y)) = y \text \quad { and } \quad f^{-1}(f(x)) = x&#xA;$$&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Lecture 5 &#43; 6 &#43; 7: Discrete Random Variables</title>
       <link>https://tomodachii.com/courses/6.041sc/lecture-5-6-7-discrete-random-variables/</link>

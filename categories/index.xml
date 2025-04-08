@@ -6,8 +6,22 @@
     <description>Recent content in Categories on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Apr 2025 15:18:40 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 06 Apr 2025 20:58:08 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Machine-Learning</title>
+      <link>https://tomodachii.com/categories/machine-learning/</link>
+      <pubDate>Sun, 06 Apr 2025 20:58:08 +0700</pubDate>
+      <guid>https://tomodachii.com/categories/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Probability</title>
+      <link>https://tomodachii.com/categories/probability/</link>
+      <pubDate>Sun, 06 Apr 2025 20:58:08 +0700</pubDate>
+      <guid>https://tomodachii.com/categories/probability/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Kde</title>
       <link>https://tomodachii.com/categories/kde/</link>
@@ -30,13 +44,6 @@
       <description></description>
     </item>
     <item>
-      <title>Probability</title>
-      <link>https://tomodachii.com/categories/probability/</link>
-      <pubDate>Mon, 31 Mar 2025 09:22:14 +0700</pubDate>
-      <guid>https://tomodachii.com/categories/probability/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>General</title>
       <link>https://tomodachii.com/categories/general/</link>
       <pubDate>Wed, 19 Mar 2025 20:33:47 +0700</pubDate>
@@ -48,13 +55,6 @@
       <link>https://tomodachii.com/categories/gaussian-process/</link>
       <pubDate>Mon, 17 Mar 2025 23:02:53 +0700</pubDate>
       <guid>https://tomodachii.com/categories/gaussian-process/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Machine-Learning</title>
-      <link>https://tomodachii.com/categories/machine-learning/</link>
-      <pubDate>Mon, 17 Mar 2025 23:02:53 +0700</pubDate>
-      <guid>https://tomodachii.com/categories/machine-learning/</guid>
       <description></description>
     </item>
     <item>
