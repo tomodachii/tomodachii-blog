@@ -1,7 +1,7 @@
 +++
 title = 'Lecture 21: MLE'
 date = 2025-04-07T16:29:46+07:00
-draft = true
+draft = false
 description = ""
 image = ""
 imageBig = ""
@@ -94,3 +94,22 @@ Wait, this is very cute and helpful but it's not at all differentiable? Let's se
 
 {{< toggle title="Differentiable PMF for Bernoulli" >}}
 {{< /toggle >}}
+
+# Optimization (argmax)
+## Gradient Descent
+{{< image-text image="/images/courses/CS109/lecture-21-mle/gradient.png" width="40%" >}}
+Calculate deriviative of the likelihood given every $\theta$ for the blue curve would be too computationaly expensive.
+
+* Start with any $\theta$.
+    + look at the likelihood of your $\theta$ $\rightarrow$ look at the deriviative at that point to see which way to go.
+    + can't see the whole curve.
+
+We don't care abt the likelihood, we care abt the $\theta$ that gives the likelihood.
+{{< /image-text >}}
+
+{{< define >}}
+Repeat many times
+$$
+\theta_j^{\text{new}} = \theta_j^{\text{old}} + \eta \cdot \frac{\partial LL(\theta_j^{\text{old}})}{\partial \theta_j^{\text{old}}}
+$$
+{{< /define >}}

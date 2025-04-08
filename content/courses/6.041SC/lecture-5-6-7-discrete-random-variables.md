@@ -76,6 +76,13 @@ $$
 
 {{< /toggle >}}
 
+## Quantiles
+CDF $F$ is strictly monotonically increasing + $F$ is **bijective**
+* **Injective** (one-to-one): $f(x_1) = f(x_2) \Rightarrow x_1 = x_2$.
+* **Surjective** (onto): The range of $f$ covers the entire domain.
+
+$\Rightarrow$ it has an inverse, called **inverse cdf**, or **percent point function (ppf)**, or **quantile function**.
+
 ## Useful formulas
 For all $a \leq b$,
 $$
