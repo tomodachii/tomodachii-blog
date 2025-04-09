@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Michael R. Garey on My New Hugo Site</title>
+    <link>https://tomodachii.com/authors/michael-r.-garey/</link>
+    <description>Recent content in Michael R. Garey on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 02 Apr 2025 08:20:25 +0700</lastBuildDate>
+    <atom:link href="https://tomodachii.com/authors/michael-r.-garey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chapter 1: Computers, Complexity and Intractability</title>
+      <link>https://tomodachii.com/books/computers-and-intractability/chapter-1-computers-complexity-and-intractability/</link>
+      <pubDate>Wed, 02 Apr 2025 08:20:25 +0700</pubDate>
+      <guid>https://tomodachii.com/books/computers-and-intractability/chapter-1-computers-complexity-and-intractability/</guid>
+      <description>&lt;h1 id=&#34;problems&#34;&gt;Problems&lt;/h1&gt;&#xA;&lt;div class=&#34;define&#34;&gt;&#xA;    &#xA;    &#xA;&#xA;    &#xA;&#xA;    &lt;div class=&#34;define-content&#34;&gt;&lt;p&gt;Contain&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;a general description of all its params, and&lt;/li&gt;&#xA;&lt;li&gt;a statement of what propaearties the solution, is required to satisfy.&lt;/li&gt;&#xA;&lt;/ol&gt;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;An &lt;span class=&#34;marked&#34;&gt;instance&lt;/span&gt;&#xA; of the problem: specifying particular params.&lt;/p&gt;&#xA;&lt;br/&gt;&#xA;&lt;p&gt;&lt;strong&gt;Example:&lt;/strong&gt; Traveling Saleman Problem&lt;/p&gt;&#xA;&lt;p&gt;Params:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$C = \{c_1, \dots, c_n\} \rightarrow$ cities.&lt;/li&gt;&#xA;&lt;li&gt;$d(c_i, c_j)$.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Solution:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;an ordering $&amp;lt;c_{\pi(1)}, c_{\pi(2)}, \dots, c_{\pi(m)}&amp;gt;$ of cities that minimizes&#xA;$$&#xA;[\sum_{i = 1}^{m - 1} d(c_{\pi(i)}, c_{\pi(i + 1)})] + d(c_{\pi(m)}, c_{\pi(1)})&#xA;$$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;callout callout-info&#34;&gt;&#xA;    &lt;span class=&#34;callout-icon&#34;&gt;&#xA;        ℹ️&#xA;        &#xA;        &#xA;        &#xA;    &lt;/span&gt;&#xA;    &lt;div class=&#34;callout-content&#34;&gt;a tour starts at $c_{\pi(1)}$, visits each city in sequence, then back to $c_{\pi(1)}$ from $c_{\pi(m)}$&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;p&gt;One instance:&#xA;&lt;div class=&#34;image-text-block left&#34;&gt;&#xA;    &lt;img src=&#34;https://tomodachii.com/images/books/computers-and-intractability/chapter-1/problem-instance-ex.png&#34; alt=&#34;&#34; style=&#34;max-width: 20%;&#34;&gt;&#xA;    &lt;div class=&#34;image-text-content&#34;&gt;&#xA;      &lt;ul&gt;&#xA;&lt;li&gt;$C = {c_1, c_2, c_3, c_4}$.&lt;/li&gt;&#xA;&lt;li&gt;$d(c_1, c_2) = 10$, $\dots$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;$\rightarrow$ a solution $&amp;lt;c_1, c_2, c_4, c_3&amp;gt;$.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

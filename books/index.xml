@@ -6,7 +6,7 @@
     <description>Recent content in Books on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Apr 2025 20:58:08 +0700</lastBuildDate>
+    <lastBuildDate>Wed, 09 Apr 2025 14:38:55 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/books/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chapter 1 &#43; 2: Introduction and Survey of existing methods</title>
@@ -56,6 +56,13 @@
       <pubDate>Wed, 19 Mar 2025 16:14:14 +0700</pubDate>
       <guid>https://tomodachii.com/books/probabilistic-graphical-models/chapter-3-the-bayesian-network-representation/</guid>
       <description>&lt;div class=&#34;callout callout-info&#34;&gt;&#xA;    &lt;span class=&#34;callout-icon&#34;&gt;&#xA;        ℹ️&#xA;        &#xA;        &#xA;        &#xA;    &lt;/span&gt;&#xA;    &lt;div class=&#34;callout-content&#34;&gt;&lt;strong&gt;Goal:&lt;/strong&gt; represent a joint Distribution $P$ over some set of random variables $\mathcal{X} = \{X_1, \dots, X_n\}$.&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;details&gt;&#xA;    &lt;summary&gt;But why Joint Distribution ?&lt;/summary&gt;&#xA;    &#xA;        &lt;p&gt;Because If we have the &lt;strong&gt;joint distribution&lt;/strong&gt;, we can calculate any probability using the &lt;strong&gt;condition&lt;/strong&gt; and &lt;strong&gt;marginal distribution&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=NWA-yYCJsMw&amp;amp;list=PL7xML77VWUYooSM6Rao8GZ5bHt4tmCp2e&amp;amp;ab_channel=easylearning&#34;&gt;Motivation Example&lt;/a&gt;&lt;/p&gt;&#xA; &#xA;    &#xA;&lt;/details&gt;&#xA;&#xA;&lt;h1 id=&#34;exploiting-independence-properties&#34;&gt;Exploiting Independence Properties&lt;/h1&gt;&#xA;&lt;h2 id=&#34;parameterizing-the-joint-distribution&#34;&gt;Parameterizing the Joint Distribution&lt;/h2&gt;&#xA;&lt;p&gt;Consider a simple setting:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$X_i$ represents binary event (coin toss, yes/no COVID cause, etc) $\rightarrow$ Parameterizing the joint distribution $P(X_1, \dots, X_n)$ requires &lt;span class=&#34;marked&#34;&gt;$2^n - 1$ params.&lt;/span&gt;&#xA; (&lt;a href=&#34;https://tomodachii.com/books/probabilistic-graphical-models/chapter-1-and-2-introduction-and-foundations/#number-of-parameteres-of-a-distribution&#34;&gt;Recall&lt;/a&gt;)&lt;/li&gt;&#xA;&lt;li&gt;Assume events are &lt;strong&gt;marginally independent&lt;/strong&gt;: $(X_i \perp\!\!\!\perp X_j)$ for every $i, j$. $\rightarrow$ $P(X_1, \dots, X_n) = P(X_1) \dots P(X_n)$.&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Can use &lt;span class=&#34;marked&#34;&gt;$n$ params&lt;/span&gt;&#xA; $\theta_1, \dots, \theta_n$ to parameterize $P(X_1) \dots P(X_n)$. $$ P(X_1, \dots, X_n) = \prod_i \theta_{xi} $$&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$\theta_{xi} = \theta_i$ if $x_i = x_i^1$,&lt;/li&gt;&#xA;&lt;li&gt;$\theta_{xi} = 1 - \theta_i$ if $x_i = x_i^0$,&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;From $2^n - 1$ to $n$ is a dramatic reduction in the number of parameters, and the key point is:&#xA;&lt;div class=&#34;callout callout-danger&#34;&gt;&#xA;    &lt;span class=&#34;callout-icon&#34;&gt;&#xA;        &#xA;        &#xA;        &#xA;        ❗&#xA;    &lt;/span&gt;&#xA;    &lt;div class=&#34;callout-content&#34;&gt;Independencies can reduce the number of parameters.&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Chapter 4 Undirected Graphical Models</title>
+      <link>https://tomodachii.com/books/probabilistic-graphical-models/chapter-4-undirected-graphical-models/</link>
+      <pubDate>Wed, 09 Apr 2025 14:38:55 +0700</pubDate>
+      <guid>https://tomodachii.com/books/probabilistic-graphical-models/chapter-4-undirected-graphical-models/</guid>
+      <description></description>
     </item>
     <item>
       <title>Chapter 5: Local Probabilistic Models</title>
