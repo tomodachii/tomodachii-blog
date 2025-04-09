@@ -14,27 +14,53 @@
 
   <!-- Sort sections alphabetically -->
   {{ range sort $sections }}
-    <div class="section">
-      <button class="toggleButton" onclick="toggleSection('{{ . | urlize }}')">
-        {{ . }}
-      </button>
-      <div id="{{ . | urlize }}" class="sectionContent">
-        <!-- Sort posts inside each section by weight -->
-        {{ range sort (where $.Site.RegularPages "Params.section" .) ".Params.weight" "asc" }}
-          <div class="listItem">
-            <div class="listItemTexts">
-              <div class="listItemTitle">
-                <a href="{{ .Permalink }}">
-                  - {{ .Title }} 
-                  (<time datetime="{{ dateFormat .Site.Params.dateFormat .Date }}">{{ dateFormat .Site.Params.dateFormat .Date }}</time>)
-                </a>
-              </div>
+  {{ $section := . }}
+  {{ $posts := where $.Site.RegularPages "Params.section" $section }}
+  
+  {{/* Collect unique authors for this section */}}
+  {{ $allAuthors := slice }}
+  {{ range $posts }}
+    {{ with .Params.authors }}
+      {{ range . }}
+        {{ if not (in $allAuthors .) }}
+          {{ $allAuthors = $allAuthors | append . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  <div class="section">
+    <button class="toggleButton" onclick="toggleSection('{{ $section | urlize }}')">
+      {{ $section }}
+      {{ if gt (len $allAuthors) 0 }} by
+        {{ range $i, $author := $allAuthors }}
+          {{ $link := index site.Params.authorLinks $author }}
+          {{ if $link }}
+            <a href="{{ $link }}" target="_blank" rel="noopener" onclick="event.stopPropagation()">{{ $author }}</a>{{ if lt (add $i 1) (len $allAuthors) }}, {{ end }}
+          {{ else }}
+            {{ $author }}{{ if lt (add $i 1) (len $allAuthors) }}, {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </button>
+  
+    <div id="{{ $section | urlize }}" class="sectionContent">
+      {{ range sort $posts ".Params.weight" "asc" }}
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="{{ .Permalink }}">
+                - {{ .Title }} 
+                (<time datetime="{{ dateFormat .Site.Params.dateFormat .Date }}">{{ dateFormat .Site.Params.dateFormat .Date }}</time>)
+              </a>
             </div>
           </div>
-        {{ end }}
-      </div>
+        </div>
+      {{ end }}
     </div>
-  {{ end }}
+  </div>
+  
+{{ end }}
 </div>
 
 <script>

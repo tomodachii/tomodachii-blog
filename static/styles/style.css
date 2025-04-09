@@ -184,7 +184,6 @@ details summary {
   font-size: 14px;
 }
 
-/* Style the toggle button */
 .toggleButton {
   background-color: var(--bg);
   color: var(--text);
@@ -195,22 +194,29 @@ details summary {
   text-align: left;
   font-size: 18px;
   margin: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  display: inline-block;
   font-weight: bold;
 }
 
-/* Add an arrow icon */
 .toggleButton::after {
-  content: "▶"; /* Right arrow */
+  content: "▶";
+  float: right;
   transition: transform 0.3s ease;
-  font-size: 16px;
+  font-size: 14px;
 }
 
-/* Rotate arrow when active */
 .toggleButton.active::after {
   transform: rotate(90deg);
+}
+
+.section .toggleButton a {
+  text-decoration: underline;
+  color: var(--text);
+}
+
+.section .toggleButton a:hover {
+  /* text-decoration-style: solid; */
+  color: var(--accent); /* Optional: if you want hover color */
 }
 
 /* Style the content section */
