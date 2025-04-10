@@ -100,7 +100,7 @@
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Chapter 9 Exact Inference Variable Elimination</h1>
+            <h1 class="singleHeadTitle">Chapter 9: Exact Inference Variable Elimination</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
@@ -120,7 +120,128 @@
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"></div>
+        <div class="singleContent"><p>PGMs represent joint probability distributions over a set of variables $\mathcal{X}$. Let&rsquo;s use this representation to answer actual queries.
+<div class="callout callout-info">
+    <span class="callout-icon">
+        ℹ️
+        
+        
+        
+    </span>
+    <div class="callout-content">Graphical models are descriptions of decomposable multivariate <span class="marked">functions.</span></div>
+</div>
+
+</p>
+<h1 id="queries">Queries</h1>
+<p>A query over a graphical model asks to compute simple statistics over the function such as its minimum or average value.</p>
+<h2 id="conditional-probability-queries">Conditional Probability Queries</h2>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content"><p>Given: Variables $\mathcal{X}$, Evidence $E = e$, Query $Y$.</p>
+<p>Task: Compute $P(Y \mid E = e)$.</p>
+</div>
+</div>
+
+<p>$$
+P(Y \mid E = e) = \frac{P(Y, e)}{P(e)}.
+$$</p>
+<p>Let $W = \mathcal{X} - Y - E$ be variables that are neither query nor evidence (hidden variables).</p>
+<p>$$
+P(Y, E = e) = \sum_{W} P(Y, E = e, W),
+$$</p>
+<p>$$
+P(e) = \sum_{Y, W} P(Y, E = e, W) = \sum_Y P(Y, E = e).
+$$</p>
+<details>
+    <summary>The sum can grow exponentially in the number of hidden variable.</summary>
+    
+        <p><strong>Example</strong></p>
+<ul>
+<li>$\mathcal{X} = \{X_1, \dots, X_5\}$, $X_i$ is binary variable.</li>
+<li>Evidence $E = {X_1 = 1}$.</li>
+<li>Query $Y = X_2$.</li>
+<li>$W = \mathcal{X} - Y - E = \{X_3, X_4, X_5\}$.</li>
+</ul>
+<p>$$
+P(Y = y, E = e) = \sum_{x_3, x_4, x_5} P(Y = y, X_1 = 1, \underbrace{X_3 = x_3, X_4 = x_4, X_5 = x_5}_{W})
+$$</p>
+<p>$\rightarrow$ Compute the joint probability for all 8 possible assignments of $x_3, x_4, x_5$.</p>
+<p>In case of 20 variables? $2^{20}$.</p>
+ 
+    
+</details>
+
+<details>
+    <summary>Examples</summary>
+    
+        
+Conditional probability inferences are often called <b>Sum-Product</b>: Sum over a product of factors.
+
+<br/>
+
+<b>Student Example</b>
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/student-ex.png" alt="" style="max-width: 30%;">
+    <div class="image-text-content">
+      <p>$$
+P(J) = \sum_{C,D,I,G,S,L,H} \phi_C(C) \phi_D(C,D) \phi_I(I) \phi_G(G,I,D) \phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J)
+$$</p>
+<br/>
+<p>Observe $I = i$ and $H = h$
+$$
+P(J \mid I = i, H = h) = \sum_{C,D,G,S,L} \phi_C(C) \phi_D(C,D) \phi_I(i) \phi_G(G,i,D) \phi_S(S,i) \phi_L(L,G) \phi_J(J,L,S) \phi_H(h,G,J)
+$$</p>
+
+    </div>
+</div>
+
+
+<b>Study Group Example (Markov Network)</b>
+<div class="image-text-block right">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/study-group-ex.png" alt="" style="max-width: 30%;">
+    <div class="image-text-content">
+      <p>$$
+\tilde{P}(D) = \sum_{ABC} \phi_1(A, B) \times \phi_2(B, C) \times \phi_3(C, D) \times \phi_4(A, D)
+$$</p>
+<br/>
+<p>Observe $I = i$ and $H = h$
+$$
+P(J \mid I = i, H = h) = \sum_{C,D,G,S,L} \phi_C(C) \phi_D(C,D) \phi_I(i) \phi_G(G,i,D) \phi_S(S,i) \phi_L(L,G) \phi_J(J,L,S) \phi_H(h,G,J)
+$$</p>
+
+    </div>
+</div>
+
+
+ 
+    
+</details>
+
+<h2 id="maximum-a-posteriori-map">Maximum a Posteriori (MAP)</h2>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content"><p>Given: Variables $\mathcal{X}$, Evidence $E = e$, Query $Y = \mathcal{X} - E$.</p>
+<p>Task: Compute $\text{MAP}(Y \mid E = e) = \text{argmax}_yP(Y = y \mid E = e)$.</p>
+<ul>
+<li>There might be more than one possible solution.</li>
+</ul>
+</div>
+</div>
+
+<p>$$
+P(Y \mid E = e) = \frac{P(Y, e)}{\underbrace{P(e)}_{\text{constant w.r.t Y}}} \propto P(Y, E = e)
+$$</p>
+<h1 id="analysis-of-complexity">Analysis of Complexity</h1>
+<h1 id="variable-elimination">Variable Elimination</h1>
+</div>
         
     </div>
 </div>
