@@ -546,6 +546,42 @@ $$</div>
 <h3 id="semantics-of-intermediate-factors">Semantics of Intermediate Factors</h3>
 <p>Factors are not always correspond to marginal or conditional probabilities in the network.</p>
 <h2 id="complexity-of-ve">Complexity of VE</h2>
+<p>$$
+\psi_k(X_k) = \prod_{i = 1}^{m_k}\phi_i \quad \text{(factor product)}
+$$</p>
+<p>$$
+\tau_k(X_k - \{Z\}) = \sum_{Z} \psi_k(X_k) \quad \text{(marginalization)}
+$$</p>
+<p><strong>Factor Product</strong></p>
+<div class="image-text-block left">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/factor-product.png" alt="" style="max-width: 50%;">
+    <div class="image-text-content">
+      <p>$$
+\psi_k(X_k) = \prod_{i = 1}^{m_k}\phi_i
+$$</p>
+<p>Number of rows in the resulting table: $N_k = |\text{Val}(X_n)| \rightarrow$ $3 \times 2 \times 2 = 8$</p>
+<p>Each row: $m_k - 1$ products $\rightarrow$ 2 in this case.</p>
+<p>$$
+\text{Cost: }\boxed{(m_k - 1)N_k}\text{ multiplications}
+$$</p>
+
+    </div>
+</div>
+
+<p><strong>Factor Marginalization</strong></p>
+<div class="image-text-block right">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/factor-marginalization.png" alt="" style="max-width: 40%;">
+    <div class="image-text-content">
+      <p>$$
+\tau_k(X_k - \{Z\}) = \sum_{Z} \psi_k(X_k)
+$$
+Each row used exactly once</p>
+<p>$$\boxed{N_k = |\text{Val}(X_n)|} \text{ additions}$$</p>
+
+    </div>
+</div>
+
+<h3 id="complexity">Complexity</h3>
 <h2 id="elimination-as-graph-transformation">Elimination as Graph Transformation</h2>
 <p><img src="/images/books/probabilistic-graphical-models/chapter9/graph-elimination.png" alt=""></p>
 <h3 id="moralization">Moralization</h3>
