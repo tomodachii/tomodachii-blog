@@ -407,6 +407,48 @@ Factors are not always correspond to marginal or conditional probabilities in th
 
 ## Complexity of VE
 
+$$
+\psi_k(X_k) = \prod_{i = 1}^{m_k}\phi_i \quad \text{(factor product)}
+$$
+
+$$
+\tau_k(X_k - \\{Z\\}) = \sum_{Z} \psi_k(X_k) \quad \\text{(marginalization)}
+$$
+
+**Factor Product**
+
+{{< image-text image="/images/books/probabilistic-graphical-models/chapter9/factor-product.png" align="left" >}}
+$$
+\psi_k(X_k) = \prod_{i = 1}^{m_k}\phi_i
+$$
+
+Number of rows in the resulting table: $N_k = |\text{Val}(X_n)| \rightarrow$ $3 \times 2 \times 2 = 8$
+
+Each row: $m_k - 1$ products $\rightarrow$ 2 in this case.
+
+$$
+\text{Cost: }\boxed{(m_k - 1)N_k}\text{ multiplications}
+$$
+
+{{< /image-text >}}
+
+
+**Factor Marginalization**
+
+{{< image-text image="/images/books/probabilistic-graphical-models/chapter9/factor-marginalization.png" align="right" width="40%" >}}
+
+$$
+\tau_k(X_k - \\{Z\\}) = \sum_{Z} \psi_k(X_k)
+$$
+Each row used exactly once
+
+$$\boxed{N_k = |\text{Val}(X_n)|} \text{ additions}$$
+
+{{< /image-text >}}
+
+### Complexity
+
+
 ## Elimination as Graph Transformation
 
 ![](/images/books/probabilistic-graphical-models/chapter9/graph-elimination.png)
