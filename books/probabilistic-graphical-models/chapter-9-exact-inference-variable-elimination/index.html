@@ -100,7 +100,7 @@
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Chapter 9: Exact Inference Variable Elimination</h1>
+            <h1 class="singleHeadTitle">Chapter 9: Exact Inference - Variable Elimination</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
@@ -142,20 +142,46 @@
     
 
     <div class="define-content"><p>Given: Variables $\mathcal{X}$, Evidence $E = e$, Query $Y$.</p>
-<p>Task: Compute $P(Y \mid E = e)$.</p>
+<p>Task: Compute <span class="marked">$P(Y \mid E = e)$.</span></p>
 </div>
 </div>
 
 <p>$$
-P(Y \mid E = e) = \frac{P(Y, e)}{P(e)}.
+\boxed{P(Y \mid E = e) = \frac{P(Y, e)}{P(e)}}
 $$</p>
 <p>Let $W = \mathcal{X} - Y - E$ be variables that are neither query nor evidence (hidden variables).</p>
 <p>$$
-P(Y, E = e) = \sum_{W} P(Y, E = e, W),
+\boxed{P(Y, E = e) = \sum_{W} P(Y, E = e, W)}
 $$</p>
 <p>$$
-P(e) = \sum_{Y, W} P(Y, E = e, W) = \sum_Y P(Y, E = e).
+\boxed{P(e) = \sum_{Y, W} P(Y, E = e, W) = \sum_Y P(Y, E = e)}
 $$</p>
+<h3 id="reduce-factors">Reduce factors</h3>
+<div class="image-text-block right">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/study-group-ex.png" alt="" style="max-width: 30%;">
+    <div class="image-text-content">
+      <strong>Sum-product</strong>
+$$
+\begin{align*}
+P(Y, E = e) &amp;= \sum_{W} P(Y, E = e, W) \\
+&amp;= \sum_{W} \frac{1}{Z} \prod_k \phi_k(D_k, E = e) \\
+&amp;= \boxed{\sum_{W} \frac{1}{Z} \prod_k \phi^{\prime}_k(D^{\prime}_k)}
+\end{align*}
+$$
+    </div>
+</div>
+
+<details>
+    <summary>Reduce the factors by evidence $E = e$.</summary>
+    
+        <ul>
+<li><strong>computational optimization</strong>: preprocess the factor to remove irrelevant entries instead of keeping the full factor and evaluating it every time with evidence fixed.</li>
+<li>Reducing factors is just plug-in + table simplification.</li>
+</ul>
+ 
+    
+</details>
+
 <details>
     <summary>The sum can grow exponentially in the number of hidden variable.</summary>
     
@@ -191,7 +217,7 @@ Conditional probability inferences are often called <b>Sum-Product</b>: Sum over
 P(J) = \sum_{C,D,I,G,S,L,H} \phi_C(C) \phi_D(C,D) \phi_I(I) \phi_G(G,I,D) \phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J)
 $$</p>
 <br/>
-<p>Observe $I = i$ and $H = h$
+<p>Observe evidences $I = i$ and $H = h$, plug in the original factors.
 $$
 P(J \mid I = i, H = h) = \sum_{C,D,G,S,L} \phi_C(C) \phi_D(C,D) \phi_I(i) \phi_G(G,i,D) \phi_S(S,i) \phi_L(L,G) \phi_J(J,L,S) \phi_H(h,G,J)
 $$</p>
@@ -208,9 +234,9 @@ $$</p>
 \tilde{P}(D) = \sum_{ABC} \phi_1(A, B) \times \phi_2(B, C) \times \phi_3(C, D) \times \phi_4(A, D)
 $$</p>
 <br/>
-<p>Observe $I = i$ and $H = h$
+<p>Observe $A = a^0$, <strong>reduce factors</strong> by removing rows that are inconsistent with the observed evidence.
 $$
-P(J \mid I = i, H = h) = \sum_{C,D,G,S,L} \phi_C(C) \phi_D(C,D) \phi_I(i) \phi_G(G,i,D) \phi_S(S,i) \phi_L(L,G) \phi_J(J,L,S) \phi_H(h,G,J)
+\tilde{P}(D, A = a^0) = \sum_{ABC} \phi^{\prime}_1(A = a^0, B) \times \phi_2(B, C) \times \phi_3(C, D) \times \phi^{\prime}_4(A = a^0, D)
 $$</p>
 
     </div>
@@ -229,18 +255,300 @@ $$</p>
     
 
     <div class="define-content"><p>Given: Variables $\mathcal{X}$, Evidence $E = e$, Query $Y = \mathcal{X} - E$.</p>
-<p>Task: Compute $\text{MAP}(Y \mid E = e) = \text{argmax}_yP(Y = y \mid E = e)$.</p>
+<p>Task: Compute <span class="marked">$\text{MAP}(Y \mid E = e) = \text{argmax}_yP(Y = y \mid E = e)$.</span></p>
 <ul>
 <li>There might be more than one possible solution.</li>
 </ul>
 </div>
 </div>
 
+<p><strong>Max-Product</strong></p>
 <p>$$
 P(Y \mid E = e) = \frac{P(Y, e)}{\underbrace{P(e)}_{\text{constant w.r.t Y}}} \propto P(Y, E = e)
 $$</p>
+<p>$$
+\begin{align*}
+P(Y, E = e) &amp;= \frac{1}{\underbrace{Z}_{\text{const}}} \prod_k \phi^{\prime}_k(D^{\prime}_k) \\
+&amp;\propto \prod_k \phi^{\prime}_k(D^{\prime}_k)
+\end{align*}
+$$</p>
+<p>$$
+\boxed{\text{argmax}_Y P(Y \mid E = e) = \text{argmax}_Y \prod_k \phi^{\prime}_k (D^{\prime}_k)}
+$$</p>
 <h1 id="analysis-of-complexity">Analysis of Complexity</h1>
 <h1 id="variable-elimination">Variable Elimination</h1>
+<p>Can use dynamic programming techniques to perform inference even for certain large and complex networks in a reasonable time.</p>
+<details>
+    <summary>Dynamic programming</summary>
+    
+        <ul>
+<li>apply when the solution to a problem requires that we solve many smaller subproblems that recur many times.
+<ul>
+<li>precomputing the solution to the subproblems,</li>
+<li>storing them,</li>
+<li>and using them to compute the values to larger problems.</li>
+</ul>
+</li>
+</ul>
+<p><em>Fibonacci</em></p>
+<p>$
+F_0 = 1 \\
+F_1 = 1 \\
+F_n = F_{n - 1} + F_{n - 2}.
+$</p>
+<br/>
+<p>Recursive implementation</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fib</span> n)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    (<span style="color:#66d9ef">if </span>(&lt; n <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>        n
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>        (+ (<span style="color:#a6e22e">fib</span> (- n <span style="color:#ae81ff">1</span>)) (<span style="color:#a6e22e">fib</span> (- n <span style="color:#ae81ff">2</span>)))))
+</span></span></code></pre></div><p>$\rightarrow \mathcal{O}(2^n)$</p>
+<br/>
+<p>Tail-Recursive implementation</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fib</span> n)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    (<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fib-iter</span> a b count)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>        (<span style="color:#66d9ef">if </span>(= count <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>            a
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>            (<span style="color:#a6e22e">fib-iter</span> b (+ a b) (- count <span style="color:#ae81ff">1</span>))))
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>    (<span style="color:#a6e22e">fib-iter</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1</span> n))
+</span></span></code></pre></div><p>$\rightarrow \mathcal{O}(n)$</p>
+ 
+    
+</details>
+
+<h2 id="basic-elimination">Basic Elimination</h2>
+<p><strong>Factor Product</strong></p>
+<div class="image-text-block left">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/factor-product.png" alt="" style="max-width: 50%;">
+    <div class="image-text-content">
+      <p>$X, Y, Z$: r.v</p>
+<p>$\phi_1(X, Y)$, $\phi_2(Y, Z)$: factors</p>
+<br/>
+<p>The product factor $\phi_1 \times \phi_2$ is a factor $\psi: \text{Val}(X, Y, Z) \to \mathbb{R}$ st:</p>
+<p>$$
+\boxed{\psi(X, Y, Z) = \phi_1(X, Y) \cdot \phi_2(Y, Z)}
+$$</p>
+
+    </div>
+</div>
+
+<p>Example: $\psi(A, B, C) = \phi_1(A, B) \cdot \phi_2(B, C)$.</p>
+<br/>
+<p><strong>Factor Marginalization</strong></p>
+<div class="image-text-block right">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/factor-marginalization.png" alt="" style="max-width: 40%;">
+    <div class="image-text-content">
+      <p>$$
+\boxed{\psi(X) = \sum_Y \phi(X, Y)}
+$$</p>
+<br/>
+<p>Example: Summing out $B$</p>
+<p>$$
+\psi(A, C) = \sum_B \phi(A, B, C)
+$$</p>
+
+    </div>
+</div>
+
+<p><strong>Properties of factor operations</strong></p>
+<p>Commutative
+$$
+\boxed{\phi_1 \cdot \phi_2 = \phi_2 \cdot \phi_1 \quad \text{and} \quad \sum_X \sum_Y \phi = \sum_Y \sum_X \phi}
+$$</p>
+<p>Associative
+$$
+\boxed{(\phi_1 \cdot \phi_2) \cdot \phi_3 = \phi_1 \cdot (\phi_2 \cdot \phi_3)}
+$$</p>
+<p>Exchange summation and product: If $X \notin \text{Scope}[\phi_1]$, then
+$$
+\boxed{\sum_X(\phi_1 \cdot \phi_2) = \phi_1 \cdot\sum_X\phi_2}
+$$</p>
+<h3 id="eliminate-var-z-from-phi">Eliminate-Var Z from $\Phi$</h3>
+<p>$\Phi = \{\phi_{X_i}\}^n_{i=1}$: Set of factors</p>
+<ul>
+<li>for each $\phi \in \Phi, \text{Scope}[\phi] \sub \mathcal{X}$.</li>
+</ul>
+<p>$Z = \mathcal{X} - Y - E$.</p>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content"><p><strong>General idea</strong></p>
+<ol>
+<li>Write query in the sum-product form:</li>
+</ol>
+<ul>
+<li>If given Evidence $E = e$, we can reduce factors.
+$$
+P(Y, e) = \phi^{*}(Y) = \sum_Z \prod_{\phi \in \Phi}\phi.
+$$</li>
+</ul>
+<p>$\rightarrow$ this suggests an &ldquo;elimination order&rdquo; of latent variables to be marginalized.</p>
+<br/>
+<ol start="2">
+<li>Iteratively</li>
+</ol>
+<ul>
+<li>Move all factors that does not involve $Z_k$ outside of $\sum_{Z_k}$
+$$
+\Phi^{\prime} = \{ \phi_i \in \Phi : \underbrace{Z_k \in \text{Scope}[\phi_i]}_{\text{all factors that involve Z}} \}.
+$$</li>
+</ul>
+<p>$$
+\psi = \prod_{\phi_i \in \Phi^{\prime}} \phi_i \quad ({\text{factor product}}).
+$$</p>
+<ul>
+<li>Perform sum out $Z$, getting a new term $\tau$</li>
+</ul>
+<p>$$
+\tau = \sum_{Z_k} \psi \quad ({\text{sum out $Z_k$ / marginalization}}).
+$$</p>
+<ul>
+<li>Insert the new term into the product
+<ul>
+<li>Those $\prod_{\phi_i \in \Phi^{\prime}} \phi_i$ have been used, we don&rsquo;t want to reuse them $\rightarrow$ take them out of the set of factors $\Phi$ and introduce the one created by sum-product.</li>
+</ul>
+</li>
+</ul>
+<p>$$
+\Phi := (\Phi - \Phi^{\prime}) \cup { \tau }.
+$$</p>
+<p>$$
+P(Y, e) = \sum_{Z_1} \dots \sum_{Z_{k - 1}} \sum_{Z_{k + 1}} \dots \prod_{\phi \in \Phi}\phi \cdot \tau.
+$$</p>
+</div>
+</div>
+
+<p>If $\phi$ are MN facors $\rightarrow$ normalize.</p>
+<details>
+    <summary>Example: Elimination in Chains</summary>
+    
+        
+
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/relimination-chain-1.png" alt="" style="max-width: 40%;">
+    <div class="image-text-content">
+      $$
+P(E) \propto \sum_D \sum_C \sum_B \sum_A \tilde{P}(A, B, C, D, E).
+$$
+    </div>
+</div>
+
+
+$$
+= \sum_D \sum_C \sum_B \sum_A \phi_1(A, B) \phi_2(B, C) \phi_3(C, D) \phi_4(D, E) \quad(\text{factorization})
+$$
+
+$$
+= \sum_D \sum_C \sum_B \phi_2(B, C) \phi_3(C, D) \phi_4(D, E) \sum_A \phi_1(A, B) \quad (\text{Sum out $A$})
+$$
+
+$$
+= \sum_D \sum_C \sum_B \phi_2(B, C) \phi_3(C, D) \phi_4(D, E) \tau_1(B)
+$$
+
+ 
+    
+</details>
+
+<details>
+    <summary>Example: Student BN</summary>
+    
+        <div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/student-ex.png" alt="" style="max-width: 30%;">
+    <div class="image-text-content">
+      $$
+\begin{align*}
+P(C, D, I, G, S, L, J, H)
+&amp;= P(C) P(D \mid C) P(I) P(G \mid I, D) P(S \mid I) \\
+&amp;\quad \cdot P(L \mid G) P(J \mid L, S) P(H \mid G, J) \\
+&amp;= \phi_C(C) \phi_D(D, C) \phi_I(I) \phi_G(G, I, D) \phi_S(S, I) \\
+&amp;\quad \cdot \phi_L(L, G) \phi_J(J, L, S) \phi_H(H, G, J).
+\end{align*}
+$$
+    </div>
+</div>
+<p><strong>Compute $P(J)$. Elimination ordering: $C, D, I, H, G, S, L$.</strong></p>
+<ol>
+<li>Eliminate: $C, D, I, H, G, S, L$.</li>
+</ol>
+<p>$$
+P(J) = \sum_{C,D,I,G,S,L,H} \phi_C(C) \phi_D(C,D) \phi_I(I) \phi_G(G,I,D) \phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J)
+$$</p>
+<p>$$
+P(J) = \sum_{D,I,G,S,L,H} \phi_I(I) \phi_G(G,I,D) \phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J) \underbrace{\sum_{C} \phi_C(C) \phi_D(C,D)}_{\tau_1 (D)}
+$$</p>
+<ol start="2">
+<li>Eliminate: $D, I, H, G, S, L$.</li>
+</ol>
+<p>$$
+P(J) = \sum_{D,I,G,S,L,H} \phi_I(I) \phi_G(G,I,D) \phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J) \tau_1 (D)
+$$</p>
+<p>$$
+P(J) = \sum_{I,G,S,L,H} \phi_I(I) \phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J) \underbrace{\sum_{D} \phi_G(G,I,D) \tau_1 (D)}_{\tau_2 (G, I)}
+$$</p>
+<ol start="3">
+<li>Eliminate: $I, H, G, S, L$.</li>
+</ol>
+<p>$$
+P(J) = \sum_{I,G,S,L,H} \phi_I(I) \phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J) \tau_2 (G, I)
+$$</p>
+<p>$$
+P(J) = \sum_{G,S,L,H} \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J) \underbrace{\sum_{I} \phi_I(I) \phi_S(S,I) \tau_2 (G, I)}_{\tau_3 (G, S)}
+$$</p>
+<p>$\dots$</p>
+<ol start="7">
+<li>Eliminate: $L$.</li>
+</ol>
+<p>$$
+P(J) = \sum_{L}\tau_6 (J, L)
+$$</p>
+<p>$$
+P(J) = \tau_7 (J)
+$$</p>
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/student-ex-run.png" alt="" style="max-width: 60%;">
+    <div class="image-text-content">
+      Different Elimination Ordering
+    </div>
+</div>
+<p><strong>Compute $P(J , I = i^1, H = h^0 )$. Elimination ordering: $C, D, G, S, L$.</strong></p>
+<p>Reduced factors, eliminate as before.</p>
+<p>$$
+\sum_{L, S, G,, D, C} \phi_J(J, L, S) \phi_L(L, G) \phi_S^{\prime}(S) \phi_G^{\prime}(G, D) \phi_H^{\prime}(G, J) \underbrace{\phi_I()}_{\phi_I(i^1): \text{ constant}} \phi_D(C, D) \phi_C(C)
+$$</p>
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/student-ex-run-evidence.png" alt="" style="max-width: 60%;">
+    <div class="image-text-content">
+      VE with Evidence
+    </div>
+</div>
+ 
+    
+</details>
+
+<div class="callout callout-warning">
+    <span class="callout-icon">
+        
+        ⚠️
+        
+        
+    </span>
+    <div class="callout-content">To summarize
+$$
+P(Y, e) = \frac{\prod}{}
+$$</div>
+</div>
+
+
+<h3 id="semantics-of-intermediate-factors">Semantics of Intermediate Factors</h3>
+<p>Factors are not always correspond to marginal or conditional probabilities in the network.</p>
+<h2 id="complexity-of-ve">Complexity of VE</h2>
+<h2 id="elimination-as-graph-transformation">Elimination as Graph Transformation</h2>
+<p><img src="/images/books/probabilistic-graphical-models/chapter9/graph-elimination.png" alt=""></p>
+<h3 id="moralization">Moralization</h3>
 </div>
         
     </div>
