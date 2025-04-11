@@ -447,7 +447,7 @@ $$\boxed{N_k = |\text{Val}(X_n)|} \text{ additions}$$
 {{< /image-text >}}
 
 ### Complexity
-
+abc
 
 ## Elimination as Graph Transformation
 
