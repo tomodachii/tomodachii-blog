@@ -6,7 +6,7 @@
     <description>Recent content in Nir Friedman on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Apr 2025 14:38:55 +0700</lastBuildDate>
+    <lastBuildDate>Tue, 15 Apr 2025 14:20:15 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/authors/nir-friedman/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chapter 1 &#43; 2: Introduction and Foundations</title>
@@ -42,6 +42,20 @@
       <pubDate>Thu, 03 Apr 2025 14:02:26 +0700</pubDate>
       <guid>https://tomodachii.com/books/probabilistic-graphical-models/chapter-9-exact-inference-variable-elimination/</guid>
       <description>&lt;p&gt;PGMs represent joint probability distributions over a set of variables $\mathcal{X}$. Let&amp;rsquo;s use this representation to answer actual queries.&#xA;&lt;div class=&#34;callout callout-info&#34;&gt;&#xA;    &lt;span class=&#34;callout-icon&#34;&gt;&#xA;        ℹ️&#xA;        &#xA;        &#xA;        &#xA;    &lt;/span&gt;&#xA;    &lt;div class=&#34;callout-content&#34;&gt;Graphical models are descriptions of decomposable multivariate &lt;span class=&#34;marked&#34;&gt;functions.&lt;/span&gt;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;/p&gt;&#xA;&lt;h1 id=&#34;queries&#34;&gt;Queries&lt;/h1&gt;&#xA;&lt;p&gt;A query over a graphical model asks to compute simple statistics over the function such as its minimum or average value.&lt;/p&gt;&#xA;&lt;h2 id=&#34;conditional-probability-queries&#34;&gt;Conditional Probability Queries&lt;/h2&gt;&#xA;&lt;div class=&#34;define&#34;&gt;&#xA;    &#xA;    &#xA;&#xA;    &#xA;&#xA;    &lt;div class=&#34;define-content&#34;&gt;&lt;p&gt;Given: Variables $\mathcal{X}$, Evidence $E = e$, Query $Y$.&lt;/p&gt;&#xA;&lt;p&gt;Task: Compute &lt;span class=&#34;marked&#34;&gt;$P(Y \mid E = e)$.&lt;/span&gt;&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;$$&#xA;\boxed{P(Y \mid E = e) = \frac{P(Y, e)}{P(e)}}&#xA;$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Chapter 16: Learning Graphical Models - Overview</title>
+      <link>https://tomodachii.com/books/probabilistic-graphical-models/chapter-16-learning-graphical-models-overview/</link>
+      <pubDate>Tue, 15 Apr 2025 14:18:01 +0700</pubDate>
+      <guid>https://tomodachii.com/books/probabilistic-graphical-models/chapter-16-learning-graphical-models-overview/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Chapter 17: Parameter Estimation</title>
+      <link>https://tomodachii.com/books/probabilistic-graphical-models/chapter-17-parameter-estimation/</link>
+      <pubDate>Tue, 15 Apr 2025 14:20:15 +0700</pubDate>
+      <guid>https://tomodachii.com/books/probabilistic-graphical-models/chapter-17-parameter-estimation/</guid>
+      <description>&lt;h3 id=&#34;scenarios&#34;&gt;Scenarios&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Completely observed&lt;/strong&gt; GMs&#xA;&lt;ul&gt;&#xA;&lt;li&gt;directed.&lt;/li&gt;&#xA;&lt;li&gt;undirected.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Partially or Unobserved&lt;/strong&gt; GMs&#xA;&lt;ul&gt;&#xA;&lt;li&gt;directed.&lt;/li&gt;&#xA;&lt;li&gt;undirected.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;estimation-principles&#34;&gt;Estimation principles&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;MLE.&lt;/li&gt;&#xA;&lt;li&gt;Bayesian estimation.&lt;/li&gt;&#xA;&lt;li&gt;Maximum conditional likelihood.&lt;/li&gt;&#xA;&lt;li&gt;Maximum &amp;ldquo;Margin&amp;rdquo;.&lt;/li&gt;&#xA;&lt;li&gt;Maximum entropy.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;callout callout-info&#34;&gt;&#xA;    &lt;span class=&#34;callout-icon&#34;&gt;&#xA;        ℹ️&#xA;        &#xA;        &#xA;        &#xA;    &lt;/span&gt;&#xA;    &lt;div class=&#34;callout-content&#34;&gt;Learning $=$ estimating the parameters + the topology of the network.&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;h1 id=&#34;parameter-learning&#34;&gt;Parameter Learning&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Assume $\mathcal{G}$ is known and fixed,&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;from expert design.&lt;/li&gt;&#xA;&lt;li&gt;from an intermediate outcome of iterative structure learning.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$D = \{x_1, \dots ,x_N\}$: $N$ &lt;span class=&#34;marked&#34;&gt;independent, identically distributed (iid)&lt;/span&gt;&#xA; training cases.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$x_n = (x_{n, 1}, \dots, x_{n, M})$ is a vector of $M$ values&#xA;&lt;ul&gt;&#xA;&lt;li&gt;the model is observed, every $x_n$ is known&lt;/li&gt;&#xA;&lt;li&gt;or, paritially observed.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Goal: Estimate from $D$.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

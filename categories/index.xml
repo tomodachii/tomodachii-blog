@@ -6,8 +6,15 @@
     <description>Recent content in Categories on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 09 Apr 2025 14:38:55 +0700</lastBuildDate>
+    <lastBuildDate>Tue, 15 Apr 2025 14:20:15 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Probabilistic Graphical Models</title>
+      <link>https://tomodachii.com/categories/probabilistic-graphical-models/</link>
+      <pubDate>Tue, 15 Apr 2025 14:20:15 +0700</pubDate>
+      <guid>https://tomodachii.com/categories/probabilistic-graphical-models/</guid>
+      <description></description>
+    </item>
     <item>
       <title>General</title>
       <link>https://tomodachii.com/categories/general/</link>
@@ -34,13 +41,6 @@
       <link>https://tomodachii.com/categories/kde/</link>
       <pubDate>Fri, 04 Apr 2025 15:18:40 +0700</pubDate>
       <guid>https://tomodachii.com/categories/kde/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Probabilistic Graphical Models</title>
-      <link>https://tomodachii.com/categories/probabilistic-graphical-models/</link>
-      <pubDate>Thu, 03 Apr 2025 14:02:26 +0700</pubDate>
-      <guid>https://tomodachii.com/categories/probabilistic-graphical-models/</guid>
       <description></description>
     </item>
     <item>
