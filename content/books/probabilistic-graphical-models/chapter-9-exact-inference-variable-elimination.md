@@ -422,7 +422,7 @@ $$
 \psi_k(X_k) = \prod_{i = 1}^{m_k}\phi_i
 $$
 
-Number of rows in the resulting table: $N_k = |\text{Val}(X_n)| \rightarrow$ $3 \times 2 \times 2 = 8$
+Number of rows in the resulting table: $N_k = |\text{Val}(X_k)| \rightarrow$ $3 \times 2 \times 2 = 8$
 
 Each row: $m_k - 1$ products $\rightarrow$ 2 in this case.
 
@@ -442,14 +442,44 @@ $$
 $$
 Each row used exactly once
 
-$$\boxed{N_k = |\text{Val}(X_n)|} \text{ additions}$$
+$$\boxed{N_k = |\text{Val}(X_k)|} \text{ additions}$$
 
 {{< /image-text >}}
 
 ### Complexity
-abc
+* Assume 
+    + $m$ factors and $n$ rv.
+    + $m = n$ for Bayesian networks (one factor/CPD for every var).
+    + can be larger for Markov networks.
+    + run the algorithm until all variables are eliminated.
+* At each elimination step generate exactly one factor $\tau_k$.
+* At most $n$ elimination steps.
+    + each step eliminates one variable.
+* Total number of factors that entered $\Phi$: $m^* \leq m + n$
+
+<br/>
+
+* $N = \text{max}(N_k) = $size of the largest factor.
+* Product operations: $\sum_k (m_k - 1) N_k \leq \sum_k (m_k - 1) N \leq (m + n)N = \mathcal{O}(mN)$.
+    + sum of different elimination steps.
+    + each factor multiply at most once.
+* Sum operations: $\sum_k N_k \leq nN$
+* Total work is linear in $N$ and $m$:
+
+$$
+\underbrace{\sum_k (m_k - 1)N_k}_{\text{products}} + \sum_k N_k \leq (m + n)N = \mathcal{O}((m + n)N) = \mathcal{O}(mN)
+$$
+
+* $N_k = |\text{Val}(X_k)| = \mathcal{O}(d^{r_k})$: Number of values in a factor.
+    + $d = max(|\text{Val}(X_i)|)$: each variable has no more than $d$ values.
+    + $r_k = |X_k|$: $\psi_k$ has a scope that contains $r_k$ variables.
+
+{{< callout type="danger" >}}
+Elimination Order affects Complexity.
+{{< /callout >}}
 
 ## Elimination as Graph Transformation
+
 
 ![](/images/books/probabilistic-graphical-models/chapter9/graph-elimination.png)
 
