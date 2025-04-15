@@ -559,7 +559,7 @@ $$</p>
       <p>$$
 \psi_k(X_k) = \prod_{i = 1}^{m_k}\phi_i
 $$</p>
-<p>Number of rows in the resulting table: $N_k = |\text{Val}(X_n)| \rightarrow$ $3 \times 2 \times 2 = 8$</p>
+<p>Number of rows in the resulting table: $N_k = |\text{Val}(X_k)| \rightarrow$ $3 \times 2 \times 2 = 8$</p>
 <p>Each row: $m_k - 1$ products $\rightarrow$ 2 in this case.</p>
 <p>$$
 \text{Cost: }\boxed{(m_k - 1)N_k}\text{ multiplications}
@@ -576,13 +576,63 @@ $$</p>
 \tau_k(X_k - \{Z\}) = \sum_{Z} \psi_k(X_k)
 $$
 Each row used exactly once</p>
-<p>$$\boxed{N_k = |\text{Val}(X_n)|} \text{ additions}$$</p>
+<p>$$\boxed{N_k = |\text{Val}(X_k)|} \text{ additions}$$</p>
 
     </div>
 </div>
 
 <h3 id="complexity">Complexity</h3>
-<p>abc</p>
+<ul>
+<li>Assume
+<ul>
+<li>$m$ factors and $n$ rv.</li>
+<li>$m = n$ for Bayesian networks (one factor/CPD for every var).</li>
+<li>can be larger for Markov networks.</li>
+<li>run the algorithm until all variables are eliminated.</li>
+</ul>
+</li>
+<li>At each elimination step generate exactly one factor $\tau_k$.</li>
+<li>At most $n$ elimination steps.
+<ul>
+<li>each step eliminates one variable.</li>
+</ul>
+</li>
+<li>Total number of factors that entered $\Phi$: $m^* \leq m + n$</li>
+</ul>
+<br/>
+<ul>
+<li>$N = \text{max}(N_k) = $size of the largest factor.</li>
+<li>Product operations: $\sum_k (m_k - 1) N_k \leq \sum_k (m_k - 1) N \leq (m + n)N = \mathcal{O}(mN)$.
+<ul>
+<li>sum of different elimination steps.</li>
+<li>each factor multiply at most once.</li>
+</ul>
+</li>
+<li>Sum operations: $\sum_k N_k \leq nN$</li>
+<li>Total work is linear in $N$ and $m$:</li>
+</ul>
+<p>$$
+\underbrace{\sum_k (m_k - 1)N_k}_{\text{products}} + \sum_k N_k \leq (m + n)N = \mathcal{O}((m + n)N) = \mathcal{O}(mN)
+$$</p>
+<ul>
+<li>$N_k = |\text{Val}(X_k)| = \mathcal{O}(d^{r_k})$: Number of values in a factor.
+<ul>
+<li>$d = max(|\text{Val}(X_i)|)$: each variable has no more than $d$ values.</li>
+<li>$r_k = |X_k|$: $\psi_k$ has a scope that contains $r_k$ variables.</li>
+</ul>
+</li>
+</ul>
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content">Elimination Order affects Complexity.</div>
+</div>
+
+
 <h2 id="elimination-as-graph-transformation">Elimination as Graph Transformation</h2>
 <p><img src="/images/books/probabilistic-graphical-models/chapter9/graph-elimination.png" alt=""></p>
 <h3 id="moralization">Moralization</h3>
