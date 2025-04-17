@@ -2,8 +2,13 @@
   {{/* Create a Scratch variable to store sections */}}
   {{ $.Scratch.Set "sections" slice }}
 
-  <!-- Collect unique sections -->
-  {{ range .Site.RegularPages }}
+  {{ $pages := .Site.RegularPages }}
+  {{ if .Data.Term }} 
+    {{/* Filter pages by the current category term if present */}}
+    {{ $pages = where $pages "Params.categories" "intersect" (slice .Data.Term) }}
+  {{ end }}
+
+  {{ range $pages }}
       {{ $section := .Params.section }}
       {{ if not (in ($.Scratch.Get "sections") $section) }}
           {{ $.Scratch.Add "sections" (slice $section) }}
@@ -19,11 +24,13 @@
   
   {{/* Collect unique authors for this section */}}
   {{ $allAuthors := slice }}
-  {{ range $posts }}
-    {{ with .Params.authors }}
-      {{ range . }}
-        {{ if not (in $allAuthors .) }}
-          {{ $allAuthors = $allAuthors | append . }}
+  {{ if ne $section "Papers" }}
+    {{ range $posts }}
+      {{ with .Params.authors }}
+        {{ range . }}
+          {{ if not (in $allAuthors .) }}
+            {{ $allAuthors = $allAuthors | append . }}
+          {{ end }}
         {{ end }}
       {{ end }}
     {{ end }}

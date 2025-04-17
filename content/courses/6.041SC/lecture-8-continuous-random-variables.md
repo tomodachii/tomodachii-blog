@@ -16,7 +16,81 @@ postColor = "#5D8B0D"
 
 # Continuous Random Variables and PDFs
 {{< define icon="definition" >}}
+A random variable (takes values from a continuous set) is continuous if it can be described by a PDF.
 {{< /define >}}
+
+PDF
+{{< image-text align="left" image="/images/courses/6.041SC/lecture-8-continuous-random-variables/PDF.png" width="50%">}}
+The area under the graph of the PDF.
+$$
+\boxed{P(a \leq X \leq b) = \int_a^b f_X \\, (x) \\, dx}
+$$
+
+To qualify as an PDF, $f_X(x) \geq 0$ for every $x$, and $f_X$ must satisfy the normalize equation:
+$$
+\int_{- \infty}^{\infty} f_X(x) \\, dx = P(- \infty < X < \infty) = 1
+$$
+
+
+{{< /image-text >}}
+
+{{< callout type="warning" >}}
+For any single value $a$, $P(X = a) = \int_a^a \\, f_X(x) \\, dx = 0$.
+
+Thus 
+$$
+P(a \leq X \leq b) = \underbrace{P(X = a)}_0 + \underbrace{P(X = b)}_0 + P(a < X < b) = P(a < X < b).
+$$
+{{< /callout >}}
+
+Jumps in the CDF correspond to points $x$ for which $P(X = x) > 0$. Thus the fact that the CDF does not have jumps is consistent with the fact that $P(X = x) = 0$ for all $x$.
+
+## Probability of small interval
+{{< image-text image="/images/courses/6.041SC/lecture-8-continuous-random-variables/PDF-small-interval.png" width="30%" >}}
+$\delta > 0$, small
+$$
+\boxed{\mathbf{P}(x < X < x + \delta) = \int_x^{x + \delta} f_X(t) \\, dt \approx f_X(x) \cdot \delta}
+$$
+
+$$
+\Rightarrow f_X(x) = \frac{P(x \leq X \leq x + \delta)}{\delta} = \frac{\text{Probability mass}}{\text{Unit length}}
+$$
+{{< /image-text >}}
+
+# Cumulative Distribution Function
+The CDF $F_X(x)$ "accumulates" probability "up to" the value of $x$.
+
+$\\{X \leq x\\}$ is always an event $\Rightarrow$ Any random variable associated with a given probability model has a CDF, regardless of whether it is discrete, continuous, or other.
+## Properties of CDF
+continuously varying form
+{{< image-text align="left" image="/images/courses/6.041SC/lecture-8-continuous-random-variables/normal-CDF.png" alt="Example" width="40%">}}
+1. $F_X$ is **monotonically nondecreasing**:
+$$
+\text{if } x \leq y \text{, then } F_X(x) \leq F_X(y).
+$$
+2. $F_X$ tends to 0 as $x \to -\infty$, and to 1 as $x \to \infty$.
+
+3. the PDF and the CDF can be obtained from each other by integration or differentiation
+$$
+\boxed{F_X(x) = \int_{-\infty}^{x}f_X(t) \\, dt}
+$$
+
+$$
+\boxed{f_X(k) = \frac{dF_X}{dx} (x) = F^{\prime}_X(x)}
+$$
+
+{{< /image-text >}}
+
+{{< callout type="danger" >}}
+Once we know the CDF of a random variable, we can calculate anything we might want to calculate.
+{{< /callout >}}
+
+## Useful formulas
+### $P(a < X < b)$
+For all $a \leq b$,
+$$
+\boxed{P(a < X \leq b) = P(X \leq b) - P(X \leq a) = F_X(b) - F_X(a)}
+$$
 
 # Gaussian (normal) PDF
 [Important in the theory of probability: Centrail limit theorem](http://example.com).

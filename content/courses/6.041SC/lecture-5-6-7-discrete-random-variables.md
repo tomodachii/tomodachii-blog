@@ -33,21 +33,21 @@ $$
 
 
 ## Properties of CDF
-
+piecewise constant and staircase-like form.
 {{< image-text align="left" image="/images/courses/6.041SC/lecture-3-4-5-discrete-random-variables/CDF-ex.png" alt="Example" width="50%">}}
-1. $F_X$ is monotonically nondecreasing:
+1. $F_X$ is **monotonically nondecreasing**:
 $$
 \text{if } x \leq y \text{, then } F_X(x) \leq F_X(y).
 $$
 2. $F_X$ tends to 0 as $x \to -\infty$, and to 1 as $x \to \infty$.
 
-3. for all $k \in \mathbb{Z}$
+3. for all $x_k \in R_x = \\{x_1, x_2, \dots\\}$
 $$
-F_X(k) = \sum_{i = -\infty}^{k}p_X(i),
+\boxed{F_X(x_k) = \sum_{x_k = -\infty}^{x}p_X(x_k)}
 $$
 
 $$
-p_X(k) = P(X \leq k) - P(X \leq k - 1) = F_X(k) - F_X(k - 1),
+\boxed{p_X(x_k) = P(X \leq x_k) - P(X \leq x_k - 1) = F_X(x_k) - F_X(x_k - 1)}
 $$
 
 {{< /image-text >}}
@@ -76,20 +76,35 @@ $$
 
 {{< /toggle >}}
 
+CDF jumps at each point in the range $\rightarrow$ stays flat between $x_k$ and $x_{k + 1}$.
+$$
+F_X(x) = F_X(x_k), \text{ for } x_k \leq x < x_k + 1.
+$$
+
+{{< callout type="warning" >}}
+Jumps in the CDF correspond to points $x$ for which $P(X = x) > 0$.
+{{< /callout >}}
+
+## Useful formulas
+### $P(a < X \leq b)$
+For all $a \leq b$,
+$$
+\boxed{P(a < X \leq b) = P(X \leq b) - P(X \leq a) = F_X(b) - F_X(a)}
+$$
+
+### $P(X \leq x)$
+CDF gives us $P(X \leq x)$. To find $P(X < x)$, for a discrete random variable
+$$
+\boxed{P(X < x) = P(X \leq x) - P(X = x) = F_X(x) - P_X(x)}
+$$
+
+{{< callout type="danger" >}}
+$<$ and $\leq$ could make a difference in the case of discrete random variables.
+{{< /callout >}}
+
 ## Quantiles
 CDF $F$ is strictly monotonically increasing + $F$ is **bijective**
 * **Injective** (one-to-one): $f(x_1) = f(x_2) \Rightarrow x_1 = x_2$.
 * **Surjective** (onto): The range of $f$ covers the entire domain.
 
 $\Rightarrow$ it has an inverse, called **inverse cdf**, or **percent point function (ppf)**, or **quantile function**.
-
-## Useful formulas
-For all $a \leq b$,
-$$
-P(a < X \leq b) = P(X \leq b) - P(X \leq a) = F_X(b) - F_X(a).
-$$
-
-CDF gives us $P(X \leq x)$. To find $P(X < x)$, for a discrete random variable
-$$
-P(X < x) = P(X \leq x) - P(X = x) = F_X(x) - P_X(x).
-$$
