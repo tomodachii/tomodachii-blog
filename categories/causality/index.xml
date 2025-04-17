@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Causality on My New Hugo Site</title>
+    <link>https://tomodachii.com/categories/causality/</link>
+    <description>Recent content in Causality on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 16 Apr 2025 07:51:04 +0700</lastBuildDate>
+    <atom:link href="https://tomodachii.com/categories/causality/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lecture 1: Motivation</title>
+      <link>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-1-motivation/</link>
+      <pubDate>Wed, 16 Apr 2025 07:51:04 +0700</pubDate>
+      <guid>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-1-motivation/</guid>
+      <description>&lt;h1 id=&#34;simpsons-paradox&#34;&gt;Simpson&amp;rsquo;s Paradox&lt;/h1&gt;&#xA;&lt;p&gt;New disease: COVID-27&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Treatment $T = \{A, B\}$.&lt;/li&gt;&#xA;&lt;li&gt;Condition $C = \{\text{mild}, \text{severe}\}$.&lt;/li&gt;&#xA;&lt;li&gt;Outcome $Y = \{\text{alive}, \text{dead}\}$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Currently receiving treatment $A$ vs. $B$: 73% / 27%&lt;/p&gt;&#xA;&lt;p&gt;Goal: Choosing which treatment to use.&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&#34;image-text-block &#34;&gt;&#xA;    &lt;img src=&#34;https://tomodachii.com/images/courses/introduction-to-causal-inference/lecture-1/count-table.png&#34; alt=&#34;&#34; style=&#34;max-width: 40%;&#34;&gt;&#xA;    &lt;div class=&#34;image-text-content&#34;&gt;&#xA;      &lt;p&gt;The paradox is that&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;treatment $B$ looks better in both of the subgroups,&lt;/li&gt;&#xA;&lt;li&gt;but treatment $A$ looks better when examining the total population ignoring the subgroups.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;    &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;A more interesting way of writting the calculation in terms of weights:&#xA;$$&#xA;\underbrace{\frac{1400}{1500}}_{\text{large weight}} (0.15) + \frac{100}{1500} (0.30) = 0.16&#xA;$$&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

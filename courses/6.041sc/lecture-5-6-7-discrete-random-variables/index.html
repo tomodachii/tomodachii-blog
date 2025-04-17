@@ -156,12 +156,13 @@ $$</div>
 </div>
 
 <h2 id="properties-of-cdf">Properties of CDF</h2>
+<p>piecewise constant and staircase-like form.
 <div class="image-text-block left">
     <img src="/images/courses/6.041SC/lecture-3-4-5-discrete-random-variables/CDF-ex.png" alt="Example" style="max-width: 50%;">
     <div class="image-text-content">
       <ol>
 <li>
-<p>$F_X$ is monotonically nondecreasing:
+<p>$F_X$ is <strong>monotonically nondecreasing</strong>:
 $$
 \text{if } x \leq y \text{, then } F_X(x) \leq F_X(y).
 $$</p>
@@ -170,19 +171,19 @@ $$</p>
 <p>$F_X$ tends to 0 as $x \to -\infty$, and to 1 as $x \to \infty$.</p>
 </li>
 <li>
-<p>for all $k \in \mathbb{Z}$
+<p>for all $x_k \in R_x = \{x_1, x_2, \dots\}$
 $$
-F_X(k) = \sum_{i = -\infty}^{k}p_X(i),
+\boxed{F_X(x_k) = \sum_{x_k = -\infty}^{x}p_X(x_k)}
 $$</p>
 </li>
 </ol>
 <p>$$
-p_X(k) = P(X \leq k) - P(X \leq k - 1) = F_X(k) - F_X(k - 1),
+\boxed{p_X(x_k) = P(X \leq x_k) - P(X \leq x_k - 1) = F_X(x_k) - F_X(x_k - 1)}
 $$</p>
 
     </div>
 </div>
-
+</p>
 <details>
     <summary>proof for (2)</summary>
     
@@ -209,6 +210,43 @@ $$</p>
     
 </details>
 
+<p>CDF jumps at each point in the range $\rightarrow$ stays flat between $x_k$ and $x_{k + 1}$.
+$$
+F_X(x) = F_X(x_k), \text{ for } x_k \leq x &lt; x_k + 1.
+$$</p>
+<div class="callout callout-warning">
+    <span class="callout-icon">
+        
+        ⚠️
+        
+        
+    </span>
+    <div class="callout-content">Jumps in the CDF correspond to points $x$ for which $P(X = x) &gt; 0$.</div>
+</div>
+
+
+<h2 id="useful-formulas">Useful formulas</h2>
+<h3 id="pa--x-leq-b">$P(a &lt; X \leq b)$</h3>
+<p>For all $a \leq b$,
+$$
+\boxed{P(a &lt; X \leq b) = P(X \leq b) - P(X \leq a) = F_X(b) - F_X(a)}
+$$</p>
+<h3 id="px-leq-x">$P(X \leq x)$</h3>
+<p>CDF gives us $P(X \leq x)$. To find $P(X &lt; x)$, for a discrete random variable
+$$
+\boxed{P(X &lt; x) = P(X \leq x) - P(X = x) = F_X(x) - P_X(x)}
+$$</p>
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content">$&lt;$ and $\leq$ could make a difference in the case of discrete random variables.</div>
+</div>
+
+
 <h2 id="quantiles">Quantiles</h2>
 <p>CDF $F$ is strictly monotonically increasing + $F$ is <strong>bijective</strong></p>
 <ul>
@@ -216,15 +254,6 @@ $$</p>
 <li><strong>Surjective</strong> (onto): The range of $f$ covers the entire domain.</li>
 </ul>
 <p>$\Rightarrow$ it has an inverse, called <strong>inverse cdf</strong>, or <strong>percent point function (ppf)</strong>, or <strong>quantile function</strong>.</p>
-<h2 id="useful-formulas">Useful formulas</h2>
-<p>For all $a \leq b$,
-$$
-P(a &lt; X \leq b) = P(X \leq b) - P(X \leq a) = F_X(b) - F_X(a).
-$$</p>
-<p>CDF gives us $P(X \leq x)$. To find $P(X &lt; x)$, for a discrete random variable
-$$
-P(X &lt; x) = P(X \leq x) - P(X = x) = F_X(x) - P_X(x).
-$$</p>
 </div>
         
     </div>

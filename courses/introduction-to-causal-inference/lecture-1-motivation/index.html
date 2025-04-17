@@ -100,47 +100,120 @@
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Chapter 1 &#43; 2: Introduction and Foundations</h1>
+            <h1 class="singleHeadTitle">Lecture 1: Motivation</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
                 <span>
                     
-                        <a href="https://tomodachii.com/authors/daphne-koller/">Daphne Koller</a>
-                    
-                        <a href="https://tomodachii.com/authors/nir-friedman/">Nir Friedman</a>
+                        <a href="https://tomodachii.com/authors/brady-neal/">Brady Neal</a>
                     
                 </span>
                 
-                    <a href="https://tomodachii.com/categories/probabilistic-graphical-models/" class="singleCategory">probabilistic-graphical-models</a>
+                    <a href="https://tomodachii.com/categories/causality/" class="singleCategory">causality</a>
                 
             </div>
-            <time>Mar 19, 2025</time>
+            <time>Apr 16, 2025</time>
         </div>
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><h1 id="independence-and-conditional-independence">Independence and Conditional Independence</h1>
-<h2 id="independence">Independence</h2>
+        <div class="singleContent"><h1 id="simpsons-paradox">Simpson&rsquo;s Paradox</h1>
+<p>New disease: COVID-27</p>
 <ul>
-<li>Random variables $X$ and $Y$ are <strong>not independent</strong>, i.e., $X \not\perp\!\!\!\perp Y$, if there exists two values of $Y$, say $y_1$ and $y_2$, such that
-$$
-P(X \mid Y = y_1) \neq P(X \mid Y = y_2).
-$$</li>
+<li>Treatment $T = \{A, B\}$.</li>
+<li>Condition $C = \{\text{mild}, \text{severe}\}$.</li>
+<li>Outcome $Y = \{\text{alive}, \text{dead}\}$</li>
 </ul>
-<h1 id="number-of-parameteres-of-a-distribution">Number of parameteres of a distribution</h1>
-<p>Given discrete random variables $X_1, \dots, X_n$ that take $\alpha_1, \dots, \alpha_n$ values, respectively, number of parameters to represent:</p>
+<p>Currently receiving treatment $A$ vs. $B$: 73% / 27%</p>
+<p>Goal: Choosing which treatment to use.</p>
+<p><div class="image-text-block ">
+    <img src="/images/courses/introduction-to-causal-inference/lecture-1/count-table.png" alt="" style="max-width: 40%;">
+    <div class="image-text-content">
+      <p>The paradox is that</p>
 <ul>
-<li>$P(X_1, X_2, \dots, X_n) \rightarrow \alpha_1 \alpha_2 \dots \alpha_n$.</li>
-<li>$P(X_1 \mid X_2, \dots, X_n) \rightarrow (\alpha_1 - 1) \alpha_2 \dots \alpha_n$.
-<details>
-    <summary>explain</summary>
-    
-        <img src="/images/books/probabilistic-graphical-models/chapter1+2/number-of-params.png" alt="&ldquo;Number of params&rdquo;" title="Number of params"> 
-    
-</details>
+<li>treatment $B$ looks better in both of the subgroups,</li>
+<li>but treatment $A$ looks better when examining the total population ignoring the subgroups.</li>
+</ul>
+    </div>
+</div>
+
+A more interesting way of writting the calculation in terms of weights:
+$$
+\underbrace{\frac{1400}{1500}}_{\text{large weight}} (0.15) + \frac{100}{1500} (0.30) = 0.16
+$$</p>
+<p>$$
+\frac{50}{550} (0.10) + \frac{500}{550} (0.20) = 0.19
+$$</p>
+<p>The non-uniformity of allocation of people to the groups:</p>
+<ul>
+<li>1400 of the 1500 people received treatment $A$ had mild condition,</li>
+<li>whereas 500 of the 550 people who received treatment B had severe condition.</li>
+</ul>
+<p>people with mild condition are less likely to die $\Rightarrow$ total mortality rate for those with treatment A is lower.</p>
+<h3 id="scenario-1">Scenario 1</h3>
+<div class="image-text-block ">
+    <img src="/images/courses/introduction-to-causal-inference/lecture-1/scenario-1.png" alt="" style="max-width: 25%;">
+    <div class="image-text-content">
+      <p>Doctors give treatment $A$ to most people with mild conditions, save the more expensive and limited treatment $B$ for ppl with severe conditions.</p>
+<ul>
+<li>$B$ assigned to dying people.</li>
+<li>$A$ assigned to health people.</li>
+</ul>
+    </div>
+</div>
+
+<p>$C$ confounds $T$. To correct for this confounding, examine the relationship of $T$ and $Y$ among patients with the same conditions $\Rightarrow$ consider <strong>subpopulations</strong> (&ldquo;Mild&rdquo; and &ldquo;Severe&rdquo; columns).</p>
+<h3 id="scenario-2">Scenario 2</h3>
+<div class="image-text-block ">
+    <img src="/images/courses/introduction-to-causal-inference/lecture-1/scenario-2.png" alt="" style="max-width: 25%;">
+    <div class="image-text-content">
+      <p>Might have to wait a long time to take treatment $B$ (its scarce). In that time, the condition got worsen (mild $\to$ severe).</p>
+<ul>
+<li>500/ 550 who wait for treament $B$ got worse condition.</li>
+</ul>
+<p>$\Rightarrow$ Treatment $B$ is a cause of the Condition.</p>
+
+    </div>
+</div>
+
+<p>Even if treatment B</p>
+<ul>
+<li>is more effective than treatment A once administered (positive effect along $T \to Y$)</li>
+<li>because precription of treatment $B$ causes worse conditions (negative effect along $T \to C \to Y$)</li>
+</ul>
+<p>$\Rightarrow$ $B$ is less effective in <strong>total</strong>.</p>
+<h1 id="correlation-does-not-imply-causation">Correlation Does Not Imply Causation</h1>
+<h3 id="correlation-vs-association">Correlation vs. Association</h3>
+<ul>
+<li>
+<p><strong>correlation</strong>: measures linear relationships.</p>
+</li>
+<li>
+<p><strong>association</strong>: any kind of statistical dependence.</p>
 </li>
 </ul>
+<h3 id="association-neq-causation">Association $\neq$ Causation</h3>
+<p>Just because two things are associated doesn’t mean one causes the other. The relationship could be partly causal, fully causal, or not causal at all.</p>
+<p><strong>Example - Shoes and Headaches</strong>
+Data might show that people who sleep with shoes on often wake up with headaches. Sleep with shoes on $\to$ wake up with headaches?
+Actually, both events are often caused by a third factor: drinking alcohol the night before.</p>
+<ul>
+<li>Drinking $\to$ passing out with shoes on.</li>
+<li>Drinking $\to$ headache.</li>
+</ul>
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content">The main problem motivating causal inference is that association is not causation.</div>
+</div>
+
+
+<h1 id="what-does-imply-causation">What Does Imply Causation?</h1>
 </div>
         
     </div>
