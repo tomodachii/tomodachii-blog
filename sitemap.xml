@@ -47,6 +47,9 @@
     <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-9-exact-inference-variable-elimination/</loc>
     <lastmod>2025-04-03T14:02:26+07:00</lastmod>
   </url><url>
+    <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-10-exact-inference-clique-trees/</loc>
+    <lastmod>2025-04-18T10:25:50+07:00</lastmod>
+  </url><url>
     <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-16-learning-graphical-models-overview/</loc>
     <lastmod>2025-04-15T14:18:01+07:00</lastmod>
   </url><url>
@@ -54,12 +57,27 @@
     <lastmod>2025-04-15T14:20:15+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/authors/</loc>
-    <lastmod>2025-04-16T07:51:04+07:00</lastmod>
+    <lastmod>2025-04-18T10:25:50+07:00</lastmod>
   </url><url>
-    <loc>https://tomodachii.com/authors/brady-neal/</loc>
-    <lastmod>2025-04-16T07:51:04+07:00</lastmod>
+    <loc>https://tomodachii.com/books/</loc>
+    <lastmod>2025-04-18T10:25:50+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/categories/</loc>
+    <lastmod>2025-04-18T10:25:50+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/authors/daphne-koller/</loc>
+    <lastmod>2025-04-18T10:25:50+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/</loc>
+    <lastmod>2025-04-18T10:25:50+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/authors/nir-friedman/</loc>
+    <lastmod>2025-04-18T10:25:50+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/categories/probabilistic-graphical-models/</loc>
+    <lastmod>2025-04-18T10:25:50+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/authors/brady-neal/</loc>
     <lastmod>2025-04-16T07:51:04+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/categories/causality/</loc>
@@ -67,21 +85,6 @@
   </url><url>
     <loc>https://tomodachii.com/courses/</loc>
     <lastmod>2025-04-16T07:51:04+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/</loc>
-    <lastmod>2025-04-16T07:51:04+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/books/</loc>
-    <lastmod>2025-04-15T14:20:15+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/authors/daphne-koller/</loc>
-    <lastmod>2025-04-15T14:20:15+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/authors/nir-friedman/</loc>
-    <lastmod>2025-04-15T14:20:15+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/categories/probabilistic-graphical-models/</loc>
-    <lastmod>2025-04-15T14:20:15+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/authors/chris-piech/</loc>
     <lastmod>2025-04-07T16:29:46+07:00</lastmod>

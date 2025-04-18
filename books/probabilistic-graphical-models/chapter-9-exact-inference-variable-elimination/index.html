@@ -321,8 +321,10 @@ $</p>
 <div class="image-text-block left">
     <img src="/images/books/probabilistic-graphical-models/chapter9/factor-product.png" alt="" style="max-width: 50%;">
     <div class="image-text-content">
-      <p>$X, Y, Z$: r.v</p>
-<p>$\phi_1(X, Y)$, $\phi_2(Y, Z)$: factors</p>
+      <ul>
+<li>$X, Y, Z$: r.v</li>
+<li>$\phi_1(X, Y)$, $\phi_2(Y, Z)$: factors</li>
+</ul>
 <br/>
 <p>The product factor $\phi_1 \times \phi_2$ is a factor $\psi: \text{Val}(X, Y, Z) \to \mathbb{R}$ st:</p>
 <p>$$
@@ -335,22 +337,25 @@ $$</p>
 <p>Example: $\psi(A, B, C) = \phi_1(A, B) \cdot \phi_2(B, C)$.</p>
 <br/>
 <p><strong>Factor Marginalization</strong></p>
-<div class="image-text-block right">
+<p><div class="image-text-block left">
     <img src="/images/books/probabilistic-graphical-models/chapter9/factor-marginalization.png" alt="" style="max-width: 40%;">
     <div class="image-text-content">
-      <p>$$
+      <ul>
+<li>$X$, $Y \notin X$: rv</li>
+<li>$\phi(X, Y)$: factor.</li>
+</ul>
+<p>The factor marginalization of $Y$ in $\phi$, denoted $\sum_Y\phi$ is a factor $\psi$ over $X$ st:</p>
+<p>$$
 \boxed{\psi(X) = \sum_Y \phi(X, Y)}
 $$</p>
+<p>summing out of $Y$ in $\psi$.</p>
 <br/>
-<p>Example: Summing out $B$</p>
-<p>$$
-\psi(A, C) = \sum_B \phi(A, B, C)
-$$</p>
 
     </div>
 </div>
 
-<p><strong>Properties of factor operations</strong></p>
+Example: Summing out $B$: $\psi(A, C) = \sum_B \phi(A, B, C)$</p>
+<h3 id="properties-of-factor-operations">Properties of factor operations</h3>
 <p>Commutative
 $$
 \boxed{\phi_1 \cdot \phi_2 = \phi_2 \cdot \phi_1 \quad \text{and} \quad \sum_X \sum_Y \phi = \sum_Y \sum_X \phi}
@@ -529,20 +534,6 @@ $$</p>
     
 </details>
 
-<div class="callout callout-warning">
-    <span class="callout-icon">
-        
-        ⚠️
-        
-        
-    </span>
-    <div class="callout-content">To summarize
-$$
-P(Y, e) = \frac{\prod}{}
-$$</div>
-</div>
-
-
 <h3 id="semantics-of-intermediate-factors">Semantics of Intermediate Factors</h3>
 <p>Factors are not always correspond to marginal or conditional probabilities in the network.</p>
 <h2 id="complexity-of-ve">Complexity of VE</h2>
@@ -559,8 +550,14 @@ $$</p>
       <p>$$
 \psi_k(X_k) = \prod_{i = 1}^{m_k}\phi_i
 $$</p>
-<p>Number of rows in the resulting table: $N_k = |\text{Val}(X_k)| \rightarrow$ $3 \times 2 \times 2 = 8$</p>
+<ul>
+<li>
+<p>Number of rows in the resulting table: $N_k = |\text{Val}(X_k)| \rightarrow$ $3 \times 2 \times 2 = 12$</p>
+</li>
+<li>
 <p>Each row: $m_k - 1$ products $\rightarrow$ 2 in this case.</p>
+</li>
+</ul>
 <p>$$
 \text{Cost: }\boxed{(m_k - 1)N_k}\text{ multiplications}
 $$</p>
@@ -574,8 +571,10 @@ $$</p>
     <div class="image-text-content">
       <p>$$
 \tau_k(X_k - \{Z\}) = \sum_{Z} \psi_k(X_k)
-$$
-Each row used exactly once</p>
+$$</p>
+<ul>
+<li>Each row used exactly once</li>
+</ul>
 <p>$$\boxed{N_k = |\text{Val}(X_k)|} \text{ additions}$$</p>
 
     </div>
@@ -634,8 +633,68 @@ $$</p>
 
 
 <h2 id="elimination-as-graph-transformation">Elimination as Graph Transformation</h2>
-<p><img src="/images/books/probabilistic-graphical-models/chapter9/graph-elimination.png" alt=""></p>
 <h3 id="moralization">Moralization</h3>
+<div class="define">
+    
+    
+        <span class="define-icon">
+            𐰋𐰍𐰃𐰤
+            
+        </span>
+    
+
+    
+
+    <div class="define-content">Convert from a directed acyclic graph (DAG) to equivalent undirected graph.</div>
+</div>
+
+<div class="image-text-block right">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/moralization.png" alt="" style="max-width: 50%;">
+    <div class="image-text-content">
+      <p>Moralization procedure</p>
+<ul>
+<li>Starting from an input DAG</li>
+<li>Connect nodes if they share a common child</li>
+<li>Make directed edges to undirected edges</li>
+</ul>
+    </div>
+</div>
+
+<h3 id="fill-edge">Fill Edge</h3>
+<p>Eliminating a variable $X$:</p>
+<ol>
+<li>Constructing a factor $\psi$ over $X$ and its neighbors $Y$.</li>
+<li>Then eliminate $X$ to new factor $\tau$ over $Y$.</li>
+</ol>
+<br/>
+<p>To reflect this in graph:</p>
+<ul>
+<li>Add edges (called <strong>fill edges</strong>) between all pairs in $ Y $ if not already present.</li>
+<li>Eliminate $X$ + remove its incident edges.</li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/fill-edge-ex.png" alt="" style="max-width: 40%;">
+    <div class="image-text-content">
+      <p>$$
+\begin{align*}
+&amp;\phi_C(C) \phi_D(C,D) \phi_I(I) \phi_G(G,I,D) \\
+&amp;\phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J)
+\end{align*}
+$$</p>
+<p>$$
+\tau_1(D) = \sum_C \phi_C(C)\phi_D(C, D)
+$$</p>
+<p>$$
+\tau_2(G, I) = \sum_D \phi_G(G, I, D)\tau_1(D)
+$$</p>
+<p>$$
+\tau_3(S, G) = \sum_I \phi_S(S, I)\phi_I(I)\tau_2(G, I)
+$$</p>
+
+    </div>
+</div>
+
 </div>
         
     </div>
