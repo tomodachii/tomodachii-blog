@@ -92,6 +92,8 @@ $$
 \boxed{P(a < X \leq b) = P(X \leq b) - P(X \leq a) = F_X(b) - F_X(a)}
 $$
 
+[Why is CDF prefered?](https://math.stackexchange.com/questions/3473846/why-is-there-a-preference-to-use-the-cumulative-distribution-function-to-charact)
+
 # Gaussian (normal) PDF
 [Important in the theory of probability: Centrail limit theorem](http://example.com).
 

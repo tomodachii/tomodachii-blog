@@ -192,9 +192,8 @@ $\rightarrow \mathcal{O}(n)$
 **Factor Product**
 
 {{< image-text image="/images/books/probabilistic-graphical-models/chapter9/factor-product.png" align="left" >}}
-$X, Y, Z$: r.v
-
-$\phi_1(X, Y)$, $\phi_2(Y, Z)$: factors
+* $X, Y, Z$: r.v
+* $\phi_1(X, Y)$, $\phi_2(Y, Z)$: factors
 
 <br/>
 
@@ -212,23 +211,25 @@ Example: $\psi(A, B, C) = \phi_1(A, B) \cdot \phi_2(B, C)$.
 
 **Factor Marginalization**
 
-{{< image-text image="/images/books/probabilistic-graphical-models/chapter9/factor-marginalization.png" align="right" width="40%" >}}
+{{< image-text image="/images/books/probabilistic-graphical-models/chapter9/factor-marginalization.png" align="left" width="40%" >}}
+
+* $X$, $Y \notin X$: rv
+* $\phi(X, Y)$: factor.
+
+The factor marginalization of $Y$ in $\phi$, denoted $\sum_Y\phi$ is a factor $\psi$ over $X$ st:
 
 $$
 \boxed{\psi(X) = \sum_Y \phi(X, Y)}
 $$
 
+summing out of $Y$ in $\psi$.  
+
 <br/>
 
-Example: Summing out $B$
-
-$$
-\psi(A, C) = \sum_B \phi(A, B, C)
-$$
-
 {{< /image-text >}}
+Example: Summing out $B$: $\psi(A, C) = \sum_B \phi(A, B, C)$
 
-**Properties of factor operations**
+### Properties of factor operations
 
 Commutative
 $$
@@ -395,13 +396,6 @@ VE with Evidence
 
 {{< /toggle >}}
 
-{{< callout type="warning" >}}
-To summarize
-$$
-P(Y, e) = \frac{\prod}{}
-$$
-{{< /callout >}}
-
 ### Semantics of Intermediate Factors
 Factors are not always correspond to marginal or conditional probabilities in the network.
 
@@ -422,9 +416,9 @@ $$
 \psi_k(X_k) = \prod_{i = 1}^{m_k}\phi_i
 $$
 
-Number of rows in the resulting table: $N_k = |\text{Val}(X_k)| \rightarrow$ $3 \times 2 \times 2 = 8$
+* Number of rows in the resulting table: $N_k = |\text{Val}(X_k)| \rightarrow$ $3 \times 2 \times 2 = 12$
 
-Each row: $m_k - 1$ products $\rightarrow$ 2 in this case.
+* Each row: $m_k - 1$ products $\rightarrow$ 2 in this case.
 
 $$
 \text{Cost: }\boxed{(m_k - 1)N_k}\text{ multiplications}
@@ -440,7 +434,7 @@ $$
 $$
 \tau_k(X_k - \\{Z\\}) = \sum_{Z} \psi_k(X_k)
 $$
-Each row used exactly once
+* Each row used exactly once
 
 $$\boxed{N_k = |\text{Val}(X_k)|} \text{ additions}$$
 
@@ -479,8 +473,49 @@ Elimination Order affects Complexity.
 {{< /callout >}}
 
 ## Elimination as Graph Transformation
-
-
-![](/images/books/probabilistic-graphical-models/chapter9/graph-elimination.png)
-
 ### Moralization
+
+{{< define icon="definition" >}}
+Convert from a directed acyclic graph (DAG) to equivalent undirected graph.
+{{< /define >}}
+
+{{< image-text image="/images/books/probabilistic-graphical-models/chapter9/moralization.png" align="right" >}}
+Moralization procedure
+* Starting from an input DAG
+* Connect nodes if they share a common child
+* Make directed edges to undirected edges
+{{< /image-text >}}
+
+### Fill Edge
+Eliminating a variable $X$:
+1. Constructing a factor $\psi$ over $X$ and its neighbors $Y$.
+2. Then eliminate $X$ to new factor $\tau$ over $Y$.
+
+<br/>
+
+To reflect this in graph:
+* Add edges (called **fill edges**) between all pairs in $ Y $ if not already present.
+* Eliminate $X$ + remove its incident edges.
+
+**Example**
+
+{{< image-text image="/images/books/probabilistic-graphical-models/chapter9/fill-edge-ex.png" raw="true" width="40%" >}}
+$$
+\begin{align*}
+    &\phi_C(C) \phi_D(C,D) \phi_I(I) \phi_G(G,I,D) \\\
+    &\phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J)
+\end{align*}
+$$
+
+$$
+\tau_1(D) = \sum_C \phi_C(C)\phi_D(C, D)
+$$
+
+$$
+\tau_2(G, I) = \sum_D \phi_G(G, I, D)\tau_1(D)
+$$
+
+$$
+\tau_3(S, G) = \sum_I \phi_S(S, I)\phi_I(I)\tau_2(G, I)
+$$
+{{< /image-text >}}
