@@ -404,6 +404,7 @@ Factors are not always correspond to marginal or conditional probabilities in th
 $$
 \psi_k(X_k) = \prod_{i = 1}^{m_k}\phi_i \quad \text{(factor product)}
 $$
+* $m_k$: factors that involve $Z$.
 
 $$
 \tau_k(X_k - \\{Z\\}) = \sum_{Z} \psi_k(X_k) \quad \\text{(marginalization)}
