@@ -44,3 +44,64 @@ Sum Cluster might have no factor $\to$ null product and is equal to 1.
 * It needs to be at least one so that the information is taken into account somewhere 
 * and it shouldn't be more than one because if given to more than one cluster, the evidence will be double counted.
 {{< /toggle >}}
+
+{{< toggle title="Example: Assign factors" >}}
+{{< image-text image="/images/books/probabilistic-graphical-models/chapter10/factor-assign.png" >}}
+
+$\phi_2$ can go to both $C_1$ or $C_2$, this is just one possible way of assigning the factors to clusters.
+
+{{< /image-text >}}
+{{< /toggle >}}
+
+{{< toggle title="Student Example" >}}
+{{< image-text image="/images/books/probabilistic-graphical-models/chapter9/student-ex.png" width="30%" >}}
+$$
+\begin{align*}
+P(C, D, I, G, S, L, J, H) 
+&= \phi_C(C) \phi_D(D, C) \phi_I(I) \phi_G(G, I, D) \phi_S(S, I) \\\
+&\quad \cdot \phi_L(L, G) \phi_J(J, L, S) \phi_H(H, G, J).
+\end{align*}
+$$
+{{< /image-text >}}
+
+![Student example](/images/books/probabilistic-graphical-models/chapter10/student-cluster-tree.png)
+
+The message $\tau_1(D)$ generated from $\psi_1(C, D)$, participates in the computation of $\psi_2$: we have an edge from $C_1$ to $C_2$.
+{{< /toggle >}}
+
+## Properties of Cluster Graphs
+**Family Preservation**
+* Given set of factors $\Phi$, each factor $\phi_k \in \Phi$ must be assigned to {{< marker >}}one and only one{{< /marker >}} cluster $C_{\alpha(k)}$ s.t. $Scope[\phi_k] \subseteq C_{\alpha(k)}$. (In English: Each factor $\phi_k$ needs to be assigned to a cluster $C_{\alpha(k)}$ s.t. $C_{\alpha(k)}$ accommodate $\phi_k$).
+* For each factor $\phi_k \in \Phi$, there exists a cluster $C_i$ s.t. $Scope[\phi_k] \subseteq C_i$ (For each factor there's a cluster accomodates $\phi_k$).
+
+<br/>
+
+**Running Intersection Property (RIP)**
+{{< image-text image="/images/books/probabilistic-graphical-models/chapter10/running-intersection.png" >}}
+For each pair of clusters $C_i$, $C_j$ and variable $X \in C_i \cap C_j$, there exists a unique path between $C_i$ and $C_j$ for which all clusters and sepets contain $X$.
+{{< /image-text >}}
+
+{{< toggle title="existence" >}}
+Suppose $X \not\in S_{7, 3}$, there's no way of $C_7$ to communicate to $C_3$ about the variable $X \rightarrow$ 2 seperate, isolated communities, each of which has some information about $X$ and they can never talk to each other about $X$, never going to get to agree about $X$.
+
+That's not very good, that path must exist.
+{{< /toggle >}}
+
+{{< toggle title="uniqueness" raw="true" >}}
+{{< image-text image="/images/books/probabilistic-graphical-models/chapter10/running-intersection-unique.png" >}}
+Suppose there're 2 paths involved $X$.
+
+Consider $C_3 \to C_5 \to C_2 \to C_3$
+
+* Suppose $C_3$ suggests that $X$ needs to take value 1, $C_5$ integrates with its own information and sends it to $C_2$ which sends it back to $C_3$. 
+* Now, $C_3$ reinforces its beliefs that $X$ need to take the value 1 $\to$ the probability goes up.
+
+This self-reinforcing loop is going to give rise to very extreme and skewed probabilities in many examples $\Rightarrow$ One way to reduce this risk is to prevent these kinds of feedback loops.
+{{< /image-text >}}
+{{< /toggle >}}
+
+{{< toggle title="an alternative view" >}}
+For any $X$, the set of clusters and sepsets containing $X$ form a tree.
+* It has to be connected because of the existence of the path.
+* It can't be a non tree because that would give us different paths.
+{{< /toggle >}}
