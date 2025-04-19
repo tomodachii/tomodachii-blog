@@ -173,6 +173,98 @@ $$</li>
     
 </details>
 
+<details>
+    <summary>Example: Assign factors</summary>
+    
+        <div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter10/factor-assign.png" alt="" style="max-width: 50%;">
+    <div class="image-text-content">
+      $\phi_2$ can go to both $C_1$ or $C_2$, this is just one possible way of assigning the factors to clusters.
+    </div>
+</div>
+ 
+    
+</details>
+
+<details>
+    <summary>Student Example</summary>
+    
+        <div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/student-ex.png" alt="" style="max-width: 30%;">
+    <div class="image-text-content">
+      $$
+\begin{align*}
+P(C, D, I, G, S, L, J, H)
+&amp;= \phi_C(C) \phi_D(D, C) \phi_I(I) \phi_G(G, I, D) \phi_S(S, I) \\
+&amp;\quad \cdot \phi_L(L, G) \phi_J(J, L, S) \phi_H(H, G, J).
+\end{align*}
+$$
+    </div>
+</div>
+<p><img src="/images/books/probabilistic-graphical-models/chapter10/student-cluster-tree.png" alt="Student example"></p>
+<p>The message $\tau_1(D)$ generated from $\psi_1(C, D)$, participates in the computation of $\psi_2$: we have an edge from $C_1$ to $C_2$.</p>
+ 
+    
+</details>
+
+<h2 id="properties-of-cluster-graphs">Properties of Cluster Graphs</h2>
+<p><strong>Family Preservation</strong></p>
+<ul>
+<li>Given set of factors $\Phi$, each factor $\phi_k \in \Phi$ must be assigned to <span class="marked">one and only one</span>
+ cluster $C_{\alpha(k)}$ s.t. $Scope[\phi_k] \subseteq C_{\alpha(k)}$. (In English: Each factor $\phi_k$ needs to be assigned to a cluster $C_{\alpha(k)}$ s.t. $C_{\alpha(k)}$ accommodate $\phi_k$).</li>
+<li>For each factor $\phi_k \in \Phi$, there exists a cluster $C_i$ s.t. $Scope[\phi_k] \subseteq C_i$ (For each factor there&rsquo;s a cluster accomodates $\phi_k$).</li>
+</ul>
+<br/>
+<p><strong>Running Intersection Property (RIP)</strong>
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter10/running-intersection.png" alt="" style="max-width: 50%;">
+    <div class="image-text-content">
+      For each pair of clusters $C_i$, $C_j$ and variable $X \in C_i \cap C_j$, there exists a unique path between $C_i$ and $C_j$ for which all clusters and sepets contain $X$.
+    </div>
+</div>
+</p>
+<details>
+    <summary>existence</summary>
+    
+        <p>Suppose $X \not\in S_{7, 3}$, there&rsquo;s no way of $C_7$ to communicate to $C_3$ about the variable $X \rightarrow$ 2 seperate, isolated communities, each of which has some information about $X$ and they can never talk to each other about $X$, never going to get to agree about $X$.</p>
+<p>That&rsquo;s not very good, that path must exist.</p>
+ 
+    
+</details>
+
+<details>
+    <summary>uniqueness</summary>
+    
+        
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter10/running-intersection-unique.png" alt="" style="max-width: 50%;">
+    <div class="image-text-content">
+      <p>Suppose there&rsquo;re 2 paths involved $X$.</p>
+<p>Consider $C_3 \to C_5 \to C_2 \to C_3$</p>
+<ul>
+<li>Suppose $C_3$ suggests that $X$ needs to take value 1, $C_5$ integrates with its own information and sends it to $C_2$ which sends it back to $C_3$.</li>
+<li>Now, $C_3$ reinforces its beliefs that $X$ need to take the value 1 $\to$ the probability goes up.</li>
+</ul>
+<p>This self-reinforcing loop is going to give rise to very extreme and skewed probabilities in many examples $\Rightarrow$ One way to reduce this risk is to prevent these kinds of feedback loops.</p>
+
+    </div>
+</div>
+
+ 
+    
+</details>
+
+<details>
+    <summary>an alternative view</summary>
+    
+        <p>For any $X$, the set of clusters and sepsets containing $X$ form a tree.</p>
+<ul>
+<li>It has to be connected because of the existence of the path.</li>
+<li>It can&rsquo;t be a non tree because that would give us different paths.</li>
+</ul> 
+    
+</details>
+
 </div>
         
     </div>
