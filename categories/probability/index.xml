@@ -6,7 +6,7 @@
     <description>Recent content in Probability on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 07 Apr 2025 16:29:46 +0700</lastBuildDate>
+    <lastBuildDate>Sat, 19 Apr 2025 18:56:10 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/categories/probability/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chapter 2: Probability - Univariate Models</title>
@@ -35,6 +35,13 @@
       <pubDate>Mon, 17 Mar 2025 12:11:38 +0700</pubDate>
       <guid>https://tomodachii.com/courses/6.041sc/lecture-8-continuous-random-variables/</guid>
       <description>&lt;h1 id=&#34;continuous-random-variables-and-pdfs&#34;&gt;Continuous Random Variables and PDFs&lt;/h1&gt;&#xA;&lt;div class=&#34;define&#34;&gt;&#xA;    &#xA;    &#xA;        &lt;span class=&#34;define-icon&#34;&gt;&#xA;            𐰋𐰍𐰃𐰤&#xA;            &#xA;        &lt;/span&gt;&#xA;    &#xA;&#xA;    &#xA;&#xA;    &lt;div class=&#34;define-content&#34;&gt;A random variable (takes values from a continuous set) is continuous if it can be described by a PDF.&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;p&gt;PDF&#xA;&lt;div class=&#34;image-text-block left&#34;&gt;&#xA;    &lt;img src=&#34;https://tomodachii.com/images/courses/6.041SC/lecture-8-continuous-random-variables/PDF.png&#34; alt=&#34;&#34; style=&#34;max-width: 50%;&#34;&gt;&#xA;    &lt;div class=&#34;image-text-content&#34;&gt;&#xA;      &lt;p&gt;The area under the graph of the PDF.&#xA;$$&#xA;\boxed{P(a \leq X \leq b) = \int_a^b f_X \, (x) \, dx}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;To qualify as an PDF, $f_X(x) \geq 0$ for every $x$, and $f_X$ must satisfy the normalize equation:&#xA;$$&#xA;\int_{- \infty}^{\infty} f_X(x) \, dx = P(- \infty &amp;lt; X &amp;lt; \infty) = 1&#xA;$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 9 &#43; 10: Joint Distribution, Conditioning and Independence</title>
+      <link>https://tomodachii.com/courses/6.041sc/lecture-9-10-joint-distribution-conditioning-independence/</link>
+      <pubDate>Sat, 19 Apr 2025 18:56:10 +0700</pubDate>
+      <guid>https://tomodachii.com/courses/6.041sc/lecture-9-10-joint-distribution-conditioning-independence/</guid>
+      <description></description>
     </item>
     <item>
       <title>Lecture 21: MLE</title>
