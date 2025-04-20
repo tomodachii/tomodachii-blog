@@ -31,10 +31,10 @@ $$
 * A cluster graph $\mathcal{U}$ is an undirected graph such that:
     + Each node is a cluster $C_i \subseteq \mathcal{X}$.
     + Each edge between a pair of cluster $C_i$ and $C_j$ is associated with a *sepset* (separator set) $S_{i, j} \subseteq C_i \cap C_j$.
-* Given set of factors $\Phi$, each factor $\phi_k \in \Phi$ must be assigned to {{< marker >}}one and only one{{< /marker >}} cluster $C_{\alpha(k)}$ s.t. $Scope[\phi_k] \subseteq C_{\alpha(k)}$.
+* Given set of factors $\Phi$, each factor $\phi_k \in \Phi$ must be assigned to {{< marker >}}one and only one{{< /marker >}} cluster $C_{\alpha(\phi)}$ s.t. $Scope[\phi_k] \subseteq C_{\alpha(\phi)}$.
 * The initial belief of a particular cluster as a product of all the factors assigned to it:
 $$
-\psi_i (C_i) = \prod_{k: \alpha(k) = i} \phi_k
+\psi_i (C_i) = \prod_{\phi: \alpha(\phi) = i} \phi
 $$
 {{< /define >}}
 
@@ -69,7 +69,16 @@ $$
 The message $\tau_1(D)$ generated from $\psi_1(C, D)$, participates in the computation of $\psi_2$: we have an edge from $C_1$ to $C_2$.
 {{< /toggle >}}
 
-## Properties of Cluster Graphs
+## Clique Trees
+The cluster graph associated with an execution of VE is guaranteed to have certain important properties.
+
+* VE used intermediate factor $\tau_i$ at most once $\rightarrow$ the cluster graph induced by an execution of VE is necessarily a tree because (there should be no cycle because if there's more than one path from $C_i$ to $C_j$, $\tau_i$ will be used multiple times).
+* Although cluster graph is undirected, an execution of VE defines a direction for the edges (flow of messages between clusters).
+    + The directed graph induced by the messages is a directed tree,
+    + all the messages flowing toward a single cluster where the final result is computed.
+    + This cluster is the **root** (not part of the definition of a cluster graph).
+
+### Properties of Cluster Graphs
 **Family Preservation**
 * Given set of factors $\Phi$, each factor $\phi_k \in \Phi$ must be assigned to {{< marker >}}one and only one{{< /marker >}} cluster $C_{\alpha(k)}$ s.t. $Scope[\phi_k] \subseteq C_{\alpha(k)}$. (In English: Each factor $\phi_k$ needs to be assigned to a cluster $C_{\alpha(k)}$ s.t. $C_{\alpha(k)}$ accommodate $\phi_k$).
 * For each factor $\phi_k \in \Phi$, there exists a cluster $C_i$ s.t. $Scope[\phi_k] \subseteq C_i$ (For each factor there's a cluster accomodates $\phi_k$).
@@ -78,7 +87,7 @@ The message $\tau_1(D)$ generated from $\psi_1(C, D)$, participates in the compu
 
 **Running Intersection Property (RIP)**
 {{< image-text image="/images/books/probabilistic-graphical-models/chapter10/running-intersection.png" >}}
-For each pair of clusters $C_i$, $C_j$ and variable $X \in C_i \cap C_j$, there exists a unique path between $C_i$ and $C_j$ for which all clusters and sepets contain $X$.
+For each pair of clusters $C_i$, $C_j$ and variable $X \in C_i \cap C_j$, there {{< marker >}}exists{{< /marker >}} a {{< marker >}}unique{{< /marker >}} path between $C_i$ and $C_j$ for which all clusters and sepets contain $X$.
 {{< /image-text >}}
 
 {{< toggle title="existence" >}}
@@ -91,7 +100,7 @@ That's not very good, that path must exist.
 {{< image-text image="/images/books/probabilistic-graphical-models/chapter10/running-intersection-unique.png" >}}
 Suppose there're 2 paths involved $X$.
 
-Consider $C_3 \to C_5 \to C_2 \to C_3$
+Consider cycle $C_3 \to C_5 \to C_2 \to C_3$.
 
 * Suppose $C_3$ suggests that $X$ needs to take value 1, $C_5$ integrates with its own information and sends it to $C_2$ which sends it back to $C_3$. 
 * Now, $C_3$ reinforces its beliefs that $X$ need to take the value 1 $\to$ the probability goes up.
@@ -105,3 +114,109 @@ For any $X$, the set of clusters and sepsets containing $X$ form a tree.
 * It has to be connected because of the existence of the path.
 * It can't be a non tree because that would give us different paths.
 {{< /toggle >}}
+
+{{< define icon="theorem" >}}
+Let $\mathcal{T}$ be a cluster tree induced by VE over some set of factors $\Phi$. Then $\mathcal{T}$ satisfies the running intersection property.
+{{< /define >}}
+
+* $X$: a variable in the model.
+* $C$ and $C^{\prime}$: two clusters that contain $X$.
+* $C_X$: the cluster where $X$ is eliminated $\to$ the cluster where $X$ is summed out during VE.
+
+Goal: prove that $X$ must be present in every cluster on the path between $C$ and $C_X$ (and similarly, between $C^{\prime}$ and $C_X$).
+
+{{< toggle title="Proof" >}}
+
+* $C_X$ takes place later in the VE order than $C$, because
+    + $X$ got summed out (eliminated) in $C_X$, no factor generated afterward will contain $X$ in its domain.
+* By assumption, $X$ is in the domain of $C$ + $X$ is not eliminated in $C$ $\to$ the message computed in $C$ must have $X$ in its domain. 
+
+Since 
+{{< /toggle >}}
+
+## Bethe Cluster Graph
+How do we construct
+
+# Message Passing: Sum Product
+VE induces a clique tree.
+
+Given a clique tree, show how this data structure is used to perform VE.
+* caching computations $\to$ allowing multiple execution of VE to be performed.
+
+## Clique-Tree Message Passing
+* $\mathcal{T}$: clique tree with cliques $C_1, \dots, C_k$.
+* $C_r$: selected root clique.
+* For each $C_i$
+    + $Nb_i$: set of indexes of neighbors cliques.
+    + $p_r(i)$: upstream neighbor of $i$ (parent of node $i$ in the rooted tree $\mathcal{T}$).
+
+{{< define >}}
+**1. Initialize Cliques**: Multiplying the factors assigned to each clique $\alpha(\phi)$, resulting in the **initial potentials**
+$$
+\boxed{\psi_j(C_j) = \prod_{\phi : \alpha(\phi) = j} \phi}
+$$
+* Because each factor is assigned to exactly one clique,
+$$
+\prod_{\phi} \phi = \prod_j \psi_j.
+$$
+
+**2. Message Passing Loop**: Perform sum-product VE over the cliques
+* Starting from the leaves,
+* moving inward.
+* Each clique $C_i$, except for the root, performs a message passing computation and sends a message to its upstream neighbor $C_{p_r(i)}$.
+* The message from $C_i$ to $C_j$ is computed using **sum-product message passing**:
+$$
+\boxed{\delta_{i \to j} = \sum_{C_i - S_{i, j}} \overbrace{\psi_i}^{\text{init clique potential}} \cdot \overbrace{\prod_{k \in (Nb_i - \\{j\\})} \delta_{k \to i}}^{\text{mess from other neigbors}} }
+$$
+In other word, $C_i$ multiplies all incoming messages from its neighbors with its initial clique potential, resulting in a factor $\psi$ whose scope is the clique, sums out all variables except those in $S_{i, j}$ and sends the resulting factor as a message to $C_j$.
+
+**3. Compute Root Belief**
+This message passing process proceeds up the tree, culminating at root.
+
+When the root clique has received all messages, it multiplies them with its own initial potential.
+
+Result: {{< marker >}}beliefs{{< /marker >}} factor,  computed using the expression
+
+$$
+\beta_r(C_r) = \sum_{\mathcal{X} - C_r} \prod_{\phi} \phi
+$$
+
+$$
+ = \sum_{\mathcal{X} - C_r} \prod_{\phi} \phi
+$$
+{{< /define >}}
+
+<br/>
+
+**Example**
+One possible clique tree $\mathcal{T}$ for the simplified Student network
+{{< image-text image="/images/books/probabilistic-graphical-models/chapter10/message-propagation.png" width="60%" >}}
+Generate a set of init potentials associated with the different cliques.
+* $\psi_i(C_i)$ is computed by multiplying the initial factors assigned to the clique $C_i$
+* For ex: $\psi_5(J, L, G, S) = \phi_L(L, G) \cdot \phi_J(J, L, S)$.
+
+{{< /image-text >}}
+(a) Compute $P(J)$, choose some clique that contains $J$ as root clique, for ex, $C_5$.
+* some legal execution ordering: $C_1, C_2, C_3, C_4, C_5$, $C_1, C_4, C_2, C_3, C_5$.
+* illegal ordering: $C_2, C_1, C_4, C_3, C_5$.
+    + because $C_2$ is ready only after it receives its message from $C_1$.
+
+In $C_5$: 
+$$
+\beta_5(G, J, S, L) = \delta_{3\to 5}(G, S) \cdot \delta_{4 \to 5}(G, J) \cdot \psi_5(G, J, S, L)
+$$
+
+Can sum out $G, L, S$ to obtain $P(J)$.
+
+Can choose $C_4$ as root.
+$$
+\beta_4(H, G, J) = \delta_{5\to 4}(G, S) \cdot \psi_4(G, J, S, L)
+$$
+
+<br/>
+
+(b) choose $C_3$ as root.
+$$
+\beta_3(G, S, I) = \delta_{2 \to 3}(G, I) \cdot \delta_{5 \to 3}(G, S) \cdot \psi_3(G, S, I)
+$$
+
