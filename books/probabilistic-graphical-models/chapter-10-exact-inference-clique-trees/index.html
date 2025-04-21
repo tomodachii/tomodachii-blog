@@ -207,6 +207,13 @@ $$
     
 </details>
 
+<h3 id="properties-of-cluster-graphs">Properties of Cluster Graphs</h3>
+<p><strong>Family Preservation</strong></p>
+<ul>
+<li>Given set of factors $\Phi$, each factor $\phi_k \in \Phi$ must be assigned to <span class="marked">one and only one</span>
+ cluster $C_{\alpha(k)}$ s.t. $Scope[\phi_k] \subseteq C_{\alpha(k)}$. (In English: Each factor $\phi_k$ needs to be assigned to a cluster $C_{\alpha(k)}$ s.t. $C_{\alpha(k)}$ accommodate $\phi_k$).</li>
+<li>For each factor $\phi_k \in \Phi$, there exists a cluster $C_i$ s.t. $Scope[\phi_k] \subseteq C_i$ (For each factor there&rsquo;s a cluster accomodates $\phi_k$).</li>
+</ul>
 <h2 id="clique-trees">Clique Trees</h2>
 <p>The cluster graph associated with an execution of VE is guaranteed to have certain important properties.</p>
 <ul>
@@ -219,7 +226,25 @@ $$
 </ul>
 </li>
 </ul>
-<h3 id="properties-of-cluster-graphs">Properties of Cluster Graphs</h3>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content"><p>Clique Tree</p>
+<ul>
+<li>Cluster tree such that:
+<ul>
+<li>nodes are clusters $C_i \subseteq \mathcal{X}$ (called cliques),</li>
+<li>edges between $C_i$ and $C_j$ associated with sepset $S_{i, j} = C_i \cap C_j$,</li>
+<li>satisfies the running intersection property.</li>
+</ul>
+</li>
+</ul></div>
+</div>
+
+<h3 id="properties-of-clique-tree">Properties of Clique Tree</h3>
 <p><strong>Family Preservation</strong></p>
 <ul>
 <li>Given set of factors $\Phi$, each factor $\phi_k \in \Phi$ must be assigned to <span class="marked">one and only one</span>
@@ -354,6 +379,10 @@ $$</li>
 <li>Starting from the leaves,</li>
 <li>moving inward.</li>
 <li>Each clique $C_i$, except for the root, performs a message passing computation and sends a message to its upstream neighbor $C_{p_r(i)}$.</li>
+<li>Belief of Cluster:
+$$
+\boxed{\beta_i(C_i) = \psi_i \cdot \prod_{k \in Nb_i} \delta_{k \to i}}
+$$</li>
 <li>The message from $C_i$ to $C_j$ is computed using <strong>sum-product message passing</strong>:
 $$
 \boxed{\delta_{i \to j} = \sum_{C_i - S_{i, j}} \overbrace{\psi_i}^{\text{init clique potential}} \cdot \overbrace{\prod_{k \in (Nb_i - \{j\})} \delta_{k \to i}}^{\text{mess from other neigbors}} }
@@ -362,21 +391,36 @@ In other word, $C_i$ multiplies all incoming messages from its neighbors with it
 </ul>
 <p><strong>3. Compute Root Belief</strong>
 This message passing process proceeds up the tree, culminating at root.</p>
+<ul>
+<li>
 <p>When the root clique has received all messages, it multiplies them with its own initial potential.</p>
+</li>
+<li>
 <p>Result: <span class="marked">beliefs</span>
 factor,  computed using the expression</p>
+</li>
+</ul>
 <p>$$
-\beta_r(C_r) = \sum_{\mathcal{X} - C_r} \prod_{\phi} \phi
+\boxed{\beta_r(C_r) = \sum_{\mathcal{X} - C_r} \prod_{\phi} \phi = \psi_r \cdot \prod_{k \in Nb(C_r)} \delta_{k \to r}}
 $$</p>
 <p>$$
-= \sum_{\mathcal{X} - C_r} \prod_{\phi} \phi
+= \tilde{P}_{\Phi}(\mathcal{C_r})
 $$</p>
 </div>
 </div>
 
 <br/>
-<p><strong>Example</strong>
-One possible clique tree $\mathcal{T}$ for the simplified Student network
+<details>
+    <summary>Upward pass of variable elimination in clique tree</summary>
+    
+        <img src="/images/books/probabilistic-graphical-models/chapter10/upward-pass-VE-algo.png" alt=""> 
+    
+</details>
+
+<details>
+    <summary>Example: simplified student network</summary>
+    
+        <p>One possible clique tree $\mathcal{T}$ for the simplified Student network</p>
 <div class="image-text-block ">
     <img src="/images/books/probabilistic-graphical-models/chapter10/message-propagation.png" alt="" style="max-width: 60%;">
     <div class="image-text-content">
@@ -387,8 +431,7 @@ One possible clique tree $\mathcal{T}$ for the simplified Student network
 </ul>
     </div>
 </div>
-
-(a) Compute $P(J)$, choose some clique that contains $J$ as root clique, for ex, $C_5$.</p>
+<p>(a) Compute $P(J)$, choose some clique that contains $J$ as root clique, for ex, $C_5$.</p>
 <ul>
 <li>some legal execution ordering: $C_1, C_2, C_3, C_4, C_5$, $C_1, C_4, C_2, C_3, C_5$.</li>
 <li>illegal ordering: $C_2, C_1, C_4, C_3, C_5$.
@@ -410,6 +453,327 @@ $$</p>
 <p>(b) choose $C_3$ as root.
 $$
 \beta_3(G, S, I) = \delta_{2 \to 3}(G, I) \cdot \delta_{5 \to 3}(G, S) \cdot \psi_3(G, S, I)
+$$</p>
+ 
+    
+</details>
+
+<div class="callout callout-info">
+    <span class="callout-icon">
+        ℹ️
+        
+        
+        
+    </span>
+    <div class="callout-content"><p>Compute posterior probability</p>
+<ul>
+<li>Pick a root in the clique tree that contain the desire variable.</li>
+<li>Pass messages upward toward that root.</li>
+<li>Extract marginals over variables that are in the root.</li>
+</ul></div>
+</div>
+
+
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content"><ul>
+<li>The direction of messages depends on the root.</li>
+<li>The content of each message depends on what&rsquo;s below the sender $\rightarrow$ changes if the root changes.</li>
+</ul>
+<p>Say, if we want to know about the posterior probability of another variable that is in a different clique $\rightarrow$ choose another root and run the procedure again.</p></div>
+</div>
+
+
+<h2 id="correctness">Correctness</h2>
+<p>Prove that this algorithm,</p>
+<ul>
+<li>when applied to a clique tree that satisfies
+<ul>
+<li>the family preservation</li>
+<li>the running intersection property,</li>
+</ul>
+</li>
+<li>will compute the desire expressions over the messages and the cliques (or say the resulting beliefs (marginals) are correct).</li>
+</ul>
+<div class="define">
+    
+    
+        <span class="define-icon">
+            
+            𐰃𐰠𐰆𐰢
+        </span>
+    
+
+    
+
+    <div class="define-content"><p>Assum $X$ is eliminated when a message is sent from $C_i$ to $C_j$,</p>
+<p>Then $X$ does not appear anywhere in the tree on the $C_j$ side of the edge ($i - j$).</p>
+</div>
+</div>
+
+<details>
+    <summary>Proof using contradiction</summary>
+    
+        <p>Assume $X$ appears in some other clique $C_k$ that is on the $C_j$ side of the tree.</p>
+<p>Then $C_j$ is on the path $C_i \to C_k$.</p>
+<p>However a variable $X$ is eliminated only when a message is sent from $C_i$ to $C_j$ s.t:</p>
+<ul>
+<li>$X \in C_i$</li>
+<li>$X \not\in C_j$</li>
+</ul>
+<p>$\Rightarrow$ $X$ appears in both $C_i$ and $C_k$ but not in $C_j$, violating the running intersection property.</p>
+ 
+    
+</details>
+
+<div class="define">
+    
+    
+        <span class="define-icon">
+            
+            𐰃𐰠𐰆𐰢
+        </span>
+    
+
+    
+
+    <div class="define-content"><p>The message $\delta_{i \to j}(S_{i, j})$ is equal to the sum over all variables on the $C_i$-side that are not in the sepset of the product of all factors on that side</p>
+<p>$$
+\delta_{i \rightarrow j}(S_{i,j}) = \sum_{\mathcal{V} \prec (i \rightarrow j)} \prod_{\phi \in \mathcal{F} \prec (i \rightarrow j)} \phi
+$$</p>
+<p>where</p>
+<ul>
+<li>$\mathcal{F}_{\prec (i \to j)}$: all factors on the $C_i$-side of the edge.</li>
+<li>$\mathcal{V}_{\prec (i \to j)}$: all variables on the $C_i$-side of the edge but are not in the sepset.</li>
+</ul>
+</div>
+</div>
+
+<p>In English, &ldquo;The message from clique $C_i \to C_j = $ the sum over all variables on the $C_i$-side of the edge but are not in the sepset $S_{i, j}$ of the product of all factors on the $C_i$-side of the edge.&rdquo;</p>
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content">The message $\delta_{i \to j}$ does not depend on what the root is - only on the local structure and which side of the tree the message is coming from.</div>
+</div>
+
+
+<details>
+    <summary>Proof</summary>
+    
+        <div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter10/correctness.png" alt="" style="max-width: 25%;">
+    <div class="image-text-content">
+      $C_i$ has neighbors $C_{i_1}, C_{i_2}, \dots, C_{i_m}$ other than $C_j$.
+    </div>
+</div>
+<p>The eliminated variables $\mathcal{V}_{\prec (i \to j)}$ in the entire subtree are:</p>
+<p>$$
+V_{\prec (i \to j)} = \left( \bigcup_{k = 1}^mV_{\prec (i_k \to j)} \right) \cup (C_i \ S_{i,j})
+$$</p>
+<ul>
+<li>The variables eliminated at each subtree rooted at $i_k$ are $\mathcal{V}_{\prec(i_k \to i)}$.</li>
+<li>At $C_i$, we eliminate its local variables not in the sepset.</li>
+</ul>
+<p>When we eliminate a variable at $ C_i $, it doesn&rsquo;t appear in any subtree rooted at $ C_{i_k} $. So the variable sets $ \mathcal{V}_{&lt;(i_k \to i)} $ are disjoint.</p>
+<p>Assum $Y_i$ is eliminated at $C_i$</p>
+<p>$$
+\delta_{i \to j}(S_{i, j}) = \sum_{Y_i} \sum_{V_{\prec(i_1 \rightarrow i)}} \cdots \sum_{V_{\prec(i_m \rightarrow i)}}
+\left( \prod_{\phi \in F_{\prec(i_1 \rightarrow i)}} \phi \right)
+\cdots
+\left( \prod_{\phi \in F_{\prec(i_m \rightarrow i)}} \phi \right)
+\cdot
+\left( \prod_{\phi \in F_i} \phi \right)
+$$</p>
+<p>$$
+=\sum_{Y_i}
+\left( \prod_{\phi \in F_i} \phi \right)
+\cdot
+\sum_{V_{\prec(i_1 \rightarrow i)}}
+\left( \prod_{\phi \in F_{\prec(i_1 \rightarrow i)}} \phi \right)
+\cdots
+\sum_{V_{\prec(i_m \rightarrow i)}}
+\left( \prod_{\phi \in F_{\prec(i_m \rightarrow i)}} \phi \right)
+$$</p>
+<ul>
+<li>This is because the variable in  $ \mathcal{V}_{&lt;(i_k \to i)} $ do not appear in any factor $\phi$ that is not from the same subtree. So their summation does not affect the other factor, and we can pull out the summation inside (<a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-9-exact-inference-variable-elimination/#properties-of-factor-operations">exchange summation and product</a>).</li>
+</ul>
+<p>Thus,</p>
+<p>$$
+\delta_{i \to j}(S_{i, j}) = \sum_{Y_i} \psi_i \cdot \delta_{i_1 \rightarrow i} \cdots \delta_{i_m \rightarrow i}
+$$</p>
+ 
+    
+</details>
+
+<p>Corollary
+<div class="define">
+    
+    
+        <span class="define-icon">
+            
+            𐰃𐰠𐰆𐰢
+        </span>
+    
+
+    
+
+    <div class="define-content">$$
+\beta_r(C_r) = \sum_{\mathcal{X} - C_r} \tilde{P}_{\Phi}(\mathcal{X})
+$$</div>
+</div>
+</p>
+<ul>
+<li>Because $\beta_r(C_r) = \psi_r \cdot \prod_{k \in Nb(C_r)} \delta_{k \to r}$.
+<ul>
+<li>$\prod_{k \in Nb(C_r)} \delta_{k \to r} = \sum \prod \phi$.</li>
+</ul>
+</li>
+</ul>
+<p>$\Rightarrow$ The upward pass computes correct marginals for the root.</p>
+<div class="callout callout-warning">
+    <span class="callout-icon">
+        
+        ⚠️
+        
+        
+    </span>
+    <div class="callout-content">This proves that we can use the same clique tree to compute the probability of any variable in $\mathcal{X}$.</div>
+</div>
+
+
+<p>Sum up phần này nghĩa là nếu clique tree của mình thỏa mãn 2 tính chất &hellip; thì một message passing từ leaf đến root của nó sẽ là một legit marginal probability P~(X) &hellip;</p>
+<h2 id="clique-tree-calibration">Clique Tree Calibration</h2>
+<h3 id="ready-clique">Ready Clique</h3>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content">$C_i$ is ready to transmit to a neighbor $C_j$ when $C_i$ has messages from all of its neighbors except from $C_j$.</div>
+</div>
+
+<h3 id="sum-product-belief-propagation">Sum-product Belief Propagation</h3>
+<p><img src="/images/books/probabilistic-graphical-models/chapter10/sum-prod-belief-prop.png" alt=""></p>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content"><strong>1. Initialize Cliques</strong>:
+$$
+\boxed{\psi_j(C_j) = \prod_{\phi : \alpha(\phi) = j} \phi}
+$$
+<strong>2. Message Passing Loop</strong>:</div>
+</div>
+
+<details>
+    <summary>simplifed student example</summary>
+    
+        <img src="/images/books/probabilistic-graphical-models/chapter10/two-step-student.png" alt=""> 
+    
+</details>
+
+<p>At the end of this process, all messages and clique beliefs are computed. Messages used in the computation of $\beta_i$ are precisely the same as that would have been use in the upward algorithm, thus
+Corollary
+<div class="define">
+    
+    
+        <span class="define-icon">
+            
+            𐰃𐰠𐰆𐰢
+        </span>
+    
+
+    
+
+    <div class="define-content">$$
+\beta_i(C_i) = \sum_{\mathcal{X} - C_i} \tilde{P}_{\Phi}(\mathcal{X})
+$$</div>
+</div>
+</p>
+<h3 id="calibrated">Calibrated</h3>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content">Two adjacent cliques $C_i$ and $C_j$ are said to be calibrated if
+$$
+\boxed{\sum_{C_i - S_{i, j}} \beta_i (C_i) = \sum_{C_j - S_{i, j}} \beta_j (C_j)}
+$$</div>
+</div>
+
+<p>Cái này là belief tại cluster C_i nên vẫn bao gồm cả j, nghĩa là message từ 2 chiều vẫn khác nhau nhưng belief tại node đó sẽ = nhau nên vẫn cần tính message cả 2 chiều</p>
+<h3 id="calibrated-clique-tree">Calibrated Clique Tree</h3>
+<div class="define">
+    
+    
+        <span class="define-icon">
+            𐰋𐰍𐰃𐰤
+            
+        </span>
+    
+
+    
+
+    <div class="define-content">a clique tree $\mathcal{T}$ is calibrated if all pairs of adjacent cliques are calibrated.</div>
+</div>
+
+<h3 id="beliefs">Beliefs</h3>
+<p><strong>clique beliefs</strong>
+$$
+\boxed{\beta_i(C_i) = \psi_i \cdot \prod_{k \in Nb_i} \delta_{k \to i}}
+$$</p>
+<p><strong>sepset beliefs</strong>
+$$
+\boxed{\mu_{i, j} (S_{i, j}) = \sum_{C_i - S_{i, j}} \beta_i (C_i) = \sum_{C_j - S_{i, j}} \beta_j (C_j)}
+$$</p>
+<h2 id="clique-tree-analysis">Clique Tree Analysis</h2>
+<p>Say we want to compute the posterior probability of all variables in the graphical models</p>
+<p>Let $c$ be the cost of message passing to the root.</p>
+<p><strong>Naive</strong> message passing in clique tree: $nc$.</p>
+<p>We can run the upward message passing algorithm once for every clique, making it the root: $Kc$.</p>
+<ul>
+<li>$K$: number of cliques.</li>
+</ul>
+<p>Using clique tree calibration:</p>
+<ul>
+<li>Run message passing in two passes (upward pass and downward pass).</li>
+<li>Compute all messages</li>
+<li>The messages and beliefs in the clique tree store all necessary info about the posterior distribution.</li>
+<li>Then for any clique $C_i$, compute it belief
+$$
+\beta_i = \psi_i \cdot \prod_{k \in Nb(i)} \delta_{k \to i}
+$$</li>
+<li>And then marginalize locally to get any variable in any clique.
+The cost of this algorithm is $2c$.</li>
+</ul>
+<h3 id="a-calibrated-clique-tree-as-a-distribution">A Calibrated Clique Tree as a Distribution</h3>
+<ul>
+<li>A data structure that stores the results of probabilistic inference for all of the cliques in the tree.</li>
+<li>An alternative representation of the measure $\tilde{P}_{\Phi}$</li>
+</ul>
+<p>$$
+\begin{align*}
+\mu_{i \to j}(S_{i,j})
+&amp;= \sum_{C_i - S_{i,j}} \beta_i(C_i) \\
+&amp;= \sum_{C_i - S_{i,j}} \psi_i \cdot \prod_{k \in Nb_i} \delta_{k \to i} \\
+&amp;= \sum_{C_i - S_{i,j}} \psi_i \cdot \delta_{j \to i} \cdot \prod_{k \in (Nb_i - \{j\})} \delta_{k \to i} \\
+&amp;= \delta_{j \to i} \cdot \sum_{C_i - S_{i,j}} \psi_i \cdot \prod_{k \in (Nb_i - \{j\})} \delta_{k \to i} \\
+&amp;= \delta_{j \to i} \cdot \delta_{i \to j}
+\end{align*}
 $$</p>
 </div>
         
