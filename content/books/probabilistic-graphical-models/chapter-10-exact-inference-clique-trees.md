@@ -122,6 +122,10 @@ This self-reinforcing loop is going to give rise to very extreme and skewed prob
 {{< /image-text >}}
 {{< /toggle >}}
 
+{{< toggle title="RIP implies $S_{i,j} = C_i \cap C_j$" >}}
+If the cluster satisfies RIP, then shared variables between $C_i$ and $C_j$ must persist through the path between them. Thus, $S_{i, j} = C_i \cap C_j$.
+{{< /toggle >}}
+
 {{< toggle title="an alternative view" >}}
 For any $X$, the set of clusters and sepsets containing $X$ form a tree.
 * It has to be connected because of the existence of the path.
@@ -142,10 +146,17 @@ Goal: prove that $X$ must be present in every cluster on the path between $C$ an
 
 * $C_X$ takes place later in the VE order than $C$, because
     + $X$ got summed out (eliminated) in $C_X$, no factor generated afterward will contain $X$ in its domain.
-* By assumption, $X$ is in the domain of $C$ + $X$ is not eliminated in $C$ $\to$ the message computed in $C$ must have $X$ in its domain. 
-
-Since 
+* By assumption, $X$ is in the domain of $C$ + $X$ is not eliminated in $C$ $\to$ the message $\delta$ computed in $C$ must have $X$ in its domain. 
+* By definition, $\beta_i(C_i) = \psi_i \cdot \prod_{k \in Nb_i} \delta_{k \to i}$, $C$'s upstream neighbor's scope contains $X$ since its belief equals its potential multiplied by the message from $C$.
 {{< /toggle >}}
+
+### RIP and Independence
+
+{{< define icon="theorem" >}}
+$ \mathcal{T} $ satisfies the running intersection property if and only if, for every sepset $ S_{i,j} $, we have that $W_{<( i, j )} \text{ and } W_{< (j, i) }$ are separated in $\mathcal{H} \text{ given } S_{i,j}.$
+{{< /define >}}
+
+![](/images/books/probabilistic-graphical-models/chapter10/rip-and-independence.png)
 
 ## Bethe Cluster Graph
 How do we construct
@@ -199,7 +210,7 @@ $$
 $$
 
 $$
-= \tilde{P}_{\Phi}(\mathcal{C_r})
+= \tilde{P}_{\Phi}(C_r)
 $$
 
 {{< /define >}}
@@ -454,3 +465,9 @@ $$
 &= \delta_{j \to i} \cdot \delta_{i \to j}
 \end{align*}
 $$
+
+# Message Passing: Belief Update
+
+# Constructing a Clique Tree
+
+## Clique Trees from VE
