@@ -294,6 +294,13 @@ path between $C_i$ and $C_j$ for which all clusters and sepets contain $X$.
 </details>
 
 <details>
+    <summary>RIP implies $S_{i,j} = C_i \cap C_j$</summary>
+    
+        If the cluster satisfies RIP, then shared variables between $C_i$ and $C_j$ must persist through the path between them. Thus, $S_{i, j} = C_i \cap C_j$. 
+    
+</details>
+
+<details>
     <summary>an alternative view</summary>
     
         <p>For any $X$, the set of clusters and sepsets containing $X$ form a tree.</p>
@@ -333,12 +340,29 @@ path between $C_i$ and $C_j$ for which all clusters and sepets contain $X$.
 <li>$X$ got summed out (eliminated) in $C_X$, no factor generated afterward will contain $X$ in its domain.</li>
 </ul>
 </li>
-<li>By assumption, $X$ is in the domain of $C$ + $X$ is not eliminated in $C$ $\to$ the message computed in $C$ must have $X$ in its domain.</li>
+<li>By assumption, $X$ is in the domain of $C$ + $X$ is not eliminated in $C$ $\to$ the message $\delta$ computed in $C$ must have $X$ in its domain.</li>
+<li>By definition, $\beta_i(C_i) = \psi_i \cdot \prod_{k \in Nb_i} \delta_{k \to i}$, $C$&rsquo;s upstream neighbor&rsquo;s scope contains $X$ since its belief equals its potential multiplied by the message from $C$.</li>
 </ul>
-<p>Since</p> 
+ 
     
 </details>
 
+<h3 id="rip-and-independence">RIP and Independence</h3>
+<div class="define">
+    
+    
+        <span class="define-icon">
+            
+            𐰃𐰠𐰆𐰢
+        </span>
+    
+
+    
+
+    <div class="define-content">$ \mathcal{T} $ satisfies the running intersection property if and only if, for every sepset $ S_{i,j} $, we have that $W_{&lt;( i, j )} \text{ and } W_{&lt; (j, i) }$ are separated in $\mathcal{H} \text{ given } S_{i,j}.$</div>
+</div>
+
+<p><img src="/images/books/probabilistic-graphical-models/chapter10/rip-and-independence.png" alt=""></p>
 <h2 id="bethe-cluster-graph">Bethe Cluster Graph</h2>
 <p>How do we construct</p>
 <h1 id="message-passing-sum-product">Message Passing: Sum Product</h1>
@@ -404,7 +428,7 @@ factor,  computed using the expression</p>
 \boxed{\beta_r(C_r) = \sum_{\mathcal{X} - C_r} \prod_{\phi} \phi = \psi_r \cdot \prod_{k \in Nb(C_r)} \delta_{k \to r}}
 $$</p>
 <p>$$
-= \tilde{P}_{\Phi}(\mathcal{C_r})
+= \tilde{P}_{\Phi}(C_r)
 $$</p>
 </div>
 </div>
@@ -775,6 +799,9 @@ The cost of this algorithm is $2c$.</li>
 &amp;= \delta_{j \to i} \cdot \delta_{i \to j}
 \end{align*}
 $$</p>
+<h1 id="message-passing-belief-update">Message Passing: Belief Update</h1>
+<h1 id="constructing-a-clique-tree">Constructing a Clique Tree</h1>
+<h2 id="clique-trees-from-ve">Clique Trees from VE</h2>
 </div>
         
     </div>
