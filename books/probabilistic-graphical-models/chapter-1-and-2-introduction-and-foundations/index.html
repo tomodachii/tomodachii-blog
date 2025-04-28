@@ -141,6 +141,126 @@ $$</li>
 </details>
 </li>
 </ul>
+<h1 id="information-theory">Information Theory</h1>
+<p>Deals with  efficient coding and transmission of information.</p>
+<ul>
+<li>Encode information to maximize the amount of data that can sent on a given channel.</li>
+<li>Deal with noisy channels.</li>
+</ul>
+<h2 id="compression-and-entropy">Compression and Entropy</h2>
+<p>transmit a large corpus of say English text over a digital line.</p>
+<h3 id="entropy">Entropy</h3>
+<ul>
+<li>
+<p>$ P(X) $: distribution over a random variable $ X $.</p>
+</li>
+<li>
+<p>logarithms of base 2.
+The entropy of $ X $
+$$
+\boxed{\mathbb{H}_P (X) = \mathbb{E}_P \left[ \log{\frac{1}{P(x)}} \right] = \sum_x P(x) \log{\frac{1}{P(x)}}}
+$$</p>
+</li>
+<li>
+<p>entropy of $ X $ is the lower bound on the average number of bits required to encode values of $ X $.</p>
+</li>
+<li>
+<p>entropy is as a measure of our uncertainty about the value of $ X $.</p>
+</li>
+</ul>
+<p>Proposition
+$$
+0 \leq \mathbb{H}_P (X) \leq \log{|Val(X)|}
+$$</p>
+<h3 id="joint-entropy">Joint Entropy</h3>
+<ul>
+<li>$ X_1, \dots, X_n $: random variables.
+The joint entropy of $ X_1, \dots, X_n $</li>
+</ul>
+<p>$$
+\boxed{\mathbb{H}_P (X_1, \dots, X_n) = \mathbb{E}_P \left[ \log{\frac{1}{P(X_1, \dots, X_n)}} \right]}
+$$</p>
+<p>Capture how many bits are needed (on average) to encode joint instances of the variables.</p>
+<h3 id="conditional-entropy">Conditional Entropy</h3>
+<p>The additional cost (in terms of bits) of encoding $ X $ when we already encoding $ Y $
+$$
+\begin{align*}
+P(X, Y) = P(Y) \cdot P(X \mid Y) &amp;\Leftrightarrow \log{\frac{1}{P(X, Y)}} = \log{\frac{1}{P(Y)}} + \log(\frac{1}{P( X \mid Y )}) \\
+&amp;\Leftrightarrow \mathbb{H}_P (X, Y) = \mathbb{E} \left[ \log{\frac{1}{P(Y)}} \right] + \mathbb{E} \left[ \log(\frac{1}{P( X \mid Y )}) \right] \\
+&amp;\Leftrightarrow \boxed{ \mathbb{H} ( X \mid Y ) = \mathbb{E} \left[ \log{\frac{1}{P( X \mid Y )}} \right] = \mathbb{H} (X, Y) - \mathbb{H} (Y) }
+\end{align*}
+$$</p>
+<h3 id="entropy-chain-rule">Entropy Chain Rule</h3>
+<p>$$
+\boxed{ \mathbb{H} ( X_1, \dots, X_n) = \mathbb{H}(X_1) + \mathbb{H} (X_2 \mid X_1) + \dots + \mathbb{H} (X_n \mid X_1, \dots, X_{n - 1}) }
+$$</p>
+<p>Intuitively, we would expect $ \mathbb{H} (X \mid Y) $ to be at least as small as the cost of encoding $ X $ alone
+$$
+\mathbb{H} (X \mid Y) \leq \mathbb{H} (X)
+$$</p>
+<h3 id="mutual-information">Mutual information</h3>
+<p>The mutual information between $ X $ and $ Y $
+$$
+\boxed{ \mathbb{I}(X ; Y) = \mathbb{H}(X) - \mathbb{H}(X \mid Y) = \mathbb{E} \left[ \log{\frac{P(X \mid Y)}{X}} \right] }
+$$</p>
+<p>Captures how many bits we save (on average) in the encoding of $ X $ given $ Y $. The mutual information statisfies:</p>
+<ul>
+<li>$ 0 \leq \mathbb{I}(X; Y) \leq \mathbb{H}(X) $.</li>
+<li>$ \mathbb{I}(X; Y) = \mathbb{I}(Y; X) $.</li>
+<li>$ \mathbb{I}(X; Y) = 0 $ iff $ X $ and $ Y $ are independent.</li>
+</ul>
+<p>$ \rightarrow $ view mutual information as a quantitative measure of the strength of the dependency between $ X $ and $ Y $. The bigger the mutual information, the stronger the dependency.</p>
+<ul>
+<li>The extreme upper value of the mutual information is when $ X $ is a deterministic function of $ Y $ (or vice versa) $ \rightarrow \mathbb{I}(X; Y) = \mathbb{H}(X) $</li>
+</ul>
+<h2 id="relative-entropy-and-distances-between-distributions">Relative Entropy and Distances Between Distributions</h2>
+<h3 id="distance-metric">Distance Metric</h3>
+<p>A distance measure $ d $ that satisfies:</p>
+<ul>
+<li><strong>Positivity:</strong> $ d(P, Q) $ is always nonnegative, and is zero iff $ P = Q $.</li>
+<li><strong>Symmetry:</strong> $ d(P, Q) = d(Q, P) $.</li>
+<li><strong>Triangle inequality:</strong> for any three distributions $ P, Q, R $,
+$$
+d(P, R) \leq d(P, Q) + d(Q, R).
+$$</li>
+</ul>
+<h3 id="relative-entropy">Relative Entropy</h3>
+<ul>
+<li>$ P $: the true distribution that generates the data.</li>
+<li>$ Q $: approximation or guess for the true distribution (learned from data).</li>
+<li>$ \mathbb{H} (X) $: how many bits required (on average) to encode outcomes optimally assuming known $ P $.</li>
+</ul>
+<p>However, we often don&rsquo;t know $ P \rightarrow $ use $ Q $.</p>
+<p>Question: How much we lost, due to the inaccuracy of using $ Q $?</p>
+<p>The relative entropy of $ P $ and $ Q $</p>
+<p>$$
+\boxed{ \mathbb{D}(P(X_1, \dots, X_n) || Q(X_1, \dots, X_n)) = \mathbb{E} \left[ \log{\frac{P(X_1, \dots, X_n)}{Q(X_1, \dots, X_n)}} \right] }
+$$</p>
+<p>Short hand notation,
+$$
+\mathbb{D}(P || Q)
+$$</p>
+<p><strong>Properties</strong></p>
+<ul>
+<li>$ D(P || Q) \geq 0 $ (Gibb&rsquo;s inequality).</li>
+<li>$ D(P || Q) = 0 $ iff $ P = Q $.</li>
+<li>$ D(P || Q) \not= D(Q || P) $: Asymmetric.</li>
+</ul>
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content"><p>Relative entropy is not a distance measure over distributions since it does not satisfy:</p>
+<ul>
+<li>symmetry,</li>
+<li>triangle property.</li>
+</ul></div>
+</div>
+
+
 </div>
         
     </div>

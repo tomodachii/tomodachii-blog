@@ -93,14 +93,14 @@
         
 <style>
     :root {
-      --postColor: #E90808;
+      --postColor: #0085C8;
     }
   </style>
 
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Chapter 16: Learning Graphical Models - Overview</h1>
+            <h1 class="singleHeadTitle">Chapter 8 the Exponential Family</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
@@ -115,35 +115,89 @@
                     <a href="https://tomodachii.com/categories/probabilistic-graphical-models/" class="singleCategory">probabilistic-graphical-models</a>
                 
             </div>
-            <time>Apr 15, 2025</time>
+            <time>Apr 26, 2025</time>
         </div>
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><ul>
-<li>$P^*$: true distribution
+        <div class="singleContent"><h1 id="exponential-families">Exponential Families</h1>
+<p><strong>parametric family:</strong> Representation of a single distribution using BN or Markov network.</p>
+<br/>
+<p><strong>family of distributions:</strong> A set of distributions</p>
 <ul>
-<li>(in many cases but not always) corresponding to a PGM $\mathcal{M}^*$.</li>
+<li>all share the same parametric form</li>
+<li>differ in choice of particular parameters
+<ul>
+<li>for ex: the entries in table-CPDs.</li>
 </ul>
 </li>
-<li>$D = \{d[1], \dots , d[m]\}$ sampled from $P^*$.</li>
 </ul>
-<h1 id="goals">Goals</h1>
-<p>A model $ \tilde{M} $ precisely captures the distribution $ P^* $.</p>
-<h2 id="density-estimation">Density Estimation</h2>
+<h3 id="exponential-family">Exponential family</h3>
 <div class="define">
     
     
-        <span class="define-icon">
-            𐰋𐰍𐰃𐰤
-            
-        </span>
-    
 
     
 
-    <div class="define-content">Constructing a model $ \tilde{M} $ such that $ \tilde{P} $ is &ldquo;close&rdquo; to $ P^* $.</div>
+    <div class="define-content"><p>Exponential family $ \mathcal{P} $ over $ \mathcal{X} $ is specified by four components:</p>
+<ul>
+<li><strong>Sufficient statistic function $ \tau $</strong>
+<ul>
+<li>maps an assignment $ \xi \to $ a vector in $ \mathbb{R}^K $.</li>
+<li>extract key features from a sample $ \xi $.</li>
+</ul>
+</li>
+<li><strong>Parameter space</strong>, a convex subset $ \Theta \subseteq \mathbb{R}^M $ of legal parameters.</li>
+<li><strong>Natural parameter function $ t: \mathbb{R}^M \to \mathbb{R}^K $</strong>
+<ul>
+<li>transforms parameters $ \theta $ into &ldquo;natural&rdquo; parameter space.</li>
+<li>&ldquo;weight&rdquo; the features extract by $ \tau $.</li>
+</ul>
+</li>
+<li><strong>Auxiliary measure $ A $</strong> over $ \mathcal{X} $.</li>
+</ul>
+<p>Each vector of parameters $ \theta \in \Theta $ specifies a distribution $ P_{\theta} $ in the family
+$$
+\boxed{ P_\theta(\xi) = \frac{1}{Z(\theta)} A(\xi) \exp\left( \langle t(\theta), \tau(\xi) \rangle \right) }
+$$</p>
+<ul>
+<li>
+<p>$ \left( \langle t(\theta), \tau(\xi) \rangle \right) $: dot product.</p>
+</li>
+<li>
+<p>$ Z(\theta) $: <strong>partition function</strong> of $ \mathcal{P} $, must be finite, ensuring that the probabilities sum (or integrate) to 1.
+$$
+\boxed{ Z(\theta) = \sum_{\xi} A(\xi) \exp\{ \langle t(\theta), \tau(\xi) \rangle \} }
+$$</p>
+</li>
+<li>
+<p>The <strong>parametric family</strong> $ \mathcal{P} $
+$$
+\boxed{ \mathcal{P} = \{ P_{\theta} : \theta \in \Theta \} }
+$$</p>
+</li>
+</ul>
 </div>
+</div>
+
+<details>
+    <summary>Exampe 8.2: Bernoulli distribution</summary>
+    
+        <p>Bernoulli
+$$
+P(X) = p^X (1 - p)^{1 - X}
+$$</p>
+<p>Extract key features: the information $ X = 0 $ or $ X = 1 $ from sample.</p>
+<p>$$
+\tau(X) = \langle \mathbb{I}\{ X = x^1 \}, \mathbb{I}\{ X = x^0 \} \rangle
+$$</p>
+<ul>
+<li>Input: outcome $ X (X = 0, X = 1) $</li>
+<li>Output: a vector that summarizes important information about $ X $.</li>
+</ul>
+ 
+    
+</details>
 
 </div>
         
