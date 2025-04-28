@@ -13,3 +13,15 @@ section = "Probabilistic Graphical Models"
 weight = 16
 postColor = "#E90808"
 +++
+
+* $P^*$: true distribution 
+    + (in many cases but not always) corresponding to a PGM $\mathcal{M}^*$.
+* $D = \\\{d[1], \dots , d[m]\\\}$ sampled from $P^*$.
+
+# Goals
+A model $ \tilde{M} $ precisely captures the distribution $ P^* $.
+
+## Density Estimation
+{{< define icon="definition" >}}
+Constructing a model $ \tilde{M} $ such that $ \tilde{P} $ is "close" to $ P^* $.
+{{< /define >}}

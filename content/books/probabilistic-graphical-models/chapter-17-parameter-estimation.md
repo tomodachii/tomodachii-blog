@@ -48,3 +48,4 @@ Consider learning params for a BN given the structure and is completely observab
 $$
 I(\theta | D) = \log p(D | \theta) = \log \left( \prod_{i} \prod_{j} p(x_{i,j} | \theta) \right) = \sum_{i} \sum_{j} \log p(x_{i,j} | \theta)
 $$
+

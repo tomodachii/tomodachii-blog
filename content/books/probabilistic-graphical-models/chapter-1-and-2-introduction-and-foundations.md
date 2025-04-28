@@ -30,3 +30,112 @@ Given discrete random variables $X_1, \dots, X_n$ that take $\alpha_1, \dots, \a
 {{< toggle title="explain" >}}
 !["Number of params"](/images/books/probabilistic-graphical-models/chapter1+2/number-of-params.png "Number of params")
 {{< /toggle >}}
+
+# Information Theory
+Deals with  efficient coding and transmission of information.
+* Encode information to maximize the amount of data that can sent on a given channel.
+* Deal with noisy channels.
+## Compression and Entropy
+transmit a large corpus of say English text over a digital line.
+
+### Entropy
+* $ P(X) $: distribution over a random variable $ X $.
+* logarithms of base 2.
+The entropy of $ X $
+$$
+\boxed{\mathbb{H}_P (X) = \mathbb{E}_P \left[ \log{\frac{1}{P(x)}} \right] = \sum_x P(x) \log{\frac{1}{P(x)}}}
+$$
+
+* entropy of $ X $ is the lower bound on the average number of bits required to encode values of $ X $.
+* entropy is as a measure of our uncertainty about the value of $ X $.
+
+Proposition
+$$
+0 \leq \mathbb{H}_P (X) \leq \log{|Val(X)|}
+$$
+
+### Joint Entropy
+* $ X_1, \dots, X_n $: random variables.
+The joint entropy of $ X_1, \dots, X_n $
+
+$$
+\boxed{\mathbb{H}_P (X_1, \dots, X_n) = \mathbb{E}_P \left[ \log{\frac{1}{P(X_1, \dots, X_n)}} \right]}
+$$
+
+Capture how many bits are needed (on average) to encode joint instances of the variables.
+
+### Conditional Entropy
+The additional cost (in terms of bits) of encoding $ X $ when we already encoding $ Y $
+$$
+\begin{align*}
+P(X, Y) = P(Y) \cdot P(X \mid Y) &\Leftrightarrow \log{\frac{1}{P(X, Y)}} = \log{\frac{1}{P(Y)}} + \log(\frac{1}{P( X \mid Y )}) \\\
+&\Leftrightarrow \mathbb{H}_P (X, Y) = \mathbb{E} \left[ \log{\frac{1}{P(Y)}} \right] + \mathbb{E} \left[ \log(\frac{1}{P( X \mid Y )}) \right] \\\
+&\Leftrightarrow \boxed{ \mathbb{H} ( X \mid Y ) = \mathbb{E} \left[ \log{\frac{1}{P( X \mid Y )}} \right] = \mathbb{H} (X, Y) - \mathbb{H} (Y) }
+\end{align*}
+$$
+
+### Entropy Chain Rule
+$$
+\boxed{ \mathbb{H} ( X_1, \dots, X_n) = \mathbb{H}(X_1) + \mathbb{H} (X_2 \mid X_1) + \dots + \mathbb{H} (X_n \mid X_1, \dots, X_{n - 1}) }
+$$
+
+Intuitively, we would expect $ \mathbb{H} (X \mid Y) $ to be at least as small as the cost of encoding $ X $ alone
+$$
+\mathbb{H} (X \mid Y) \leq \mathbb{H} (X)
+$$
+
+### Mutual information
+The mutual information between $ X $ and $ Y $
+$$
+\boxed{ \mathbb{I}(X ; Y) = \mathbb{H}(X) - \mathbb{H}(X \mid Y) = \mathbb{E} \left[ \log{\frac{P(X \mid Y)}{X}} \right] }
+$$
+
+Captures how many bits we save (on average) in the encoding of $ X $ given $ Y $. The mutual information statisfies:
+* $ 0 \leq \mathbb{I}(X; Y) \leq \mathbb{H}(X) $.
+* $ \mathbb{I}(X; Y) = \mathbb{I}(Y; X) $.
+* $ \mathbb{I}(X; Y) = 0 $ iff $ X $ and $ Y $ are independent.
+
+$ \rightarrow $ view mutual information as a quantitative measure of the strength of the dependency between $ X $ and $ Y $. The bigger the mutual information, the stronger the dependency.
+* The extreme upper value of the mutual information is when $ X $ is a deterministic function of $ Y $ (or vice versa) $ \rightarrow \mathbb{I}(X; Y) = \mathbb{H}(X) $
+
+## Relative Entropy and Distances Between Distributions
+
+### Distance Metric
+A distance measure $ d $ that satisfies:
+* **Positivity:** $ d(P, Q) $ is always nonnegative, and is zero iff $ P = Q $.
+* **Symmetry:** $ d(P, Q) = d(Q, P) $.
+* **Triangle inequality:** for any three distributions $ P, Q, R $,
+$$
+d(P, R) \leq d(P, Q) + d(Q, R).
+$$
+
+### Relative Entropy
+* $ P $: the true distribution that generates the data.
+* $ Q $: approximation or guess for the true distribution (learned from data).
+* $ \mathbb{H} (X) $: how many bits required (on average) to encode outcomes optimally assuming known $ P $.
+
+However, we often don't know $ P \rightarrow $ use $ Q $.
+
+Question: How much we lost, due to the inaccuracy of using $ Q $?
+
+The relative entropy of $ P $ and $ Q $
+
+$$
+\boxed{ \mathbb{D}(P(X_1, \dots, X_n) || Q(X_1, \dots, X_n)) = \mathbb{E} \left[ \log{\frac{P(X_1, \dots, X_n)}{Q(X_1, \dots, X_n)}} \right] }
+$$
+
+Short hand notation,
+$$
+\mathbb{D}(P || Q)
+$$
+
+**Properties**
+* $ D(P || Q) \geq 0 $ (Gibb's inequality).
+* $ D(P || Q) = 0 $ iff $ P = Q $.
+* $ D(P || Q) \not= D(Q || P) $: Asymmetric.
+
+{{< callout type="danger" >}}
+Relative entropy is not a distance measure over distributions since it does not satisfy:
+* symmetry,
+* triangle property.
+{{< /callout >}}
