@@ -183,6 +183,17 @@ $$</p>
 </ul>
 </li>
 </ul>
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content">This tells us which model is likely closer to $ P^* $. We can&rsquo;t compute this since we don&rsquo;t know $ P^* $.</div>
+</div>
+
+
 <h3 id="likelihood">Likelihood</h3>
 <p>Likelihood of the data given a model $ \mathcal{M} $
 $$
@@ -198,17 +209,47 @@ loss(\xi : \mathcal{M})
 $$</p>
 <ul>
 <li>measures the loss that a model $ \mathcal{M} $ makes on a particular instance $ \xi $ sampled from $ P^* $.</li>
-<li>Reflects our cost (in bits) per instance of using the model $ \tilde{P} $ (how bad a prediction is for one specific instance).</li>
+<li>(ONLY) reflects cost (in bits) per instance of using the model $ \tilde{P} $</li>
 </ul>
-<p>Example of a loss function: log-loss.</p>
-<p>Goal: Find a model that minimizes the <strong>Expected loss</strong> or <strong>risk</strong>
-$$
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content">Loss function tells us how bad a prediction is for <strong>one specific instance</strong>. But good model $ \mathcal{M} $ should perform well <strong>on average</strong>, across all possible inputs drawn from $ P^* $.</div>
+</div>
+
+
+<h3 id="expected-loss-aka-risk">Expected loss (aka Risk)</h3>
+<p>Expected loss of model $ \mathcal{M} $ reflects how much loss we expect the model to incur <strong>on average</strong>, if we drew data from the true distribution $ P^* $.</p>
+<p>$$
 E_{\xi \sim P^*} [loss (\xi : \mathcal{M})].
 $$</p>
+<div class="callout callout-info">
+    <span class="callout-icon">
+        ℹ️
+        
+        
+        
+    </span>
+    <div class="callout-content">Goal: Find a model that minimizes the <strong>Expected loss</strong> or <strong>risk</strong></div>
+</div>
+
+
 <ul>
-<li>Reflects how much loss we expect the model to incur on average, if we drew data from the true distribution $ P^* $.</li>
+<li>True average loss model $ \mathcal{M} $ would incur on all possible data drawn from true distribution $ P^* $.</li>
+<li>Problem is $ P^* $ is unkwown $ \rightarrow $ can&rsquo;t compute this.
+<ul>
+<li>However, we can approximate the expectation using an empirical risk averaged over a data set $ \mathcal{D} $ sampled from $ P^* $.</li>
 </ul>
-<p>$ P^* $ is unkonwn $ \rightarrow $ approximate the expectation using empirical average</p>
+</li>
+</ul>
+<h3 id="empirical-risk">Empirical Risk</h3>
+<p>$$
+E_{\mathcal{D}} [loss(\xi : \mathcal{M})] = \frac{1} {| \mathcal{D} |} \sum_{\xi \in \mathcal{D}} loss(\xi : \mathcal{M})
+$$</p>
 <p>Consider data set $ \mathcal{D} = \{ \xi[1], \dots, \xi[M] \}$, assume IID instances, likelihood
 $$
 P(\mathcal{D} : \mathcal{M}) = \prod_{m = 1}^M P(\xi[m] : \mathcal{M}).
@@ -217,7 +258,6 @@ $$</p>
 $$
 \log P(\mathcal{D} : \mathcal{M}) = \sum_{m = 1}^M \log P(\xi[m] : \mathcal{M})
 $$</p>
-<p>Taking the logarithm</p>
 </div>
         
     </div>
