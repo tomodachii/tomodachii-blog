@@ -53,6 +53,10 @@ $$
     + This term is called **expected log-likelihood** of candidate model $ \tilde{P} $.
     + The higher this quantity, the more probability mass $ \tilde{P} $ assigns to likely outcomes from the true data $ \rightarrow $ prefer models that maximizing this terms.
 
+{{< callout type="danger" >}}
+This tells us which model is likely closer to $ P^\* $. We can't compute this since we don't know $ P^\* $.
+{{< /callout >}}
+
 ### Likelihood
 Likelihood of the data given a model $ \mathcal{M} $
 $$
@@ -69,17 +73,32 @@ $$
 loss(\xi : \mathcal{M}) 
 $$ 
 * measures the loss that a model $ \mathcal{M} $ makes on a particular instance $ \xi $ sampled from $ P^\* $.
-* Reflects our cost (in bits) per instance of using the model $ \tilde{P} $ (how bad a prediction is for one specific instance).
+* (ONLY) reflects cost (in bits) per instance of using the model $ \tilde{P} $ 
 
-Example of a loss function: log-loss.
+{{< callout type="danger" >}}
+Loss function tells us how bad a prediction is for **one specific instance**. But good model $ \mathcal{M} $ should perform well **on average**, across all possible inputs drawn from $ P^\* $.
+{{< /callout >}}
 
-Goal: Find a model that minimizes the **Expected loss** or **risk**
+### Expected loss (aka Risk)
+
+Expected loss of model $ \mathcal{M} $ reflects how much loss we expect the model to incur **on average**, if we drew data from the true distribution $ P^\* $.
+
 $$
 E_{\xi \sim P^\*} [loss (\xi : \mathcal{M})].
 $$
-* Reflects how much loss we expect the model to incur on average, if we drew data from the true distribution $ P^\* $.
 
-$ P^\* $ is unkonwn $ \rightarrow $ approximate the expectation using empirical average
+{{< callout type="info" >}}
+Goal: Find a model that minimizes the **Expected loss** or **risk**
+{{< /callout >}}
+
+* True average loss model $ \mathcal{M} $ would incur on all possible data drawn from true distribution $ P^\* $.
+* Problem is $ P^\* $ is unkwown $ \rightarrow $ can't compute this.
+    + However, we can approximate the expectation using an empirical risk averaged over a data set $ \mathcal{D} $ sampled from $ P^\* $.
+
+### Empirical Risk
+$$
+E_{\mathcal{D}} [loss(\xi : \mathcal{M})] = \frac{1} {| \mathcal{D} |} \sum_{\xi \in \mathcal{D}} loss(\xi : \mathcal{M})
+$$
 
 Consider data set $ \mathcal{D} = \\{ \xi[1], \dots, \xi[M] \\}$, assume IID instances, likelihood
 $$
@@ -91,4 +110,3 @@ $$
 \log P(\mathcal{D} : \mathcal{M}) = \sum_{m = 1}^M \log P(\xi[m] : \mathcal{M})
 $$
 
-Taking the logarithm
