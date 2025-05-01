@@ -145,6 +145,79 @@
     <div class="define-content">Constructing a model $ \tilde{M} $ such that $ \tilde{P} $ is &ldquo;close&rdquo; to $ P^* $.</div>
 </div>
 
+<p>Evaluate the quality of an approximation $ \tilde{M} $ using one commonly option: relative entropy distance measure
+$$
+\boxed{ \mathbb{D} (P^* || \tilde{P}) = \mathbb{E}_{\xi \sim P^*} \left[ \log{\frac{ P^{*} (\xi) }{\tilde{P} (\xi)}} \right] }
+$$</p>
+<ul>
+<li>$ \mathbb{D} (P^* || \tilde{P}) = 0 $ when $ P^* = \tilde{P} $.</li>
+<li>measures the extent of the compression loss (in bits) of using $ \tilde{P} $ rather than $ P^* $.</li>
+</ul>
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content">Problem is, to use this metric, we need to know $ P^* $ (which we don&rsquo;t in many cases).</div>
+</div>
+
+
+<h3 id="expected-log-likelihood">Expected log-likelihood</h3>
+<p>$$
+\begin{align*}
+\mathbb{D} (P^* || \tilde{P})
+&amp;= E_{\xi \sim P^*} \left[ \log \frac{P^* (\xi)}{\tilde{P} (\xi)} \right] \\
+&amp;= E_{\xi \sim P^*} [\log P^* (\xi) - \log \tilde{P}(\xi)] \\
+&amp;= E_{\xi \sim P^*} [\log P^* (\xi)] - E_{\xi \sim P^*} [\log \tilde{P}(\xi)] \\
+&amp;\boxed{ = -H_{P^*} (\mathcal{X}) - E_{\xi \sim P^*} [\log \tilde{P}(\xi)] }
+\end{align*}
+$$</p>
+<ul>
+<li>$ -H_{P^*} (\mathcal{X}) $ does not depend on $ \tilde{P} \rightarrow $ does not affect the comparison.</li>
+<li>focus on $ E_{\xi \sim P^*} [\log \tilde{P}(\xi)] $
+<ul>
+<li>This term is called <strong>expected log-likelihood</strong> of candidate model $ \tilde{P} $.</li>
+<li>The higher this quantity, the more probability mass $ \tilde{P} $ assigns to likely outcomes from the true data $ \rightarrow $ prefer models that maximizing this terms.</li>
+</ul>
+</li>
+</ul>
+<h3 id="likelihood">Likelihood</h3>
+<p>Likelihood of the data given a model $ \mathcal{M} $
+$$
+P(\mathcal{D} : \mathcal{M})
+$$</p>
+<h3 id="log-likelihood">Log-likelihood</h3>
+<p>$$
+l(\mathcal{D} : \mathcal{M}) = \log P(\mathcal{D} : \mathcal{M})
+$$</p>
+<h3 id="loss-function">Loss Function</h3>
+<p>$$
+loss(\xi : \mathcal{M})
+$$</p>
+<ul>
+<li>measures the loss that a model $ \mathcal{M} $ makes on a particular instance $ \xi $ sampled from $ P^* $.</li>
+<li>Reflects our cost (in bits) per instance of using the model $ \tilde{P} $ (how bad a prediction is for one specific instance).</li>
+</ul>
+<p>Example of a loss function: log-loss.</p>
+<p>Goal: Find a model that minimizes the <strong>Expected loss</strong> or <strong>risk</strong>
+$$
+E_{\xi \sim P^*} [loss (\xi : \mathcal{M})].
+$$</p>
+<ul>
+<li>Reflects how much loss we expect the model to incur on average, if we drew data from the true distribution $ P^* $.</li>
+</ul>
+<p>$ P^* $ is unkonwn $ \rightarrow $ approximate the expectation using empirical average</p>
+<p>Consider data set $ \mathcal{D} = \{ \xi[1], \dots, \xi[M] \}$, assume IID instances, likelihood
+$$
+P(\mathcal{D} : \mathcal{M}) = \prod_{m = 1}^M P(\xi[m] : \mathcal{M}).
+$$</p>
+<p>Log-likelihood
+$$
+\log P(\mathcal{D} : \mathcal{M}) = \sum_{m = 1}^M \log P(\xi[m] : \mathcal{M})
+$$</p>
+<p>Taking the logarithm</p>
 </div>
         
     </div>

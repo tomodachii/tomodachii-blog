@@ -132,7 +132,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="exponential-family">Exponential family</h3>
+<h2 id="exponential-family">Exponential family</h2>
 <div class="define">
     
     
@@ -180,25 +180,225 @@ $$</p>
 </div>
 </div>
 
+<h3 id="bernoulli-distribution">Bernoulli distribution</h3>
 <details>
-    <summary>Exampe 8.2: Bernoulli distribution</summary>
+    <summary>Expand</summary>
     
-        <p>Bernoulli
+        <p>$ X \sim Bernoulli(\theta) $</p>
+<ul>
+<li>$ X = x^1 (1)$ happens with probability $ \theta $,</li>
+<li>$ X = x^0 (0)$ happens with probability $ 1 - \theta $.</li>
+</ul>
+<p>That is:
 $$
-P(X) = p^X (1 - p)^{1 - X}
+P(X = x^1) = \theta, \quad P(X = x^0) = 1 - \theta
 $$</p>
-<p>Extract key features: the information $ X = 0 $ or $ X = 1 $ from sample.</p>
+<br/>
+<p><strong>1. The sufficient statistic $ \tau(X) $</strong></p>
 <p>$$
-\tau(X) = \langle \mathbb{I}\{ X = x^1 \}, \mathbb{I}\{ X = x^0 \} \rangle
+\boxed{ \tau(X) = \langle \mathbb{I}\{ X = x^1 \}, \mathbb{I}\{ X = x^0 \} \rangle }
 $$</p>
 <ul>
-<li>Input: outcome $ X (X = 0, X = 1) $</li>
-<li>Output: a vector that summarizes important information about $ X $.</li>
+<li>If $ X = x^1 $, then $ \tau(X) = (1, 0) $.</li>
+<li>If $ X = x^0 $, then $ \tau(X) = (0, 1) $.</li>
+</ul>
+<p><strong>2. The natural parameters $ t(\theta) $</strong>
+$$
+\boxed{ t(\theta) = (\ln\theta, \ln(1 - \theta)) }
+$$</p>
+<ul>
+<li>$ \ln\theta \times \tau(X) $ ((1, 0) or (0, 1)), then later <strong>exponentiate</strong> $ \rightarrow $ recover exactly $ \theta $.</li>
+</ul>
+<br/>
+<p>For $ X = x^1 $, $ \tau(X) = \langle 1, 0 \rangle $
+$$
+\exp\{ \langle t(\theta), \tau(X) \rangle \} = e^{1 \times \ln{\theta} + 0 \times \ln{(1 - \theta)}} = \theta
+$$</p>
+<p>For $ X = x^0 $, $ \tau(X) = \langle 0, 1 \rangle $
+$$
+\exp\{ \langle t(\theta), \tau(X) \rangle \} = e^{0 \times \ln{\theta} + 1 \times \ln{(1 - \theta)}} = 1 - \theta
+$$</p>
+<p>Set $ Z(\theta) = 1 $, this representation is identical to the Bernoulli distribution.</p>
+ 
+    
+</details>
+
+<h3 id="gaussian-distribution">Gaussian distribution</h3>
+<details>
+    <summary>Expand</summary>
+    
+        <p>$$
+P(x) = \frac{1}{\sqrt{2\pi} \sigma} \exp \left\{ - \frac{(x - \mu)^2}{2 \sigma^2} \right\}.
+$$</p>
+<p>Expand the squared term</p>
+<p>$$
+\begin{align*}
+-\frac{(x - \mu)^2}{2 \sigma^2} &amp;= - \frac{x^2 - 2\mu x + \mu^2}{2 \sigma^2} \\
+&amp;= -\frac{x^2}{2 \sigma^2} + \frac{\mu x}{\sigma^2} - \frac{\mu^2}{2 \sigma^2}.
+\end{align*}
+$$</p>
+<p>Full expression
+$$
+P(x) = \frac{1}{\sqrt{2\pi} \sigma} \exp \left\{ - \frac{x^2}{2 \sigma^2} + \frac{\mu x}{\sigma^2} - \frac{\mu^2}{2 \sigma^2} \right\}.
+$$</p>
+<p>Goal: Match with exponential family form
+$$
+P_\theta(\xi) = \frac{1}{Z(\theta)} A(\xi) \exp\left( \langle t(\theta), \tau(\xi) \rangle \right).
+$$</p>
+<p><strong>1. Sufficient statistic $ \tau(x) $</strong>
+$$
+\boxed{ \tau(x) = \langle x, x^2 \rangle }
+$$</p>
+<p><strong>2. Natural parameter $ t(\mu, \sigma^2) $</strong>
+$$
+\boxed{ t(\mu, \sigma^2) = \langle \frac{\mu}{\sigma}, -\frac{1}{2 \sigma^2} \rangle }
+$$</p>
+<p>Then
+$$
+\langle \tau(x), t(\mu, \sigma^2) \rangle = - \frac{x^2}{2 \sigma^2} + \frac{\mu x}{\sigma^2}.
+$$</p>
+<p>This almost matches the full expression above except for the constant: $ -\frac{\mu^2}{2 \sigma^2} $</p>
+<p>$ \rightarrow $ push that constant into the normalizer (partition function).</p>
+<p><strong>3. Partition function $ Z $</strong>
+$$
+\boxed {Z(\mu, \sigma^2) = \sqrt{2\pi} \sigma \exp \left\{ \frac{\mu^2}{2\sigma^2} \right\} }
+$$</p>
+ 
+    
+</details>
+
+<div class="callout callout-warning">
+    <span class="callout-icon">
+        
+        ⚠️
+        
+        
+    </span>
+    <div class="callout-content"><p><strong>Desiderata</strong></p>
+<ul>
+<li>Parameter space $ \Theta $
+<ul>
+<li>&ldquo;well-behaved&rdquo;: <span class="marked">convex</span>
+, <span class="marked">open</span>
+subset of $ \mathbb{R}^M $.
+<ul>
+<li>open: does not include its boudary.</li>
+<li>convex</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Parametric family $ \mathcal{P} $
+<ul>
+<li><em>nonredundant</em>: each choice of parameters represent a unique distribution
+<ul>
+<li>$ \theta \not= \theta^{\prime} \implies P_{\theta} \not= P_{\theta^{\prime}} $.</li>
+<li>check that a family is nonredundant iff $ t $ is invertible over the set $ \Theta $.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div>
+</div>
+
+
+<h1 id="linear-exponential-family">Linear Exponential Family</h1>
+<h3 id="natural-parameter">Natural Parameter</h3>
+<ul>
+<li>$ t $ is identity function: $ t(\theta) = \theta $.</li>
+<li>The parameters $ \theta $ are the same dimension $ K $ as the representation of the data.
+<ul>
+<li>called <em>natural parameters</em> for the given sufficient statistic function. <details>
+    <summary>natural</summary>
+    
+        It&rsquo;s &ldquo;natural&rdquo; because it appears in the formula without needing to transform it. 
+    
+</details>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="natural-parameter-space">Natural parameter space</h3>
+<p>Set of allowable natural parameters for a sufficient statistics function $ \tau $
+$$
+\boxed{ \Theta = \left\{ \theta \in \mathbb{R}^K: \int \exp \{ \langle \theta, \tau(\xi) \rangle \} \, d\xi &lt; \infty \right\} }
+$$</p>
+<div class="callout callout-info">
+    <span class="callout-icon">
+        ℹ️
+        
+        
+        
+    </span>
+    <div class="callout-content">In case of distributions over finite discrete spaces, all parameter choices lead to normalizable distributions, therefore
+$$
+\Theta = \mathbb{R}^K
+$$</div>
+</div>
+
+
+<h3 id="linear-exponential-family-1">Linear Exponential Family</h3>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content"><p>An exponential family over the <strong>natural parameter space</strong>, and for which the natural parameter space is <strong>open and convex</strong>
+$$
+\boxed{ P_{\theta} = \frac{1}{Z(\theta)} \exp \{ \langle \theta, \tau(\xi) \rangle \} }
+$$</p>
+<ul>
+<li>$ \theta $: natural parameter.</li>
+</ul></div>
+</div>
+
+<ul>
+<li>Simplifies the definition of a family.
+<ul>
+<li>Only need to define $ \tau $.</li>
+</ul>
+</li>
+</ul>
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content">Not every natural parameter $ \theta $ makes a legal distribution.</div>
+</div>
+
+
+<details>
+    <summary>Gaussian Example: Parameterization of a nonlinear exponential family as a linear exponential family</summary>
+    
+        <p>Convert sufficient statistic function into natural parameter
+$$
+\eta = t(\mu, \sigma^2) = \langle \frac{\mu}{\sigma}, -\frac{1}{2 \sigma^2} \rangle
+$$</p>
+<p>Then the probability looks like:
+$$
+P_{\eta}(x) \propto \exp \{ \langle \eta, \tau(x) \rangle \}
+$$</p>
+<p>Is every $ \eta $ valid? For the distribution to be normalized, we need to be able to compute $ Z(\eta) $, in other word
+$$
+\begin{align*}
+Z(\eta) &amp;= \int \exp \{ \langle \eta, \tau(x) \rangle \} \, dx \\
+&amp;= \int_{-\infty}^{\infty} \exp \{ \eta_1 x + \eta_2 x^2 \} \, dx
+\end{align*}
+$$
+must be finite.</p>
+<ul>
+<li>If $ \eta_2 \geq 0 $, the exp can blow up $ \rightarrow $ the integral does not exist. Thus its not a valid distribution.</li>
+<li>If $ \eta_2 &lt; 0 $ (always for Gaussian, since $ -\frac{1}{2 \sigma^2} &lt; 0 $), the integral does converge.</li>
 </ul>
  
     
 </details>
 
+<h1 id="factored-exponential-families">Factored Exponential Families</h1>
 </div>
         
     </div>
