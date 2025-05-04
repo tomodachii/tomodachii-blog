@@ -6,7 +6,7 @@
     <description>Recent content in Nir Friedman on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 26 Apr 2025 22:11:05 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 04 May 2025 18:58:34 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/authors/nir-friedman/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chapter 1 &#43; 2: Introduction and Foundations</title>
@@ -70,6 +70,13 @@
       <pubDate>Tue, 15 Apr 2025 14:20:15 +0700</pubDate>
       <guid>https://tomodachii.com/books/probabilistic-graphical-models/chapter-17-parameter-estimation/</guid>
       <description>&lt;h3 id=&#34;scenarios&#34;&gt;Scenarios&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Completely observed&lt;/strong&gt; GMs&#xA;&lt;ul&gt;&#xA;&lt;li&gt;directed.&lt;/li&gt;&#xA;&lt;li&gt;undirected.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Partially or Unobserved&lt;/strong&gt; GMs&#xA;&lt;ul&gt;&#xA;&lt;li&gt;directed.&lt;/li&gt;&#xA;&lt;li&gt;undirected.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;estimation-principles&#34;&gt;Estimation principles&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;MLE.&lt;/li&gt;&#xA;&lt;li&gt;Bayesian estimation.&lt;/li&gt;&#xA;&lt;li&gt;Maximum conditional likelihood.&lt;/li&gt;&#xA;&lt;li&gt;Maximum &amp;ldquo;Margin&amp;rdquo;.&lt;/li&gt;&#xA;&lt;li&gt;Maximum entropy.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;callout callout-info&#34;&gt;&#xA;    &lt;span class=&#34;callout-icon&#34;&gt;&#xA;        ℹ️&#xA;        &#xA;        &#xA;        &#xA;    &lt;/span&gt;&#xA;    &lt;div class=&#34;callout-content&#34;&gt;Learning $=$ estimating the parameters + the topology of the network.&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;h1 id=&#34;parameter-learning&#34;&gt;Parameter Learning&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Assume $\mathcal{G}$ is known and fixed,&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;from expert design.&lt;/li&gt;&#xA;&lt;li&gt;from an intermediate outcome of iterative structure learning.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$D = \{x_1, \dots ,x_N\}$: $N$ &lt;span class=&#34;marked&#34;&gt;independent, identically distributed (iid)&lt;/span&gt;&#xA; training cases.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$x_n = (x_{n, 1}, \dots, x_{n, M})$ is a vector of $M$ values&#xA;&lt;ul&gt;&#xA;&lt;li&gt;the model is observed, every $x_n$ is known&lt;/li&gt;&#xA;&lt;li&gt;or, paritially observed.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Goal: Estimate from $D$.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Chapter 11: Inference as Optimization</title>
+      <link>https://tomodachii.com/books/probabilistic-graphical-models/chapter-11-inference-as-optimization/</link>
+      <pubDate>Sun, 04 May 2025 18:58:34 +0700</pubDate>
+      <guid>https://tomodachii.com/books/probabilistic-graphical-models/chapter-11-inference-as-optimization/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>
