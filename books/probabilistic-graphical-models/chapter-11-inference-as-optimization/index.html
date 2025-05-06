@@ -166,7 +166,7 @@ $$</p>
 </ul>
 <p>The set of beliefs in $ T $ defines a distribution $ Q $ due to the calibration requirement:
 $$
-Q(\mathcal{X}) = \frac{\prod_{i \in V_{\mathcal{T}}} \beta_i}{\prod_{(i - j) \in E_{\mathcal{T}}} \mu_{i, j}}
+\boxed{ Q(\mathcal{X}) = \frac{\prod_{i \in V_{\mathcal{T}}} \beta_i}{\prod_{(i - j) \in E_{\mathcal{T}}} \mu_{i, j}} }
 $$</p>
 <p><em>Calibration requirement</em> ensures $ Q $ statisfies the <strong>marginal consistency constrants</strong>: For each $ (i - j) \in E_{\mathcal{T}} $, the beliefs on $ S_{i, j} $ are the marginal of $ B_i $ (and $ B_j $).
 $$
@@ -340,6 +340,66 @@ $$</li>
 </div>
 
 
+<details>
+    <summary>Proof</summary>
+    
+        <ul>
+<li>$ \ln \psi_i = \sum_{\phi, \alpha (\phi) = i} \ln \phi $.</li>
+<li>$ \beta_i(c_i) = Q(c_i) $.</li>
+</ul>
+<p>Thus,
+$$
+\sum_{\phi \in \Phi} E_Q [\ln \phi] = \sum_{i \in V_{\mathcal{T}}} E_{C_i \sim \beta_i}[\ln \psi_i]
+$$</p>
+<p>Recall
+$$
+H_Q (\mathcal{X}) = E_Q \left[ \ln \frac{1} {Q(\mathcal{X})} \right]
+$$</p>
+<p>$$
+Q(\mathcal{X}) = \frac{\prod_{i \in V_{\mathcal{T}}} \beta_i}{\prod_{(i - j) \in E_{\mathcal{T}}} \mu_{i, j}}
+$$</p>
+<p>Thus,
+$$
+H_Q (\mathcal{X}) = \sum_{i \in V_{\mathcal{T}}} H_{\beta_i}(C_i) -
+\sum_{(i-j) \in E_{\mathcal{T}}} H_{\mu_{i,j}}(S_{i,j})
+$$</p>
+ 
+    
+</details>
+
+<h3 id="ctree-optimize">CTree-Optimize</h3>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content"><p><strong>Find</strong> $ Q = \{ \beta_i : i \in V_{\mathcal{T}} \} \cup \{ \mu_{i,j} : (i-j) \in E_{\mathcal{T}} \} $</p>
+<p><strong>Maximizing</strong> $ \tilde{F}[\tilde{P}_{\Phi}, Q] $</p>
+<p><strong>subject to</strong>
+$$
+\mu_{i, j} [s_{i, j}] = \sum_{C_i - S_{i, j}} \beta_i(c_i) \quad \forall (i - j) \in E_T, \forall s_{i, j} \in Val(S_{i, j})
+$$</p>
+<p>$$
+\sum_{c_i} \beta_i (c_i) = 1 \quad \forall i \in V_T
+$$</p>
+<p>$$
+\beta_i (c_i) \geq 0 \quad \forall i \in V_T, c_i \in Val(C_i)
+$$</p>
+</div>
+</div>
+
+<h2 id="fixed-point-characterization">Fixed point Characterization</h2>
+<ul>
+<li>Stationary point: either a local maximum, a local minimum or a saddle point.</li>
+<li>CTree-Optimize has a single global maximum (theorem 11.1).
+<ul>
+<li>Can show that it is also the only stationary point $ \rightarrow $ once we find a stationary point, we know that its the maximum.</li>
+</ul>
+</li>
+</ul>
+<p>Goal: <strong>Maximizing</strong> $ \tilde{F}[\tilde{P}_{\Phi}, Q] $ under consistency constraints.</p>
+<p>$ \Rightarrow $ Lagrange multiplier</p>
 </div>
         
     </div>
