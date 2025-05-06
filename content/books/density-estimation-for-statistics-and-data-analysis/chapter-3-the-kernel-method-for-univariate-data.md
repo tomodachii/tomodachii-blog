@@ -44,9 +44,8 @@ $$
 * $(\mu - f(x))$: bias.
 
 $$
-\mathbb{E}[(\hat{f}(x) - f(x))^2] = \mathbb{E}[(\hat{f}(x) - \mu)^2] + \mathbb{E}[2(\hat{f}(x) - \mu)(\mu - f(x))] + \mathbb{E}[(\mu - f(x))^2]
+\mathbb{E}[(\hat{f}(x) - f(x))^2] = \mathbb{E}[(\hat{f}(x) - \mu)^2] + \mathbb{E}[2(\hat{f}(x) - \mu)(\mu - f(x))] + \mathbb{E}[( \underbrace{\mu - f(x)}_{\text{constant}} )^2]
 $$
-* $(\mu - f(x))$ is constant.
 * $\mathbb{E}[(\hat{f}(x) - \mu)] = \mathbb{E}[\hat{f}(x)] - \mu = 0$ (by above definition).
 
 Thus,
@@ -54,9 +53,12 @@ Thus,
 $$
 \begin{align*}
 \mathbb{E}[(\hat{f}(x) - f(x))^2] &= \mathbb{E}[(\hat{f}(x) - \mu)^2] + (\mu - f(x))^2 \\\
-&= \text{Var}(\hat{f}(x)) + (\mathbb{E}[\hat{f}(x)] - f(x))^2.
+&= \boxed{\text{Var}(\hat{f}(x)) + (\mathbb{E}[\hat{f}(x)] - f(x))^2}
 \end{align*}
 $$
+
+* $ \mathbb{E}[(\hat{f}(x) - \mu)^2] $: Variance.
+* $ (\mathbb{E}[\hat{f}(x)] - f(x))^2 $: Squared bias.
 
 The sum of the squared bias and the variance at x. There's a trade-off between the bias and variance terms.
 {{< /toggle >}}

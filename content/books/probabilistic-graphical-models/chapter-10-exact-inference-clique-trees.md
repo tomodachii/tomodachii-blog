@@ -92,13 +92,11 @@ Clique Tree
 {{< /define >}}
 
 ### Properties of Clique Tree
-**Family Preservation**
-* Given set of factors $\Phi$, each factor $\phi_k \in \Phi$ must be assigned to {{< marker >}}one and only one{{< /marker >}} cluster $C_{\alpha(k)}$ s.t. $Scope[\phi_k] \subseteq C_{\alpha(k)}$. (In English: Each factor $\phi_k$ needs to be assigned to a cluster $C_{\alpha(k)}$ s.t. $C_{\alpha(k)}$ accommodate $\phi_k$).
-* For each factor $\phi_k \in \Phi$, there exists a cluster $C_i$ s.t. $Scope[\phi_k] \subseteq C_i$ (For each factor there's a cluster accomodates $\phi_k$).
+**1. Family Preservation**
 
-<br/>
+[Cluster Graph Family Preservation property](/books/probabilistic-graphical-models/chapter-10-exact-inference-clique-trees/#properties-of-cluster-graphs)
 
-**Running Intersection Property (RIP)**
+**2. Running Intersection Property (RIP)**
 {{< image-text image="/images/books/probabilistic-graphical-models/chapter10/running-intersection.png" >}}
 For each pair of clusters $C_i$, $C_j$ and variable $X \in C_i \cap C_j$, there {{< marker >}}exists{{< /marker >}} a {{< marker >}}unique{{< /marker >}} path between $C_i$ and $C_j$ for which all clusters and sepets contain $X$.
 {{< /image-text >}}
@@ -425,7 +423,8 @@ $$
 \boxed{\beta_i(C_i) = \psi_i \cdot \prod_{k \in Nb_i} \delta_{k \to i}}
 $$
 
-**sepset beliefs**
+### Sepset beliefs
+aka **Marginal consistency constraint**
 $$
 \boxed{\mu_{i, j} (S_{i, j}) = \sum_{C_i - S_{i, j}} \beta_i (C_i) = \sum_{C_j - S_{i, j}} \beta_j (C_j)}
 $$
@@ -465,6 +464,25 @@ $$
 &= \delta_{j \to i} \cdot \delta_{i \to j}
 \end{align*}
 $$
+
+### Theorem 10.4
+* $ T $: clique tree over $ \Phi $.
+* $ \beta_i (C_i) $: set of calibrated potentials for $ T $.
+
+{{< define icon="theorem" >}}
+Then
+$$ 
+\tilde{P}_\Phi \propto Q_T
+$$ 
+
+iff for each $ i \in V_T $, 
+
+$$ \beta_i (C_i) \propto \tilde{P}_\Phi (C_i) $$
+{{< /define >}}
+
+
+Proof
+* $ r $: root
 
 # Message Passing: Belief Update
 

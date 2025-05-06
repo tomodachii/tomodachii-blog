@@ -14,6 +14,29 @@ weight = 5
 postColor = "#E90808"
 +++
 
+# Deterministic CPDs
+X is a deterministic function of its parents if there is a deterministic function $ f: Val(\text{Pa}_X) \mapsto Val(X) $ st
+$$
+\boxed{ P(x \mid \text{pa}_X) = 
+\begin{cases} 
+1 & x = f(\text{pa}_X) \\\
+0 & \text{otherwise}.
+\end{cases} }
+$$
+
+{{< toggle title="binary OR Example" >}}
+* $ Y, Z \in \\{ 0, 1 \\} $
+* $ X = Y \lor Z $
+
+| Y | Z | $ f(Y, Z) = Y \lor Z $ | $ P(X = 1 \mid Y, Z) $ | $ P(X = 0 \mid Y, Z) $ |
+|---|---|------------------------|------------------------|------------------------|
+| 0 | 0 | 0                      | 0                      | 1                      |
+| 0 | 1 | 1                      | 1                      | 0                      |
+| 1 | 0 | 1                      | 1                      | 0                      |
+| 1 | 1 | 1                      | 1                      | 0                      |
+
+{{< /toggle >}}
+
 # Continuous Variables
 Some variables (e.g., position, velocity, temperature, pressure) are best modeled in a continuous space.
 

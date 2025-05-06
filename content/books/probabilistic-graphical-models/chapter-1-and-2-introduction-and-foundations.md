@@ -1,5 +1,5 @@
 +++
-title = 'Chapter 1 + 2: Introduction and Foundations'
+title = 'Chapter 1 + 2 and Appendix : Introduction, Foundations and Background Material'
 date = 2025-03-19T20:33:47+07:00
 draft = false
 description = ""
@@ -139,3 +139,28 @@ Relative entropy is not a distance measure over distributions since it does not 
 * symmetry,
 * triangle property.
 {{< /callout >}}
+
+# Continuous Optimization
+## Characterizing Optima of a Continuous Function
+Maximization/minimization problems:
+
+* Find values $ \theta_1, \dots, \theta_n $ st
+$$
+f_{\text{obj}} = \max_{\theta_1, \dots, \theta_n} f_{\text{obj}} (\theta_1, \dots, \theta_n)
+$$
+
+{{< toggle title="sum of squared distances example" >}}
+* $ (x[1], y[1]), (x[2], y[2]), \dots, (x[m], y[m]) $: set of $ m $ points in 2D space.
+* Goal: Find the centroid of these point: $ (\theta_x, \theta_y) $ st the sum of squared distances from each point to this centroid is minimized.
+
+Formulate this problem into a maximization problem by considering the negative of the sum of squared distances:
+$$
+f_{\text{obj}} (\theta_x, \theta_y) = - \sum_i \left( (x[i] - \theta_x)^2 + (y[i] - \theta_y)^2 \right)
+$$
+
+At the maximum, the gradient of function (vector of partial derivatives) $ f_{\text{obj}} (\theta_1, \dots, \theta_n) $ is 0,
+$$
+\nabla f = \left\langle \frac{\partial f}{\partial \theta_1}, \ldots, \frac{\partial f}{\partial \theta_n} \right\rangle
+$$
+{{< /toggle >}}
+
