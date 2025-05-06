@@ -54,7 +54,7 @@ $$
 
 The set of beliefs in $ T $ defines a distribution $ Q $ due to the calibration requirement:
 $$
-Q(\mathcal{X}) = \frac{\prod_{i \in V_{\mathcal{T}}} \beta_i}{\prod_{(i - j) \in E_{\mathcal{T}}} \mu_{i, j}}
+\boxed{ Q(\mathcal{X}) = \frac{\prod_{i \in V_{\mathcal{T}}} \beta_i}{\prod_{(i - j) \in E_{\mathcal{T}}} \mu_{i, j}} }
 $$
 
 *Calibration requirement* ensures $ Q $ statisfies the **marginal consistency constrants**: For each $ (i - j) \in E_{\mathcal{T}} $, the beliefs on $ S_{i, j} $ are the marginal of $ B_i $ (and $ B_j $).
@@ -183,3 +183,58 @@ $$
 {{< callout type="warning" >}}
 In this reformulation, all the terms are local (refer to a specific belief factor).
 {{< /callout >}}
+
+{{< toggle title="Proof" >}}
+* $ \ln \psi_i = \sum_{\phi, \alpha (\phi) = i} \ln \phi $.
+* $ \beta_i(c_i) = Q(c_i) $.
+
+Thus, 
+$$
+\sum_{\phi \in \Phi} E_Q [\ln \phi] = \sum_{i \in V_{\mathcal{T}}} E_{C_i \sim \beta_i}[\ln \psi_i]
+$$
+
+Recall
+$$
+H_Q (\mathcal{X}) = E_Q \left[ \ln \frac{1} {Q(\mathcal{X})} \right]
+$$
+
+$$
+Q(\mathcal{X}) = \frac{\prod_{i \in V_{\mathcal{T}}} \beta_i}{\prod_{(i - j) \in E_{\mathcal{T}}} \mu_{i, j}}
+$$
+
+Thus,
+$$
+H_Q (\mathcal{X}) = \sum_{i \in V_{\mathcal{T}}} H_{\beta_i}(C_i) - 
+\sum_{(i-j) \in E_{\mathcal{T}}} H_{\mu_{i,j}}(S_{i,j})
+$$
+{{< /toggle >}}
+
+### CTree-Optimize
+{{< define >}}
+**Find** $ Q = \\{ \beta_i : i \in V_{\mathcal{T}} \\} \cup \\{ \mu_{i,j} : (i-j) \in E_{\mathcal{T}} \\} $
+
+**Maximizing** $ \tilde{F}[\tilde{P}_{\Phi}, Q] $
+
+**subject to**
+$$
+\mu_{i, j} [s_{i, j}] = \sum_{C_i - S_{i, j}} \beta_i(c_i) \quad \forall (i - j) \in E_T, \forall s_{i, j} \in Val(S_{i, j})
+$$
+
+$$
+\sum_{c_i} \beta_i (c_i) = 1 \quad \forall i \in V_T
+$$
+
+$$
+\beta_i (c_i) \geq 0 \quad \forall i \in V_T, c_i \in Val(C_i)
+$$
+{{< /define >}}
+
+## Fixed point Characterization
+* Stationary point: either a local maximum, a local minimum or a saddle point.
+* CTree-Optimize has a single global maximum (theorem 11.1).
+    + Can show that it is also the only stationary point $ \rightarrow $ once we find a stationary point, we know that its the maximum.
+
+Goal: **Maximizing** $ \tilde{F}[\tilde{P}_{\Phi}, Q] $ under consistency constraints.
+
+$ \Rightarrow $ Lagrange multiplier
+

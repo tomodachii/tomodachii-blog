@@ -164,3 +164,29 @@ $$
 $$
 {{< /toggle >}}
 
+## Constrained Optimization
+Optimizing a continuous function over its entire domain, under a set of equally constraints.
+
+{{< define >}}
+**Find** $ \theta $
+
+**Maximizing** $ f(\theta) $
+
+**subject to**
+$$
+c_1 (\theta) = 0
+$$
+
+$$
+\cdots
+$$
+
+$$
+c_m (\theta) = 0
+$$
+{{< /define >}}
+
+Rephrase equality constraint as constraining a function $ c $ to 0
+$$
+\mathcal{C} = \\{ \theta : \forall j = 1, \dots, n, c_j (\theta) = 0 \\}
+$$
