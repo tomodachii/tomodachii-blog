@@ -8,13 +8,13 @@
     
     <link rel="icon" href="/images/lain-sicp.png">
     <title>Tomodachii</title>
-    <head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+    <head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 </head>
 </head>
@@ -130,7 +130,7 @@
 </ul>
 <h1 id="goals">Goals</h1>
 <p>A model $ \tilde{M} $ precisely captures the distribution $ P^* $.</p>
-<h2 id="density-estimation">Density Estimation</h2>
+<h2 id="learning-task-i-density-estimation">Learning Task I: Density Estimation</h2>
 <div class="define">
     
     
@@ -142,7 +142,7 @@
 
     
 
-    <div class="define-content">Constructing a model $ \tilde{M} $ such that $ \tilde{P} $ is &ldquo;close&rdquo; to $ P^* $.</div>
+    <div class="define-content">Goal: Constructing a model $ \tilde{M} $ such that $ \tilde{P} $ is &ldquo;close&rdquo; to $ P^* $.</div>
 </div>
 
 <p>Evaluate the quality of an approximation $ \tilde{M} $ using one commonly option: relative entropy distance measure
@@ -153,18 +153,6 @@ $$</p>
 <li>$ \mathbb{D} (P^* || \tilde{P}) = 0 $ when $ P^* = \tilde{P} $.</li>
 <li>measures the extent of the compression loss (in bits) of using $ \tilde{P} $ rather than $ P^* $.</li>
 </ul>
-<div class="callout callout-danger">
-    <span class="callout-icon">
-        
-        
-        
-        ❗
-    </span>
-    <div class="callout-content">Problem is, to use this metric, we need to know $ P^* $ (which we don&rsquo;t in many cases).</div>
-</div>
-
-
-<h3 id="expected-log-likelihood">Expected log-likelihood</h3>
 <p>$$
 \begin{align*}
 \mathbb{D} (P^* || \tilde{P})
@@ -175,14 +163,35 @@ $$</p>
 \end{align*}
 $$</p>
 <ul>
-<li>$ -H_{P^*} (\mathcal{X}) $ does not depend on $ \tilde{P} \rightarrow $ does not affect the comparison.</li>
-<li>focus on $ E_{\xi \sim P^*} [\log \tilde{P}(\xi)] $
+<li>$ -H_{P^*} (\mathcal{X}) $ does not depend on $ \tilde{P} \rightarrow $ minimizing KL divergence is equivalent to maximizing the <strong>expected log-likelihood</strong> $ E_{\xi \sim P^*} [\log \tilde{P}(\xi)] $ of candidate model $ \tilde{P} $.
 <ul>
-<li>This term is called <strong>expected log-likelihood</strong> of candidate model $ \tilde{P} $.</li>
 <li>The higher this quantity, the more probability mass $ \tilde{P} $ assigns to likely outcomes from the true data $ \rightarrow $ prefer models that maximizing this terms.</li>
 </ul>
 </li>
 </ul>
+<h3 id="expected-log-likelihood">Expected log-likelihood</h3>
+<p>Measures how well model $ \mathcal{M} $ would perform on <strong>unseen data</strong> drawn from true distribution $ P^* $.
+$$
+\boxed{ E_{\xi \sim P^*} [\log \tilde{P}(\xi \mid \mathcal{M})] }
+$$</p>
+<ul>
+<li>This is a theoretical quantity
+<ul>
+<li>since $ P^* $ is unknown, this can&rsquo;t be compute exactly.</li>
+</ul>
+</li>
+</ul>
+<div class="callout callout-info">
+    <span class="callout-icon">
+        ℹ️
+        
+        
+        
+    </span>
+    <div class="callout-content">This is what we really care about (how model predicts new data), not training set likelihood.</div>
+</div>
+
+
 <div class="callout callout-danger">
     <span class="callout-icon">
         
@@ -190,27 +199,43 @@ $$</p>
         
         ❗
     </span>
-    <div class="callout-content">This tells us which model is likely closer to $ P^* $. We can&rsquo;t compute this since we don&rsquo;t know $ P^* $.</div>
+    <div class="callout-content">Problem is, to use this metric, we need to know $ P^* $ (which we don&rsquo;t in many cases) $ \rightarrow $ Approximate the expected log-likelihood with the empirical log-likelihood (a Monte Carlo estimate).</div>
 </div>
 
 
-<h3 id="likelihood">Likelihood</h3>
-<p>Likelihood of the data given a model $ \mathcal{M} $
+<h3 id="training-set-likelihood">(Training Set) Likelihood</h3>
+<p>A simple metric is <strong>Training set likelihood</strong>.</p>
+<p>Consider data set $ \mathcal{D} = \{ \xi[1], \dots, \xi[M] \}$, assume IID instances, likelihood of the data given model $ \mathcal{M} $
 $$
-P(\mathcal{D} : \mathcal{M})
+\boxed{ P(\mathcal{D} : \mathcal{M}) = \prod_{m = 1}^M P(\xi[m] : \mathcal{M}) }
 $$</p>
 <h3 id="log-likelihood">Log-likelihood</h3>
 <p>$$
-l(\mathcal{D} : \mathcal{M}) = \log P(\mathcal{D} : \mathcal{M})
+\boxed{ l(\mathcal{D} : \mathcal{M}) = \log P(\mathcal{D} : \mathcal{M}) = \sum_{m = 1}^M \log P(\xi[m] : \mathcal{M}) }
 $$</p>
+<details>
+    <summary>why log?</summary>
+    
+        <ul>
+<li>Turns products into sums</li>
+<li>Penalizes overconfident wrong predictions more harshly.</li>
+<li>Ensures convexity, which helps in optimization.</li>
+</ul>
+ 
+    
+</details>
+
 <h3 id="loss-function">Loss Function</h3>
+<p>Penalize unlikely predictions</p>
 <p>$$
-loss(\xi : \mathcal{M})
+\boxed{ loss(\xi : \mathcal{M}) }
 $$</p>
 <ul>
 <li>measures the loss that a model $ \mathcal{M} $ makes on a particular instance $ \xi $ sampled from $ P^* $.</li>
-<li>(ONLY) reflects cost (in bits) per instance of using the model $ \tilde{P} $</li>
+<li>(ONLY) reflects cost (in bits) per instance of using the model $ \tilde{P} $.</li>
 </ul>
+<br/>
+<p>Example: $ \text{log-loss} = -\log P(\xi: \mathcal{M}) $</p>
 <div class="callout callout-danger">
     <span class="callout-icon">
         
@@ -225,7 +250,7 @@ $$</p>
 <h3 id="expected-loss-aka-risk">Expected loss (aka Risk)</h3>
 <p>Expected loss of model $ \mathcal{M} $ reflects how much loss we expect the model to incur <strong>on average</strong>, if we drew data from the true distribution $ P^* $.</p>
 <p>$$
-E_{\xi \sim P^*} [loss (\xi : \mathcal{M})].
+\boxed{ E_{\xi \sim P^*} [loss (\xi : \mathcal{M})] }
 $$</p>
 <div class="callout callout-info">
     <span class="callout-icon">
@@ -248,16 +273,193 @@ $$</p>
 </ul>
 <h3 id="empirical-risk">Empirical Risk</h3>
 <p>$$
-E_{\mathcal{D}} [loss(\xi : \mathcal{M})] = \frac{1} {| \mathcal{D} |} \sum_{\xi \in \mathcal{D}} loss(\xi : \mathcal{M})
+\boxed{ E_{\mathcal{D}} [loss(\xi : \mathcal{M})] = \frac{1} {| \mathcal{D} |} \sum_{\xi \in \mathcal{D}} loss(\xi : \mathcal{M}) }
 $$</p>
-<p>Consider data set $ \mathcal{D} = \{ \xi[1], \dots, \xi[M] \}$, assume IID instances, likelihood
+<p>Say, plug in the log-loss
 $$
-P(\mathcal{D} : \mathcal{M}) = \prod_{m = 1}^M P(\xi[m] : \mathcal{M}).
+loss(\xi : \mathcal{M}) = - \log P(\xi : \mathcal{M}).
 $$</p>
-<p>Log-likelihood
+<p>The Empirical risk (Empirical log-loss)
 $$
-\log P(\mathcal{D} : \mathcal{M}) = \sum_{m = 1}^M \log P(\xi[m] : \mathcal{M})
+E_{\mathcal{D}} [loss(\xi : \mathcal{M})] = -\frac{1} {| M |} \sum_{m = 1}^M \log P(\xi[m] : \mathcal{M})
 $$</p>
+<h2 id="learning-task-ii-prediction-tasks">Learning Task II: Prediction Tasks</h2>
+<div class="define">
+    
+    
+        <span class="define-icon">
+            𐰋𐰍𐰃𐰤
+            
+        </span>
+    
+
+    
+
+    <div class="define-content">Goal: Fit $ P^* $ as well as possible to perform infer $ P(Y \mid X) $.</div>
+</div>
+
+<h3 id="clasification-task">Clasification Task</h3>
+<p>Examples</p>
+<ul>
+<li>given a set $ X $ of words, variable $ Y $ labels the document topic.</li>
+<li>given the image features $ X $, predict class labels for all of the pixels in the image $ Y $.</li>
+</ul>
+<p>Queries</p>
+<ul>
+<li>conditional: $ h_{\tilde{P}} = \tilde{P}( Y \mid x ) $.</li>
+<li>MAP assignment: $ h_{\tilde{P}} = \argmax_y \tilde{P} (y \mid x) $.</li>
+</ul>
+<h3 id="classification-error-01-loss">Classification Error (0/1 loss)</h3>
+<p>Probability that our classifier selects the wrong labels over all $ (x, y) $ sampled from $ \tilde{P} $
+$$
+\boxed{ E_{(x, y) \sim \tilde{P}} [\mathbb{I} \{ h_{\tilde{P}} (x) \not= y \}] }
+$$</p>
+<ul>
+<li>Suitable for single-label classification
+<ul>
+<li>each input $ x $ has one correctly label $ y $.</li>
+</ul>
+</li>
+<li>Not suitable for multi-label tasks (e.g, Img Segmentation)
+<ul>
+<li>Input $ x $ is an image with $ d $ pixels, each pixel has a label (e.g, road, car, sky &hellip;)</li>
+<li>Labels $ y = [y_1, y_2, \dots, y_d] $.</li>
+<li>If $ h_{\tilde{P}} $ differs from $ y $ even in one pixel, the entire prediction is counted as wrong.
+<ul>
+<li>This is too harsh, we don&rsquo;t want it.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="hamming-loss">Hamming Loss</h3>
+<p>A performance metric, counts the number of variables $ Y $ in which $ h_{\tilde{P}} $ differs from the ground truth $ y $
+$$
+\boxed{ E_{(x, y) \sim \tilde{P}} \left[ \frac{1}{d} \sum_{i = 1}^d \mathbb{I} \{ h_{\tilde{P}} (x) \not= y \} \right] }
+$$</p>
+<ul>
+<li>$ h_{\tilde{P}} (\text{or } \hat{y} ) $ and $ y $ are vectors of $ d $ dimensions.</li>
+</ul>
+<h3 id="conditional-log-likelihood">Conditional log-likelihood</h3>
+<p>The confidence of the prediction. Measures how well a model predicts the output $ y $ given input $ x $.
+$$
+\boxed{ E_{(x, y) \sim P^*} [\log \tilde{P}(y \mid x)] }
+$$</p>
+<ul>
+<li>Rather than simply checking whether the model got the label right or wrong (like in 0/1 loss), conditional log-likelihood looks at &ldquo;How much probability did the model assign to the correct label?&rdquo;</li>
+</ul>
+<h2 id="learning-task-iii-knowledge-discovery">Learning Task III: Knowledge Discovery</h2>
+<p>We do not care about using model or any particular inference task, but rather about discovering the knowledge about $ P^* $ itself.</p>
+<div class="define">
+    
+    
+        <span class="define-icon">
+            𐰋𐰍𐰃𐰤
+            
+        </span>
+    
+
+    
+
+    <div class="define-content"><p>Goal: Knowledge discovery or structure discovery of correct model $ \mathcal{M}^* $.</p>
+<ul>
+<li>Distinguish direct vs indirect dependencies.</li>
+<li>Possibly directionality of edges.</li>
+<li>Presence and location of hidden variables.</li>
+</ul></div>
+</div>
+
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content">Even with large amounts of data, the true model may not be identifiable.</div>
+</div>
+
+
+<h2 id="a-slightly-different-pov">A slightly different POV</h2>
+<p>Learning a Bayesian network can be split into two main components: structure learning and parameter learning</p>
+<ul>
+<li><strong>Structure learning:</strong> Given a set of data samples, estimate a Directed Acyclic Graph (DAG) that captures the dependencies between variables.</li>
+<li><strong>Parameter learning:</strong> Given a set of data samples and a DAG that captures the dependencies between variables, estimate the (conditional) probability distributions of the individual variables.</li>
+</ul>
+<h1 id="learning-as-optimization">Learning as Optimization</h1>
+<p>Optimize Problem.</p>
+<ul>
+<li>a hypothesis space</li>
+<li>a set of candidate models</li>
+<li>an objective function.</li>
+</ul>
+<h2 id="empirical-distribution">Empirical Distribution</h2>
+<p>Task: Select a model $ \mathcal{M} $ that optimizes expected of a loss function $ E_{\xi \sim P^*} [loss(\xi : \mathcal{M})] $.</p>
+<p>$ P^* $ is unknown $ \rightarrow $ use data set $ \mathcal{D} $ sampled from $ P^* $ to define an epirical distribution
+$$
+\boxed{ \hat{P}_{\mathcal{D}} (A) = \frac{1}{M} \sum_m \mathbb{I} \{ \xi[m] \in A \} }
+$$</p>
+<h3 id="overfitting">Overfitting</h3>
+<p>Selecting $ \mathcal{M} $ to optimize training set likelihood overfits to statistical noise.</p>
+<ul>
+<li>Parameter overfitting
+<ul>
+<li>Parameters fit random noise in training data $ \rightarrow $ avoid by using regularization/ parameter priors.</li>
+</ul>
+</li>
+<li>Structure overfitting
+<ul>
+<li>Training likelihood always increases for more complex structures.
+<ul>
+<li>When optimizing training set likelihood, we always prefer the most complicated structure that our model allows.</li>
+</ul>
+</li>
+<li>It&rsquo;s important to bound or penalize model complexity.</li>
+</ul>
+</li>
+</ul>
+<div class="callout callout-info">
+    <span class="callout-icon">
+        ℹ️
+        
+        
+        
+    </span>
+    <div class="callout-content"><p>Selecting <strong>Hypeparameters</strong> make a big difference to performance</p>
+<ul>
+<li>Parameter priors (regularization).</li>
+<li>Complexity penalty.</li>
+</ul></div>
+</div>
+
+
+<details>
+    <summary>Pick the hyperparameters on the training set?</summary>
+    
+        Its a terrible idea because of the fact that on the training set, the optimal thing to do is to have maximum complexity. 
+    
+</details>
+
+<details>
+    <summary>Pick the hyperparameters on the test site?</summary>
+    
+        Another terrible idea because if we picked these hyperparameteres so as to optimize performance on our test set, the performance will be overly optimistic. 
+    
+</details>
+
+<p>$ \Rightarrow $ The correct strategy is: Validation set</p>
+<ul>
+<li>Seperated from both training set and test set.</li>
+<li>Cross-validation.</li>
+</ul>
+<h1 id="why-pgm-learning">Why PGM Learning?</h1>
+<ul>
+<li>Prediction of structured objects (sequences, graphs, trees)
+<ul>
+<li>Exploit correlations between several predicted variables.</li>
+</ul>
+</li>
+</ul>
 </div>
         
     </div>

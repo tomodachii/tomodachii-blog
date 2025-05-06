@@ -8,13 +8,13 @@
     
     <link rel="icon" href="/images/lain-sicp.png">
     <title>Tomodachii</title>
-    <head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+    <head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 </head>
 </head>
@@ -245,14 +245,9 @@ $$
 </div>
 
 <h3 id="properties-of-clique-tree">Properties of Clique Tree</h3>
-<p><strong>Family Preservation</strong></p>
-<ul>
-<li>Given set of factors $\Phi$, each factor $\phi_k \in \Phi$ must be assigned to <span class="marked">one and only one</span>
- cluster $C_{\alpha(k)}$ s.t. $Scope[\phi_k] \subseteq C_{\alpha(k)}$. (In English: Each factor $\phi_k$ needs to be assigned to a cluster $C_{\alpha(k)}$ s.t. $C_{\alpha(k)}$ accommodate $\phi_k$).</li>
-<li>For each factor $\phi_k \in \Phi$, there exists a cluster $C_i$ s.t. $Scope[\phi_k] \subseteq C_i$ (For each factor there&rsquo;s a cluster accomodates $\phi_k$).</li>
-</ul>
-<br/>
-<p><strong>Running Intersection Property (RIP)</strong>
+<p><strong>1. Family Preservation</strong></p>
+<p><a href="/books/probabilistic-graphical-models/chapter-10-exact-inference-clique-trees/#properties-of-cluster-graphs">Cluster Graph Family Preservation property</a></p>
+<p><strong>2. Running Intersection Property (RIP)</strong>
 <div class="image-text-block ">
     <img src="/images/books/probabilistic-graphical-models/chapter10/running-intersection.png" alt="" style="max-width: 50%;">
     <div class="image-text-content">
@@ -760,7 +755,8 @@ $$</div>
 $$
 \boxed{\beta_i(C_i) = \psi_i \cdot \prod_{k \in Nb_i} \delta_{k \to i}}
 $$</p>
-<p><strong>sepset beliefs</strong>
+<h3 id="sepset-beliefs">Sepset beliefs</h3>
+<p>aka <strong>Marginal consistency constraint</strong>
 $$
 \boxed{\mu_{i, j} (S_{i, j}) = \sum_{C_i - S_{i, j}} \beta_i (C_i) = \sum_{C_j - S_{i, j}} \beta_j (C_j)}
 $$</p>
@@ -799,6 +795,35 @@ The cost of this algorithm is $2c$.</li>
 &amp;= \delta_{j \to i} \cdot \delta_{i \to j}
 \end{align*}
 $$</p>
+<h3 id="theorem-104">Theorem 10.4</h3>
+<ul>
+<li>$ T $: clique tree over $ \Phi $.</li>
+<li>$ \beta_i (C_i) $: set of calibrated potentials for $ T $.</li>
+</ul>
+<div class="define">
+    
+    
+        <span class="define-icon">
+            
+            𐰃𐰠𐰆𐰢
+        </span>
+    
+
+    
+
+    <div class="define-content"><p>Then
+$$
+\tilde{P}_\Phi \propto Q_T
+$$</p>
+<p>iff for each $ i \in V_T $,</p>
+<p>$$ \beta_i (C_i) \propto \tilde{P}_\Phi (C_i) $$</p>
+</div>
+</div>
+
+<p>Proof</p>
+<ul>
+<li>$ r $: root</li>
+</ul>
 <h1 id="message-passing-belief-update">Message Passing: Belief Update</h1>
 <h1 id="constructing-a-clique-tree">Constructing a Clique Tree</h1>
 <h2 id="clique-trees-from-ve">Clique Trees from VE</h2>

@@ -8,13 +8,13 @@
     
     <link rel="icon" href="/images/lain-sicp.png">
     <title>Tomodachii</title>
-    <head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" integrity="sha384-zh0CIslj+VczCZtlzBcjt5ppRcsAmDnRem7ESsYwWwg3m/OaJ2l4x7YBZl9Kxxib" crossorigin="anonymous">
+    <head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" integrity="sha384-Rma6DA2IPUwhNxmrB/7S3Tno0YY7sFu9WSYMCuulLhIqYSGZ2gKCJWIqhBWqMQfh" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 </head>
 </head>
@@ -100,7 +100,7 @@
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Chapter 1 &#43; 2: Introduction and Foundations</h1>
+            <h1 class="singleHeadTitle">Chapter 1 &#43; 2 and Appendix : Introduction, Foundations and Background Material</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
@@ -260,6 +260,34 @@ $$</p>
 </ul></div>
 </div>
 
+
+<h1 id="continuous-optimization">Continuous Optimization</h1>
+<h2 id="characterizing-optima-of-a-continuous-function">Characterizing Optima of a Continuous Function</h2>
+<p>Maximization/minimization problems:</p>
+<ul>
+<li>Find values $ \theta_1, \dots, \theta_n $ st
+$$
+f_{\text{obj}} = \max_{\theta_1, \dots, \theta_n} f_{\text{obj}} (\theta_1, \dots, \theta_n)
+$$</li>
+</ul>
+<details>
+    <summary>sum of squared distances example</summary>
+    
+        <ul>
+<li>$ (x[1], y[1]), (x[2], y[2]), \dots, (x[m], y[m]) $: set of $ m $ points in 2D space.</li>
+<li>Goal: Find the centroid of these point: $ (\theta_x, \theta_y) $ st the sum of squared distances from each point to this centroid is minimized.</li>
+</ul>
+<p>Formulate this problem into a maximization problem by considering the negative of the sum of squared distances:
+$$
+f_{\text{obj}} (\theta_x, \theta_y) = - \sum_i \left( (x[i] - \theta_x)^2 + (y[i] - \theta_y)^2 \right)
+$$</p>
+<p>At the maximum, the gradient of function (vector of partial derivatives) $ f_{\text{obj}} (\theta_1, \dots, \theta_n) $ is 0,
+$$
+\nabla f = \left\langle \frac{\partial f}{\partial \theta_1}, \ldots, \frac{\partial f}{\partial \theta_n} \right\rangle
+$$</p>
+ 
+    
+</details>
 
 </div>
         
