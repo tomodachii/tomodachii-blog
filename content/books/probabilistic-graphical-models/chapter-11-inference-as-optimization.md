@@ -202,6 +202,17 @@ $$
 Q(\mathcal{X}) = \frac{\prod_{i \in V_{\mathcal{T}}} \beta_i}{\prod_{(i - j) \in E_{\mathcal{T}}} \mu_{i, j}}
 $$
 
+Take the logarithm
+
+$$
+\ln Q(\mathcal{X}) = \sum_{i \in V_T} \ln \beta_i(c_i) - \sum_{(i-j) \in E_T} \ln \mu_{i,j}(s_{i,j})
+$$
+
+Compute entropy
+$$
+H_Q(\mathcal{X}) = - E_Q \left[ \sum_{i \in V_T} \ln \beta_i(c_i) - \sum_{(i-j) \in E_T} \ln \mu_{i,j}(s_{i,j}) \right]
+$$
+
 Thus,
 $$
 H_Q (\mathcal{X}) = \sum_{i \in V_{\mathcal{T}}} H_{\beta_i}(C_i) - 
