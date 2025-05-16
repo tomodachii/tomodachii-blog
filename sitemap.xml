@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tomodachii.com/courses/cse373/lecture-1-introduction-to-algorithms/</loc>
+    <lastmod>2025-05-07T22:06:02+07:00</lastmod>
+  </url><url>
     <loc>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-1-motivation/</loc>
     <lastmod>2025-04-16T07:51:04+07:00</lastmod>
   </url><url>
@@ -16,6 +19,9 @@
   </url><url>
     <loc>https://tomodachii.com/random/20240724-insertion-sort/</loc>
     <lastmod>2024-07-24T19:03:42+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/courses/cse373/lecture-2-algorithm-analysis/</loc>
+    <lastmod>2025-05-11T21:13:25+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/books/probabilistic-machine-learning-an-introduction/chapter-2-probability-univariate-models/</loc>
     <lastmod>2025-04-06T20:58:08+07:00</lastmod>
@@ -66,25 +72,22 @@
     <lastmod>2025-04-15T14:20:15+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/authors/</loc>
-    <lastmod>2025-05-07T22:06:02+07:00</lastmod>
+    <lastmod>2025-05-11T21:13:25+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/categories/</loc>
-    <lastmod>2025-05-07T22:06:02+07:00</lastmod>
+    <lastmod>2025-05-11T21:13:25+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/courses/</loc>
-    <lastmod>2025-05-07T22:06:02+07:00</lastmod>
+    <lastmod>2025-05-11T21:13:25+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/categories/dsa/</loc>
-    <lastmod>2025-05-07T22:06:02+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/courses/cse373/lecture-1-introduction-to-algorithms/</loc>
-    <lastmod>2025-05-07T22:06:02+07:00</lastmod>
+    <lastmod>2025-05-11T21:13:25+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/</loc>
-    <lastmod>2025-05-07T22:06:02+07:00</lastmod>
+    <lastmod>2025-05-11T21:13:25+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/authors/steven-skiena/</loc>
-    <lastmod>2025-05-07T22:06:02+07:00</lastmod>
+    <lastmod>2025-05-11T21:13:25+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/books/</loc>
     <lastmod>2025-05-04T18:58:34+07:00</lastmod>
@@ -111,7 +114,10 @@
     <lastmod>2025-04-16T07:51:04+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/authors/chris-piech/</loc>
-    <lastmod>2025-04-07T16:29:46+07:00</lastmod>
+    <lastmod>2025-04-14T21:51:42+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/courses/cs109/lecture-1-counting/</loc>
+    <lastmod>2025-04-14T21:51:42+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/courses/cs109/lecture-21-mle/</loc>
     <lastmod>2025-04-07T16:29:46+07:00</lastmod>

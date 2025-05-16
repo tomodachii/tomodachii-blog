@@ -386,13 +386,13 @@ $$</p>
 <p><strong>Maximizing</strong> $ \tilde{F}[\tilde{P}_{\Phi}, Q] $</p>
 <p><strong>subject to</strong>
 $$
-\mu_{i, j} [s_{i, j}] = \sum_{C_i - S_{i, j}} \beta_i(c_i) \quad \forall (i - j) \in E_T, \forall s_{i, j} \in Val(S_{i, j})
+\mu_{i, j} [s_{i, j}] = \sum_{C_i - S_{i, j}} \beta_i(c_i) \quad \forall (i - j) \in E_T, \forall s_{i, j} \in Val(S_{i, j}) \quad \text{(Marginal consistency)}
 $$</p>
 <p>$$
-\sum_{c_i} \beta_i (c_i) = 1 \quad \forall i \in V_T
+\sum_{c_i} \beta_i (c_i) = 1 \quad \forall i \in V_T \quad \text{(Normalization)}
 $$</p>
 <p>$$
-\beta_i (c_i) \geq 0 \quad \forall i \in V_T, c_i \in Val(C_i)
+\beta_i (c_i) \geq 0 \quad \forall i \in V_T, c_i \in Val(C_i) \quad \text{(Non-negativity)}
 $$</p>
 </div>
 </div>
@@ -406,6 +406,7 @@ $$</p>
 </ul>
 </li>
 </ul>
+<br/>
 <p>Goal: <strong>Maximizing</strong> $ \tilde{F}[\tilde{P}_{\Phi}, Q] $ under consistency constraints.</p>
 <p>$ \Rightarrow $ Lagrange multiplier</p>
 </div>

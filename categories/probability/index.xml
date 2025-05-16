@@ -44,6 +44,13 @@
       <description></description>
     </item>
     <item>
+      <title>Lecture 1 Counting</title>
+      <link>https://tomodachii.com/courses/cs109/lecture-1-counting/</link>
+      <pubDate>Mon, 14 Apr 2025 21:51:42 +0700</pubDate>
+      <guid>https://tomodachii.com/courses/cs109/lecture-1-counting/</guid>
+      <description>&lt;h2 id=&#34;yappin-bout-neuron-networks&#34;&gt;Yappin bout neuron networks&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Where do AI networks&lt;/strong&gt; get their intelligence from?&lt;/p&gt;&#xA;&lt;p&gt;$\rightarrow$ well set weights: perfect weights $=$ high intel.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Do we hire grad students to go and fiddle around with those weights?&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;$\rightarrow$ learn with examples.&lt;/p&gt;&#xA;&lt;h1 id=&#34;counting&#34;&gt;Counting&lt;/h1&gt;&#xA;&lt;p&gt;How many possible outcomes are there?&lt;/p&gt;&#xA;&lt;h2 id=&#34;step-rule-of-counting-aka-product-rule-of-counting&#34;&gt;Step Rule of Counting (aka Product Rule of Counting)&lt;/h2&gt;&#xA;&lt;p&gt;If the experiment has two steps $ \to A \to B $&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;1st step&amp;rsquo;s outcomes are from Set $ A $, where $ |A| = m $,&lt;/li&gt;&#xA;&lt;li&gt;2nd step&amp;rsquo;s outcomes are from Set $ B $, where $ |B| = n $.&lt;/li&gt;&#xA;&lt;li&gt;and $ |B| $ is unaffected by output of first step.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Then the number of outcomes of the experiment is&#xA;$$&#xA;\boxed{ |A| \cdot |B| = m \cdot n }&#xA;$$&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Lecture 21: MLE</title>
       <link>https://tomodachii.com/courses/cs109/lecture-21-mle/</link>
       <pubDate>Mon, 07 Apr 2025 16:29:46 +0700</pubDate>

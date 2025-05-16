@@ -198,18 +198,7 @@
 <li>Accept the earliest starting job first: might block us from taking many other jobs if that first job is long.</li>
 <li>Accept the shortest job and keep seeking the shortest available job: War and Peace is both the first job available and long enough to kill off all other prospects.</li>
 </ul>
-<p><img src="/images/courses/CSE373/lecture-1/STRJ-1.png" alt=""></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>ExhaustiveScheduling(I)
-</span></span><span style="display:flex;"><span>    j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>    S_max <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    For each subset S_i of the <span style="color:#ae81ff">2</span><span style="color:#f92672">^</span>n possible subsets of intervals I
-</span></span><span style="display:flex;"><span>        If S_i <span style="color:#f92672">is</span> mutually non<span style="color:#f92672">-</span>overlapping AND size(S_i) <span style="color:#f92672">&gt;</span> j
-</span></span><span style="display:flex;"><span>            j <span style="color:#f92672">=</span> size(S_i)
-</span></span><span style="display:flex;"><span>            S_max <span style="color:#f92672">=</span> S_i
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    Return S_max
-</span></span></code></pre></div><h1 id="reasoning-about-correctness">Reasoning about Correctness</h1>
+<h1 id="reasoning-about-correctness">Reasoning about Correctness</h1>
 <p>We need tools to distinguish correct algorithms from incorrect ones, the primary one of which is called a <strong>proof</strong>.</p>
 <ol>
 <li>a clear, precise statement of what you are trying to prove.</li>
@@ -217,7 +206,7 @@
 <li>a chain of reasoning that takes you from these assumptions to the statement you are trying to prove.</li>
 <li>a little square (QED) at the bottom to denote that you have finished: &ldquo;thus it is demonstrated.&rdquo;</li>
 </ol>
-<h1 id="problems-and-properties">Problems and Properties</h1>
+<h2 id="problems-and-properties">Problems and Properties</h2>
 <h3 id="problem">Problem</h3>
 <ol>
 <li>a set of allowed input instances.</li>
@@ -234,7 +223,7 @@
 </div>
 
 
-<h1 id="demonstrating-incorrectness">Demonstrating Incorrectness</h1>
+<h2 id="demonstrating-incorrectness">Demonstrating Incorrectness</h2>
 <p>Find an instance on which it yields an incorrect answer (counterexample).</p>
 <ul>
 <li>Verifiability
@@ -273,10 +262,153 @@
 </ul>
 </li>
 </ul>
-<h1 id="induction-and-recursion">Induction and Recursion</h1>
+<h2 id="induction-and-recursion">Induction and Recursion</h2>
 <ul>
 <li>Failure to find a counterexample to a given algorithm does not mean &ldquo;it is obvious&rdquo; that the algorithm is correct.</li>
 <li>A proof or demonstration of correctness is needed.</li>
+</ul>
+<div class="callout callout-info">
+    <span class="callout-icon">
+        ℹ️
+        
+        
+        
+    </span>
+    <div class="callout-content">Recursion = Mathemathical Induction in action $ \rightarrow $ used to verify the correctness of a recursive or incremental insertion algorithm.</div>
+</div>
+
+
+<details>
+    <summary>Increment Example</summary>
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>Increment(y):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> y <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> y mod <span style="color:#ae81ff">2</span> <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> Increment(<span style="color:#960050;background-color:#1e0010">⌊</span>y <span style="color:#f92672">/</span> <span style="color:#ae81ff">2</span><span style="color:#960050;background-color:#1e0010">⌋</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> y <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><br/>
+<p><strong>Base case</strong></p>
+<ul>
+<li>y = 0, Increment(0) = 1</li>
+<li>0 + 1 = 1</li>
+</ul>
+<p>So Increment(0) = 0 + 1, thus P(0) holds</p>
+<br/>
+<p><strong>Inductive Step (Strong Induction Hypothesis)</strong>
+Assume that $ P(k) $ holds for all $ k &lt; y $,</p>
+<ul>
+<li>for all natural numbers less than y, assume $ Increment(k) = k + 1 $.</li>
+</ul>
+<p>Must show that $ P(y) $ holds: $ Increment(y) = y + 1 $</p>
+<br/>
+<p><strong>Case 1:</strong> $ y $ is even</p>
+<p>Let $ y = 2m, \text{ for some } m \in \mathbb{N} $, then</p>
+<ul>
+<li>$ Increment(2m) = 2m + 1 $</li>
+</ul>
+<p>Thus $ Increment(y) = y + 1 $ (desired result)</p>
+<p><strong>Case 2:</strong> $ y $ is odd</p>
+<p>Let $ y = 2m + 1 $ for some integer $ m $, then</p>
+<p>$$
+\begin{align*}
+Increment(\lfloor 2m + 1 \rfloor) &amp;= 2 * Increment(\lfloor m + 1/2 \rfloor) \\
+&amp;= 2 * Increment(m)
+&amp;= 2 * (m + 1) = 2m + 2 = y + 1
+\end{align*}
+$$</p>
+<p>Thus $ Increment(y) = y + 1 $</p>
+ 
+    
+</details>
+
+<h2 id="proof-by-contradiction">Proof by Contradiction</h2>
+<ul>
+<li>Assume that the hypothesis is false.</li>
+<li>Develop some logical consequences of this assumption.</li>
+<li>Show that one consequence is demonstrably false, thereby showing that the assumption is incorrect and the hypothesis is true.</li>
+</ul>
+<details>
+    <summary>Euclid&#39;s proof that there are infinite number of prime numbers that have no non-trivial factors, only 1 and itself</summary>
+    
+        <p>Prime numbers: 2, 3, 5, 7, 11, &hellip;</p>
+<p>Assume that there are only a finite $ m $ number of primes: $ p_1, \dots, p_m $</p>
+<p>The integer formed as the product of &ldquo;all&rdquo; the listed primes:
+$$
+N = \prod_{i =1}^{m} p_i
+$$</p>
+<ul>
+<li>$ N $ is divisible by any of known primes.</li>
+<li>Consider $ N + 1 $
+<ul>
+<li>If $ p_i $ divides both $ N \text{and} N + 1 $, then it must divide their difference:
+$$
+(N + 1) - N = 1
+$$</li>
+</ul>
+</li>
+</ul>
+<p>Since no prime divides 1, $ N + 1 $ is a prime itself</p>
+<ul>
+<li>However, it is missing from the list of $ m $ all known primes (contradiction).</li>
+</ul>
+<p>Thus there cannot be a bounded number of primes.</p>
+ 
+    
+</details>
+
+<h1 id="modeling-the-problem">Modeling the Problem</h1>
+<p>The art of formulating your application in terms of precisely described, well-understood problems.</p>
+<p>Formulate Problem in terms of computing properties of common structures</p>
+<ul>
+<li><strong>Permutations:</strong> arrangements, or ordering of items
+<ul>
+<li>{1, 2, 3, 4} and {4, 3, 2, 1}: 2 distict permutations of the same set of four integers.</li>
+<li>&ldquo;arrangement&rdquo;, &ldquo;tour&rdquo;, &ldquo;ordering&rdquo;, &ldquo;sequence&rdquo;.</li>
+</ul>
+</li>
+<li><strong>Subsets:</strong> selections from a set of items.
+<ul>
+<li>Ex: {1, 2, 3} and {2}</li>
+<li>Order does not matter: {1, 2, 3} = {3, 2, 1}.</li>
+<li>&ldquo;cluster&rdquo;, &ldquo;collection&rdquo;, &ldquo;committee&rdquo;, &ldquo;group&rdquo;, &ldquo;packaging&rdquo;, &ldquo;selection&rdquo;.</li>
+</ul>
+</li>
+<li><strong>Trees:</strong> hierarchical relationship between items.
+<ul>
+<li>&ldquo;hierarchy&rdquo;, &ldquo;dominance relationship&rdquo;, &ldquo;ancestor/descendant relationship&rdquo;, &ldquo;taxonomy&rdquo;.</li>
+</ul>
+</li>
+<li><strong>Graphs:</strong> relationships between arbitrary pairs of objects.
+<ul>
+<li>&ldquo;network&rdquo;, &ldquo;circuit&rdquo;, &ldquo;web&rdquo;, &ldquo;relationship&rdquo;.</li>
+</ul>
+</li>
+<li><strong>Points:</strong> locations in some geometric space.
+<ul>
+<li>&ldquo;sites&rdquo;, &ldquo;positions&rdquo;, &ldquo;data records&rdquo;, &ldquo;location&rdquo;.</li>
+</ul>
+</li>
+<li><strong>Polygons:</strong> regions in some geometric spaces.
+<ul>
+<li>&ldquo;shapes&rdquo;, &ldquo;regions&rdquo;, &ldquo;configurations&rdquo;, &ldquo;boundaries&rdquo;.</li>
+</ul>
+</li>
+<li><strong>String:</strong> sequences of characters, or patterns.
+<ul>
+<li>&ldquo;text&rdquo;, &ldquo;characters&rdquo;, &ldquo;patterns&rdquo;, &ldquo;labels&rdquo;.</li>
+</ul>
+</li>
+</ul>
+<h3 id="recursive-objects">Recursive Objects</h3>
+<ul>
+<li>Decomposition rules</li>
+<li>Basis cases
+<ul>
+<li>the specification of the smallest and simplest objects where the decomposition stops.</li>
+</ul>
+</li>
 </ul>
 </div>
         
