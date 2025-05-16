@@ -228,15 +228,15 @@ $$
 
 **subject to**
 $$
-\mu_{i, j} [s_{i, j}] = \sum_{C_i - S_{i, j}} \beta_i(c_i) \quad \forall (i - j) \in E_T, \forall s_{i, j} \in Val(S_{i, j})
+\mu_{i, j} [s_{i, j}] = \sum_{C_i - S_{i, j}} \beta_i(c_i) \quad \forall (i - j) \in E_T, \forall s_{i, j} \in Val(S_{i, j}) \quad \text{(Marginal consistency)}
 $$
 
 $$
-\sum_{c_i} \beta_i (c_i) = 1 \quad \forall i \in V_T
+\sum_{c_i} \beta_i (c_i) = 1 \quad \forall i \in V_T \quad \text{(Normalization)}
 $$
 
 $$
-\beta_i (c_i) \geq 0 \quad \forall i \in V_T, c_i \in Val(C_i)
+\beta_i (c_i) \geq 0 \quad \forall i \in V_T, c_i \in Val(C_i) \quad \text{(Non-negativity)}
 $$
 {{< /define >}}
 
@@ -244,6 +244,8 @@ $$
 * Stationary point: either a local maximum, a local minimum or a saddle point.
 * CTree-Optimize has a single global maximum (theorem 11.1).
     + Can show that it is also the only stationary point $ \rightarrow $ once we find a stationary point, we know that its the maximum.
+
+<br/>
 
 Goal: **Maximizing** $ \tilde{F}[\tilde{P}_{\Phi}, Q] $ under consistency constraints.
 

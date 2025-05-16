@@ -10,7 +10,7 @@ authors = ["Steven Skiena"]
 avatar = "/images/avatar.png"
 math = true
 section = "CSE 373 - Analysis of Algorithms"
-weight = 0
+weight = 1
 postColor = "#FF5103"
 +++
 
@@ -82,21 +82,6 @@ An instance of non-overlapping movie scheduling problem. Red titles: optimal sol
 * Accept the earliest starting job first: might block us from taking many other jobs if that first job is long.
 * Accept the shortest job and keep seeking the shortest available job: War and Peace is both the first job available and long enough to kill off all other prospects.
 
-![](/images/courses/CSE373/lecture-1/STRJ-1.png)
-
-```python
-ExhaustiveScheduling(I)
-    j = 0
-    S_max = 0
-
-    For each subset S_i of the 2^n possible subsets of intervals I
-        If S_i is mutually non-overlapping AND size(S_i) > j
-            j = size(S_i)
-            S_max = S_i
-
-    Return S_max
-```
-
 # Reasoning about Correctness
 We need tools to distinguish correct algorithms from incorrect ones, the primary one of which is called a **proof**.
 1. a clear, precise statement of what you are trying to prove.
@@ -104,7 +89,7 @@ We need tools to distinguish correct algorithms from incorrect ones, the primary
 3.  a chain of reasoning that takes you from these assumptions to the statement you are trying to prove.
 4. a little square (QED) at the bottom to denote that you have finished: "thus it is demonstrated."
 
-# Problems and Properties
+## Problems and Properties
 
 ### Problem
 1. a set of allowed input instances.
@@ -114,7 +99,7 @@ We need tools to distinguish correct algorithms from incorrect ones, the primary
 It is impossible to prove the correctness of an algorithm for a fuzzily stated problem.
 {{< /callout >}}
 
-# Demonstrating Incorrectness
+## Demonstrating Incorrectness
 Find an instance on which it yields an incorrect answer (counterexample).
 * Verifiability
     + Calculate what answer the algorithm will give in this instance, and
@@ -133,6 +118,120 @@ Find an instance on which it yields an incorrect answer (counterexample).
 * Seek extremes
     + hugh and tiny, left and right, few and many, near and far.
 
-# Induction and Recursion
+## Induction and Recursion
 * Failure to find a counterexample to a given algorithm does not mean "it is obvious" that the algorithm is correct. 
 * A proof or demonstration of correctness is needed.
+
+{{< callout type="info" >}}
+Recursion = Mathemathical Induction in action $ \rightarrow $ used to verify the correctness of a recursive or incremental insertion algorithm.
+{{< /callout >}}
+
+{{< toggle title="Increment Example" >}}
+```python
+Increment(y):
+    if y == 0:
+        return 1
+    else if y mod 2 == 1:
+        return 2 * Increment(⌊y / 2⌋)
+    else:
+        return y + 1
+```
+<br/>
+
+**Base case**
+* y = 0, Increment(0) = 1
+* 0 + 1 = 1
+
+So Increment(0) = 0 + 1, thus P(0) holds
+
+<br/>
+
+**Inductive Step (Strong Induction Hypothesis)**
+Assume that $ P(k) $ holds for all $ k < y $,
+* for all natural numbers less than y, assume $ Increment(k) = k + 1 $.
+
+Must show that $ P(y) $ holds: $ Increment(y) = y + 1 $
+
+<br/>
+
+**Case 1:** $ y $ is even
+
+Let $ y = 2m, \text{ for some } m \in \mathbb{N} $, then
+
+* $ Increment(2m) = 2m + 1 $
+
+Thus $ Increment(y) = y + 1 $ (desired result)
+
+**Case 2:** $ y $ is odd
+
+Let $ y = 2m + 1 $ for some integer $ m $, then
+
+$$
+\begin{align*}
+Increment(\lfloor 2m + 1 \rfloor) &= 2 * Increment(\lfloor m + 1/2 \rfloor) \\\
+&= 2 * Increment(m)
+&= 2 * (m + 1) = 2m + 2 = y + 1
+\end{align*}
+$$
+
+Thus $ Increment(y) = y + 1 $
+
+{{< /toggle >}}
+
+## Proof by Contradiction
+* Assume that the hypothesis is false.
+* Develop some logical consequences of this assumption.
+* Show that one consequence is demonstrably false, thereby showing that the assumption is incorrect and the hypothesis is true.
+
+{{< toggle title="Euclid's proof that there are infinite number of prime numbers that have no non-trivial factors, only 1 and itself">}}
+
+Prime numbers: 2, 3, 5, 7, 11, ...
+
+Assume that there are only a finite $ m $ number of primes: $ p_1, \dots, p_m $
+
+The integer formed as the product of "all" the listed primes:
+$$
+N = \prod_{i =1}^{m} p_i
+$$
+
+* $ N $ is divisible by any of known primes.
+* Consider $ N + 1 $
+    + If $ p_i $ divides both $ N \text{and} N + 1 $, then it must divide their difference:
+$$
+(N + 1) - N = 1
+$$
+
+Since no prime divides 1, $ N + 1 $ is a prime itself
+* However, it is missing from the list of $ m $ all known primes (contradiction).
+
+Thus there cannot be a bounded number of primes.
+
+{{< /toggle >}}
+
+# Modeling the Problem
+The art of formulating your application in terms of precisely described, well-understood problems.
+
+Formulate Problem in terms of computing properties of common structures
+* **Permutations:** arrangements, or ordering of items
+    + {1, 2, 3, 4} and {4, 3, 2, 1}: 2 distict permutations of the same set of four integers.
+    + "arrangement", "tour", "ordering", "sequence".
+* **Subsets:** selections from a set of items.
+    + Ex: {1, 2, 3} and {2}
+    + Order does not matter: {1, 2, 3} = {3, 2, 1}.
+    + "cluster", "collection", "committee", "group", "packaging", "selection".
+* **Trees:** hierarchical relationship between items.
+    + "hierarchy", "dominance relationship", "ancestor/descendant relationship", "taxonomy".
+* **Graphs:** relationships between arbitrary pairs of objects.
+    + "network", "circuit", "web", "relationship".
+* **Points:** locations in some geometric space.
+    + "sites", "positions", "data records", "location".
+* **Polygons:** regions in some geometric spaces.
+    + "shapes", "regions", "configurations", "boundaries".
+* **String:** sequences of characters, or patterns.
+    + "text", "characters", "patterns", "labels".
+
+### Recursive Objects
+* Decomposition rules
+* Basis cases
+    + the specification of the smallest and simplest objects where the decomposition stops.
+
