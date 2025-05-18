@@ -77,7 +77,7 @@ The message $\tau_1(D)$ generated from $\psi_1(C, D)$, participates in the compu
 ## Clique Trees
 The cluster graph associated with an execution of VE is guaranteed to have certain important properties.
 
-* VE used intermediate factor $\tau_i$ at most once $\rightarrow$ the cluster graph induced by an execution of VE is necessarily a tree because (there should be no cycle because if there's more than one path from $C_i$ to $C_j$, $\tau_i$ will be used multiple times).
+* VE used intermediate factor $\tau_i$ at most once $\rightarrow$ the cluster graph induced by an execution of VE is necessarily a tree (there should be no cycle because if there's more than one path from $C_i$ to $C_j$, $\tau_i$ will be used multiple times).
 * Although cluster graph is undirected, an execution of VE defines a direction for the edges (flow of messages between clusters).
     + The directed graph induced by the messages is a directed tree,
     + all the messages flowing toward a single cluster where the final result is computed.
@@ -85,11 +85,21 @@ The cluster graph associated with an execution of VE is guaranteed to have certa
 
 {{< define >}}
 Clique Tree
-* Cluster tree such that:
+* Cluster {{< marker >}}tree{{< /marker >}} such that:
     + nodes are clusters $C_i \subseteq \mathcal{X}$ (called cliques),
     + edges between $C_i$ and $C_j$ associated with sepset $S_{i, j} = C_i \cap C_j$,
     + satisfies the running intersection property.
 {{< /define >}}
+
+{{< callout type="danger" >}}
+Tree
+* connected: There is a path between every pair of nodes.
+* acyclic: Contains no cycles - no path that starts and ends at the same node without retracing steps.
+
+<br/>
+
+A cluster tree is a tree whose nodes are clusters (and this does not imply RIP, a cluster tree that satisfies RIP is a clique tree).
+{{< /callout >}}
 
 ### Properties of Clique Tree
 **1. Family Preservation**

@@ -94,7 +94,17 @@ $$
 ### Theorem 11.1
 If $ \mathcal{T} $ is an I-map of $ P_\Phi $, then there is a unique solution to CTree-Optimize-KL.
 
-# The Energy Functional
+# Exact Inference as Optimization
+* In Chapter 10, Belief Propagation results in a calibrated clique tree $ \rightarrow Q = P $.
+* In this chapter, we are no longer in a clique tree but rather in a general cluster graph, which can have loops.
+    + Can't use the clique tree message passing algorithm $ \rightarrow $ can't guarantee calibrated tree: $ Q \not= P $
+
+Goal:
+* Introduce a set of approximate beliefs $ Q = \\{ \beta_i(C_i), \mu_{ij} (S_{ij}) \\} $.
+    + try to make $ Q $ as close as possible to $ P $.
+    + by optimizing the energy function.
+
+## The Energy Functional
 ### Theorem 11.2
 $$
 \boxed{ \mathbb{D} (Q || P_\Phi) = \ln Z - F[\tilde{P}_\Phi, Q] }
@@ -157,9 +167,6 @@ $$
 ### Variational Methods
 Inference methods that can be viewed as strategies for optimizing the energy functional.
 
-# Exact Inference as Optimization
-* the optimization problem CTree-Optimize-KL has a unique solution.
-
 ### Factored energy functional
 {{< define icon="definition" >}}
 $$
@@ -221,6 +228,9 @@ $$
 {{< /toggle >}}
 
 ### CTree-Optimize
+In calibrated clique tree, we get **marginal consistency** for free, however in a loopy graph, running message passing does not necessarily give calibrated beliefs.
+* Trick: even though consistency doesn't happen naturall $ \rightarrow $ force it by adding it as a **constraint** in the optimization problem.
+
 {{< define >}}
 **Find** $ Q = \\{ \beta_i : i \in V_{\mathcal{T}} \\} \cup \\{ \mu_{i,j} : (i-j) \in E_{\mathcal{T}} \\} $
 
@@ -249,5 +259,136 @@ $$
 
 Goal: **Maximizing** $ \tilde{F}[\tilde{P}_{\Phi}, Q] $ under consistency constraints.
 
+Abt the Non-negativity constraint: Do not need to enforce this explicitly because the assumption that factors are strictly positive implies the beliefs will be nonnegative.
+
 $ \Rightarrow $ Lagrange multiplier
 
+$$
+J = \tilde{F}[\tilde{P}_{\Phi}, Q]
+$$
+
+$$
+-\sum_i \lambda_i \left( \sum_{c_i} \beta_i (c_i) - 1 \right)
+$$
+
+$$
+-\sum_i \sum_{j \in Nb_i} \sum_{s_{i, j}} \lambda_{i \to j} [s_{i, j}] \left( \sum_{c_i \sim s_{i, j}} \beta_i (c_i) - \mu_{i, j} [s_{i, j}] \right).
+$$
+
+Taking derivatives of $ J $ w.r.t
+* $ \beta_i (c_i) $
+* $ \mu_{i, j}[s_{i, j}] $
+
+$$
+\frac{\partial J}{\partial \beta_i (c_i)} = \ln \psi_i [c_i] - \ln \beta_i (c_i) - 1 - \sum_{j \in Nb_i} \lambda_{i \to j} [s_{i, j}]
+$$
+
+$$
+\frac{\partial J}{\partial \mu_{i, j} [s_{i, j}]} = \ln \mu_{i, j} [s_{i, j}] + 1 + \lambda_{i \to j} [s_{i, j}] + \lambda_{j \to i} [s_{i, j}]
+$$
+
+{{< toggle title="explain" >}}
+
+$$
+\tilde{F}[\tilde{P}_{\Phi}, Q]
+$$
+
+$$
+= \sum_{i \in V_{\mathcal{T}}} E_{C_i \sim \beta_i}[\ln \psi_i] + 
+\sum_{i \in V_{\mathcal{T}}} H_{\beta_i}(C_i) - 
+\sum_{(i-j) \in E_{\mathcal{T}}} H_{\mu_{i,j}}(S_{i,j})
+$$
+
+Recall: $ X \sim P \rightarrow E_{X \sim P} [g(X)] = \sum_x P(x) \cdot g(x) $
+
+* $ E_{C_i \sim \beta_i} [\ln \psi_i] = \sum_{c_i} \beta_i (c_i) \ln \psi_i (c_i) $
+* $ H_{\beta_i} (C_i) = -\sum_{c_i} \beta_i (c_i) \ln \beta_i(c_i) $
+* $ H_{\mu_{i, j}} (S_{i, j}) = -\sum_{s_{i, j}} \mu_{i, j} (s_{i, j}) \ln \mu_{i, j} (s_{i, j}) $
+
+the factored energy function becomes
+$$
+\tilde{F} = \sum_{i \in V_T} \sum_{c_i} \beta_i (c_i) \ln \psi_i (c_i) - \sum_{i \in V_T} \sum_{c_i} \beta_i (c_i) \ln \beta_i(c_i) + \sum_{(i, j) \in E_T} \sum_{s_{i, j}} \mu_{i, j} (s_{i, j}) \ln \mu_{i, j} (s_{i, j})
+$$
+
+{{< /toggle >}}
+
+### Theorem 11.3
+A set of beliefs $ Q $ is a stationary point of CTree-Optimize iff there exists a set of factors $ \\{ \delta_{i \to j}[S_{i, j}] : (i - j) \in E_T \\} $ st
+
+$$
+\boxed {\delta_{i \to j} \propto \sum_{C_i - S_{i, j}} \psi_i \left( \prod_{k \in Nb_i - \\{ j \\} } \delta_{k \to i} \right)} \tag{{11.10}}
+$$
+
+and moreover,
+$$
+\boxed{ \beta_i \propto \psi_i \left( \prod_{j \in Nb_i} \delta_{j \to i} \right) }
+$$
+
+$$
+\boxed{ \mu_{i, j} = \delta_{j \to i} \cdot \delta_{i \to j} }
+$$
+
+{{< callout type="danger" >}}
+This theorem characterizes the solution of the optimization problem
+* in terms of these fixed points equattions
+* they are update rules that, when repeated, converge (hopefully) to a stationary point $ \rightarrow $ where the optimization does not improve anymore.
+{{< /callout >}}
+
+### Inference as Optimization
+
+**Step 1: Initialize Messages**
+
+Set all $ \delta_{i \to j} (S_{ij}) = 1 $
+
+<br/>
+
+**Step 2: Iterative Updates using fixed-point equations**
+
+For each directed edge $ i \to j $, (re)assign
+$$
+\delta_{i \to j} (S_{ij}) := \sum_{C_i - S_{ij}} \psi_i (C_i) \prod_{k \in Nb_i - j} \delta_{k \to i} (S_{ki})
+$$
+* a single iteration of this process does not usually su ce to make the equalities hold
+    + however, under certain conditions (which hold in a clique tree), we can guarantee that this process converges to solution
+
+Repeat until convergence.
+
+<br/>
+
+**Step 3: Compute beliefs**
+
+# Propagation-Based Approximation
+
+## Cluster-Graph Belief Propagation
+In chapter 10, we required that cluster graphs
+* be trees, and
+* [running intersection property](/books/probabilistic-graphical-models/chapter-10-exact-inference-clique-trees/#properties-of-clique-tree).
+
+$ \rightarrow $ [clique trees](/books/probabilistic-graphical-models/chapter-10-exact-inference-clique-trees/#clique-trees).
+
+This chapter, we remove first assumption, allowing inference to be performed on a loopy cluster graph. However, we still wish to require RIP. 
+
+Since this is a cluster graph (loopy), we need to explicitly enforce the **uniqueness** of RIP.
+
+{{< callout type="danger" >}}
+In trees, RIP implies that $ S_{i, j} = C_i \cap C_j $.
+
+In graphs, this is no longer true.
+* Example: In 11.3a, $ C_1 $ and $ C_2 $ have $ B $ in common, but $ S_{1, 2} = \\{ C \\} $ 
+{{< /callout >}}
+
+![](/images/books/probabilistic-graphical-models/chapter11/rip.png)
+
+### Calibrated
+A cluster graph is calibrated if for each edge $ (i - j) $, connecting the cluster $ C_i $ and $ C_j $:
+$$
+\boxed{ \sum_{C_i - S_{i, j}} \beta_i = \sum_{C_j - S_{i, j}} \beta_j }
+$$
+
+{{< callout type="warning" >}}
+That is, the two clusters agree on the marginal of variables in $ S_{i, j} $.
+* clusters do not necessarily agree on the joint marginal of all variables they have in common, 
+* but only on those variables in the sepset $ S_{i, j} $ 
+    + as shown in the above example, some vars maybe in common but do not show up in sepset.
+* Thus, this definition is weaker than cluster tree calibration.
+{{< /callout >}}
