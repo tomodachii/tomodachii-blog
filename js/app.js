@@ -28,3 +28,20 @@ toggle.addEventListener("click", () => {
         moon.style.display = "block";
     }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Always enforce light mode
+    body.classList.add("light");
+    localStorage.setItem("mode", "light");
+
+    // Set icons
+    if (sun) sun.style.display = "block";
+    if (moon) moon.style.display = "none";
+
+    // Disable toggle button if it exists
+    const toggle = document.querySelector(".toggle");
+    if (toggle) {
+        // toggle.style.display = "none"; // hide visually
+        toggle.disabled = true; // disable interaction
+    }
+});

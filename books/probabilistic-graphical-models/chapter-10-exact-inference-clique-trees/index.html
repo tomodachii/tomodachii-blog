@@ -217,7 +217,7 @@ $$
 <h2 id="clique-trees">Clique Trees</h2>
 <p>The cluster graph associated with an execution of VE is guaranteed to have certain important properties.</p>
 <ul>
-<li>VE used intermediate factor $\tau_i$ at most once $\rightarrow$ the cluster graph induced by an execution of VE is necessarily a tree because (there should be no cycle because if there&rsquo;s more than one path from $C_i$ to $C_j$, $\tau_i$ will be used multiple times).</li>
+<li>VE used intermediate factor $\tau_i$ at most once $\rightarrow$ the cluster graph induced by an execution of VE is necessarily a tree (there should be no cycle because if there&rsquo;s more than one path from $C_i$ to $C_j$, $\tau_i$ will be used multiple times).</li>
 <li>Although cluster graph is undirected, an execution of VE defines a direction for the edges (flow of messages between clusters).
 <ul>
 <li>The directed graph induced by the messages is a directed tree,</li>
@@ -234,7 +234,8 @@ $$
 
     <div class="define-content"><p>Clique Tree</p>
 <ul>
-<li>Cluster tree such that:
+<li>Cluster <span class="marked">tree</span>
+such that:
 <ul>
 <li>nodes are clusters $C_i \subseteq \mathcal{X}$ (called cliques),</li>
 <li>edges between $C_i$ and $C_j$ associated with sepset $S_{i, j} = C_i \cap C_j$,</li>
@@ -243,6 +244,24 @@ $$
 </li>
 </ul></div>
 </div>
+
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content"><p>Tree</p>
+<ul>
+<li>connected: There is a path between every pair of nodes.</li>
+<li>acyclic: Contains no cycles - no path that starts and ends at the same node without retracing steps.</li>
+</ul>
+<br/>
+<p>A cluster tree is a tree whose nodes are clusters (and this does not imply RIP, a cluster tree that satisfies RIP is a clique tree).</p>
+</div>
+</div>
+
 
 <h3 id="properties-of-clique-tree">Properties of Clique Tree</h3>
 <p><strong>1. Family Preservation</strong></p>

@@ -6,15 +6,8 @@
     <description>Recent content in Categories on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 May 2025 21:13:25 +0700</lastBuildDate>
+    <lastBuildDate>Sun, 04 May 2025 18:58:34 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Dsa</title>
-      <link>https://tomodachii.com/categories/dsa/</link>
-      <pubDate>Sun, 11 May 2025 21:13:25 +0700</pubDate>
-      <guid>https://tomodachii.com/categories/dsa/</guid>
-      <description></description>
-    </item>
     <item>
       <title>Probabilistic-Graphical-Models</title>
       <link>https://tomodachii.com/categories/probabilistic-graphical-models/</link>
@@ -62,6 +55,13 @@
       <link>https://tomodachii.com/categories/gaussian-process/</link>
       <pubDate>Mon, 17 Mar 2025 23:02:53 +0700</pubDate>
       <guid>https://tomodachii.com/categories/gaussian-process/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Dsa</title>
+      <link>https://tomodachii.com/categories/dsa/</link>
+      <pubDate>Wed, 24 Jul 2024 19:03:42 +0700</pubDate>
+      <guid>https://tomodachii.com/categories/dsa/</guid>
       <description></description>
     </item>
   </channel>
