@@ -405,7 +405,8 @@ $$
 {{< /toggle >}}
 
 At the end of this process, all messages and clique beliefs are computed. Messages used in the computation of $\beta_i$ are precisely the same as that would have been use in the upward algorithm, thus
-Corollary
+
+### Corollary 10.2
 {{< define icon="theorem" >}}
 $$
 \beta_i(C_i) = \sum_{\mathcal{X} - C_i} \tilde{P}_{\Phi}(\mathcal{X})
@@ -480,6 +481,8 @@ $$
 * $ \beta_i (C_i) $: set of calibrated potentials for $ T $.
 
 {{< define icon="theorem" >}}
+If the potentials $ \beta_i (C_i) $ in a clique tree $ T $ are calibrated
+
 Then
 $$ 
 \tilde{P}_\Phi \propto Q_T
@@ -493,6 +496,14 @@ $$ \beta_i (C_i) \propto \tilde{P}_\Phi (C_i) $$
 
 Proof
 * $ r $: root
+
+We already knew that [correct beliefs $ \rightarrow $ correct marginals](/books/probabilistic-graphical-models/chapter-10-exact-inference-clique-trees/#corollary-102) at each cluster.
+
+{{< callout >}}
+Global correctness of the distribution (reconstructing $ \tilde{P}_\Phi (X) $) is equivalent to local correctness of all cluster beliefs.
+* Known each cluster beliefs matches the marginal $ \Rightarrow $ get the full unnormalized distribution correctly.
+* Conversely, if the full distribution is correct $ \Rightarrow $ each belief must be a correct marginal.
+{{< /callout >}}
 
 # Message Passing: Belief Update
 

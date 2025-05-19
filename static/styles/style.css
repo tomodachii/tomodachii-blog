@@ -543,6 +543,8 @@ th {
   background-color: var(--defColor);
 }
 
+/* ANCHOR LINK */
+
 .anchor-link {
   margin-left: 8px;
   text-decoration: none;
