@@ -722,8 +722,8 @@ $$
     
 </details>
 
-<p>At the end of this process, all messages and clique beliefs are computed. Messages used in the computation of $\beta_i$ are precisely the same as that would have been use in the upward algorithm, thus
-Corollary
+<p>At the end of this process, all messages and clique beliefs are computed. Messages used in the computation of $\beta_i$ are precisely the same as that would have been use in the upward algorithm, thus</p>
+<h3 id="corollary-102">Corollary 10.2</h3>
 <div class="define">
     
     
@@ -739,7 +739,7 @@ Corollary
 \beta_i(C_i) = \sum_{\mathcal{X} - C_i} \tilde{P}_{\Phi}(\mathcal{X})
 $$</div>
 </div>
-</p>
+
 <h3 id="calibrated">Calibrated</h3>
 <div class="define">
     
@@ -830,7 +830,8 @@ $$</p>
 
     
 
-    <div class="define-content"><p>Then
+    <div class="define-content"><p>If the potentials $ \beta_i (C_i) $ in a clique tree $ T $ are calibrated</p>
+<p>Then
 $$
 \tilde{P}_\Phi \propto Q_T
 $$</p>
@@ -843,6 +844,22 @@ $$</p>
 <ul>
 <li>$ r $: root</li>
 </ul>
+<p>We already knew that <a href="/books/probabilistic-graphical-models/chapter-10-exact-inference-clique-trees/#corollary-102">correct beliefs $ \rightarrow $ correct marginals</a> at each cluster.</p>
+<div class="callout callout-info">
+    <span class="callout-icon">
+        
+        
+        
+        
+    </span>
+    <div class="callout-content"><p>Global correctness of the distribution (reconstructing $ \tilde{P}_\Phi (X) $) is equivalent to local correctness of all cluster beliefs.</p>
+<ul>
+<li>Known each cluster beliefs matches the marginal $ \Rightarrow $ get the full unnormalized distribution correctly.</li>
+<li>Conversely, if the full distribution is correct $ \Rightarrow $ each belief must be a correct marginal.</li>
+</ul></div>
+</div>
+
+
 <h1 id="message-passing-belief-update">Message Passing: Belief Update</h1>
 <h1 id="constructing-a-clique-tree">Constructing a Clique Tree</h1>
 <h2 id="clique-trees-from-ve">Clique Trees from VE</h2>
