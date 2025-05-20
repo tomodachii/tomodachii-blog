@@ -265,6 +265,7 @@ $$</p>
 <li>$ H_Q(\mathcal{X}) $: entropy term
 <ul>
 <li>Depends on $ Q $.</li>
+<li>involving the entropy of an entire joint distribution; thus, it cannot be tractably optimized.</li>
 </ul>
 </li>
 </ul>
@@ -280,7 +281,7 @@ $$</p>
 </ul>
 <p>Thus,
 $$
-\mathbb{D} (Q || P_\Phi) = - H_Q (\mathcal(X)) - E_Q \left[ \sum_{\phi \in \Phi} \ln \phi \right] + E_Q[\ln Z]
+\mathbb{D} (Q || P_\Phi) = - H_Q (\mathcal{X}) - E_Q \left[ \sum_{\phi \in \Phi} \ln \phi \right] + E_Q[\ln Z]
 $$</p>
 <p>$$
 = -F[\tilde{P}_\Phi, Q] + \ln Z
@@ -312,6 +313,42 @@ $$</p>
 </ul>
 <h3 id="variational-methods">Variational Methods</h3>
 <p>Inference methods that can be viewed as strategies for optimizing the energy functional.</p>
+<h2 id="variatioinal-analysis">Variatioinal Analysis</h2>
+<p>The exact energy functional
+$$
+F[\tilde{P}_\Phi, Q]
+$$</p>
+<p>has terms involving the entropy of an entire joint distribution; thus, it cannot be tractably optimized $ \rightarrow $ <em>factored energy functional</em></p>
+<p>$$
+\tilde{F}[\tilde{P}_\Phi, Q]
+$$</p>
+<p>defined in terms of entropies of clusters and sepsets, which can be computed efficiently based purely on local information at the clusters.</p>
+<h3 id="marginal-polytope">Marginal polytope</h3>
+<ul>
+<li>$ U $: cluster graph</li>
+<li>$ P $: distribution</li>
+</ul>
+<br/>
+<p>The marginal polytope is the set of all cluster (and sepset) beliefs that can be obtained from marginalizing an actual distribution $ P $</p>
+<ul>
+<li>set of marginals obtained from the polytope of all probability distributions over $ \mathcal{X} $.</li>
+</ul>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content"><p>$$
+Marg[U] = \{ Q_P: P \text{ is a distribution over } \mathcal{X} \}
+$$</p>
+<p>that is</p>
+<p>$$
+Q_P = \{ P(C_i): i \in V_U \} \cup \{ P(S_{i, j}): (i-j) \in E_U \}
+$$</p>
+</div>
+</div>
+
 <h3 id="factored-energy-functional">Factored energy functional</h3>
 <div class="define">
     
@@ -883,6 +920,81 @@ $$</p>
 <li>$ diameter(\Delta) = \max_{\delta, \delta^\prime \in \Delta} D(\delta; \delta^\prime) $</li>
 </ul>
 <h2 id="constructing-cluster-graphs">Constructing Cluster Graphs</h2>
+<ul>
+<li>Exact Inference: different clique trees $ \rightarrow $ different computational cost, same answer.</li>
+<li>Cluster Graph Approximation: different graphs $ \rightarrow $ different answers.</li>
+</ul>
+<p>When selecting a cluster graph, we have to consider trade-offs bw cost and accuracy.</p>
+<h3 id="pairwise-markov-networks">Pairwise Markov Networks</h3>
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter11/pairwise-markov.jpg" alt="" style="max-width: 50%;">
+    <div class="image-text-content">
+      <ul>
+<li>A univariate potential $ \phi_i[X_i] $ over each var $ X_i $.</li>
+<li>A pairwise potential $ \phi_{(i, j)}[X_i, X_j] $ over some pairs of vars $ \rightarrow $ edges in Markov Net.</li>
+</ul>
+
+    </div>
+</div>
+
+<div class="callout callout-info">
+    <span class="callout-icon">
+        ℹ️
+        
+        
+        
+    </span>
+    <div class="callout-content"><p>If we are willing to transform our variables, any distribution can be reformulated as a pairwise Markov network.</p>
+<p>TODO: Exercise 11.10</p>
+</div>
+</div>
+
+
+<p>Transformation from Markov Network to Cluster Graph</p>
+<ul>
+<li>For each potential, introduce corresponding cluster,</li>
+<li>put edges bw the clusters that have overlapping scope
+<ul>
+<li>there&rsquo;s an edge bw
+<ul>
+<li>$ C_{(i, j)} $ that correspond to edge $ X_i - X_j $.</li>
+<li>and $ C_i, C_j $ that correspond to the univeriate factors over $ X_i $ and $ X_j $.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Example: $ \boxed{ A_{1, 1} } &mdash; \boxed{ A_{1,1}, A_{1, 2} } &mdash; \boxed{ A_{1, 2} } $</li>
+</ul>
+<h3 id="bethe-cluster-graph">Bethe Cluster Graph</h3>
+<p><img src="/images/books/probabilistic-graphical-models/chapter11/bethe-cluster-graph.png" alt=""></p>
+<ul>
+<li>bipartite graph.
+<ul>
+<li>first layer: &ldquo;large&rdquo; clusters
+<ul>
+<li>one for each $ \phi \in \Phi $, scope is $ Scope[\phi] $.</li>
+<li>ensure <em>family preservation property</em>.</li>
+</ul>
+</li>
+<li>second layer: &ldquo;small&rdquo; univeriate clusters
+<ul>
+<li>one for each random variable.</li>
+</ul>
+</li>
+<li>place an edge bw
+<ul>
+<li>univariate cluster $ X $ on the second layer and</li>
+<li>each cluster in the first layer that includes $ X $.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br/>
+<p>Limitation the Bethe cluster graph: information between different clusters in the top level is passed through univariate marginal distributions $ \rightarrow $ interactions between variables are lost during propagations.</p>
+<h1 id="other-entropy-approximations">Other Entropy Approximations</h1>
+<h2 id="convex-approximations">Convex Approximations</h2>
+<h2 id="region-graph-approximations">Region Graph Approximations</h2>
 <h1 id="propagation-with-approximate-messages">Propagation with Approximate Messages</h1>
 </div>
         
