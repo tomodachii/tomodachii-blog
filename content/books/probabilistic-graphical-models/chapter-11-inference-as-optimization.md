@@ -130,6 +130,7 @@ $$
         - Inference is "easy" in $ Q \rightarrow $ evaluate such expectations easy.
 * $ H_Q(\mathcal{X}) $: entropy term
     + Depends on $ Q $.
+    + involving the entropy of an entire joint distribution; thus, it cannot be tractably optimized.
 
 {{< toggle title="Proof" >}}
 $$
@@ -141,7 +142,7 @@ $$
 
 Thus,
 $$
-\mathbb{D} (Q || P_\Phi) = - H_Q (\mathcal(X)) - E_Q \left[ \sum_{\phi \in \Phi} \ln \phi \right] + E_Q[\ln Z]
+\mathbb{D} (Q || P_\Phi) = - H_Q (\mathcal{X}) - E_Q \left[ \sum_{\phi \in \Phi} \ln \phi \right] + E_Q[\ln Z]
 $$
 
 $$
@@ -166,6 +167,41 @@ $$
 
 ### Variational Methods
 Inference methods that can be viewed as strategies for optimizing the energy functional.
+
+## Variatioinal Analysis
+The exact energy functional 
+$$ 
+F[\tilde{P}_\Phi, Q]
+$$ 
+
+has terms involving the entropy of an entire joint distribution; thus, it cannot be tractably optimized $ \rightarrow $ *factored energy functional* 
+
+$$ 
+\tilde{F}[\tilde{P}_\Phi, Q] 
+$$
+
+defined in terms of entropies of clusters and sepsets, which can be computed efficiently based purely on local information at the clusters.
+
+### Marginal polytope
+* $ U $: cluster graph
+* $ P $: distribution
+
+<br/>
+
+The marginal polytope is the set of all cluster (and sepset) beliefs that can be obtained from marginalizing an actual distribution $ P $
+* set of marginals obtained from the polytope of all probability distributions over $ \mathcal{X} $.
+
+{{< define >}}
+$$
+Marg[U] = \\{ Q_P: P \text{ is a distribution over } \mathcal{X} \\}
+$$
+
+that is
+
+$$
+Q_P = \\{ P(C_i): i \in V_U \\} \cup \\{ P(S_{i, j}): (i-j) \in E_U \\}
+$$
+{{</ define >}}
 
 ### Factored energy functional
 {{< define icon="definition" >}}
@@ -626,5 +662,51 @@ $$
 * $ diameter(\Delta) = \max_{\delta, \delta^\prime \in \Delta} D(\delta; \delta^\prime) $
 
 ## Constructing Cluster Graphs
+* Exact Inference: different clique trees $ \rightarrow $ different computational cost, same answer.
+* Cluster Graph Approximation: different graphs $ \rightarrow $ different answers.
+
+When selecting a cluster graph, we have to consider trade-offs bw cost and accuracy.
+
+### Pairwise Markov Networks
+{{< image-text image="/images/books/probabilistic-graphical-models/chapter11/pairwise-markov.jpg" >}}
+* A univariate potential $ \phi_i[X_i] $ over each var $ X_i $.
+* A pairwise potential $ \phi_{(i, j)}[X_i, X_j] $ over some pairs of vars $ \rightarrow $ edges in Markov Net.
+{{< /image-text >}}
+
+{{< callout type="info" >}}
+If we are willing to transform our variables, any distribution can be reformulated as a pairwise Markov network.
+
+TODO: Exercise 11.10
+{{< /callout >}}
+
+Transformation from Markov Network to Cluster Graph
+* For each potential, introduce corresponding cluster,
+* put edges bw the clusters that have overlapping scope
+    + there's an edge bw
+        - $ C_{(i, j)} $ that correspond to edge $ X_i - X_j $.
+        - and $ C_i, C_j $ that correspond to the univeriate factors over $ X_i $ and $ X_j $.
+* Example: $ \boxed{ A_{1, 1} } --- \boxed{ A_{1,1}, A_{1, 2} } --- \boxed{ A_{1, 2} } $
+
+### Bethe Cluster Graph
+![](/images/books/probabilistic-graphical-models/chapter11/bethe-cluster-graph.png)
+
+* bipartite graph.
+    + first layer: "large" clusters
+        - one for each $ \phi \in \Phi $, scope is $ Scope[\phi] $.
+        - ensure *family preservation property*.
+    + second layer: "small" univeriate clusters
+        - one for each random variable.
+    + place an edge bw 
+        - univariate cluster $ X $ on the second layer and
+        - each cluster in the first layer that includes $ X $.
+
+<br/>
+
+Limitation the Bethe cluster graph: information between different clusters in the top level is passed through univariate marginal distributions $ \rightarrow $ interactions between variables are lost during propagations.
+
+# Other Entropy Approximations
+
+## Convex Approximations
+## Region Graph Approximations
 
 # Propagation with Approximate Messages
