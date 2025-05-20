@@ -348,6 +348,18 @@ $$
 
 {{< /toggle >}}
 
+
+$$
+\begin{align*}
+\delta_{i \rightarrow j}[s_{i,j}]
+&= \frac{\mu_{i,j}[s_{i,j}]}{\delta_{j \rightarrow i}[s_{i,j}]} \\\
+&= \frac{\sum_{c_i \sim s_{i,j}} \beta_i(c_i)}{\delta_{j \rightarrow i}[s_{i,j}]} \\\
+&= \exp \left\\{ -\lambda_i - 1 + \frac{1}{2} |Nb_i| \right\\}
+\sum_{c_i \sim s_{i,j}} \psi_i(c_i)
+\prod_{k \in Nb_i - \{j\}} \delta_{k \rightarrow i}[s_{i,k}].
+\end{align*}
+$$
+
 ### Theorem 11.3
 A set of beliefs $ Q $ is a stationary point of CTree-Optimize iff there exists a set of factors $ \\{ \delta_{i \to j}[S_{i, j}] : (i - j) \in E_T \\} $ st
 
@@ -369,29 +381,6 @@ This theorem characterizes the solution of the optimization problem
 * in terms of these fixed points equattions
 * they are update rules that, when repeated, converge (hopefully) to a stationary point $ \rightarrow $ where the optimization does not improve anymore.
 {{< /callout >}}
-
-### Inference as Optimization
-
-**Step 1: Initialize Messages**
-
-Set all $ \delta_{i \to j} (S_{ij}) = 1 $
-
-<br/>
-
-**Step 2: Iterative Updates using fixed-point equations**
-
-For each directed edge $ i \to j $, (re)assign
-$$
-\delta_{i \to j} (S_{ij}) := \sum_{C_i - S_{ij}} \psi_i (C_i) \prod_{k \in Nb_i - j} \delta_{k \to i} (S_{ki})
-$$
-* a single iteration of this process does not usually su ce to make the equalities hold
-    + however, under certain conditions (which hold in a clique tree), we can guarantee that this process converges to solution
-
-Repeat until convergence.
-
-<br/>
-
-**Step 3: Compute beliefs**
 
 # Propagation-Based Approximation
 
