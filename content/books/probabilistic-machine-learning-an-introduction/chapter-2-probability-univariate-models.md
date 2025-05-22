@@ -119,10 +119,10 @@ $$
 \boxed{X \perp Y \mid Z \Leftrightarrow p(X, Y \mid Z) = p(X \mid Z)p(Y \mid Z)}
 $$
 
-## Moments of a distribution
+# Moments of a distribution
 Various summary statistics that can be derived from a probability distribution.
 
-### Mean
+## First Moment: Mean
 {{< columns >}}
 **Discrete**
 
@@ -156,7 +156,7 @@ $\mathbb{E}[XY] = \int xy \\, P_{XY}(x, y) \\, dx \\, dy$.
 If $X \perp Y \Rightarrow P_{XY}(x, y) = P_X(x)P_Y(y)$ 
 {{< /toggle >}}
 
-### Variance
+## Second Moment: Variance
 $$
 \begin{align*}
 \mathbb{V}[X] &\triangleq \boxed{\mathbb{E}\left[(X - \mu)^2\right]} \\\ 
@@ -198,4 +198,17 @@ $$
 \end{align*}
 $$
 
-### Mode of a distribution
+## Mode of a distribution
+the value with the highest probability mass / density:
+$$
+\boxed{ x^\* = \argmax_x p(x) }
+$$
+
+{{< image-text image="/images/books/probabilistic-machine-learning-an-introduction/chapter-2-probability-univariate-models/mixture-gaussian.png" width="40%" >}}
+If the distribution is **multimodal**, this may not be unique.
+
+Example: mixture of two 1d Gaussian, 
+$$ 
+p(x) = 0.5 \mathcal{N} (0, 0.5) + \mathcal{N} (2, 0.5)
+$$
+{{< /image-text >}}
