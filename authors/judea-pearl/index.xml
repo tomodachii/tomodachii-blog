@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Judea Pearl on My New Hugo Site</title>
+    <link>https://tomodachii.com/authors/judea-pearl/</link>
+    <description>Recent content in Judea Pearl on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 May 2025 09:23:31 +0700</lastBuildDate>
+    <atom:link href="https://tomodachii.com/authors/judea-pearl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chapter 1: Introduction to Probabilities, Graphs and Causal Models</title>
+      <link>https://tomodachii.com/books/causality/chapter-1-introduction-to-probabilities-graphs-causal-models/</link>
+      <pubDate>Thu, 22 May 2025 09:23:31 +0700</pubDate>
+      <guid>https://tomodachii.com/books/causality/chapter-1-introduction-to-probabilities-graphs-causal-models/</guid>
+      <description>&lt;h1 id=&#34;causal-vs-statistical&#34;&gt;Causal vs Statistical&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;probabilistic parameter:&lt;/strong&gt; any quantity that is defined in terms of a joint probability function.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;statistical parameter:&lt;/strong&gt; any quantity that is defined in terms of a joint probability distribution of observed variables, making no assumption whatsoever regarding the existence or nonexistence of unobserved variables.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

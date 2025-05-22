@@ -228,9 +228,9 @@ $$</p>
 $$
 \boxed{X \perp Y \mid Z \Leftrightarrow p(X, Y \mid Z) = p(X \mid Z)p(Y \mid Z)}
 $$</p>
-<h2 id="moments-of-a-distribution">Moments of a distribution</h2>
+<h1 id="moments-of-a-distribution">Moments of a distribution</h1>
 <p>Various summary statistics that can be derived from a probability distribution.</p>
-<h3 id="mean">Mean</h3>
+<h2 id="first-moment-mean">First Moment: Mean</h2>
 <div class="columns">
   <div class="column">
       <p><strong>Discrete</strong></p>
@@ -270,7 +270,7 @@ $$
 </details>
 </li>
 </ul>
-<h3 id="variance">Variance</h3>
+<h2 id="second-moment-variance">Second Moment: Variance</h2>
 <p>$$
 \begin{align*}
 \mathbb{V}[X] &amp;\triangleq \boxed{\mathbb{E}\left[(X - \mu)^2\right]} \\
@@ -314,7 +314,23 @@ $$</li>
 &amp;= \boxed{\prod_{i} \sigma_i^2 + \mu_i^2 - \mu^2}
 \end{align*}
 $$</p>
-<h3 id="mode-of-a-distribution">Mode of a distribution</h3>
+<h2 id="mode-of-a-distribution">Mode of a distribution</h2>
+<p>the value with the highest probability mass / density:
+$$
+\boxed{ x^* = \argmax_x p(x) }
+$$</p>
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-machine-learning-an-introduction/chapter-2-probability-univariate-models/mixture-gaussian.png" alt="" style="max-width: 40%;">
+    <div class="image-text-content">
+      <p>If the distribution is <strong>multimodal</strong>, this may not be unique.</p>
+<p>Example: mixture of two 1d Gaussian,
+$$
+p(x) = 0.5 \mathcal{N} (0, 0.5) + \mathcal{N} (2, 0.5)
+$$</p>
+
+    </div>
+</div>
+
 </div>
         
     </div>
