@@ -93,140 +93,70 @@
         
 <style>
     :root {
-      --postColor: #10987F;
+      --postColor: #B10053;
     }
   </style>
 
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Chapter 2: Regression</h1>
+            <h1 class="singleHeadTitle">Lecture 2: Potential Outcomes</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 
                 <span>
                     
-                        <a href="https://tomodachii.com/authors/carl-edward-rasmussen/">Carl Edward Rasmussen</a>
-                    
-                        <a href="https://tomodachii.com/authors/christopher-k.-i.-williams/">Christopher K. I. Williams</a>
+                        <a href="https://tomodachii.com/authors/brady-neal/">Brady Neal</a>
                     
                 </span>
                 
-                    <a href="https://tomodachii.com/categories/machine-learning/" class="singleCategory">machine-learning</a>
-                
-                    <a href="https://tomodachii.com/categories/gaussian-process/" class="singleCategory">gaussian-process</a>
+                    <a href="https://tomodachii.com/categories/causality/" class="singleCategory">causality</a>
                 
             </div>
-            <time>Mar 17, 2025</time>
+            <time>May 21, 2025</time>
         </div>
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><p>Supervised learning</p>
+        <div class="singleContent"><h1 id="potential-outcomes">Potential Outcomes</h1>
+<p>Potential outcome $ Y(t) $ denotes what your outcome would be, if you were to take treatment $ t $.</p>
 <ul>
-<li>regression $\rightarrow$ the prediction of continuous quantities.</li>
-<li>classification $\rightarrow$ discrete class labels.</li>
+<li>$ \not= $ observed outcome $ Y $: Not all potential outcomes are observed $ \rightarrow $ potentially observed.</li>
 </ul>
-<p>This chapter focuses on regression problems.</p>
-<h1 id="21-weight-space-view">2.1 Weight-Space View</h1>
-<p>We have a training set $\mathcal{D}$ of $n$ observations.</p>
-<h3 id="dataset-structure">Dataset structure</h3>
-<p>$$\mathcal{D} = \{(x_i, y_i) \mid i = 1, \dots, n\}$$</p>
+<h3 id="individual-treatment-effect-ite">Individual Treatment Effect (ITE)</h3>
+<p>individual $ i $</p>
 <ul>
-<li>
-<p>$x_i$: column input vector (covariates) of dimension $D$,</p>
+<li>treatment $ T_i $</li>
+<li>covariates $ X_i $</li>
+<li>potential outcome $ Y_i $
 <ul>
-<li>$x_i \in X \subset \mathbb{R}^D$.</li>
+<li>$ Y_i (1) $: potential outcome if you were to take treatment $ T = 1 $.</li>
 </ul>
 </li>
-<li>
-<p>$X$: $D \times n$ design matrix.</p>
-<ul>
-<li>$n$ observations (data points),</li>
-<li>each input $x_i$ has $D$ features (dimensions).
-$$
-X = \begin{bmatrix}
-x_{1,1} &amp; x_{1,2} &amp; \cdots &amp; x_{1,n} \\
-x_{2,1} &amp; x_{2,2} &amp; \cdots &amp; x_{2,n} \\
-\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
-x_{D,1} &amp; x_{D,2} &amp; \cdots &amp; x_{D,n}
-\end{bmatrix}
-$$</li>
 </ul>
-</li>
-<li>
-<p>$y_i$: a scalar output (its value depends on the covariates $\rightarrow$ dependent variable).
-$$
-y = \begin{bmatrix}
-y_1\\
-y_2\\
-\vdots\\
-y_n
-\end{bmatrix}
-$$</p>
-</li>
-</ul>
-<h3 id="dataset-organization">Dataset Organization</h3>
-<p>Input vectors are arranged into a $D \times n$ design matrix $X$.
-Outputs are collected into a vector $y$. Thus the dataset is represented as $\mathcal{D} = (X, y)$.</p>
-<h3 id="dataset-organization-1">Dataset Organization</h3>
-<p>The goal is to infer the conditional distribution $p(y \mid x)$ $\rightarrow$ captures the relationship between the inputs and outputs.</p>
-<h2 id="211-the-standard-linear-model">2.1.1 The Standard Linear Model</h2>
-<h3 id="standard-linear-regression-model-with-gaussian-noise">Standard linear regression model with Gaussian noise</h3>
 <p>$$
-f(x) = x^\top w, \quad y = f(x) + \varepsilon,
+\boxed{ \tau_i \triangleq = Y_i(1) - Y_i(0) } \tag{2.1}
 $$</p>
-<ul>
-<li>$x$: the input vector.</li>
-<li>$w$: the weight (parameter) vector.</li>
-<li>$f(x)$: the linear function (the predicted output before noise).</li>
-<li>$y$: actual observed value, which includes the predicted value plus noise.</li>
-<li>$\varepsilon$: additive Gaussian noise.
-<ul>
-<li>Noise assumption: $\varepsilon \sim \mathcal{N}(0, \sigma_n^2)$</li>
-</ul>
-</li>
-</ul>
 <details>
-    <summary>Often a bias weight or offset is included!</summary>
+    <summary>Example</summary>
     
-        <ul>
-    <li>Allows the model to shift up or down rather than always passing through the origin. 
-    <li>But this can be implemented by augmenting the input vector $x$ with an additional element $x_0 = 1$:
-    $$
-    \tilde{\mathbf{x}} =
-    \begin{bmatrix}
-    1 \\\
-    x_1 \\\
-    x_2 \\\
-    \vdots \\\
-    x_D
-    \end{bmatrix}
-    $$
-    Here, $\tilde{\mathbf{x}}$ now has $D + 1$ dimensions.
-    <li>Similarly,
-    $$
-    \tilde{\mathbf{w}} =
-    \begin{bmatrix}
-    b \\\
-    w_1 \\\
-    w_2 \\\
-    \vdots \\\
-    w_D
-    \end{bmatrix}
-    $$
-<pre><code>Now, the first weight \(b\) acts as the bias.
-
-Thus,
-$$
-y = \tilde{\mathbf{x}}^\top \tilde{\mathbf{w}} + \varepsilon
-$$
-</code></pre>
-</ul>
- 
+        <p>Take the pill: $ T = 1 $; happy $ Y(t) = 1 $</p>
+<ul>
+<li>pill, happy ($ Y(1) = 1 $); no pill, headache ($ Y(0) = 0 $): $ Y(1) - Y(0) = 1 - 0 = 1 $</li>
+<li>the pill does not have any effect, happy anyways: $ Y(1) - Y(0) = 1 - 1 = 0 $</li>
+</ul> 
     
 </details>
 
+<h1 id="the-fundamental-problem-of-causal-inference">The Fundamental Problem of Causal Inference</h1>
+<p>It&rsquo;s  impossible to observe all the potential outcomes for a given individual.</p>
+<ul>
+<li>cannot observe both $ Y_i(1) $ and $ Y_i(0) \rightarrow $ cannot observe the causal effect $ Y_i(1) - Y_i(0) $.</li>
+</ul>
+<h3 id="average-treatment-effect-ate">Average Treatment Effect (ATE)</h3>
+<p>$$
+\boxed{ \tau \triangleq E[Y_i(1) - Y_i(0)] = E[Y(1) - Y(0)] } \tag{2.2}
+$$</p>
 </div>
         
     </div>

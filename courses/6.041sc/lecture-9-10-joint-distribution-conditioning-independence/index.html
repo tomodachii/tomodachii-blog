@@ -103,7 +103,7 @@
             <h1 class="singleHeadTitle">Lecture 9 &#43; 10: Joint Distribution, Conditioning and Independence</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
-                <img src="/images/avatar.png" loading="lazy" alt="" class="singleAvatar">
+                
                 <span>
                     
                         <a href="https://tomodachii.com/authors/john-n.-tsitsiklis/">John N. Tsitsiklis</a>
@@ -118,7 +118,62 @@
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"></div>
+        <div class="singleContent"><h1 id="conditioning-on-an-event">Conditioning on an Event</h1>
+<div class="columns">
+  <div class="column">
+      <p>$$
+p_X (x) = P(X = x)
+$$</p>
+<p>$$
+\boxed{ p_{X \mid A} (x) = P(X = x \mid A) }
+$$</p>
+<p>$$
+P(X \in B) = \sum_{x \in B} p_X (x)
+$$</p>
+<p>$$
+\boxed{ P(X \in B \mid A) = \sum_{x \in B} p_{X \mid A} (x) }
+$$</p>
+<p>$$
+\boxed{ \sum_x p_{X \mid A} (x) = 1 }
+$$</p>
+
+  </div>
+  <div class="column">
+      <p>$$
+f_X (x) \cdot \delta \approx P(x \leq X \leq x + \delta)
+$$</p>
+<p>$$
+\boxed{ f_{X \mid A} (x) \cdot \delta \approx P(x \leq X \leq x + \delta \mid A) }
+$$</p>
+<p>$$
+P(X \in B) = \int_B f_X (x) \, dx
+$$</p>
+<p>$$
+\boxed{ P(X \in B \mid A) = \int_{B} f_{X \mid A} (x) \, dx }
+$$</p>
+<p>$$
+\boxed{ \int f_{X \mid A} (x) \, dx = 1 }
+$$</p>
+
+  </div>
+</div>
+<div class="image-text-block ">
+    <img src="/images/courses/6.041SC/lecture-9-10/conditional-pdf.png" alt="" style="max-width: 40%;">
+    <div class="image-text-content">
+      <ul>
+<li>The conditional PDF is zero outside the conditioning set $ A = [a, b] $.</li>
+<li>Within the conditioning set
+<ul>
+<li>same shape as the unconditional one</li>
+<li>but scaled by constant factor $ 1 / P(X \in A) \rightarrow $ ensures $ \int f_{X \mid A} (x) \, dx = 1 $.</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</div>
+
+</div>
         
     </div>
 </div>

@@ -6,7 +6,7 @@
     <description>Recent content in Courses on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Apr 2025 18:56:10 +0700</lastBuildDate>
+    <lastBuildDate>Wed, 21 May 2025 21:07:02 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/courses/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lecture 1: Motivation</title>
@@ -14,6 +14,13 @@
       <pubDate>Wed, 16 Apr 2025 07:51:04 +0700</pubDate>
       <guid>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-1-motivation/</guid>
       <description>&lt;h1 id=&#34;simpsons-paradox&#34;&gt;Simpson&amp;rsquo;s Paradox&lt;/h1&gt;&#xA;&lt;p&gt;New disease: COVID-27&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Treatment $T = \{A, B\}$.&lt;/li&gt;&#xA;&lt;li&gt;Condition $C = \{\text{mild}, \text{severe}\}$.&lt;/li&gt;&#xA;&lt;li&gt;Outcome $Y = \{\text{alive}, \text{dead}\}$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Currently receiving treatment $A$ vs. $B$: 73% / 27%&lt;/p&gt;&#xA;&lt;p&gt;Goal: Choosing which treatment to use.&lt;/p&gt;&#xA;&lt;p&gt;&lt;div class=&#34;image-text-block &#34;&gt;&#xA;    &lt;img src=&#34;https://tomodachii.com/images/courses/introduction-to-causal-inference/lecture-1/count-table.png&#34; alt=&#34;&#34; style=&#34;max-width: 40%;&#34;&gt;&#xA;    &lt;div class=&#34;image-text-content&#34;&gt;&#xA;      &lt;p&gt;The paradox is that&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;treatment $B$ looks better in both of the subgroups,&lt;/li&gt;&#xA;&lt;li&gt;but treatment $A$ looks better when examining the total population ignoring the subgroups.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;    &lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;A more interesting way of writting the calculation in terms of weights:&#xA;$$&#xA;\underbrace{\frac{1400}{1500}}_{\text{large weight}} (0.15) + \frac{100}{1500} (0.30) = 0.16&#xA;$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 2: Potential Outcomes</title>
+      <link>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-2-potential-outcomes/</link>
+      <pubDate>Wed, 21 May 2025 21:07:02 +0700</pubDate>
+      <guid>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-2-potential-outcomes/</guid>
+      <description>&lt;h1 id=&#34;potential-outcomes&#34;&gt;Potential Outcomes&lt;/h1&gt;&#xA;&lt;p&gt;Potential outcome $ Y(t) $ denotes what your outcome would be, if you were to take treatment $ t $.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$ \not= $ observed outcome $ Y $: Not all potential outcomes are observed $ \rightarrow $ potentially observed.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;individual-treatment-effect-ite&#34;&gt;Individual Treatment Effect (ITE)&lt;/h3&gt;&#xA;&lt;p&gt;individual $ i $&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;treatment $ T_i $&lt;/li&gt;&#xA;&lt;li&gt;covariates $ X_i $&lt;/li&gt;&#xA;&lt;li&gt;potential outcome $ Y_i $&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$ Y_i (1) $: potential outcome if you were to take treatment $ T = 1 $.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;$$&#xA;\boxed{ \tau_i \triangleq = Y_i(1) - Y_i(0) } \tag{2.1}&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lecture 5 &#43; 6 &#43; 7: Discrete Random Variables</title>
@@ -41,7 +48,7 @@
       <link>https://tomodachii.com/courses/6.041sc/lecture-9-10-joint-distribution-conditioning-independence/</link>
       <pubDate>Sat, 19 Apr 2025 18:56:10 +0700</pubDate>
       <guid>https://tomodachii.com/courses/6.041sc/lecture-9-10-joint-distribution-conditioning-independence/</guid>
-      <description></description>
+      <description>&lt;h1 id=&#34;conditioning-on-an-event&#34;&gt;Conditioning on an Event&lt;/h1&gt;&#xA;&lt;div class=&#34;columns&#34;&gt;&#xA;  &lt;div class=&#34;column&#34;&gt;&#xA;      &lt;p&gt;$$&#xA;p_X (x) = P(X = x)&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\boxed{ p_{X \mid A} (x) = P(X = x \mid A) }&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;P(X \in B) = \sum_{x \in B} p_X (x)&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\boxed{ P(X \in B \mid A) = \sum_{x \in B} p_{X \mid A} (x) }&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\boxed{ \sum_x p_{X \mid A} (x) = 1 }&#xA;$$&lt;/p&gt;&#xA;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;column&#34;&gt;&#xA;      &lt;p&gt;$$&#xA;f_X (x) \cdot \delta \approx P(x \leq X \leq x + \delta)&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lecture 1 Counting</title>

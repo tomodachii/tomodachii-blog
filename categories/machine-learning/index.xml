@@ -6,7 +6,7 @@
     <description>Recent content in Machine-Learning on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 06 Apr 2025 20:58:08 +0700</lastBuildDate>
+    <lastBuildDate>Fri, 23 May 2025 08:37:13 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/categories/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chapter 2: Probability - Univariate Models</title>
@@ -21,6 +21,13 @@
       <pubDate>Mon, 17 Mar 2025 23:02:53 +0700</pubDate>
       <guid>https://tomodachii.com/books/gaussian-processes-for-machine-learning/chapter-2-regression/</guid>
       <description>&lt;p&gt;Supervised learning&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;regression $\rightarrow$ the prediction of continuous quantities.&lt;/li&gt;&#xA;&lt;li&gt;classification $\rightarrow$ discrete class labels.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This chapter focuses on regression problems.&lt;/p&gt;&#xA;&lt;h1 id=&#34;21-weight-space-view&#34;&gt;2.1 Weight-Space View&lt;/h1&gt;&#xA;&lt;p&gt;We have a training set $\mathcal{D}$ of $n$ observations.&lt;/p&gt;&#xA;&lt;h3 id=&#34;dataset-structure&#34;&gt;Dataset structure&lt;/h3&gt;&#xA;&lt;p&gt;$$\mathcal{D} = \{(x_i, y_i) \mid i = 1, \dots, n\}$$&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$x_i$: column input vector (covariates) of dimension $D$,&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$x_i \in X \subset \mathbb{R}^D$.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$X$: $D \times n$ design matrix.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$n$ observations (data points),&lt;/li&gt;&#xA;&lt;li&gt;each input $x_i$ has $D$ features (dimensions).&#xA;$$&#xA;X = \begin{bmatrix}&#xA;x_{1,1} &amp;amp; x_{1,2} &amp;amp; \cdots &amp;amp; x_{1,n} \\&#xA;x_{2,1} &amp;amp; x_{2,2} &amp;amp; \cdots &amp;amp; x_{2,n} \\&#xA;\vdots &amp;amp; \vdots &amp;amp; \ddots &amp;amp; \vdots \\&#xA;x_{D,1} &amp;amp; x_{D,2} &amp;amp; \cdots &amp;amp; x_{D,n}&#xA;\end{bmatrix}&#xA;$$&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$y_i$: a scalar output (its value depends on the covariates $\rightarrow$ dependent variable).&#xA;$$&#xA;y = \begin{bmatrix}&#xA;y_1\\&#xA;y_2\\&#xA;\vdots\\&#xA;y_n&#xA;\end{bmatrix}&#xA;$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Chapter 8: Optimization</title>
+      <link>https://tomodachii.com/books/probabilistic-machine-learning-an-introduction/chapter-8-optimization/</link>
+      <pubDate>Fri, 23 May 2025 08:37:13 +0700</pubDate>
+      <guid>https://tomodachii.com/books/probabilistic-machine-learning-an-introduction/chapter-8-optimization/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;</description>
     </item>
     <item>
       <title>Preface</title>

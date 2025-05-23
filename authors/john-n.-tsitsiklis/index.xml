@@ -34,7 +34,7 @@
       <link>https://tomodachii.com/courses/6.041sc/lecture-9-10-joint-distribution-conditioning-independence/</link>
       <pubDate>Sat, 19 Apr 2025 18:56:10 +0700</pubDate>
       <guid>https://tomodachii.com/courses/6.041sc/lecture-9-10-joint-distribution-conditioning-independence/</guid>
-      <description></description>
+      <description>&lt;h1 id=&#34;conditioning-on-an-event&#34;&gt;Conditioning on an Event&lt;/h1&gt;&#xA;&lt;div class=&#34;columns&#34;&gt;&#xA;  &lt;div class=&#34;column&#34;&gt;&#xA;      &lt;p&gt;$$&#xA;p_X (x) = P(X = x)&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\boxed{ p_{X \mid A} (x) = P(X = x \mid A) }&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;P(X \in B) = \sum_{x \in B} p_X (x)&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\boxed{ P(X \in B \mid A) = \sum_{x \in B} p_{X \mid A} (x) }&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\boxed{ \sum_x p_{X \mid A} (x) = 1 }&#xA;$$&lt;/p&gt;&#xA;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;column&#34;&gt;&#xA;      &lt;p&gt;$$&#xA;f_X (x) \cdot \delta \approx P(x \leq X \leq x + \delta)&#xA;$$&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
