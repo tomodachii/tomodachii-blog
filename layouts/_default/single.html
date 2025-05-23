@@ -11,7 +11,7 @@
             <h1 class="singleHeadTitle">{{ .Title }}</h1>
             <p class="singleHeadDesc">{{ .Params.description }}</p>
             <div class="singleHeadDetail">
-                <img src="{{ .Params.avatar }}" loading="lazy" alt="" class="singleAvatar">
+                {{/*  <img src="{{ .Params.avatar }}" loading="lazy" alt="" class="singleAvatar">  */}}
                 <span>
                     {{ range (.GetTerms "authors") }}
                         <a href="{{ .Permalink }}">{{ .Name }}</a>

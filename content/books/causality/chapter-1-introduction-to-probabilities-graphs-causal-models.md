@@ -14,6 +14,10 @@ weight = 0
 postColor = "#FF5103"
 +++
 
+# Probability Theory
+**Why Probability?**
+* causal utterances are often used in situations that are plagued with uncertainty.
+
 # Causal vs Statistical
 **probabilistic parameter:** any quantity that is defined in terms of a joint probability function.
 
