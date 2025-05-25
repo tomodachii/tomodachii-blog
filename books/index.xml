@@ -125,7 +125,7 @@
       <link>https://tomodachii.com/books/causality/chapter-1-introduction-to-probabilities-graphs-causal-models/</link>
       <pubDate>Thu, 22 May 2025 09:23:31 +0700</pubDate>
       <guid>https://tomodachii.com/books/causality/chapter-1-introduction-to-probabilities-graphs-causal-models/</guid>
-      <description>&lt;h1 id=&#34;probability-theory&#34;&gt;Probability Theory&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Why Probability?&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;causal utterances are often used in situations that are plagued with uncertainty.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;causal-vs-statistical&#34;&gt;Causal vs Statistical&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;probabilistic parameter:&lt;/strong&gt; any quantity that is defined in terms of a joint probability function.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;statistical parameter:&lt;/strong&gt; any quantity that is defined in terms of a joint probability distribution of observed variables, making no assumption whatsoever regarding the existence or nonexistence of unobserved variables.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;probability-theory&#34;&gt;Probability Theory&lt;/h1&gt;&#xA;&lt;h3 id=&#34;axioms&#34;&gt;Axioms&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;$ 0 \leq P(A) \leq 1 $,&lt;/li&gt;&#xA;&lt;li&gt;$ P (S) = 1 $&lt;/li&gt;&#xA;&lt;li&gt;$ P (A \text{ or } B) = P(A) + P(B) $ if $ A $ and $ B $ are mutually exclusive.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;br/&gt;&#xA;&lt;p&gt;$ (A \cap B) $ and $ (A \cap \lnot B) $ are disjoint events, thus&lt;/p&gt;&#xA;&lt;p&gt;$ A = (A \cap B) \cup (A \cap \lnot B) \rightarrow P(A) = P(A, B) + P(A, \lnot B) $&lt;/p&gt;</description>
     </item>
     <item>
       <title>Master Note</title>

@@ -119,10 +119,116 @@
     </div>
     <div class="singleBottom">
         <div class="singleContent"><h1 id="probability-theory">Probability Theory</h1>
-<p><strong>Why Probability?</strong></p>
+<h3 id="axioms">Axioms</h3>
+<ol>
+<li>$ 0 \leq P(A) \leq 1 $,</li>
+<li>$ P (S) = 1 $</li>
+<li>$ P (A \text{ or } B) = P(A) + P(B) $ if $ A $ and $ B $ are mutually exclusive.</li>
+</ol>
+<br/>
+<p>$ (A \cap B) $ and $ (A \cap \lnot B) $ are disjoint events, thus</p>
+<p>$ A = (A \cap B) \cup (A \cap \lnot B) \rightarrow P(A) = P(A, B) + P(A, \lnot B) $</p>
+<p>Thus,</p>
+<p>$ P(S) = P(S, A) + P(S, \lnot A) = 1 \Leftrightarrow \boxed{ P(A) + P(\lnot A) = 1 } $</p>
+<h3 id="law-of-total-probability">Law of Total Probability</h3>
+<p>If $ B_i, \quad i = 1, 2, \dots, n $, is a set of</p>
 <ul>
-<li>causal utterances are often used in situations that are plagued with uncertainty.</li>
+<li>collectively exhaustive, and</li>
+<li>mutually exclusive variables.</li>
 </ul>
+<p>then</p>
+<p>$$
+\boxed{ P(A) = \sum_i P(A, B_i) = \sum_i P(A \mid B_i) P(B_i) }
+$$</p>
+<h3 id="conditional-probabilities">Conditional Probabilities</h3>
+<p>$$
+\boxed{ P(A \mid B) = \frac{P(A, B)}{P(B)} }
+$$</p>
+<p>$$
+\boxed{ P(A \mid K) = \sum_i P(A \mid B_i, K) P(B_i \mid K) }
+$$</p>
+<h3 id="independent">Independent</h3>
+<p>$ A \perp B $ if</p>
+<p>$$
+P(A \mid B) = P(A)
+$$</p>
+<h3 id="conditional-independent">Conditional Independent</h3>
+<p>$ A \perp B \mid C $ if</p>
+<p>$$
+P(A \mid B, C) = P(A \mid C)
+$$</p>
+<h3 id="chain-rule">Chain Rule</h3>
+<p>$$
+\boxed{ P(E_1, E_2, \dots, E_n) = P(E_n \mid E_{n - 1}, \dots, E_2, E_1) \dots P(E_2 \mid E_1) P(E_1) }
+$$</p>
+<h3 id="bayess-rule">Bayes&rsquo;s Rule</h3>
+<p>$$
+\boxed{ P(H \mid e) = \frac{P(e \mid H) P(H)}{P(e)} }
+$$</p>
+<ul>
+<li>$ P(H \mid e) $: posterior</li>
+<li>$ P(e \mid H) $: likelihood</li>
+<li>$ P(H) $: prior</li>
+<li>$ P(e) $: evidence - normalizing constant
+<ul>
+<li>$ P(e) = P(e \mid H) P(H) + P(e \mid \lnot H) P(\lnot H) $</li>
+<li>$ P(H \mid e) + P(\lnot H \mid e) = 1 $</li>
+</ul>
+</li>
+</ul>
+<details>
+    <summary>Example</summary>
+    
+        <p>a person at the next gambling table declares the outcome &ldquo;twelve&rdquo;</p>
+<p>Goal: Know whether he was rolling a pair of dice or spinning a roulette wheel.</p>
+<ul>
+<li>$ P(\text{twelve} \mid \text{dice}) : 1/36 $</li>
+<li>$ P(\text{twelve} \mid \text{roulette}) : 1/38 $</li>
+<li>$ P(\text{dice}) \text{ and } P(\text{roulette}) $: estimating the number of roulette wheels and dice tables at the casino.</li>
+<li>$ P(e) = P(\text{twelve}) = P(\text{twelve} \mid \text{dice}) P(\text{dice}) + P(\text{twelve} \mid \text{roulette}) P(\text{roulette}) $.</li>
+</ul>
+ 
+    
+</details>
+
+<h1 id="causal-bayesian-networks">Causal Bayesian Networks</h1>
+<table>
+  <thead>
+      <tr>
+          <th>Aspect</th>
+          <th><strong>Bayesian Network (BN)</strong></th>
+          <th><strong>Causal Bayesian Network (CBN)</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Edges</strong></td>
+          <td>Statistical dependencies (conditional independence)</td>
+          <td>Causal relationships (interventions)</td>
+      </tr>
+      <tr>
+          <td><strong>Purpose</strong></td>
+          <td>Encode joint probability distribution</td>
+          <td>Predict effects of interventions</td>
+      </tr>
+      <tr>
+          <td><strong>Use of DAG</strong></td>
+          <td>Represents factorization of joint distribution</td>
+          <td>Also encodes causal mechanisms</td>
+      </tr>
+      <tr>
+          <td><strong>Can answer &ldquo;What if X happens?&rdquo;</strong></td>
+          <td>Not directly</td>
+          <td>Yes (via intervention calculus) ?</td>
+      </tr>
+      <tr>
+          <td><strong>Ordering of Nodes</strong></td>
+          <td>Any order of variables, as long as the conditional independencies hold</td>
+          <td>Must respect causal (temporal or mechanistic) ordering</td>
+      </tr>
+  </tbody>
+</table>
+<h1 id="functional-causal-models">Functional Causal Models</h1>
 <h1 id="causal-vs-statistical">Causal vs Statistical</h1>
 <p><strong>probabilistic parameter:</strong> any quantity that is defined in terms of a joint probability function.</p>
 <p><strong>statistical parameter:</strong> any quantity that is defined in terms of a joint probability distribution of observed variables, making no assumption whatsoever regarding the existence or nonexistence of unobserved variables.</p>
