@@ -15,12 +15,24 @@
       {{ end }}
   {{ end }}
 
-  {{ $sections := $.Scratch.Get "sections" }}
+  {{/* Sort sections but place "Papers" at the top manually */}}
+  {{ $rawSections := $.Scratch.Get "sections" }}
+  {{ $sections := slice }}
 
-  <!-- Sort sections alphabetically -->
-  {{ range sort $sections }}
-  {{ $section := . }}
-  {{ $posts := where $.Site.RegularPages "Params.section" $section }}
+  {{ if in $rawSections "Papers" }}
+    {{ $sections = $sections | append "Papers" }}
+  {{ end }}
+
+  {{ range sort $rawSections }}
+    {{ if ne . "Papers" }}
+      {{ $sections = $sections | append . }}
+    {{ end }}
+  {{ end }}
+
+  <!-- Render each section -->
+  {{ range $sections }}
+    {{ $section := . }}
+    {{ $posts := where $.Site.RegularPages "Params.section" $section }}
   
   {{/* Collect unique authors for this section */}}
   {{ $allAuthors := slice }}

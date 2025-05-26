@@ -48,7 +48,7 @@ Sum Cluster might have no factor $\to$ null product and is equal to 1.
 {{< toggle title="Example: Assign factors" >}}
 {{< image-text image="/images/books/probabilistic-graphical-models/chapter10/factor-assign.png" >}}
 
-$\phi_2$ can go to both $C_1$ or $C_2$, this is just one possible way of assigning the factors to clusters.
+$ \phi_2 $ can go to both $ C_1 $ or $ C_2 $ (this is just one possible way of assigning the factors to clusters).
 
 {{< /image-text >}}
 {{< /toggle >}}
@@ -66,7 +66,11 @@ $$
 
 ![Student example](/images/books/probabilistic-graphical-models/chapter10/student-cluster-tree.png)
 
-The message $\tau_1(D)$ generated from $\psi_1(C, D)$, participates in the computation of $\psi_2$: we have an edge from $C_1$ to $C_2$.
+message $\tau_1(D)$ 
+* generated from $\psi_1(C, D)$,
+* participates in the computation of $ \psi_2 $
+
+$ \Rightarrow $ edge $C_1 \to C_2$.
 {{< /toggle >}}
 
 ### Properties of Cluster Graphs
@@ -160,20 +164,21 @@ Goal: prove that $X$ must be present in every cluster on the path between $C$ an
 
 ### RIP and Independence
 
-{{< define icon="theorem" >}}
-$ \mathcal{T} $ satisfies the running intersection property if and only if, for every sepset $ S_{i,j} $, we have that $W_{<( i, j )} \text{ and } W_{< (j, i) }$ are separated in $\mathcal{H} \text{ given } S_{i,j}.$
-{{< /define >}}
+{{< image-text image="/images/books/probabilistic-graphical-models/chapter10/rip-and-independence.png" >}}
+**Theorem 10.2**
 
-![](/images/books/probabilistic-graphical-models/chapter10/rip-and-independence.png)
-
-## Bethe Cluster Graph
-How do we construct
+$ \mathcal{T} $ satisfies the running intersection property iff, for every sepset $ S_{i,j} $, we have that $W_{<( i, j )} \text{ and } W_{< (j, i) }$ are separated in $\mathcal{H} \text{ given } S_{i,j}.$
+{{< /image-text >}}
 
 # Message Passing: Sum Product
 VE induces a clique tree.
 
-Given a clique tree, show how this data structure is used to perform VE.
-* caching computations $\to$ allowing multiple execution of VE to be performed.
+Given a clique tree, how is this data structure used to perform VE?
+
+### Ready Clique
+{{< image-text image="/images/books/probabilistic-graphical-models/chapter10/correctness.png" width="25%" >}}
+$C_i$ is ready to transmit to a neighbor $C_j$ when $C_i$ has messages from all of its neighbors except from $C_j$.
+{{< /define >}}
 
 ## Clique-Tree Message Passing
 * $\mathcal{T}$: clique tree with cliques $C_1, \dots, C_k$.
@@ -182,7 +187,7 @@ Given a clique tree, show how this data structure is used to perform VE.
     + $Nb_i$: set of indexes of neighbors cliques.
     + $p_r(i)$: upstream neighbor of $i$ (parent of node $i$ in the rooted tree $\mathcal{T}$).
 
-{{< define >}}
+{{< image-text image="/images/books/probabilistic-graphical-models/chapter10/upward-pass-VE-algo-1.png" >}}
 **1. Initialize Cliques**: Multiplying the factors assigned to each clique $\alpha(\phi)$, resulting in the **initial potentials**
 $$
 \boxed{\psi_j(C_j) = \prod_{\phi : \alpha(\phi) = j} \phi}
@@ -193,18 +198,15 @@ $$
 $$
 
 **2. Message Passing Loop**: Perform sum-product VE over the cliques
-* Starting from the leaves,
-* moving inward.
+* Starting from the leaves, moving inward.
 * Each clique $C_i$, except for the root, performs a message passing computation and sends a message to its upstream neighbor $C_{p_r(i)}$.
-* Belief of Cluster:
-$$
-\boxed{\beta_i(C_i) = \psi_i \cdot \prod_{k \in Nb_i} \delta_{k \to i}}
-$$
 * The message from $C_i$ to $C_j$ is computed using **sum-product message passing**:
 $$
 \boxed{\delta_{i \to j} = \sum_{C_i - S_{i, j}} \overbrace{\psi_i}^{\text{init clique potential}} \cdot \overbrace{\prod_{k \in (Nb_i - \\{j\\})} \delta_{k \to i}}^{\text{mess from other neigbors}} }
 $$
 In other word, $C_i$ multiplies all incoming messages from its neighbors with its initial clique potential, resulting in a factor $\psi$ whose scope is the clique, sums out all variables except those in $S_{i, j}$ and sends the resulting factor as a message to $C_j$.
+
+{{< /image-text >}}
 
 **3. Compute Root Belief**
 This message passing process proceeds up the tree, culminating at root.
@@ -214,14 +216,12 @@ This message passing process proceeds up the tree, culminating at root.
 * Result: {{< marker >}}beliefs{{< /marker >}} factor,  computed using the expression
 
 $$
-\boxed{\beta_r(C_r) = \sum_{\mathcal{X} - C_r} \prod_{\phi} \phi = \psi_r \cdot \prod_{k \in Nb(C_r)} \delta_{k \to r}}
+\boxed{\beta_r(C_r) = \psi_r \cdot \prod_{k \in Nb(C_r)} \delta_{k \to r}}
 $$
 
 $$
-= \tilde{P}_{\Phi}(C_r)
+= \sum_{\mathcal{X} - C_r} \prod_{\phi} \phi = \tilde{P}_{\Phi}(C_r)
 $$
-
-{{< /define >}}
 
 <br/>
 
@@ -384,21 +384,25 @@ This proves that we can use the same clique tree to compute the probability of a
 Sum up phần này nghĩa là nếu clique tree của mình thỏa mãn 2 tính chất ... thì một message passing từ leaf đến root của nó sẽ là một legit marginal probability P~(X) ...
 
 ## Clique Tree Calibration
-### Ready Clique
-{{< define >}}
-$C_i$ is ready to transmit to a neighbor $C_j$ when $C_i$ has messages from all of its neighbors except from $C_j$.
-{{< /define >}}
 
-### Sum-product Belief Propagation
+### Belief Propagation
 ![](/images/books/probabilistic-graphical-models/chapter10/sum-prod-belief-prop.png)
 
-{{< define >}}
-**1. Initialize Cliques**:
+**1. Initialize Cliques**
 $$
 \boxed{\psi_j(C_j) = \prod_{\phi : \alpha(\phi) = j} \phi}
 $$
-**2. Message Passing Loop**:
-{{< /define >}}
+**2. Message Passing Loop**
+* Repeat: Pass messages $ \delta_{i \to j} $ when $ C_i $ is [ready](/books/probabilistic-graphical-models/chapter-10-exact-inference-clique-trees/#ready-clique).
+$$
+\boxed{\delta_{i \to j} = \sum_{C_i - S_{i, j}} \psi_i \cdot \prod_{k \in (Nb_i - \\{j\\})} \delta_{k \to i} }
+$$
+
+**3. Compute beliefs**
+* After all messages passed, compute belief for each clique
+$$
+\boxed{\beta_i(C_i) = \psi_i \cdot \prod_{k \in Nb_i} \delta_{k \to i}}
+$$
 
 {{< toggle title="simplifed student example" >}}
 ![](/images/books/probabilistic-graphical-models/chapter10/two-step-student.png)
@@ -504,9 +508,3 @@ Global correctness of the distribution (reconstructing $ \tilde{P}_\Phi (X) $) i
 * Known each cluster beliefs matches the marginal $ \Rightarrow $ get the full unnormalized distribution correctly.
 * Conversely, if the full distribution is correct $ \Rightarrow $ each belief must be a correct marginal.
 {{< /callout >}}
-
-# Message Passing: Belief Update
-
-# Constructing a Clique Tree
-
-## Clique Trees from VE
