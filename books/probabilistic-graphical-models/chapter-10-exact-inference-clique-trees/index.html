@@ -179,7 +179,7 @@ $$</li>
         <div class="image-text-block ">
     <img src="/images/books/probabilistic-graphical-models/chapter10/factor-assign.png" alt="" style="max-width: 50%;">
     <div class="image-text-content">
-      $\phi_2$ can go to both $C_1$ or $C_2$, this is just one possible way of assigning the factors to clusters.
+      $ \phi_2 $ can go to both $ C_1 $ or $ C_2 $ (this is just one possible way of assigning the factors to clusters).
     </div>
 </div>
  
@@ -202,7 +202,12 @@ $$
     </div>
 </div>
 <p><img src="/images/books/probabilistic-graphical-models/chapter10/student-cluster-tree.png" alt="Student example"></p>
-<p>The message $\tau_1(D)$ generated from $\psi_1(C, D)$, participates in the computation of $\psi_2$: we have an edge from $C_1$ to $C_2$.</p>
+<p>message $\tau_1(D)$</p>
+<ul>
+<li>generated from $\psi_1(C, D)$,</li>
+<li>participates in the computation of $ \psi_2 $</li>
+</ul>
+<p>$ \Rightarrow $ edge $C_1 \to C_2$.</p>
  
     
 </details>
@@ -362,29 +367,26 @@ path between $C_i$ and $C_j$ for which all clusters and sepets contain $X$.
 </details>
 
 <h3 id="rip-and-independence">RIP and Independence</h3>
-<div class="define">
-    
-    
-        <span class="define-icon">
-            
-            𐰃𐰠𐰆𐰢
-        </span>
-    
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter10/rip-and-independence.png" alt="" style="max-width: 50%;">
+    <div class="image-text-content">
+      <p><strong>Theorem 10.2</strong></p>
+<p>$ \mathcal{T} $ satisfies the running intersection property iff, for every sepset $ S_{i,j} $, we have that $W_{&lt;( i, j )} \text{ and } W_{&lt; (j, i) }$ are separated in $\mathcal{H} \text{ given } S_{i,j}.$</p>
 
-    
-
-    <div class="define-content">$ \mathcal{T} $ satisfies the running intersection property if and only if, for every sepset $ S_{i,j} $, we have that $W_{&lt;( i, j )} \text{ and } W_{&lt; (j, i) }$ are separated in $\mathcal{H} \text{ given } S_{i,j}.$</div>
+    </div>
 </div>
 
-<p><img src="/images/books/probabilistic-graphical-models/chapter10/rip-and-independence.png" alt=""></p>
-<h2 id="bethe-cluster-graph">Bethe Cluster Graph</h2>
-<p>How do we construct</p>
 <h1 id="message-passing-sum-product">Message Passing: Sum Product</h1>
 <p>VE induces a clique tree.</p>
-<p>Given a clique tree, show how this data structure is used to perform VE.</p>
-<ul>
-<li>caching computations $\to$ allowing multiple execution of VE to be performed.</li>
-</ul>
+<p>Given a clique tree, how is this data structure used to perform VE?</p>
+<h3 id="ready-clique">Ready Clique</h3>
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter10/correctness.png" alt="" style="max-width: 25%;">
+    <div class="image-text-content">
+      $C_i$ is ready to transmit to a neighbor $C_j$ when $C_i$ has messages from all of its neighbors except from $C_j$.
+    </div>
+</div>
+
 <h2 id="clique-tree-message-passing">Clique-Tree Message Passing</h2>
 <ul>
 <li>$\mathcal{T}$: clique tree with cliques $C_1, \dots, C_k$.</li>
@@ -396,13 +398,10 @@ path between $C_i$ and $C_j$ for which all clusters and sepets contain $X$.
 </ul>
 </li>
 </ul>
-<div class="define">
-    
-    
-
-    
-
-    <div class="define-content"><p><strong>1. Initialize Cliques</strong>: Multiplying the factors assigned to each clique $\alpha(\phi)$, resulting in the <strong>initial potentials</strong>
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter10/upward-pass-VE-algo-1.png" alt="" style="max-width: 50%;">
+    <div class="image-text-content">
+      <p><strong>1. Initialize Cliques</strong>: Multiplying the factors assigned to each clique $\alpha(\phi)$, resulting in the <strong>initial potentials</strong>
 $$
 \boxed{\psi_j(C_j) = \prod_{\phi : \alpha(\phi) = j} \phi}
 $$</p>
@@ -414,19 +413,18 @@ $$</li>
 </ul>
 <p><strong>2. Message Passing Loop</strong>: Perform sum-product VE over the cliques</p>
 <ul>
-<li>Starting from the leaves,</li>
-<li>moving inward.</li>
+<li>Starting from the leaves, moving inward.</li>
 <li>Each clique $C_i$, except for the root, performs a message passing computation and sends a message to its upstream neighbor $C_{p_r(i)}$.</li>
-<li>Belief of Cluster:
-$$
-\boxed{\beta_i(C_i) = \psi_i \cdot \prod_{k \in Nb_i} \delta_{k \to i}}
-$$</li>
 <li>The message from $C_i$ to $C_j$ is computed using <strong>sum-product message passing</strong>:
 $$
 \boxed{\delta_{i \to j} = \sum_{C_i - S_{i, j}} \overbrace{\psi_i}^{\text{init clique potential}} \cdot \overbrace{\prod_{k \in (Nb_i - \{j\})} \delta_{k \to i}}^{\text{mess from other neigbors}} }
 $$
 In other word, $C_i$ multiplies all incoming messages from its neighbors with its initial clique potential, resulting in a factor $\psi$ whose scope is the clique, sums out all variables except those in $S_{i, j}$ and sends the resulting factor as a message to $C_j$.</li>
 </ul>
+
+    </div>
+</div>
+
 <p><strong>3. Compute Root Belief</strong>
 This message passing process proceeds up the tree, culminating at root.</p>
 <ul>
@@ -435,18 +433,15 @@ This message passing process proceeds up the tree, culminating at root.</p>
 </li>
 <li>
 <p>Result: <span class="marked">beliefs</span>
-factor,  computed using the expression</p>
+ factor,  computed using the expression</p>
 </li>
 </ul>
 <p>$$
-\boxed{\beta_r(C_r) = \sum_{\mathcal{X} - C_r} \prod_{\phi} \phi = \psi_r \cdot \prod_{k \in Nb(C_r)} \delta_{k \to r}}
+\boxed{\beta_r(C_r) = \psi_r \cdot \prod_{k \in Nb(C_r)} \delta_{k \to r}}
 $$</p>
 <p>$$
-= \tilde{P}_{\Phi}(C_r)
+= \sum_{\mathcal{X} - C_r} \prod_{\phi} \phi = \tilde{P}_{\Phi}(C_r)
 $$</p>
-</div>
-</div>
-
 <br/>
 <details>
     <summary>Upward pass of variable elimination in clique tree</summary>
@@ -690,31 +685,26 @@ $$</div>
 
 <p>Sum up phần này nghĩa là nếu clique tree của mình thỏa mãn 2 tính chất &hellip; thì một message passing từ leaf đến root của nó sẽ là một legit marginal probability P~(X) &hellip;</p>
 <h2 id="clique-tree-calibration">Clique Tree Calibration</h2>
-<h3 id="ready-clique">Ready Clique</h3>
-<div class="define">
-    
-    
-
-    
-
-    <div class="define-content">$C_i$ is ready to transmit to a neighbor $C_j$ when $C_i$ has messages from all of its neighbors except from $C_j$.</div>
-</div>
-
-<h3 id="sum-product-belief-propagation">Sum-product Belief Propagation</h3>
+<h3 id="belief-propagation">Belief Propagation</h3>
 <p><img src="/images/books/probabilistic-graphical-models/chapter10/sum-prod-belief-prop.png" alt=""></p>
-<div class="define">
-    
-    
-
-    
-
-    <div class="define-content"><strong>1. Initialize Cliques</strong>:
+<p><strong>1. Initialize Cliques</strong>
 $$
 \boxed{\psi_j(C_j) = \prod_{\phi : \alpha(\phi) = j} \phi}
 $$
-<strong>2. Message Passing Loop</strong>:</div>
-</div>
-
+<strong>2. Message Passing Loop</strong></p>
+<ul>
+<li>Repeat: Pass messages $ \delta_{i \to j} $ when $ C_i $ is <a href="/books/probabilistic-graphical-models/chapter-10-exact-inference-clique-trees/#ready-clique">ready</a>.
+$$
+\boxed{\delta_{i \to j} = \sum_{C_i - S_{i, j}} \psi_i \cdot \prod_{k \in (Nb_i - \{j\})} \delta_{k \to i} }
+$$</li>
+</ul>
+<p><strong>3. Compute beliefs</strong></p>
+<ul>
+<li>After all messages passed, compute belief for each clique
+$$
+\boxed{\beta_i(C_i) = \psi_i \cdot \prod_{k \in Nb_i} \delta_{k \to i}}
+$$</li>
+</ul>
 <details>
     <summary>simplifed student example</summary>
     
@@ -860,9 +850,6 @@ $$</p>
 </div>
 
 
-<h1 id="message-passing-belief-update">Message Passing: Belief Update</h1>
-<h1 id="constructing-a-clique-tree">Constructing a Clique Tree</h1>
-<h2 id="clique-trees-from-ve">Clique Trees from VE</h2>
 </div>
         
     </div>
