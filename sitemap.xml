@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tomodachii.com/papers/1711.02582/</loc>
+    <lastmod>2025-05-26T10:32:07+07:00</lastmod>
+  </url><url>
     <loc>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-1-motivation/</loc>
     <lastmod>2025-04-16T07:51:04+07:00</lastmod>
   </url><url>
@@ -70,9 +73,6 @@
   </url><url>
     <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-17-parameter-estimation/</loc>
     <lastmod>2025-04-15T14:20:15+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/papers/1711.02582/</loc>
-    <lastmod>2025-05-26T10:32:07+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/authors/alexander-damour/</loc>
     <lastmod>2025-05-26T10:32:07+07:00</lastmod>
