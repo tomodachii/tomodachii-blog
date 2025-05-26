@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=/styles/style.css>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="/images/lain-sicp.png">
+    <title>Tomodachii</title>
+    <head>
+</head>
+</head>
+<body>
+    <nav class="navbar">
+  <div class="logo">
+    <a href="/">Tomodachii</a>
+  </div>
+  <div class="links">
+    <div class="toggle">
+      <svg
+        id="sun"
+        width="20px"
+        height="20px"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M18 12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12Z"
+            fill="#000"
+          ></path>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V3C12.75 3.41421 12.4142 3.75 12 3.75C11.5858 3.75 11.25 3.41421 11.25 3V2C11.25 1.58579 11.5858 1.25 12 1.25ZM4.39861 4.39861C4.6915 4.10572 5.16638 4.10572 5.45927 4.39861L5.85211 4.79145C6.145 5.08434 6.145 5.55921 5.85211 5.85211C5.55921 6.145 5.08434 6.145 4.79145 5.85211L4.39861 5.45927C4.10572 5.16638 4.10572 4.6915 4.39861 4.39861ZM19.6011 4.39887C19.894 4.69176 19.894 5.16664 19.6011 5.45953L19.2083 5.85237C18.9154 6.14526 18.4405 6.14526 18.1476 5.85237C17.8547 5.55947 17.8547 5.0846 18.1476 4.79171L18.5405 4.39887C18.8334 4.10598 19.3082 4.10598 19.6011 4.39887ZM1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H3C3.41421 11.25 3.75 11.5858 3.75 12C3.75 12.4142 3.41421 12.75 3 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12ZM20.25 12C20.25 11.5858 20.5858 11.25 21 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H21C20.5858 12.75 20.25 12.4142 20.25 12ZM18.1476 18.1476C18.4405 17.8547 18.9154 17.8547 19.2083 18.1476L19.6011 18.5405C19.894 18.8334 19.894 19.3082 19.6011 19.6011C19.3082 19.894 18.8334 19.894 18.5405 19.6011L18.1476 19.2083C17.8547 18.9154 17.8547 18.4405 18.1476 18.1476ZM5.85211 18.1479C6.145 18.4408 6.145 18.9157 5.85211 19.2086L5.45927 19.6014C5.16638 19.8943 4.6915 19.8943 4.39861 19.6014C4.10572 19.3085 4.10572 18.8336 4.39861 18.5407L4.79145 18.1479C5.08434 17.855 5.55921 17.855 5.85211 18.1479ZM12 20.25C12.4142 20.25 12.75 20.5858 12.75 21V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V21C11.25 20.5858 11.5858 20.25 12 20.25Z"
+            fill="#000"
+          ></path>
+        </g>
+      </svg>
+      <svg
+        id="moon"
+        width="20px"
+        height="20px"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M19.9001 2.30719C19.7392 1.8976 19.1616 1.8976 19.0007 2.30719L18.5703 3.40247C18.5212 3.52752 18.4226 3.62651 18.298 3.67583L17.2067 4.1078C16.7986 4.26934 16.7986 4.849 17.2067 5.01054L18.298 5.44252C18.4226 5.49184 18.5212 5.59082 18.5703 5.71587L19.0007 6.81115C19.1616 7.22074 19.7392 7.22074 19.9001 6.81116L20.3305 5.71587C20.3796 5.59082 20.4782 5.49184 20.6028 5.44252L21.6941 5.01054C22.1022 4.849 22.1022 4.26934 21.6941 4.1078L20.6028 3.67583C20.4782 3.62651 20.3796 3.52752 20.3305 3.40247L19.9001 2.30719Z"
+            fill="#fff"
+          ></path>
+          <path
+            d="M16.0328 8.12967C15.8718 7.72009 15.2943 7.72009 15.1333 8.12967L14.9764 8.52902C14.9273 8.65407 14.8287 8.75305 14.7041 8.80237L14.3062 8.95987C13.8981 9.12141 13.8981 9.70107 14.3062 9.86261L14.7041 10.0201C14.8287 10.0694 14.9273 10.1684 14.9764 10.2935L15.1333 10.6928C15.2943 11.1024 15.8718 11.1024 16.0328 10.6928L16.1897 10.2935C16.2388 10.1684 16.3374 10.0694 16.462 10.0201L16.8599 9.86261C17.268 9.70107 17.268 9.12141 16.8599 8.95987L16.462 8.80237C16.3374 8.75305 16.2388 8.65407 16.1897 8.52902L16.0328 8.12967Z"
+            fill="#fff"
+          ></path>
+          <path
+            d="M12 22C17.5228 22 22 17.5228 22 12C22 11.5373 21.3065 11.4608 21.0672 11.8568C19.9289 13.7406 17.8615 15 15.5 15C11.9101 15 9 12.0899 9 8.5C9 6.13845 10.2594 4.07105 12.1432 2.93276C12.5392 2.69347 12.4627 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+            fill="#fff"
+          ></path>
+        </g>
+      </svg>
+    </div>
+    <a href="/">Homepage</a>
+    <a href="/categories">Categories</a>
+    
+  </div>
+</nav>
+
+    <div class="container">
+        
+        
+  <div class="list">
+  
+  
+
+  
+  
+
+  
+      
+      
+          
+      
+  
+      
+      
+          
+      
+  
+      
+      
+          
+      
+  
+      
+      
+          
+      
+  
+      
+      
+          
+      
+  
+      
+      
+  
+      
+      
+          
+      
+  
+      
+      
+          
+      
+  
+      
+      
+  
+      
+      
+  
+      
+      
+  
+      
+      
+          
+      
+  
+      
+      
+  
+      
+      
+  
+      
+      
+  
+      
+      
+  
+      
+      
+  
+      
+      
+  
+      
+      
+  
+      
+      
+  
+      
+      
+  
+      
+      
+  
+      
+      
+  
+      
+      
+          
+      
+  
+      
+      
+          
+      
+  
+      
+      
+  
+      
+      
+  
+      
+      
+  
+
+  
+
+  
+  
+  
+  
+  
+  
+  
+  
+    
+      
+        
+          
+            
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+  
+
+  <div class="section">
+    <button class="toggleButton" onclick="toggleSection('6.041sc-probabilistic-systems-analysis-and-applied-probability')">
+      6.041SC Probabilistic Systems Analysis and Applied Probability
+       by
+        
+          
+          
+            <a href="https://web.mit.edu/jnt/www/home.html" target="_blank" rel="noopener" onclick="event.stopPropagation()">John N. Tsitsiklis</a>
+          
+        
+      
+    </button>
+  
+    <div id="6.041sc-probabilistic-systems-analysis-and-applied-probability" class="sectionContent">
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/courses/6.041sc/lecture-5-6-7-discrete-random-variables/">
+                - Lecture 5 &#43; 6 &#43; 7: Discrete Random Variables 
+                (<time datetime="Mar 31, 2025">Mar 31, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/courses/6.041sc/lecture-5-6-7-discrete-random-variables-examples-and-exercises/">
+                - Lecture 5 &#43; 6 &#43; 7: Discrete Random Variables - Examples and Exercises 
+                (<time datetime="Mar 31, 2025">Mar 31, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/courses/6.041sc/lecture-8-continuous-random-variables/">
+                - Lecture 8: Continuous Random Variables 
+                (<time datetime="Mar 17, 2025">Mar 17, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/courses/6.041sc/lecture-9-10-joint-distribution-conditioning-independence/">
+                - Lecture 9 &#43; 10: Joint Distribution, Conditioning and Independence 
+                (<time datetime="Apr 19, 2025">Apr 19, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+
+  
+  
+  
+  
+  
+  
+    
+      
+        
+          
+            
+          
+        
+      
+    
+  
+
+  <div class="section">
+    <button class="toggleButton" onclick="toggleSection('causality')">
+      Causality
+       by
+        
+          
+          
+            <a href="https://bayes.cs.ucla.edu/home.htm" target="_blank" rel="noopener" onclick="event.stopPropagation()">Judea Pearl</a>
+          
+        
+      
+    </button>
+  
+    <div id="causality" class="sectionContent">
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/causality/chapter-1-introduction-to-probabilities-graphs-causal-models/">
+                - Chapter 1: Introduction to Probabilities, Graphs and Causal Models 
+                (<time datetime="May 22, 2025">May 22, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+
+  
+  
+  
+  
+  
+  
+    
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+    
+  
+
+  <div class="section">
+    <button class="toggleButton" onclick="toggleSection('computers-and-intractability-a-guide-to-the-theory-of-np-completeness')">
+      Computers and Intractability: A Guide to the Theory of NP-Completeness
+       by
+        
+          
+          
+            <a href="https://en.wikipedia.org/wiki/Michael_Garey" target="_blank" rel="noopener" onclick="event.stopPropagation()">Michael R. Garey</a>, 
+          
+        
+          
+          
+            <a href="https://en.wikipedia.org/wiki/David_S._Johnson" target="_blank" rel="noopener" onclick="event.stopPropagation()">David S. Johnson</a>
+          
+        
+      
+    </button>
+  
+    <div id="computers-and-intractability-a-guide-to-the-theory-of-np-completeness" class="sectionContent">
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/computers-and-intractability/chapter-1-computers-complexity-and-intractability/">
+                - Chapter 1: Computers, Complexity and Intractability 
+                (<time datetime="Apr 2, 2025">Apr 2, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+
+  
+  
+  
+  
+  
+  
+    
+      
+        
+          
+            
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+  
+
+  <div class="section">
+    <button class="toggleButton" onclick="toggleSection('cs109-probability-for-computer-scientists')">
+      CS109: Probability for Computer Scientists
+       by
+        
+          
+          
+            <a href="https://stanford.edu/~cpiech/bio/index.html" target="_blank" rel="noopener" onclick="event.stopPropagation()">Chris Piech</a>
+          
+        
+      
+    </button>
+  
+    <div id="cs109-probability-for-computer-scientists" class="sectionContent">
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/courses/cs109/lecture-1-counting/">
+                - Lecture 1 Counting 
+                (<time datetime="Apr 14, 2025">Apr 14, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/courses/cs109/lecture-21-mle/">
+                - Lecture 21: MLE 
+                (<time datetime="Apr 7, 2025">Apr 7, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+
+  
+  
+  
+  
+  
+  
+    
+      
+        
+          
+            
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+  
+
+  <div class="section">
+    <button class="toggleButton" onclick="toggleSection('density-estimation-for-statistics-and-data-analysis')">
+      Density Estimation for Statistics and Data Analysis
+       by
+        
+          
+          
+            <a href="https://en.wikipedia.org/wiki/Bernard_Silverman" target="_blank" rel="noopener" onclick="event.stopPropagation()">B.W. Silverman</a>
+          
+        
+      
+    </button>
+  
+    <div id="density-estimation-for-statistics-and-data-analysis" class="sectionContent">
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/density-estimation-for-statistics-and-data-analysis/master-note/">
+                - Master Note 
+                (<time datetime="Apr 4, 2025">Apr 4, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/density-estimation-for-statistics-and-data-analysis/chapter-1-and-2-introduction/">
+                - Chapter 1 &#43; 2: Introduction and Survey of existing methods 
+                (<time datetime="Apr 3, 2025">Apr 3, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/density-estimation-for-statistics-and-data-analysis/chapter-3-the-kernel-method-for-univariate-data/">
+                - Chapter 3: The kernel method for univariate data 
+                (<time datetime="Apr 3, 2025">Apr 3, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+
+  
+  
+  
+  
+  
+  
+    
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+    
+      
+        
+          
+        
+          
+        
+      
+    
+  
+
+  <div class="section">
+    <button class="toggleButton" onclick="toggleSection('gaussian-processes-for-machine-learning')">
+      Gaussian Processes for Machine Learning
+       by
+        
+          
+          
+            <a href="https://mlg.eng.cam.ac.uk/carl/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Carl Edward Rasmussen</a>, 
+          
+        
+          
+          
+            <a href="https://homepages.inf.ed.ac.uk/ckiw/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Christopher K. I. Williams</a>
+          
+        
+      
+    </button>
+  
+    <div id="gaussian-processes-for-machine-learning" class="sectionContent">
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/gaussian-processes-for-machine-learning/preface/">
+                - Preface 
+                (<time datetime="Mar 17, 2025">Mar 17, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/gaussian-processes-for-machine-learning/chapter-2-regression/">
+                - Chapter 2: Regression 
+                (<time datetime="Mar 17, 2025">Mar 17, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+
+  
+  
+  
+  
+  
+  
+    
+      
+        
+          
+            
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+  
+
+  <div class="section">
+    <button class="toggleButton" onclick="toggleSection('introduction-to-causal-inference-from-a-machine-learning-perspective')">
+      Introduction to Causal Inference from a Machine Learning Perspective
+       by
+        
+          
+          
+            <a href="https://www.bradyneal.com/aboutme" target="_blank" rel="noopener" onclick="event.stopPropagation()">Brady Neal</a>
+          
+        
+      
+    </button>
+  
+    <div id="introduction-to-causal-inference-from-a-machine-learning-perspective" class="sectionContent">
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/courses/introduction-to-causal-inference/lecture-1-motivation/">
+                - Lecture 1: Motivation 
+                (<time datetime="Apr 16, 2025">Apr 16, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/courses/introduction-to-causal-inference/lecture-2-potential-outcomes/">
+                - Lecture 2: Potential Outcomes 
+                (<time datetime="May 21, 2025">May 21, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+
+  
+  
+  
+  
+  
+  
+    
+      
+        
+          
+            
+          
+        
+          
+            
+          
+        
+      
+    
+      
+        
+          
+        
+          
+        
+      
+    
+      
+        
+          
+        
+          
+        
+      
+    
+      
+        
+          
+        
+          
+        
+      
+    
+      
+        
+          
+        
+          
+        
+      
+    
+      
+        
+          
+        
+          
+        
+      
+    
+      
+        
+          
+        
+          
+        
+      
+    
+      
+        
+          
+        
+          
+        
+      
+    
+      
+        
+          
+        
+          
+        
+      
+    
+      
+        
+          
+        
+          
+        
+      
+    
+  
+
+  <div class="section">
+    <button class="toggleButton" onclick="toggleSection('probabilistic-graphical-models')">
+      Probabilistic Graphical Models
+       by
+        
+          
+          
+            <a href="https://ai.stanford.edu/~koller/index.html" target="_blank" rel="noopener" onclick="event.stopPropagation()">Daphne Koller</a>, 
+          
+        
+          
+          
+            <a href="https://www.cs.huji.ac.il/w~nir/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Nir Friedman</a>
+          
+        
+      
+    </button>
+  
+    <div id="probabilistic-graphical-models" class="sectionContent">
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-1-and-2-introduction-and-foundations/">
+                - Chapter 1 &#43; 2 and Appendix : Introduction, Foundations and Background Material 
+                (<time datetime="Mar 19, 2025">Mar 19, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-3-the-bayesian-network-representation/">
+                - Chapter 3: The Bayesian Network Representation 
+                (<time datetime="Mar 19, 2025">Mar 19, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-4-undirected-graphical-models/">
+                - Chapter 4 Undirected Graphical Models 
+                (<time datetime="Apr 9, 2025">Apr 9, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-5-local-probabilistic-models/">
+                - Chapter 5: Local Probabilistic Models 
+                (<time datetime="Mar 28, 2025">Mar 28, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-8-the-exponential-family/">
+                - Chapter 8 the Exponential Family 
+                (<time datetime="Apr 26, 2025">Apr 26, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-9-exact-inference-variable-elimination/">
+                - Chapter 9: Exact Inference - Variable Elimination 
+                (<time datetime="Apr 3, 2025">Apr 3, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-10-exact-inference-clique-trees/">
+                - Chapter 10 Exact Inference Clique Trees 
+                (<time datetime="Apr 18, 2025">Apr 18, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-11-inference-as-optimization/">
+                - Chapter 11: Inference as Optimization 
+                (<time datetime="May 4, 2025">May 4, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-16-learning-graphical-models-overview/">
+                - Chapter 16: Learning Graphical Models - Overview 
+                (<time datetime="Apr 15, 2025">Apr 15, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/probabilistic-graphical-models/chapter-17-parameter-estimation/">
+                - Chapter 17: Parameter Estimation 
+                (<time datetime="Apr 15, 2025">Apr 15, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+
+  
+  
+  
+  
+  
+  
+    
+      
+        
+          
+            
+          
+        
+      
+    
+      
+        
+          
+        
+      
+    
+  
+
+  <div class="section">
+    <button class="toggleButton" onclick="toggleSection('probabilistic-machine-learning-an-introduction')">
+      Probabilistic Machine Learning: An Introduction
+       by
+        
+          
+          
+            <a href="https://www.cs.ubc.ca/~murphyk/" target="_blank" rel="noopener" onclick="event.stopPropagation()">Kevin P. Murphy</a>
+          
+        
+      
+    </button>
+  
+    <div id="probabilistic-machine-learning-an-introduction" class="sectionContent">
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/probabilistic-machine-learning-an-introduction/chapter-2-probability-univariate-models/">
+                - Chapter 2: Probability - Univariate Models 
+                (<time datetime="Apr 6, 2025">Apr 6, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/books/probabilistic-machine-learning-an-introduction/chapter-8-optimization/">
+                - Chapter 8: Optimization 
+                (<time datetime="May 23, 2025">May 23, 2025</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+
+  
+  
+  
+  
+  
+  
+    
+      
+        
+          
+            
+          
+        
+      
+    
+  
+
+  <div class="section">
+    <button class="toggleButton" onclick="toggleSection('random')">
+      Random
+       by
+        
+          
+          
+            <a href="https://github.com/tomodachii" target="_blank" rel="noopener" onclick="event.stopPropagation()">Tomodachii</a>
+          
+        
+      
+    </button>
+  
+    <div id="random" class="sectionContent">
+      
+        <div class="listItem">
+          <div class="listItemTexts">
+            <div class="listItemTitle">
+              <a href="https://tomodachii.com/random/20240724-insertion-sort/">
+                - Insertion Sort 
+                (<time datetime="Jul 24, 2024">Jul 24, 2024</time>)
+              </a>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+  </div>
+  
+
+</div>
+
+<script>
+function toggleSection(sectionId) {
+  var content = document.getElementById(sectionId);
+  var button = document.querySelector(`[onclick="toggleSection('${sectionId}')"]`);
+
+  if (content.style.display === "block") {
+      content.style.display = "none";
+      button.classList.remove("active");
+  } else {
+      content.style.display = "block";
+      button.classList.add("active");
+  }
+}
+</script>
+
+
+        <div class="footer">
+  <div class="footerLinks">
+    <a href="/">Tomodachii</a>
+    <a href="/categories">categories</a>
+    <a href="/sitemap.xml">sitemap</a>
+  </div>
+  <div class="social">
+    <a href="https://github.com/tomodachii">
+        github
+    </a>
+    
+  </div>
+</div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+    </script>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
