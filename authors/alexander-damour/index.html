@@ -83,45 +83,47 @@
 
     <div class="container">
         
-         
+        
+  <div class="list">
   
-    <a href="/categories/probabilistic-graphical-models">
-      # probabilistic-graphical-models <small>(10)</small>
-    </a>
   
-    <a href="/categories/probability">
-      # probability <small>(8)</small>
-    </a>
+
   
-    <a href="/categories/machine-learning">
-      # machine-learning <small>(4)</small>
-    </a>
+   
+    
+    
   
-    <a href="/categories/causality">
-      # causality <small>(3)</small>
-    </a>
+
   
-    <a href="/categories/kde">
-      # kde <small>(3)</small>
-    </a>
+
   
-    <a href="/categories/gaussian-process">
-      # gaussian-process <small>(2)</small>
-    </a>
   
-    <a href="/categories/causal-inference">
-      # causal-inference <small>(1)</small>
-    </a>
   
-    <a href="/categories/complexity-theory">
-      # complexity-theory <small>(1)</small>
-    </a>
+
   
-    <a href="/categories/dsa">
-      # dsa <small>(1)</small>
-    </a>
+
   
- 
+
+  
+  
+</div>
+
+<script>
+function toggleSection(sectionId) {
+  var content = document.getElementById(sectionId);
+  var button = document.querySelector(`[onclick="toggleSection('${sectionId}')"]`);
+
+  if (content.style.display === "block") {
+      content.style.display = "none";
+      button.classList.remove("active");
+  } else {
+      content.style.display = "block";
+      button.classList.add("active");
+  }
+}
+</script>
+
+
         <div class="footer">
   <div class="footerLinks">
     <a href="/">Tomodachii</a>
