@@ -121,7 +121,7 @@ Question: How much we lost, due to the inaccuracy of using $ Q $?
 The relative entropy of $ P $ and $ Q $
 
 $$
-\boxed{ \mathbb{D}(P(X_1, \dots, X_n) || Q(X_1, \dots, X_n)) = \mathbb{E} \left[ \log{\frac{P(X_1, \dots, X_n)}{Q(X_1, \dots, X_n)}} \right] }
+\boxed{ \mathbb{D}(P(X_1, \dots, X_n) || Q(X_1, \dots, X_n)) = \mathbb{E}_P \left[ \log{\frac{P(X_1, \dots, X_n)}{Q(X_1, \dots, X_n)}} \right] }
 $$
 
 Short hand notation,

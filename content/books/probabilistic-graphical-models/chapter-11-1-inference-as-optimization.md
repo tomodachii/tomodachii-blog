@@ -1,5 +1,5 @@
 +++
-title = 'Chapter 11: Inference as Optimization'
+title = 'Chapter 11 (Pt. 1): Inference as Optimization - Loopy BP'
 date = 2025-05-04T18:58:34+07:00
 draft = false
 description = ""
@@ -708,12 +708,3 @@ Transformation from Markov Network to Cluster Graph
 <br/>
 
 Limitation the Bethe cluster graph: information between different clusters in the top level is passed through univariate marginal distributions $ \rightarrow $ interactions between variables are lost during propagations.
-
-# Other Entropy Approximations
-
-## Convex Approximations
-## Region Graph Approximations
-
-# Propagation with Approximate Messages
-
-# The Mean Field Approximation
