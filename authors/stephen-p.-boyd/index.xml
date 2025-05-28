@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stephen P. Boyd on My New Hugo Site</title>
+    <link>https://tomodachii.com/authors/stephen-p.-boyd/</link>
+    <description>Recent content in Stephen P. Boyd on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 23 May 2025 14:28:21 +0700</lastBuildDate>
+    <atom:link href="https://tomodachii.com/authors/stephen-p.-boyd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lecture 1 Introduction</title>
+      <link>https://tomodachii.com/courses/ee364a/lecture-1-introduction/</link>
+      <pubDate>Fri, 23 May 2025 14:28:21 +0700</pubDate>
+      <guid>https://tomodachii.com/courses/ee364a/lecture-1-introduction/</guid>
+      <description>&lt;h1 id=&#34;mathematical-optimization&#34;&gt;Mathematical Optimization&lt;/h1&gt;&#xA;&lt;div class=&#34;define&#34;&gt;&#xA;    &#xA;    &#xA;        &lt;span class=&#34;define-icon&#34;&gt;&#xA;            𐰋𐰍𐰃𐰤&#xA;            &#xA;        &lt;/span&gt;&#xA;    &#xA;&#xA;    &#xA;&#xA;    &lt;div class=&#34;define-content&#34;&gt;&lt;p&gt;Optimization problem&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;minimize&lt;/strong&gt; $ f_0(x) $&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;subject to&lt;/strong&gt; $ f_i(x) \leq b_i, \quad i = 1, \dots, m. $&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$ x = (x_1, \dots, x_n) $: (vector) optimization variables.&lt;/li&gt;&#xA;&lt;li&gt;$ f_0: R^n \to R $: objective function.&lt;/li&gt;&#xA;&lt;li&gt;$ f_i: R^n \to R, \quad i = 1, \dots, m $: (inequality) constraint functions.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;br/&gt;&#xA;&lt;p&gt;&lt;strong&gt;optimal solution&lt;/strong&gt; $ x^* $&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;has the smallest value of $ f_0 $&lt;/li&gt;&#xA;&lt;li&gt;satisfies the constraints.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;for any $ z $ with $ f_1(z) \leq b_1, \dots, f_m(z) \leq b_m $, we have $ f_0 (z) \geq f_0(x^*) $.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

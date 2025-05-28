@@ -139,8 +139,8 @@ $$</p>
 <br/>
 <p>Recall:</p>
 <ul>
-<li>Belief Propagation results in a calibrated cluster tree $ \Rightarrow $ all pairs of adjacent cliques are calibrated (by definition).</li>
-<li>Calibrated set of beliefs for the cluster tree represents a distribution $ \Rightarrow $ In Exact Inference, we find a set of calibrated beliefs that represent $ P_\Phi (\mathcal{X}) $.</li>
+<li>Clique tree BP results in a calibrated cluster tree $ \Rightarrow $ all pairs of adjacent cliques are calibrated (by definition).</li>
+<li>Calibrated set of beliefs $ Q $ for the cluster tree represents a distribution $ P_\Phi (\mathcal{X}) $.</li>
 </ul>
 <div class="callout callout-info">
     <span class="callout-icon">
@@ -149,7 +149,7 @@ $$</p>
         
         
     </span>
-    <div class="callout-content">Can view exact inference as searching for a <span class="marked">calibrated</span>
+    <div class="callout-content">Can view Exact Inference as searching for a <span class="marked">calibrated</span>
 distribution $ Q $ that matches $ P_\Phi \rightarrow $ minimizes relative entropy $ \mathbb{D}(Q || P_\Phi) $</div>
 </div>
 
@@ -181,11 +181,6 @@ $$</p>
 $$</p>
 <div class="define">
     
-    
-        <span class="define-icon">
-            𐰋𐰍𐰃𐰤
-            
-        </span>
     
 
     
@@ -228,6 +223,26 @@ $$</p>
 </li>
 </ul>
 <h2 id="the-energy-functional">The Energy Functional</h2>
+<details>
+    <summary>functional?</summary>
+    
+        <p><strong>Functions</strong></p>
+<ul>
+<li>Input: variables</li>
+<li>Output: a value</li>
+<li>Full and partial derivatives $ \frac{df}{dx} $</li>
+<li>E.g. Maximize likelihood $ p(x \mid \theta) $ w.r.t. parameters $ \theta $</li>
+</ul> 
+    
+</details>
+
+<p><strong>Functional</strong></p>
+<ul>
+<li>Input: functions</li>
+<li>Output: a value</li>
+<li>Functional derivatives $ \frac{\delta F}{\delta f} $</li>
+<li>E.g., Maximize the entropy $ H[p(x)] $ w.r.t. p(x)</li>
+</ul>
 <h3 id="theorem-112">Theorem 11.2</h3>
 <p>$$
 \boxed{ \mathbb{D} (Q || P_\Phi) = \ln Z - F[\tilde{P}_\Phi, Q] }
@@ -987,6 +1002,7 @@ $$</p>
 <h2 id="convex-approximations">Convex Approximations</h2>
 <h2 id="region-graph-approximations">Region Graph Approximations</h2>
 <h1 id="propagation-with-approximate-messages">Propagation with Approximate Messages</h1>
+<h1 id="the-mean-field-approximation">The Mean Field Approximation</h1>
 </div>
         
     </div>
