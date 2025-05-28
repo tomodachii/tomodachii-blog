@@ -35,11 +35,11 @@ Goal: Answering queries about $ P_{\Phi} $
 <br/>
 
 Recall: 
-* Belief Propagation results in a calibrated cluster tree $ \Rightarrow $ all pairs of adjacent cliques are calibrated (by definition).
-* Calibrated set of beliefs for the cluster tree represents a distribution $ \Rightarrow $ In Exact Inference, we find a set of calibrated beliefs that represent $ P_\Phi (\mathcal{X}) $.
+* Clique tree BP results in a calibrated cluster tree $ \Rightarrow $ all pairs of adjacent cliques are calibrated (by definition).
+* Calibrated set of beliefs $ Q $ for the cluster tree represents a distribution $ P_\Phi (\mathcal{X}) $.
 
 {{< callout type="info" >}}
-Can view exact inference as searching for a {{< marker >}}calibrated{{< /marker >}} distribution $ Q $ that matches $ P_\Phi \rightarrow $ minimizes relative entropy $ \mathbb{D}(Q || P_\Phi) $
+Can view Exact Inference as searching for a {{< marker >}}calibrated{{< /marker >}} distribution $ Q $ that matches $ P_\Phi \rightarrow $ minimizes relative entropy $ \mathbb{D}(Q || P_\Phi) $
 {{< /callout >}}
 
 ### CTree-Optimize-KL
@@ -71,7 +71,7 @@ $$
 \mu_{i, j}[s_{i, j}] = Q(s_{i, j})
 $$
 
-{{< define icon="definition" >}}
+{{< define >}}
 CTree-Optimize-KL
 
 **Find** $ Q = \\{ \beta_i : i \in V_{\mathcal{T}} \\} \cup \\{ \mu_{i,j} : (i-j) \in E_{\mathcal{T}} \\} $
@@ -105,6 +105,22 @@ Goal:
     + by optimizing the energy function.
 
 ## The Energy Functional
+{{< toggle title="functional?" >}}
+**Functions**
+
+* Input: variables
+* Output: a value
+* Full and partial derivatives $ \frac{df}{dx} $
+* E.g. Maximize likelihood $ p(x \mid \theta) $ w.r.t. parameters $ \theta $
+{{< /toggle >}}
+
+**Functional**
+
+* Input: functions
+* Output: a value
+* Functional derivatives $ \frac{\delta F}{\delta f} $
+* E.g., Maximize the entropy $ H[p(x)] $ w.r.t. p(x)
+
 ### Theorem 11.2
 $$
 \boxed{ \mathbb{D} (Q || P_\Phi) = \ln Z - F[\tilde{P}_\Phi, Q] }
@@ -699,3 +715,5 @@ Limitation the Bethe cluster graph: information between different clusters in th
 ## Region Graph Approximations
 
 # Propagation with Approximate Messages
+
+# The Mean Field Approximation
