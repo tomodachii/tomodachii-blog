@@ -65,8 +65,11 @@
     <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-10-exact-inference-clique-trees/</loc>
     <lastmod>2025-04-18T10:25:50+07:00</lastmod>
   </url><url>
-    <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-11-inference-as-optimization/</loc>
+    <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-11-1-inference-as-optimization/</loc>
     <lastmod>2025-05-04T18:58:34+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-11-3-mean-field-approx/</loc>
+    <lastmod>2025-05-28T10:57:03+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-16-learning-graphical-models-overview/</loc>
     <lastmod>2025-04-15T14:18:01+07:00</lastmod>
@@ -74,19 +77,31 @@
     <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-17-parameter-estimation/</loc>
     <lastmod>2025-04-15T14:20:15+07:00</lastmod>
   </url><url>
+    <loc>https://tomodachii.com/authors/</loc>
+    <lastmod>2025-05-28T10:57:03+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/books/</loc>
+    <lastmod>2025-05-28T10:57:03+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/categories/</loc>
+    <lastmod>2025-05-28T10:57:03+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/authors/daphne-koller/</loc>
+    <lastmod>2025-05-28T10:57:03+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/</loc>
+    <lastmod>2025-05-28T10:57:03+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/authors/nir-friedman/</loc>
+    <lastmod>2025-05-28T10:57:03+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/categories/probabilistic-graphical-models/</loc>
+    <lastmod>2025-05-28T10:57:03+07:00</lastmod>
+  </url><url>
     <loc>https://tomodachii.com/authors/alexander-damour/</loc>
     <lastmod>2025-05-26T10:32:07+07:00</lastmod>
   </url><url>
-    <loc>https://tomodachii.com/authors/</loc>
-    <lastmod>2025-05-26T10:32:07+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/categories/</loc>
-    <lastmod>2025-05-26T10:32:07+07:00</lastmod>
-  </url><url>
     <loc>https://tomodachii.com/categories/causal-inference/</loc>
-    <lastmod>2025-05-26T10:32:07+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/</loc>
     <lastmod>2025-05-26T10:32:07+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/papers/</loc>
@@ -103,9 +118,6 @@
   </url><url>
     <loc>https://tomodachii.com/authors/stephen-p.-boyd/</loc>
     <lastmod>2025-05-23T14:28:21+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/books/</loc>
-    <lastmod>2025-05-23T08:37:13+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/authors/kevin-p.-murphy/</loc>
     <lastmod>2025-05-23T08:37:13+07:00</lastmod>
@@ -127,15 +139,6 @@
   </url><url>
     <loc>https://tomodachii.com/authors/brady-neal/</loc>
     <lastmod>2025-05-21T21:07:02+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/authors/daphne-koller/</loc>
-    <lastmod>2025-05-04T18:58:34+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/authors/nir-friedman/</loc>
-    <lastmod>2025-05-04T18:58:34+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/categories/probabilistic-graphical-models/</loc>
-    <lastmod>2025-05-04T18:58:34+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/authors/john-n.-tsitsiklis/</loc>
     <lastmod>2025-04-19T18:56:10+07:00</lastmod>
