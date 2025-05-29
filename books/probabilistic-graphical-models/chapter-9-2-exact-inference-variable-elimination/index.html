@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href=/styles/style.css>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="/images/lain-sicp.png">
+    <title>Tomodachii</title>
+    <head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
+</head>
+</head>
+<body>
+    <nav class="navbar">
+  <div class="logo">
+    <a href="/">Tomodachii</a>
+  </div>
+  <div class="links">
+    <div class="toggle">
+      <svg
+        id="sun"
+        width="20px"
+        height="20px"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M18 12C18 15.3137 15.3137 18 12 18C8.68629 18 6 15.3137 6 12C6 8.68629 8.68629 6 12 6C15.3137 6 18 8.68629 18 12Z"
+            fill="#000"
+          ></path>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V3C12.75 3.41421 12.4142 3.75 12 3.75C11.5858 3.75 11.25 3.41421 11.25 3V2C11.25 1.58579 11.5858 1.25 12 1.25ZM4.39861 4.39861C4.6915 4.10572 5.16638 4.10572 5.45927 4.39861L5.85211 4.79145C6.145 5.08434 6.145 5.55921 5.85211 5.85211C5.55921 6.145 5.08434 6.145 4.79145 5.85211L4.39861 5.45927C4.10572 5.16638 4.10572 4.6915 4.39861 4.39861ZM19.6011 4.39887C19.894 4.69176 19.894 5.16664 19.6011 5.45953L19.2083 5.85237C18.9154 6.14526 18.4405 6.14526 18.1476 5.85237C17.8547 5.55947 17.8547 5.0846 18.1476 4.79171L18.5405 4.39887C18.8334 4.10598 19.3082 4.10598 19.6011 4.39887ZM1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H3C3.41421 11.25 3.75 11.5858 3.75 12C3.75 12.4142 3.41421 12.75 3 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12ZM20.25 12C20.25 11.5858 20.5858 11.25 21 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H21C20.5858 12.75 20.25 12.4142 20.25 12ZM18.1476 18.1476C18.4405 17.8547 18.9154 17.8547 19.2083 18.1476L19.6011 18.5405C19.894 18.8334 19.894 19.3082 19.6011 19.6011C19.3082 19.894 18.8334 19.894 18.5405 19.6011L18.1476 19.2083C17.8547 18.9154 17.8547 18.4405 18.1476 18.1476ZM5.85211 18.1479C6.145 18.4408 6.145 18.9157 5.85211 19.2086L5.45927 19.6014C5.16638 19.8943 4.6915 19.8943 4.39861 19.6014C4.10572 19.3085 4.10572 18.8336 4.39861 18.5407L4.79145 18.1479C5.08434 17.855 5.55921 17.855 5.85211 18.1479ZM12 20.25C12.4142 20.25 12.75 20.5858 12.75 21V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V21C11.25 20.5858 11.5858 20.25 12 20.25Z"
+            fill="#000"
+          ></path>
+        </g>
+      </svg>
+      <svg
+        id="moon"
+        width="20px"
+        height="20px"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        ></g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            d="M19.9001 2.30719C19.7392 1.8976 19.1616 1.8976 19.0007 2.30719L18.5703 3.40247C18.5212 3.52752 18.4226 3.62651 18.298 3.67583L17.2067 4.1078C16.7986 4.26934 16.7986 4.849 17.2067 5.01054L18.298 5.44252C18.4226 5.49184 18.5212 5.59082 18.5703 5.71587L19.0007 6.81115C19.1616 7.22074 19.7392 7.22074 19.9001 6.81116L20.3305 5.71587C20.3796 5.59082 20.4782 5.49184 20.6028 5.44252L21.6941 5.01054C22.1022 4.849 22.1022 4.26934 21.6941 4.1078L20.6028 3.67583C20.4782 3.62651 20.3796 3.52752 20.3305 3.40247L19.9001 2.30719Z"
+            fill="#fff"
+          ></path>
+          <path
+            d="M16.0328 8.12967C15.8718 7.72009 15.2943 7.72009 15.1333 8.12967L14.9764 8.52902C14.9273 8.65407 14.8287 8.75305 14.7041 8.80237L14.3062 8.95987C13.8981 9.12141 13.8981 9.70107 14.3062 9.86261L14.7041 10.0201C14.8287 10.0694 14.9273 10.1684 14.9764 10.2935L15.1333 10.6928C15.2943 11.1024 15.8718 11.1024 16.0328 10.6928L16.1897 10.2935C16.2388 10.1684 16.3374 10.0694 16.462 10.0201L16.8599 9.86261C17.268 9.70107 17.268 9.12141 16.8599 8.95987L16.462 8.80237C16.3374 8.75305 16.2388 8.65407 16.1897 8.52902L16.0328 8.12967Z"
+            fill="#fff"
+          ></path>
+          <path
+            d="M12 22C17.5228 22 22 17.5228 22 12C22 11.5373 21.3065 11.4608 21.0672 11.8568C19.9289 13.7406 17.8615 15 15.5 15C11.9101 15 9 12.0899 9 8.5C9 6.13845 10.2594 4.07105 12.1432 2.93276C12.5392 2.69347 12.4627 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+            fill="#fff"
+          ></path>
+        </g>
+      </svg>
+    </div>
+    <a href="/">Homepage</a>
+    <a href="/categories">Categories</a>
+    
+  </div>
+</nav>
+
+    <div class="container">
+        
+        
+<style>
+    :root {
+      --postColor: #10987F;
+    }
+  </style>
+
+<div class="single">
+    <div class="singleHead">
+        <div class="singleHeadTexts">
+            <h1 class="singleHeadTitle">Chapter 9 (Pt. 2): Exact Inference - Variable Elimination</h1>
+            <p class="singleHeadDesc"></p>
+            <div class="singleHeadDetail">
+                
+                <span>
+                    
+                        <a href="https://tomodachii.com/authors/daphne-koller/">Daphne Koller</a>
+                    
+                        <a href="https://tomodachii.com/authors/nir-friedman/">Nir Friedman</a>
+                    
+                </span>
+                
+                    <a href="https://tomodachii.com/categories/probabilistic-graphical-models/" class="singleCategory">probabilistic-graphical-models</a>
+                
+            </div>
+            <time>Apr 3, 2025</time>
+        </div>
+        
+    </div>
+    <div class="singleBottom">
+        <div class="singleContent"><h1 id="variable-elimination">Variable Elimination</h1>
+<p>Can use dynamic programming techniques to perform inference even for certain large and complex networks in a reasonable time.</p>
+<details>
+    <summary>Dynamic programming</summary>
+    
+        <ul>
+<li>apply when the solution to a problem requires that we solve many smaller subproblems that recur many times.
+<ul>
+<li>precomputing the solution to the subproblems,</li>
+<li>storing them,</li>
+<li>and using them to compute the values to larger problems.</li>
+</ul>
+</li>
+</ul>
+<p><em>Fibonacci</em></p>
+<p>$
+F_0 = 1 \\
+F_1 = 1 \\
+F_n = F_{n - 1} + F_{n - 2}.
+$</p>
+<br/>
+<p>Recursive implementation</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fib</span> n)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    (<span style="color:#66d9ef">if </span>(&lt; n <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>        n
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>        (+ (<span style="color:#a6e22e">fib</span> (- n <span style="color:#ae81ff">1</span>)) (<span style="color:#a6e22e">fib</span> (- n <span style="color:#ae81ff">2</span>)))))
+</span></span></code></pre></div><p>$\rightarrow \mathcal{O}(2^n)$</p>
+<br/>
+<p>Tail-Recursive implementation</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2;"><code class="language-scheme" data-lang="scheme"><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>(<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fib</span> n)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>    (<span style="color:#66d9ef">define </span>(<span style="color:#a6e22e">fib-iter</span> a b count)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3</span><span>        (<span style="color:#66d9ef">if </span>(= count <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4</span><span>            a
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5</span><span>            (<span style="color:#a6e22e">fib-iter</span> b (+ a b) (- count <span style="color:#ae81ff">1</span>))))
+</span></span><span style="display:flex;"><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6</span><span>    (<span style="color:#a6e22e">fib-iter</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">1</span> n))
+</span></span></code></pre></div><p>$\rightarrow \mathcal{O}(n)$</p>
+ 
+    
+</details>
+
+<h2 id="ves-core-operations">VE&rsquo;s core operations</h2>
+<p><strong>Factor Product</strong></p>
+<div class="image-text-block left">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/factor-product.png" alt="" style="max-width: 50%;">
+    <div class="image-text-content">
+      <ul>
+<li>$X, Y, Z$: r.v</li>
+<li>$\phi_1(X, Y)$, $\phi_2(Y, Z)$: factors</li>
+</ul>
+<br/>
+<p>The product factor $\phi_1 \times \phi_2$ is a factor $\psi: \text{Val}(X, Y, Z) \to \mathbb{R}$ st:</p>
+<p>$$
+\boxed{\psi(X, Y, Z) = \phi_1(X, Y) \cdot \phi_2(Y, Z)}
+$$</p>
+
+    </div>
+</div>
+
+<p>Example: $\psi(A, B, C) = \phi_1(A, B) \cdot \phi_2(B, C)$.</p>
+<br/>
+<p><strong>Factor Marginalization</strong></p>
+<p><div class="image-text-block left">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/factor-marginalization.png" alt="" style="max-width: 40%;">
+    <div class="image-text-content">
+      <ul>
+<li>$X$, $Y \notin X$: rv</li>
+<li>$\phi(X, Y)$: factor.</li>
+</ul>
+<p>The factor marginalization of $Y$ in $\phi$, denoted $\sum_Y\phi$ is a factor $\psi$ over $X$ st:</p>
+<p>$$
+\boxed{\psi(X) = \sum_Y \phi(X, Y)}
+$$</p>
+<p>summing out of $Y$ in $\psi$.</p>
+<br/>
+
+    </div>
+</div>
+
+Example: Summing out $B$: $\psi(A, C) = \sum_B \phi(A, B, C)$</p>
+<h3 id="properties-of-factor-operations">Properties of factor operations</h3>
+<p>Commutative
+$$
+\boxed{\phi_1 \cdot \phi_2 = \phi_2 \cdot \phi_1 \quad \text{and} \quad \sum_X \sum_Y \phi = \sum_Y \sum_X \phi}
+$$</p>
+<p>Associative
+$$
+\boxed{(\phi_1 \cdot \phi_2) \cdot \phi_3 = \phi_1 \cdot (\phi_2 \cdot \phi_3)}
+$$</p>
+<p>Exchange summation and product: If $X \notin \text{Scope}[\phi_1]$, then
+$$
+\boxed{\sum_X(\phi_1 \cdot \phi_2) = \phi_1 \cdot\sum_X\phi_2}
+$$</p>
+<h2 id="ve-general-idea">VE General Idea</h2>
+<h3 id="eliminate-var-z-from-phi">Eliminate-Var Z from $\Phi$</h3>
+<p>$\Phi = \{\phi_{X_i}\}^n_{i=1}$: Set of factors</p>
+<ul>
+<li>for each $\phi \in \Phi, \text{Scope}[\phi] \sub \mathcal{X}$.</li>
+</ul>
+<p>$Z = \mathcal{X} - Y - E$.</p>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content"><ol>
+<li>Write query in the sum-product form:</li>
+</ol>
+<ul>
+<li>If given Evidence $E = e$, we can reduce factors.
+$$
+P(Y, e) = \phi^{*}(Y) = \sum_Z \prod_{\phi \in \Phi}\phi.
+$$</li>
+</ul>
+<p>$\rightarrow$ this suggests an &ldquo;elimination order&rdquo; of latent variables to be marginalized.</p>
+<br/>
+<ol start="2">
+<li>Iteratively</li>
+</ol>
+<ul>
+<li>Move all factors that does not involve $Z_k$ outside of $\sum_{Z_k}$
+$$
+\Phi^{\prime} = \{ \phi_i \in \Phi : \underbrace{Z_k \in \text{Scope}[\phi_i]}_{\text{all factors that involve Z}} \}.
+$$</li>
+</ul>
+<p>$$
+\psi = \prod_{\phi_i \in \Phi^{\prime}} \phi_i \quad ({\text{factor product}}).
+$$</p>
+<ul>
+<li>Perform sum out $Z$, getting a new term $\tau$</li>
+</ul>
+<p>$$
+\tau = \sum_{Z_k} \psi \quad ({\text{sum out $Z_k$ / marginalization}}).
+$$</p>
+<ul>
+<li>Insert the new term into the product
+<ul>
+<li>Those $\prod_{\phi_i \in \Phi^{\prime}} \phi_i$ have been used, we don&rsquo;t want to reuse them $\rightarrow$ take them out of the set of factors $\Phi$ and introduce the one created by sum-product.</li>
+</ul>
+</li>
+</ul>
+<p>$$
+\Phi := (\Phi - \Phi^{\prime}) \cup { \tau }.
+$$</p>
+<p>$$
+P(Y, e) = \sum_{Z_1} \dots \sum_{Z_{k - 1}} \sum_{Z_{k + 1}} \dots \prod_{\phi \in \Phi}\phi \cdot \tau.
+$$</p>
+</div>
+</div>
+
+<p>If $\phi$ are MN facors $\rightarrow$ normalize.</p>
+<details>
+    <summary>Example: Elimination in Chains</summary>
+    
+        
+
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/relimination-chain-1.png" alt="" style="max-width: 40%;">
+    <div class="image-text-content">
+      $$
+P(E) \propto \sum_D \sum_C \sum_B \sum_A \tilde{P}(A, B, C, D, E).
+$$
+    </div>
+</div>
+
+
+$$
+= \sum_D \sum_C \sum_B \sum_A \phi_1(A, B) \phi_2(B, C) \phi_3(C, D) \phi_4(D, E) \quad(\text{factorization})
+$$
+
+$$
+= \sum_D \sum_C \sum_B \phi_2(B, C) \phi_3(C, D) \phi_4(D, E) \sum_A \phi_1(A, B) \quad (\text{Sum out $A$})
+$$
+
+$$
+= \sum_D \sum_C \sum_B \phi_2(B, C) \phi_3(C, D) \phi_4(D, E) \tau_1(B)
+$$
+
+ 
+    
+</details>
+
+<details>
+    <summary>Example: Student BN</summary>
+    
+        <div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/student-ex.png" alt="" style="max-width: 30%;">
+    <div class="image-text-content">
+      $$
+\begin{align*}
+P(C, D, I, G, S, L, J, H)
+&amp;= P(C) P(D \mid C) P(I) P(G \mid I, D) P(S \mid I) \\
+&amp;\quad \cdot P(L \mid G) P(J \mid L, S) P(H \mid G, J) \\
+&amp;= \phi_C(C) \phi_D(D, C) \phi_I(I) \phi_G(G, I, D) \phi_S(S, I) \\
+&amp;\quad \cdot \phi_L(L, G) \phi_J(J, L, S) \phi_H(H, G, J).
+\end{align*}
+$$
+    </div>
+</div>
+<p><strong>Compute $P(J)$. Elimination ordering: $C, D, I, H, G, S, L$.</strong></p>
+<ol>
+<li>Eliminate: $C, D, I, H, G, S, L$.</li>
+</ol>
+<p>$$
+P(J) = \sum_{C,D,I,G,S,L,H} \phi_C(C) \phi_D(C,D) \phi_I(I) \phi_G(G,I,D) \phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J)
+$$</p>
+<p>$$
+P(J) = \sum_{D,I,G,S,L,H} \phi_I(I) \phi_G(G,I,D) \phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J) \underbrace{\sum_{C} \phi_C(C) \phi_D(C,D)}_{\tau_1 (D)}
+$$</p>
+<ol start="2">
+<li>Eliminate: $D, I, H, G, S, L$.</li>
+</ol>
+<p>$$
+P(J) = \sum_{D,I,G,S,L,H} \phi_I(I) \phi_G(G,I,D) \phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J) \tau_1 (D)
+$$</p>
+<p>$$
+P(J) = \sum_{I,G,S,L,H} \phi_I(I) \phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J) \underbrace{\sum_{D} \phi_G(G,I,D) \tau_1 (D)}_{\tau_2 (G, I)}
+$$</p>
+<ol start="3">
+<li>Eliminate: $I, H, G, S, L$.</li>
+</ol>
+<p>$$
+P(J) = \sum_{I,G,S,L,H} \phi_I(I) \phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J) \tau_2 (G, I)
+$$</p>
+<p>$$
+P(J) = \sum_{G,S,L,H} \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J) \underbrace{\sum_{I} \phi_I(I) \phi_S(S,I) \tau_2 (G, I)}_{\tau_3 (G, S)}
+$$</p>
+<p>$\dots$</p>
+<ol start="7">
+<li>Eliminate: $L$.</li>
+</ol>
+<p>$$
+P(J) = \sum_{L}\tau_6 (J, L)
+$$</p>
+<p>$$
+P(J) = \tau_7 (J)
+$$</p>
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/student-ex-run.png" alt="" style="max-width: 60%;">
+    <div class="image-text-content">
+      Different Elimination Ordering
+    </div>
+</div>
+<p><strong>Compute $P(J , I = i^1, H = h^0 )$. Elimination ordering: $C, D, G, S, L$.</strong></p>
+<p>Reduced factors, eliminate as before.</p>
+<p>$$
+\sum_{L, S, G,, D, C} \phi_J(J, L, S) \phi_L(L, G) \phi_S^{\prime}(S) \phi_G^{\prime}(G, D) \phi_H^{\prime}(G, J) \underbrace{\phi_I()}_{\phi_I(i^1): \text{ constant}} \phi_D(C, D) \phi_C(C)
+$$</p>
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/student-ex-run-evidence.png" alt="" style="max-width: 60%;">
+    <div class="image-text-content">
+      VE with Evidence
+    </div>
+</div>
+ 
+    
+</details>
+
+<h3 id="semantics-of-intermediate-factors">Semantics of Intermediate Factors</h3>
+<p>Factors are not always correspond to marginal or conditional probabilities in the network.</p>
+<h2 id="complexity-of-ve">Complexity of VE</h2>
+<p>$$
+\psi_k(X_k) = \prod_{i = 1}^{m_k}\phi_i \quad \text{(factor product)}
+$$</p>
+<ul>
+<li>$m_k$: factors that involve $Z$.</li>
+</ul>
+<p>$$
+\tau_k(X_k - \{Z\}) = \sum_{Z} \psi_k(X_k) \quad \text{(marginalization)}
+$$</p>
+<details>
+    <summary>Factor Product Complexity</summary>
+    
+        
+
+<div class="image-text-block left">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/factor-product.png" alt="" style="max-width: 50%;">
+    <div class="image-text-content">
+      <ul>
+<li>$ m_k $: number of involved factors.</li>
+</ul>
+<p>$$
+\psi_k(X_k) = \prod_{i = 1}^{m_k}\phi_i
+$$</p>
+<ul>
+<li>
+<p>Number of rows in the resulting table: $N_k = |\text{Val}(X_k)| \rightarrow$ $3 \times 2 \times 2 = 12$</p>
+</li>
+<li>
+<p>Each row: $m_k - 1$ products $\rightarrow$ 2 in this case.</p>
+</li>
+</ul>
+<p>$$
+\text{Cost: }\boxed{(m_k - 1)N_k}\text{ multiplications}
+$$</p>
+
+    </div>
+</div>
+
+
+ 
+    
+</details>
+
+<details>
+    <summary>Factor Marginalization Complexity</summary>
+    
+        
+
+<div class="image-text-block right">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/factor-marginalization.png" alt="" style="max-width: 40%;">
+    <div class="image-text-content">
+      <p>$$
+\tau_k(X_k - \{Z\}) = \sum_{Z} \psi_k(X_k)
+$$</p>
+<ul>
+<li>Each row used exactly once</li>
+</ul>
+<p>$$\boxed{N_k = |\text{Val}(X_k)|} \text{ additions}$$</p>
+
+    </div>
+</div>
+
+
+ 
+    
+</details>
+
+<h3 id="complexity">Complexity</h3>
+<ul>
+<li>Assume
+<ul>
+<li>$m$ factors and $n$ rv.</li>
+<li>$m = n$ for Bayesian networks (one factor/CPD for every var).</li>
+<li>can be larger for Markov networks.</li>
+<li>run the algorithm until all variables are eliminated.</li>
+</ul>
+</li>
+<li>At each elimination step generate exactly one factor $\tau_k$.</li>
+<li>At most $n$ elimination steps.
+<ul>
+<li>each step eliminates one variable.</li>
+</ul>
+</li>
+<li>Total number of factors that entered $ \Phi $:</li>
+</ul>
+<p>$$
+m^* \leq m + n
+$$</p>
+<br/>
+<ul>
+<li>Product operations:
+$$
+\sum_k (m_k - 1) N_k \leq \sum_k (m_k - 1) N \leq (m + n)N = \mathcal{O}(mN)
+$$
+<ul>
+<li>$ N = \text{max}(N_k) = $size of the largest factor.</li>
+<li>sum of different elimination steps.</li>
+<li>each factor multiply at most once.</li>
+</ul>
+</li>
+</ul>
+<br/>
+<ul>
+<li>Sum operations:
+$$
+\sum_k N_k \leq nN
+$$</li>
+</ul>
+<br/>
+<ul>
+<li>Total work is linear in $N$ and $m$:</li>
+</ul>
+<p>$$
+\boxed{ \underbrace{\sum_k (m_k - 1)N_k}_{\text{products}} + \sum_k N_k \leq (m + n)N = \mathcal{O}((m + n)N) = \mathcal{O}(mN) }
+$$</p>
+<ul>
+<li>$N_k = |\text{Val}(X_k)| = \mathcal{O}(d^{r_k})$: Number of values in a factor.
+<ul>
+<li>$d = max(|\text{Val}(X_i)|)$: each variable has no more than $d$ values.</li>
+<li>$r_k = |X_k|$: $\psi_k$ has a scope that contains $r_k$ variables.</li>
+</ul>
+</li>
+</ul>
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content">Elimination Order affects Complexity.</div>
+</div>
+
+
+<h1 id="complexity-and-graph-structure-ve">Complexity and Graph Structure: VE</h1>
+<h2 id="elimination-as-graph-transformation">Elimination as Graph Transformation</h2>
+<h3 id="moralization">Moralization</h3>
+<div class="define">
+    
+    
+        <span class="define-icon">
+            𐰋𐰍𐰃𐰤
+            
+        </span>
+    
+
+    
+
+    <div class="define-content">Convert from a directed acyclic graph (DAG) to equivalent undirected graph.</div>
+</div>
+
+<div class="image-text-block right">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/moralization.png" alt="" style="max-width: 50%;">
+    <div class="image-text-content">
+      <p>Moralization procedure</p>
+<ul>
+<li>Starting from an input DAG</li>
+<li>Connect nodes if they share a common child</li>
+<li>Make directed edges to undirected edges</li>
+</ul>
+    </div>
+</div>
+
+<h3 id="fill-edge">Fill Edge</h3>
+<p>Eliminating a variable $X$:</p>
+<ol>
+<li>Constructing a factor $\psi$ over $X$ and its neighbors $Y$.</li>
+<li>Then eliminate $X$ to new factor $\tau$ over $Y$.</li>
+</ol>
+<br/>
+<p>To reflect this in graph:</p>
+<ul>
+<li>Add edges (called <strong>fill edges</strong>) between all pairs in $ Y $ if not already present.</li>
+<li>Eliminate $X$ + remove its incident edges.</li>
+</ul>
+<p><strong>Example</strong></p>
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/fill-edge-ex.png" alt="" style="max-width: 40%;">
+    <div class="image-text-content">
+      <p>$$
+\begin{align*}
+&amp;\phi_C(C) \phi_D(C,D) \phi_I(I) \phi_G(G,I,D) \\
+&amp;\phi_S(S,I) \phi_L(L,G) \phi_J(J,L,S) \phi_H(H,G,J)
+\end{align*}
+$$</p>
+<p>$$
+\tau_1(D) = \sum_C \phi_C(C)\phi_D(C, D)
+$$</p>
+<p>$$
+\tau_2(G, I) = \sum_D \phi_G(G, I, D)\tau_1(D)
+$$</p>
+<p>$$
+\tau_3(S, G) = \sum_I \phi_S(S, I)\phi_I(I)\tau_2(G, I)
+$$</p>
+
+    </div>
+</div>
+
+<h2 id="induced-graph">Induced Graph</h2>
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/student-ex-moralized.png" alt="" style="max-width: 30%;">
+    <div class="image-text-content">
+      <p>The induced graph $ \mathcal{I}_{\Phi, \alpha} $ over factors $ \Phi $ and ordering $ \alpha $:</p>
+<ul>
+<li>Undirected graph.</li>
+<li>$ X_i $ and $ X_j $ are connected if they appeared in the same factor during a run of the VE algorithm using $ \alpha $ as the ordering.</li>
+</ul>
+    </div>
+</div>
+
+<h3 id="induced-graph-and-clique-tree-theorem">Induced Graph and Clique Tree Theorem</h3>
+<p>Theorem 9.6</p>
+<div class="define">
+    
+    
+        <span class="define-icon">
+            
+            𐰃𐰠𐰆𐰢
+        </span>
+    
+
+    
+
+    <div class="define-content"><ol>
+<li>
+<p>The scope of every factor produced during VE is a clique in the induced graph.</p>
+</li>
+<li>
+<p>Every (maximal) clique in the induced graph is a factor produced during VE.</p>
+</li>
+</ol>
+</div>
+</div>
+
+<details>
+    <summary>Proof (1)</summary>
+    
+        
+
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter9/induced-graph-theorem.png" alt="" style="max-width: 30%;">
+    <div class="image-text-content">
+      $$
+\begin{align*}
+\tau_1(D) &amp;= \sum_C \phi_C(C)\phi_D(C, D) \\
+\tau_2(G, I) &amp;= \sum_D \phi_G(G, I, D)\tau_1(D) \\
+\tau_3(S, G) &amp;= \sum_I \phi_S(S, I)\phi_I(I)\tau_2(G, I) \\
+\tau_4(G, J) &amp;= \sum_H \phi_H(H, G, J) \\
+\tau_5(I, J, S) &amp;= \sum_G \phi_L(L, G)\tau_3(S, G)\tau_4(G, J) \\
+\tau_6 &amp;= \sum_{I, S} \phi_J(J, I, S)\tau_5(I, J, S)
+\end{align*}
+$$
+    </div>
+</div>
+
+
+ 
+    
+</details>
+
+<h3 id="induced-width">Induced Width</h3>
+<ul>
+<li>$ K $: undirected or directed graph.</li>
+<li>$ \mathcal{I}_{K, \alpha} $: Graph induced by applying VE to $ K $ using order $ \alpha $.</li>
+<li>$ w_{K, \alpha} $: Induced width (width of the induced graph).</li>
+</ul>
+<div class="define">
+    
+    
+        <span class="define-icon">
+            𐰋𐰍𐰃𐰤
+            
+        </span>
+    
+
+    
+
+    <div class="define-content">$ w_{K, \alpha} = $ # nodes in the largest clique - 1.</div>
+</div>
+
+<h3 id="minimal-induced-width-tree-width">Minimal Induced Width (Tree Width)</h3>
+<div class="define">
+    
+    
+        <span class="define-icon">
+            𐰋𐰍𐰃𐰤
+            
+        </span>
+    
+
+    
+
+    <div class="define-content">$$
+w_{K}^{*} = \min_\alpha w( \mathcal{I}_K, \alpha )
+$$</div>
+</div>
+
+</div>
+        
+    </div>
+</div>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(function(heading) {
+            if (heading.id) {
+                
+                let copyButton = document.createElement("button");
+                copyButton.innerHTML = `
+                    <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M9 2h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3v2h3a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4H9v2z"></path>
+                        <path d="M14 6H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zM3 4h11a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"></path>
+                    </svg>
+                `;
+                copyButton.classList.add("copy-button");
+    
+                copyButton.onclick = function() {
+                    navigator.clipboard.writeText(window.location.href.split("#")[0] + "#" + heading.id);
+                    copyButton.innerHTML = `
+                        <svg class="copy-icon success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M20.285 6.715l-9 9a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L10 13.586l8.293-8.293a1 1 0 0 1 1.414 1.422z"></path>
+                        </svg>
+                    `; 
+                    setTimeout(() => copyButton.innerHTML = `
+                        <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M9 2h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3v2h3a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4H9v2z"></path>
+                            <path d="M14 6H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zM3 4h11a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"></path>
+                        </svg>
+                    `, 400);
+                };
+    
+                
+                heading.appendChild(copyButton);
+            }
+        });
+    });
+</script>
+
+        <div class="footer">
+  <div class="footerLinks">
+    <a href="/">Tomodachii</a>
+    <a href="/categories">categories</a>
+    <a href="/sitemap.xml">sitemap</a>
+  </div>
+  <div class="social">
+    <a href="https://github.com/tomodachii">
+        github
+    </a>
+    
+  </div>
+</div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+    </script>
+
+    <script src="/js/app.js"></script>
+</body>
+</html>
