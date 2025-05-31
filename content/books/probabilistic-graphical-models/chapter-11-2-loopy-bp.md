@@ -14,6 +14,200 @@ weight = 13
 postColor = "#5D8B0D"
 +++
 
+## Optimizing the Energy Functional
+$$
+\begin{align*}
+F[\tilde{P}_\Phi, Q] &= E_Q[\ln \tilde{P}(\mathcal{X})] + H_Q(\mathcal{X})
+\end{align*}
+$$
+
+$$
+= \sum_{\phi \in \Phi} E_Q [\ln \phi] + H_Q(\mathcal{X})
+$$
+
+Instead of optimizing this intractable energy functional $ \Rightarrow $ approximate a *factored energy functional* and optimize it.
+
+### Factored energy functional
+{{< define icon="definition" >}}
+$$
+\tilde{F}[\tilde{P}_{\Phi}, Q]
+$$
+
+$$
+= \boxed{ \sum_{i \in V_{\mathcal{T}}} E_{C_i \sim \beta_i}[\ln \psi_i] + 
+\sum_{i \in V_{\mathcal{T}}} H_{\beta_i}(C_i) - 
+\sum_{(i-j) \in E_{\mathcal{T}}} H_{\mu_{i,j}}(S_{i,j}) }
+$$
+{{< /define >}}
+
+* $ \alpha $: maps $ \phi \in \Phi \mapsto $ cluster $ C_i \in \mathcal{T} $.
+* $ E_{C_i \sim \beta_i}[\ln \psi_i] $: Expectation on the value $ C_i $ given the beliefs $ \beta_i $.
+* $ \psi_i: Val(C_i) \mapsto \mathbb{R} $: initial potential of $ C_i $
+$$
+\psi_i = \prod_{\phi, \alpha (\phi) = i} \phi
+$$
+
+{{< callout type="warning" >}}
+In this reformulation, all the terms are local (refer to a specific belief factor).
+{{< /callout >}}
+
+{{< toggle title="Proof" >}}
+* $ \ln \psi_i = \sum_{\phi, \alpha (\phi) = i} \ln \phi $.
+* $ \beta_i(c_i) = Q(c_i) $.
+
+Thus, 
+$$
+\sum_{\phi \in \Phi} E_Q [\ln \phi] = \sum_{i \in V_{\mathcal{T}}} E_{C_i \sim \beta_i}[\ln \psi_i]
+$$
+
+Recall
+$$
+H_Q (\mathcal{X}) = E_Q \left[ \ln \frac{1} {Q(\mathcal{X})} \right]
+$$
+
+$$
+Q(\mathcal{X}) = \frac{\prod_{i \in V_{\mathcal{T}}} \beta_i}{\prod_{(i - j) \in E_{\mathcal{T}}} \mu_{i, j}}
+$$
+
+Take the logarithm
+
+$$
+\ln Q(\mathcal{X}) = \sum_{i \in V_T} \ln \beta_i(c_i) - \sum_{(i-j) \in E_T} \ln \mu_{i,j}(s_{i,j})
+$$
+
+Compute entropy
+$$
+H_Q(\mathcal{X}) = - E_Q \left[ \sum_{i \in V_T} \ln \beta_i(c_i) - \sum_{(i-j) \in E_T} \ln \mu_{i,j}(s_{i,j}) \right]
+$$
+
+Thus,
+$$
+H_Q (\mathcal{X}) = \sum_{i \in V_{\mathcal{T}}} H_{\beta_i}(C_i) - 
+\sum_{(i-j) \in E_{\mathcal{T}}} H_{\mu_{i,j}}(S_{i,j})
+$$
+{{< /toggle >}}
+
+### CTree-Optimize
+In calibrated clique tree, we get **marginal consistency** for free, however in a loopy graph, running message passing does not necessarily give calibrated beliefs.
+* Trick: even though consistency doesn't happen naturall $ \rightarrow $ force it by adding it as a **constraint** in the optimization problem.
+
+{{< define >}}
+**Find** $ Q = \\{ \beta_i : i \in V_{\mathcal{T}} \\} \cup \\{ \mu_{i,j} : (i-j) \in E_{\mathcal{T}} \\} $
+
+**Maximizing** $ \tilde{F}[\tilde{P}_{\Phi}, Q] $
+
+**subject to**
+$$
+\mu_{i, j} [s_{i, j}] = \sum_{C_i - S_{i, j}} \beta_i(c_i) \quad \forall (i - j) \in E_T, \forall s_{i, j} \in Val(S_{i, j}) \quad \text{(Marginal consistency)}
+$$
+
+$$
+\sum_{c_i} \beta_i (c_i) = 1 \quad \forall i \in V_T \quad \text{(Normalization)}
+$$
+
+$$
+\beta_i (c_i) \geq 0 \quad \forall i \in V_T, c_i \in Val(C_i) \quad \text{(Non-negativity)}
+$$
+{{< /define >}}
+
+## Fixed point Characterization
+* Stationary point: either a local maximum, a local minimum or a saddle point.
+* CTree-Optimize has a single global maximum (theorem 11.1).
+    + Can show that it is also the only stationary point $ \rightarrow $ once we find a stationary point, we know that its the maximum.
+
+<br/>
+
+Goal: **Maximizing** $ \tilde{F}[\tilde{P}_{\Phi}, Q] $ under consistency constraints.
+
+Abt the Non-negativity constraint: Do not need to enforce this explicitly because the assumption that factors are strictly positive implies the beliefs will be nonnegative.
+
+$ \Rightarrow $ Lagrange multiplier
+
+$$
+J = \tilde{F}[\tilde{P}_{\Phi}, Q]
+$$
+
+$$
+-\sum_i \lambda_i \left( \sum_{c_i} \beta_i (c_i) - 1 \right)
+$$
+
+$$
+-\sum_i \sum_{j \in Nb_i} \sum_{s_{i, j}} \lambda_{i \to j} [s_{i, j}] \left( \sum_{c_i \sim s_{i, j}} \beta_i (c_i) - \mu_{i, j} [s_{i, j}] \right).
+$$
+
+Taking derivatives of $ J $ w.r.t
+* $ \beta_i (c_i) $
+* $ \mu_{i, j}[s_{i, j}] $
+
+$$
+\frac{\partial J}{\partial \beta_i (c_i)} = \ln \psi_i [c_i] - \ln \beta_i (c_i) - 1 - \sum_{j \in Nb_i} \lambda_{i \to j} [s_{i, j}]
+$$
+
+$$
+\frac{\partial J}{\partial \mu_{i, j} [s_{i, j}]} = \ln \mu_{i, j} [s_{i, j}] + 1 + \lambda_{i \to j} [s_{i, j}] + \lambda_{j \to i} [s_{i, j}]
+$$
+
+{{< toggle title="explain" >}}
+
+$$
+\tilde{F}[\tilde{P}_{\Phi}, Q]
+$$
+
+$$
+= \sum_{i \in V_{\mathcal{T}}} E_{C_i \sim \beta_i}[\ln \psi_i] + 
+\sum_{i \in V_{\mathcal{T}}} H_{\beta_i}(C_i) - 
+\sum_{(i-j) \in E_{\mathcal{T}}} H_{\mu_{i,j}}(S_{i,j})
+$$
+
+Recall: $ X \sim P \rightarrow E_{X \sim P} [g(X)] = \sum_x P(x) \cdot g(x) $
+
+* $ E_{C_i \sim \beta_i} [\ln \psi_i] = \sum_{c_i} \beta_i (c_i) \ln \psi_i (c_i) $
+* $ H_{\beta_i} (C_i) = -\sum_{c_i} \beta_i (c_i) \ln \beta_i(c_i) $
+* $ H_{\mu_{i, j}} (S_{i, j}) = -\sum_{s_{i, j}} \mu_{i, j} (s_{i, j}) \ln \mu_{i, j} (s_{i, j}) $
+
+the factored energy function becomes
+$$
+\tilde{F} = \sum_{i \in V_T} \sum_{c_i} \beta_i (c_i) \ln \psi_i (c_i) - \sum_{i \in V_T} \sum_{c_i} \beta_i (c_i) \ln \beta_i(c_i) + \sum_{(i, j) \in E_T} \sum_{s_{i, j}} \mu_{i, j} (s_{i, j}) \ln \mu_{i, j} (s_{i, j})
+$$
+
+{{< /toggle >}}
+
+
+$$
+\begin{align*}
+\delta_{i \rightarrow j}[s_{i,j}]
+&= \frac{\mu_{i,j}[s_{i,j}]}{\delta_{j \rightarrow i}[s_{i,j}]} \\\
+&= \frac{\sum_{c_i \sim s_{i,j}} \beta_i(c_i)}{\delta_{j \rightarrow i}[s_{i,j}]} \\\
+&= \exp \left\\{ -\lambda_i - 1 + \frac{1}{2} |Nb_i| \right\\}
+\sum_{c_i \sim s_{i,j}} \psi_i(c_i)
+\prod_{k \in Nb_i - \{j\}} \delta_{k \rightarrow i}[s_{i,k}].
+\end{align*}
+$$
+
+### Theorem 11.3
+A set of beliefs $ Q $ is a stationary point of CTree-Optimize iff there exists a set of factors $ \\{ \delta_{i \to j}[S_{i, j}] : (i - j) \in E_T \\} $ st
+
+$$
+\boxed {\delta_{i \to j} \propto \sum_{C_i - S_{i, j}} \psi_i \left( \prod_{k \in Nb_i - \\{ j \\} } \delta_{k \to i} \right)} \tag{{11.10}}
+$$
+
+and moreover,
+$$
+\boxed{ \beta_i \propto \psi_i \left( \prod_{j \in Nb_i} \delta_{j \to i} \right) }
+$$
+
+$$
+\boxed{ \mu_{i, j} = \delta_{j \to i} \cdot \delta_{i \to j} }
+$$
+
+{{< callout type="danger" >}}
+This theorem characterizes the solution of the optimization problem
+* in terms of these fixed points equattions
+* they are update rules that, when repeated, converge (hopefully) to a stationary point $ \rightarrow $ where the optimization does not improve anymore.
+    + In tree structure graph, these are exact BP equations.
+    + In loopy graph, applying these rules give Loopy BP.
+{{< /callout >}}
+
 # Propagation-Based Approximation
 
 ### RIP

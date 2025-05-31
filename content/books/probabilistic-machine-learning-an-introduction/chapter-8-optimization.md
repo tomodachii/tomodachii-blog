@@ -15,3 +15,14 @@ postColor = "#FF5103"
 +++
 
 # Introduction
+**Find** $ \theta \in \Theta $
+
+**Minimizing** loss function $ L: \Theta \to R $
+
+$$
+\theta^\* \in \argmin_{\theta \in \Theta} L(\theta)
+$$
+
+* parameter space: $ \Theta \subseteq R^D $
+* $ D $: \# of variables being optimized over.
+
