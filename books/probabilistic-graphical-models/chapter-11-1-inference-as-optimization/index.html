@@ -287,10 +287,7 @@ $$</p>
 <li>Output: a value</li>
 <li>Full and partial derivatives $ \frac{df}{dx} $</li>
 <li>E.g. Maximize likelihood $ p(x \mid \theta) $ w.r.t. parameters $ \theta $</li>
-</ul> 
-    
-</details>
-
+</ul>
 <p><strong>Functional</strong></p>
 <ul>
 <li>Input: functions</li>
@@ -298,6 +295,10 @@ $$</p>
 <li>Functional derivatives $ \frac{\delta F}{\delta f} $</li>
 <li>E.g., Maximize the entropy $ H[p(x)] $ w.r.t. p(x)</li>
 </ul>
+ 
+    
+</details>
+
 <h3 id="theorem-112">Theorem 11.2</h3>
 <p>$$
 \boxed{ \mathbb{D} (Q || P_\Phi) = \ln Z - F[\tilde{P}_\Phi, Q] }
@@ -371,8 +372,7 @@ $$</p>
 </div>
 
 
-<h2 id="optimizing-the-energy-functional">Optimizing the Energy Functional</h2>
-<p>Since $ \mathbb{D} (Q || P_\Phi) $,</p>
+<p>Since $ \mathbb{D} (Q || P_\Phi) \geq 0 $,</p>
 <p>$$
 \ln Z \geq F[\tilde{P}_\Phi, Q]
 $$</p>
@@ -381,209 +381,6 @@ $$</p>
 <li>Recall: in directed models, $ Z = P(E) \rightarrow $ the hardest part of inference,</li>
 <li>if $ \mathbb{D} (Q || P_\Phi) $ is small $ \rightarrow $ get a good lower-bound approximation to $ Z $.</li>
 </ul>
-<h3 id="factored-energy-functional">Factored energy functional</h3>
-<div class="define">
-    
-    
-        <span class="define-icon">
-            𐰋𐰍𐰃𐰤
-            
-        </span>
-    
-
-    
-
-    <div class="define-content"><p>$$
-\tilde{F}[\tilde{P}_{\Phi}, Q]
-$$</p>
-<p>$$
-= \boxed{ \sum_{i \in V_{\mathcal{T}}} E_{C_i \sim \beta_i}[\ln \psi_i] +
-\sum_{i \in V_{\mathcal{T}}} H_{\beta_i}(C_i) -
-\sum_{(i-j) \in E_{\mathcal{T}}} H_{\mu_{i,j}}(S_{i,j}) }
-$$</p>
-</div>
-</div>
-
-<ul>
-<li>$ \alpha $: maps $ \phi \in \Phi \mapsto $ cluster $ C_i \in \mathcal{T} $.</li>
-<li>$ E_{C_i \sim \beta_i}[\ln \psi_i] $: Expectation on the value $ C_i $ given the beliefs $ \beta_i $.</li>
-<li>$ \psi_i: Val(C_i) \mapsto \mathbb{R} $: initial potential of $ C_i $
-$$
-\psi_i = \prod_{\phi, \alpha (\phi) = i} \phi
-$$</li>
-</ul>
-<div class="callout callout-warning">
-    <span class="callout-icon">
-        
-        ⚠️
-        
-        
-    </span>
-    <div class="callout-content">In this reformulation, all the terms are local (refer to a specific belief factor).</div>
-</div>
-
-
-<details>
-    <summary>Proof</summary>
-    
-        <ul>
-<li>$ \ln \psi_i = \sum_{\phi, \alpha (\phi) = i} \ln \phi $.</li>
-<li>$ \beta_i(c_i) = Q(c_i) $.</li>
-</ul>
-<p>Thus,
-$$
-\sum_{\phi \in \Phi} E_Q [\ln \phi] = \sum_{i \in V_{\mathcal{T}}} E_{C_i \sim \beta_i}[\ln \psi_i]
-$$</p>
-<p>Recall
-$$
-H_Q (\mathcal{X}) = E_Q \left[ \ln \frac{1} {Q(\mathcal{X})} \right]
-$$</p>
-<p>$$
-Q(\mathcal{X}) = \frac{\prod_{i \in V_{\mathcal{T}}} \beta_i}{\prod_{(i - j) \in E_{\mathcal{T}}} \mu_{i, j}}
-$$</p>
-<p>Take the logarithm</p>
-<p>$$
-\ln Q(\mathcal{X}) = \sum_{i \in V_T} \ln \beta_i(c_i) - \sum_{(i-j) \in E_T} \ln \mu_{i,j}(s_{i,j})
-$$</p>
-<p>Compute entropy
-$$
-H_Q(\mathcal{X}) = - E_Q \left[ \sum_{i \in V_T} \ln \beta_i(c_i) - \sum_{(i-j) \in E_T} \ln \mu_{i,j}(s_{i,j}) \right]
-$$</p>
-<p>Thus,
-$$
-H_Q (\mathcal{X}) = \sum_{i \in V_{\mathcal{T}}} H_{\beta_i}(C_i) -
-\sum_{(i-j) \in E_{\mathcal{T}}} H_{\mu_{i,j}}(S_{i,j})
-$$</p>
- 
-    
-</details>
-
-<h3 id="ctree-optimize">CTree-Optimize</h3>
-<p>In calibrated clique tree, we get <strong>marginal consistency</strong> for free, however in a loopy graph, running message passing does not necessarily give calibrated beliefs.</p>
-<ul>
-<li>Trick: even though consistency doesn&rsquo;t happen naturall $ \rightarrow $ force it by adding it as a <strong>constraint</strong> in the optimization problem.</li>
-</ul>
-<div class="define">
-    
-    
-
-    
-
-    <div class="define-content"><p><strong>Find</strong> $ Q = \{ \beta_i : i \in V_{\mathcal{T}} \} \cup \{ \mu_{i,j} : (i-j) \in E_{\mathcal{T}} \} $</p>
-<p><strong>Maximizing</strong> $ \tilde{F}[\tilde{P}_{\Phi}, Q] $</p>
-<p><strong>subject to</strong>
-$$
-\mu_{i, j} [s_{i, j}] = \sum_{C_i - S_{i, j}} \beta_i(c_i) \quad \forall (i - j) \in E_T, \forall s_{i, j} \in Val(S_{i, j}) \quad \text{(Marginal consistency)}
-$$</p>
-<p>$$
-\sum_{c_i} \beta_i (c_i) = 1 \quad \forall i \in V_T \quad \text{(Normalization)}
-$$</p>
-<p>$$
-\beta_i (c_i) \geq 0 \quad \forall i \in V_T, c_i \in Val(C_i) \quad \text{(Non-negativity)}
-$$</p>
-</div>
-</div>
-
-<h2 id="fixed-point-characterization">Fixed point Characterization</h2>
-<ul>
-<li>Stationary point: either a local maximum, a local minimum or a saddle point.</li>
-<li>CTree-Optimize has a single global maximum (theorem 11.1).
-<ul>
-<li>Can show that it is also the only stationary point $ \rightarrow $ once we find a stationary point, we know that its the maximum.</li>
-</ul>
-</li>
-</ul>
-<br/>
-<p>Goal: <strong>Maximizing</strong> $ \tilde{F}[\tilde{P}_{\Phi}, Q] $ under consistency constraints.</p>
-<p>Abt the Non-negativity constraint: Do not need to enforce this explicitly because the assumption that factors are strictly positive implies the beliefs will be nonnegative.</p>
-<p>$ \Rightarrow $ Lagrange multiplier</p>
-<p>$$
-J = \tilde{F}[\tilde{P}_{\Phi}, Q]
-$$</p>
-<p>$$
--\sum_i \lambda_i \left( \sum_{c_i} \beta_i (c_i) - 1 \right)
-$$</p>
-<p>$$
--\sum_i \sum_{j \in Nb_i} \sum_{s_{i, j}} \lambda_{i \to j} [s_{i, j}] \left( \sum_{c_i \sim s_{i, j}} \beta_i (c_i) - \mu_{i, j} [s_{i, j}] \right).
-$$</p>
-<p>Taking derivatives of $ J $ w.r.t</p>
-<ul>
-<li>$ \beta_i (c_i) $</li>
-<li>$ \mu_{i, j}[s_{i, j}] $</li>
-</ul>
-<p>$$
-\frac{\partial J}{\partial \beta_i (c_i)} = \ln \psi_i [c_i] - \ln \beta_i (c_i) - 1 - \sum_{j \in Nb_i} \lambda_{i \to j} [s_{i, j}]
-$$</p>
-<p>$$
-\frac{\partial J}{\partial \mu_{i, j} [s_{i, j}]} = \ln \mu_{i, j} [s_{i, j}] + 1 + \lambda_{i \to j} [s_{i, j}] + \lambda_{j \to i} [s_{i, j}]
-$$</p>
-<details>
-    <summary>explain</summary>
-    
-        <p>$$
-\tilde{F}[\tilde{P}_{\Phi}, Q]
-$$</p>
-<p>$$
-= \sum_{i \in V_{\mathcal{T}}} E_{C_i \sim \beta_i}[\ln \psi_i] +
-\sum_{i \in V_{\mathcal{T}}} H_{\beta_i}(C_i) -
-\sum_{(i-j) \in E_{\mathcal{T}}} H_{\mu_{i,j}}(S_{i,j})
-$$</p>
-<p>Recall: $ X \sim P \rightarrow E_{X \sim P} [g(X)] = \sum_x P(x) \cdot g(x) $</p>
-<ul>
-<li>$ E_{C_i \sim \beta_i} [\ln \psi_i] = \sum_{c_i} \beta_i (c_i) \ln \psi_i (c_i) $</li>
-<li>$ H_{\beta_i} (C_i) = -\sum_{c_i} \beta_i (c_i) \ln \beta_i(c_i) $</li>
-<li>$ H_{\mu_{i, j}} (S_{i, j}) = -\sum_{s_{i, j}} \mu_{i, j} (s_{i, j}) \ln \mu_{i, j} (s_{i, j}) $</li>
-</ul>
-<p>the factored energy function becomes
-$$
-\tilde{F} = \sum_{i \in V_T} \sum_{c_i} \beta_i (c_i) \ln \psi_i (c_i) - \sum_{i \in V_T} \sum_{c_i} \beta_i (c_i) \ln \beta_i(c_i) + \sum_{(i, j) \in E_T} \sum_{s_{i, j}} \mu_{i, j} (s_{i, j}) \ln \mu_{i, j} (s_{i, j})
-$$</p>
- 
-    
-</details>
-
-<p>$$
-\begin{align*}
-\delta_{i \rightarrow j}[s_{i,j}]
-&amp;= \frac{\mu_{i,j}[s_{i,j}]}{\delta_{j \rightarrow i}[s_{i,j}]} \\
-&amp;= \frac{\sum_{c_i \sim s_{i,j}} \beta_i(c_i)}{\delta_{j \rightarrow i}[s_{i,j}]} \\
-&amp;= \exp \left\{ -\lambda_i - 1 + \frac{1}{2} |Nb_i| \right\}
-\sum_{c_i \sim s_{i,j}} \psi_i(c_i)
-\prod_{k \in Nb_i - {j}} \delta_{k \rightarrow i}[s_{i,k}].
-\end{align*}
-$$</p>
-<h3 id="theorem-113">Theorem 11.3</h3>
-<p>A set of beliefs $ Q $ is a stationary point of CTree-Optimize iff there exists a set of factors $ \{ \delta_{i \to j}[S_{i, j}] : (i - j) \in E_T \} $ st</p>
-<p>$$
-\boxed {\delta_{i \to j} \propto \sum_{C_i - S_{i, j}} \psi_i \left( \prod_{k \in Nb_i - \{ j \} } \delta_{k \to i} \right)} \tag{{11.10}}
-$$</p>
-<p>and moreover,
-$$
-\boxed{ \beta_i \propto \psi_i \left( \prod_{j \in Nb_i} \delta_{j \to i} \right) }
-$$</p>
-<p>$$
-\boxed{ \mu_{i, j} = \delta_{j \to i} \cdot \delta_{i \to j} }
-$$</p>
-<div class="callout callout-danger">
-    <span class="callout-icon">
-        
-        
-        
-        ❗
-    </span>
-    <div class="callout-content"><p>This theorem characterizes the solution of the optimization problem</p>
-<ul>
-<li>in terms of these fixed points equattions</li>
-<li>they are update rules that, when repeated, converge (hopefully) to a stationary point $ \rightarrow $ where the optimization does not improve anymore.
-<ul>
-<li>In tree structure graph, these are exact BP equations.</li>
-<li>In loopy graph, applying these rules give Loopy BP.</li>
-</ul>
-</li>
-</ul></div>
-</div>
-
-
 </div>
         
     </div>
