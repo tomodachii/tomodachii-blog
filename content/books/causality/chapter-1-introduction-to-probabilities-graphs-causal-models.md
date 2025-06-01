@@ -15,6 +15,8 @@ postColor = "#FF5103"
 +++
 
 # Probability Theory
+## Basic Concepts
+
 ### Axioms
 1. $ 0 \leq P(A) \leq 1 $,
 2. $ P (S) = 1 $
@@ -88,6 +90,60 @@ Goal: Know whether he was rolling a pair of dice or spinning a roulette wheel.
 * $ P(\text{twelve} \mid \text{roulette}) : 1/38 $
 * $ P(\text{dice}) \text{ and } P(\text{roulette}) $: estimating the number of roulette wheels and dice tables at the casino.
 * $ P(e) = P(\text{twelve}) = P(\text{twelve} \mid \text{dice}) P(\text{dice}) + P(\text{twelve} \mid \text{roulette}) P(\text{roulette}) $.
+{{< /toggle >}}
+
+## Combining Predictive and Diagnostic Supports
+
+## Conditional Independence and Graphoids
+
+### Conditional Independence
+* $ V = \\{ V_1, V_2, \dots \\} $: finite set of variables
+* $ P $: joint probability over $ V $
+* $ X, Y, Z $: subsets of variables in $ V $
+
+$$ 
+(X \perp Y \mid Z) \\, \text{ iff } \\, P(x \mid y, z) = P(x \mid z) \\, \text{ whenever } \\, P(y, z) > 0 
+$$
+
+Learning the value of $ Y $ does not provide additional information about $ X $, once we know $ Z $.
+
+### Marginal Independence
+$$ 
+(X \perp Y \mid \empty) \\, \text{ iff } \\, P(x \mid y) = P(x) \\, \text{ whenever } \\, P(y) > 0 
+$$
+
+{{< callout type="warning" >}}
+* $ (X \perp Y \mid Z ) $ implies the independence of all pairs of variables $ V_i \in X $ and $ V_j \in Y $ 
+* but pairwise independence does not imply independence.
+{{< /callout >}}
+
+{{< toggle title="example" >}}
+Consider 2 independence fair coin tosses
+
+$$
+H_1 = \\{ \text{ 1st toss is H } \\} = \\{ (H, H), (H, T) \\}
+$$
+
+$$
+H_2 = \\{ \text{ 2nd toss is H } \\} = \\{ (H, H), (T, H) \\}
+$$
+
+$$
+D = \\{ \text{ 2 tosses have different result } \\} = \\{ (H, T), (T, H) \\}
+$$
+
+* $ H_1 \perp H_2 $ by definition
+* $ H_1 \perp D $ are independent because
+$$
+P(D \mid H_1) = \frac{P(D, H_1)}{H_1} = \frac{1/4}{1/2} = \frac{1}{2} = P(D)
+$$
+* Similarly, $ H_2 \perp D $
+
+On the other hand,
+$$
+P(D, H_1, H_2) = 0 \not= \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = P(H_1) P(D) P(H_2)
+$$
+
 {{< /toggle >}}
 
 # Causal Bayesian Networks
