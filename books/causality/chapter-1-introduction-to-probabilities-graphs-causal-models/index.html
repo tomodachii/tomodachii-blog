@@ -119,6 +119,7 @@
     </div>
     <div class="singleBottom">
         <div class="singleContent"><h1 id="probability-theory">Probability Theory</h1>
+<h2 id="basic-concepts">Basic Concepts</h2>
 <h3 id="axioms">Axioms</h3>
 <ol>
 <li>$ 0 \leq P(A) \leq 1 $,</li>
@@ -187,6 +188,66 @@ $$</p>
 <li>$ P(\text{dice}) \text{ and } P(\text{roulette}) $: estimating the number of roulette wheels and dice tables at the casino.</li>
 <li>$ P(e) = P(\text{twelve}) = P(\text{twelve} \mid \text{dice}) P(\text{dice}) + P(\text{twelve} \mid \text{roulette}) P(\text{roulette}) $.</li>
 </ul>
+ 
+    
+</details>
+
+<h2 id="combining-predictive-and-diagnostic-supports">Combining Predictive and Diagnostic Supports</h2>
+<h2 id="conditional-independence-and-graphoids">Conditional Independence and Graphoids</h2>
+<h3 id="conditional-independence">Conditional Independence</h3>
+<ul>
+<li>$ V = \{ V_1, V_2, \dots \} $: finite set of variables</li>
+<li>$ P $: joint probability over $ V $</li>
+<li>$ X, Y, Z $: subsets of variables in $ V $</li>
+</ul>
+<p>$$
+(X \perp Y \mid Z) \, \text{ iff } \, P(x \mid y, z) = P(x \mid z) \, \text{ whenever } \, P(y, z) &gt; 0
+$$</p>
+<p>Learning the value of $ Y $ does not provide additional information about $ X $, once we know $ Z $.</p>
+<h3 id="marginal-independence">Marginal Independence</h3>
+<p>$$
+(X \perp Y \mid \empty) \, \text{ iff } \, P(x \mid y) = P(x) \, \text{ whenever } \, P(y) &gt; 0
+$$</p>
+<div class="callout callout-warning">
+    <span class="callout-icon">
+        
+        ⚠️
+        
+        
+    </span>
+    <div class="callout-content"><ul>
+<li>$ (X \perp Y \mid Z ) $ implies the independence of all pairs of variables $ V_i \in X $ and $ V_j \in Y $</li>
+<li>but pairwise independence does not imply independence.</li>
+</ul>
+</div>
+</div>
+
+
+<details>
+    <summary>example</summary>
+    
+        <p>Consider 2 independence fair coin tosses</p>
+<p>$$
+H_1 = \{ \text{ 1st toss is H } \} = \{ (H, H), (H, T) \}
+$$</p>
+<p>$$
+H_2 = \{ \text{ 2nd toss is H } \} = \{ (H, H), (T, H) \}
+$$</p>
+<p>$$
+D = \{ \text{ 2 tosses have different result } \} = \{ (H, T), (T, H) \}
+$$</p>
+<ul>
+<li>$ H_1 \perp H_2 $ by definition</li>
+<li>$ H_1 \perp D $ are independent because
+$$
+P(D \mid H_1) = \frac{P(D, H_1)}{H_1} = \frac{1/4}{1/2} = \frac{1}{2} = P(D)
+$$</li>
+<li>Similarly, $ H_2 \perp D $</li>
+</ul>
+<p>On the other hand,
+$$
+P(D, H_1, H_2) = 0 \not= \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = P(H_1) P(D) P(H_2)
+$$</p>
  
     
 </details>
@@ -282,9 +343,6 @@ $$</p>
     <a href="/sitemap.xml">sitemap</a>
   </div>
   <div class="social">
-    <a href="https://github.com/tomodachii">
-        github
-    </a>
     
   </div>
 </div>
