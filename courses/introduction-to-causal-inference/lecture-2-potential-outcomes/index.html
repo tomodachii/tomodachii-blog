@@ -153,10 +153,37 @@ $$</p>
 <ul>
 <li>cannot observe both $ Y_i(1) $ and $ Y_i(0) \rightarrow $ cannot observe the causal effect $ Y_i(1) - Y_i(0) $.</li>
 </ul>
+<h1 id="getting-around-the-fundamental-problem">Getting Around the Fundamental Problem</h1>
+<p>Can&rsquo;t access ITE, but what abt <em>average</em> treatment effect?</p>
 <h3 id="average-treatment-effect-ate">Average Treatment Effect (ATE)</h3>
 <p>$$
 \boxed{ \tau \triangleq E[Y_i(1) - Y_i(0)] = E[Y(1) - Y(0)] } \tag{2.2}
 $$</p>
+<p>How would we actually calculate the ATE? <em>associational difference</em> $ E[Y \mid T = 1] - E[Y \mid T = 0] $ ?</p>
+<p>$$
+\begin{align*}
+E[Y(1) - Y(0)] &amp;= E[Y(1)] - E[Y(0)] \quad \text{(linearity)} \\
+&amp;=? E[Y \mid Y = 1] - E[Y \mid Y = 0]
+\end{align*}
+$$</p>
+<p>Unfortunately, this is not true in general</p>
+<ul>
+<li>$ E[Y(1)] - E[Y(0)] $: causational quantity</li>
+<li>$ E[Y \mid Y = 1] - E[Y \mid Y = 0] $: associational quantity</li>
+</ul>
+<p>If the equality holds, that would mean that causation is simply association.</p>
+<div class="image-text-block ">
+    <img src="/images/courses/introduction-to-causal-inference/lecture-2/getting-around-the-fundamental-prob.jpg" alt="" style="max-width: 50%;">
+    <div class="image-text-content">
+      <p>When $ Y = 0 $, can&rsquo;t observe $ Y(1) $, thus</p>
+<ul>
+<li>the potential outcome $ Y(1) $ contains &ldquo;?&rdquo; (Outcome if treated),</li>
+<li>$ (Y \mid T = 1) $ contains outcomes when $ T = 1 $ actually happens (Outcome among treated individuals).</li>
+</ul>
+    </div>
+</div>
+
+<h3 id="ignorability-and-exchangeability">Ignorability and Exchangeability</h3>
 </div>
         
     </div>
