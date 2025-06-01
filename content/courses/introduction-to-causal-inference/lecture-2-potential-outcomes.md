@@ -42,7 +42,34 @@ Take the pill: $ T = 1 $; happy $ Y(t) = 1 $
 It's  impossible to observe all the potential outcomes for a given individual.
 * cannot observe both $ Y_i(1) $ and $ Y_i(0) \rightarrow $ cannot observe the causal effect $ Y_i(1) - Y_i(0) $.
 
+# Getting Around the Fundamental Problem
+Can't access ITE, but what abt *average* treatment effect?
+
 ### Average Treatment Effect (ATE)
+
 $$
 \boxed{ \tau \triangleq E[Y_i(1) - Y_i(0)] = E[Y(1) - Y(0)] } \tag{2.2}
 $$
+
+How would we actually calculate the ATE? *associational difference* $ E[Y \mid T = 1] - E[Y \mid T = 0] $ ?
+
+$$
+\begin{align*}
+E[Y(1) - Y(0)] &= E[Y(1)] - E[Y(0)] \quad \text{(linearity)} \\\
+&=? E[Y \mid Y = 1] - E[Y \mid Y = 0] 
+\end{align*}
+$$
+
+Unfortunately, this is not true in general
+* $ E[Y(1)] - E[Y(0)] $: causational quantity
+* $ E[Y \mid Y = 1] - E[Y \mid Y = 0] $: associational quantity
+
+If the equality holds, that would mean that causation is simply association.
+
+{{< image-text image="/images/courses/introduction-to-causal-inference/lecture-2/getting-around-the-fundamental-prob.jpg" >}}
+When $ Y = 0 $, can't observe $ Y(1) $, thus 
+* the potential outcome $ Y(1) $ contains "?" (Outcome if treated),
+* $ (Y \mid T = 1) $ contains outcomes when $ T = 1 $ actually happens (Outcome among treated individuals).
+{{< /image-text >}}
+
+### Ignorability and Exchangeability
