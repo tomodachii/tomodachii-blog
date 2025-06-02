@@ -6,8 +6,15 @@
     <description>Recent content in Authors on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 May 2025 22:46:25 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 02 Jun 2025 21:52:48 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/authors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tomodachii</title>
+      <link>https://tomodachii.com/authors/tomodachii/</link>
+      <pubDate>Mon, 02 Jun 2025 21:52:48 +0700</pubDate>
+      <guid>https://tomodachii.com/authors/tomodachii/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Daphne Koller</title>
       <link>https://tomodachii.com/authors/daphne-koller/</link>
@@ -104,13 +111,6 @@
       <link>https://tomodachii.com/authors/christopher-k.-i.-williams/</link>
       <pubDate>Mon, 17 Mar 2025 23:02:53 +0700</pubDate>
       <guid>https://tomodachii.com/authors/christopher-k.-i.-williams/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tomodachii</title>
-      <link>https://tomodachii.com/authors/tomodachii/</link>
-      <pubDate>Wed, 24 Jul 2024 19:03:42 +0700</pubDate>
-      <guid>https://tomodachii.com/authors/tomodachii/</guid>
       <description></description>
     </item>
   </channel>
