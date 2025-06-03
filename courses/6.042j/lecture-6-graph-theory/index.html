@@ -222,6 +222,38 @@ $$</p>
 
 <h3 id="chromatic-number">Chromatic number</h3>
 <p>$ \mathcal{X}(G) $: The minimum value of $ K $ for which $ G $ has a valid $ k $-coloring</p>
+<h3 id="basic-algorithm-greedy-color-algorithm">Basic Algorithm (Greedy Color Algorithm)</h3>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content"><p><strong>Theorem 5.3.2</strong></p>
+<p>If every node in an $ n \text{-node } G $ has degree $ \leq d $</p>
+<p>Then the Basic Algorithm uses at most $ d + 1 $ colors for $ G $.</p>
+<ul>
+<li>$ d $: biggest degree in the graph.</li>
+<li>$ n $: # of nodes.</li>
+</ul>
+</div>
+</div>
+
+<p>Proof: By induction</p>
+<p><strong>Induction Hypothesis</strong>: $ P (n) = n$-node graph with maximum degree $ d $ is $ (d + 1) $-colorable</p>
+<p><strong>Base case</strong>: $ n = 1 \Rightarrow $ 0 edges, $ d $ = 0, 1 color = $ d $ + 1.</p>
+<p><strong>Inductive step</strong>: Assume $ P(n) $ is true for induction</p>
+<p>Let</p>
+<ul>
+<li>$ G = (V, E) $ be any $ (n + 1) $-node graph</li>
+<li>$ d = $ max degree in $ G $.</li>
+</ul>
+<p>Want to show: We can color it using $ d + 1 $ colors</p>
+<br/>
+<p>Order the nodes $ V_1, V_2, \dots , V_n, V_{n + 1} $</p>
+<p>Remove the $ V_{n + 1} $ from $ G $ to create $ G^{\prime} = (V^{\prime}, E^{\prime}) $</p>
+<p>$ G^{\prime} $ has max degree $ \leq d $ and it has $ n $ nodes, so $ P(n) $</p>
+<p>Says Basic Alg uses $ \leq d + 1 $ colors for $ V_1, V_2, \dots, V_n $</p>
 </div>
         
     </div>
