@@ -36,3 +36,57 @@ The \# of edges incident to a node.
 {{< /image-text >}}
 
 # Matching Problems
+{{< toggle title="Sex Example" >}}
+
+{{< image-text image="/images/courses/6.042J/chapter-6/sex-partner.png" width="20%" >}}
+* US population $ | V | $
+    + $ | M |, | F | $: male, female.
+
+<br/>
+
+Let alone exactly which couples are adjacent, only need to figure out the relationship bw the average number of partners per male and per female.
+
+{{< /image-text >}}
+
+Every edge is incident to exactly one M and one F $ \Rightarrow $ sum of the degrees of the M vertices = \# of edges ($ | E | $) = sum of the degrees of the F vertices
+$$
+\sum_{x \in M} \deg (x) = |E| = \sum_{y \in F} \deg (y)
+$$
+* Avg \# of opposite-gender partners for male $ A_m = \frac{\sum_{x \in M} \deg(x)}{|M|} = \frac{|E|}{|M|} $.
+* Avg \# of opposite-gender partners for female $ A_m = \frac{\sum_{y \in F} \deg(x)}{|F|} = \frac{|E|}{|F|} $.
+
+{{< /toggle >}}
+
+### The Handshaking Lemma
+The sum of degrees of the vertices in a graph equals twice the number of edges.
+
+Proof: Every edge contributes two to the sum of the degrees, one for each of its endpoints.
+
+# Coloring
+{{< define >}}
+Given a graph $ G $ and $ K $ colors, assign a color to each node st adjacent nodes get different colors (valid coloring).
+{{< /define >}}
+
+{{< toggle title="Exam Scheduling Example" >}}
+
+{{< image-text image="/images/courses/6.042J/chapter-6/exam-scheduling.png" width="30%" >}}
+Assign time slot for final exam
+* some students are taking several classes with finals
+* a student can take only one test during a particular time slot
+* adjacent vertices: some student is taking both courses
+  + 6.002 and 6.042 cannot have an exam at the same time since there're student in both courses.
+{{< /image-text >}}
+
+{{< image-text image="/images/courses/6.042J/chapter-6/exam-scheduling-color.png" width="30%" align="right" >}}
+Slots
+* blue: 6 - 8
+* red: 9 - 11
+* green: 13 - 15
+
+{{< /image-text >}}
+Can't do 2-coloring bc 6.002 - 6.170 - 6.041 forms a triangle and each one of these guys has to be different than the other two.
+
+{{< /toggle >}}
+
+### Chromatic number
+$ \mathcal{X}(G) $: The minimum value of $ K $ for which $ G $ has a valid $ k $-coloring
