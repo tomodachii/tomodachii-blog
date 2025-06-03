@@ -90,3 +90,42 @@ Can't do 2-coloring bc 6.002 - 6.170 - 6.041 forms a triangle and each one of th
 
 ### Chromatic number
 $ \mathcal{X}(G) $: The minimum value of $ K $ for which $ G $ has a valid $ k $-coloring
+
+### Basic Algorithm (Greedy Color Algorithm)
+
+{{< define >}}
+
+**Theorem 5.3.2**
+
+If every node in an $ n \text{-node } G $ has degree $ \leq d $
+
+Then the Basic Algorithm uses at most $ d + 1 $ colors for $ G $.
+
+* $ d $: biggest degree in the graph.
+* $ n $: \# of nodes.
+
+{{< /define >}}
+
+Proof: By induction
+
+**Induction Hypothesis**: $ P (n) = n$-node graph with maximum degree $ d $ is $ (d + 1) $-colorable 
+
+**Base case**: $ n = 1 \Rightarrow $ 0 edges, $ d $ = 0, 1 color = $ d $ + 1.
+
+**Inductive step**: Assume $ P(n) $ is true for induction
+
+Let 
+* $ G = (V, E) $ be any $ (n + 1) $-node graph
+* $ d = $ max degree in $ G $.
+
+Want to show: We can color it using $ d + 1 $ colors
+
+<br/>
+
+Order the nodes $ V_1, V_2, \dots , V_n, V_{n + 1} $
+
+Remove the $ V_{n + 1} $ from $ G $ to create $ G^{\prime} = (V^{\prime}, E^{\prime}) $
+
+$ G^{\prime} $ has max degree $ \leq d $ and it has $ n $ nodes, so $ P(n) $
+
+Says Basic Alg uses $ \leq d + 1 $ colors for $ V_1, V_2, \dots, V_n $
