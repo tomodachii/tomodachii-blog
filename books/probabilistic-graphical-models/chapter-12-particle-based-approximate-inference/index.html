@@ -93,14 +93,14 @@
         
 <style>
     :root {
-      --postColor: #0085C8;
+      --postColor: #FF5103;
     }
   </style>
 
 <div class="single">
     <div class="singleHead">
         <div class="singleHeadTexts">
-            <h1 class="singleHeadTitle">Chapter 11 (Pt. 3): Mean Field Approximation</h1>
+            <h1 class="singleHeadTitle">Chapter 12: Particle-Based Approximate Inference</h1>
             <p class="singleHeadDesc"></p>
             <div class="singleHeadDetail">
                 
@@ -115,33 +115,47 @@
                     <a href="https://tomodachii.com/categories/probabilistic-graphical-models/" class="singleCategory">probabilistic-graphical-models</a>
                 
             </div>
-            <time>May 28, 2025</time>
+            <time>Jun 4, 2025</time>
         </div>
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><h3 id="structured-variational">Structured Variational</h3>
-<p>Optimize the energy function over a family $ \mathcal{Q} $, which is</p>
+        <div class="singleContent"><p><strong>General framework</strong></p>
 <ul>
-<li>chosen to be computationally tractable</li>
-<li>hence, not sufficiently expressive to capture all of the info in $ P_\Phi $.</li>
+<li>$ P (\mathcal{X}) $</li>
+<li>$ Y \subseteq \mathcal{X} $</li>
+<li>$ y \in Val(Y) $</li>
 </ul>
-<div class="define">
+<h1 id="forward-sample">Forward Sample</h1>
+<details>
+    <summary>Student Example</summary>
     
-    
+        
 
-    
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter3/student-ex.png" alt="" style="max-width: 50%;">
+    <div class="image-text-content">
+      <p><strong>Sampling $ D $</strong></p>
+<p>toss a coin that land heads $ (d^1) $ 40% of the time and tails $ (d^0) $ 60%, assume tail landed $ \rightarrow \xi[D] = d^0 $</p>
+<br/>
+<p><strong>Sampling $ I $</strong></p>
+<p>assume $ \xi[I] = i^1 $</p>
+<br/>
+<p><strong>Sampling $ G $</strong></p>
+<p>Given $ d^0, i^1 \rightarrow $ Choose $ P(G \mid d^0, i^1) $ to sample.</p>
+<p>&hellip;</p>
 
-    <div class="define-content"><p><strong>Find</strong> $ Q \in \mathcal{Q} $</p>
-<p><strong>maximizing</strong> $ F[\tilde{P_\Phi}, Q] $</p>
+    </div>
 </div>
-</div>
 
-<h1 id="mean-field-approximation">Mean Field Approximation</h1>
-<h3 id="mean-field-assumption">Mean Field Assumption</h3>
-<p>$$
-Q(\mathcal{X}) = \prod_i Q(X_i)
-$$</p>
+
+ 
+    
+</details>
+
+<p><img src="/images/books/probabilistic-graphical-models/chapter12/fw-sampling-algo.png" alt=""></p>
+<h3 id="sampling-from-a-discrete-distribution">Sampling from a Discrete Distribution</h3>
+<p>TODO: CS 109 or theprobabilitycourse sampling</p>
 </div>
         
     </div>

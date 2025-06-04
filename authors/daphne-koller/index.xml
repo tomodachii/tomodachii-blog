@@ -6,7 +6,7 @@
     <description>Recent content in Daphne Koller on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 May 2025 22:46:25 +0700</lastBuildDate>
+    <lastBuildDate>Wed, 04 Jun 2025 18:33:28 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/authors/daphne-koller/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chapter 1 &#43; 2 and Appendix : Introduction, Foundations and Background Material</title>
@@ -79,18 +79,18 @@
       <description>&lt;h2 id=&#34;optimizing-the-energy-functional&#34;&gt;Optimizing the Energy Functional&lt;/h2&gt;&#xA;&lt;p&gt;$$&#xA;\begin{align*}&#xA;F[\tilde{P}_\Phi, Q] &amp;amp;= E_Q[\ln \tilde{P}(\mathcal{X})] + H_Q(\mathcal{X})&#xA;\end{align*}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;= \sum_{\phi \in \Phi} E_Q [\ln \phi] + H_Q(\mathcal{X})&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;Instead of optimizing this intractable energy functional $ \Rightarrow $ approximate a &lt;em&gt;factored energy functional&lt;/em&gt; and optimize it.&lt;/p&gt;&#xA;&lt;h3 id=&#34;factored-energy-functional&#34;&gt;Factored energy functional&lt;/h3&gt;&#xA;&lt;div class=&#34;define&#34;&gt;&#xA;    &#xA;    &#xA;        &lt;span class=&#34;define-icon&#34;&gt;&#xA;            𐰋𐰍𐰃𐰤&#xA;            &#xA;        &lt;/span&gt;&#xA;    &#xA;&#xA;    &#xA;&#xA;    &lt;div class=&#34;define-content&#34;&gt;&lt;p&gt;$$&#xA;\tilde{F}[\tilde{P}_{\Phi}, Q]&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;= \boxed{ \sum_{i \in V_{\mathcal{T}}} E_{C_i \sim \beta_i}[\ln \psi_i] +&#xA;\sum_{i \in V_{\mathcal{T}}} H_{\beta_i}(C_i) -&#xA;\sum_{(i-j) \in E_{\mathcal{T}}} H_{\mu_{i,j}}(S_{i,j}) }&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Chapter 11 (Pt. 3): Other Entropy Approximations</title>
-      <link>https://tomodachii.com/books/probabilistic-graphical-models/chapter-11-3-other-approximations/</link>
-      <pubDate>Wed, 28 May 2025 22:42:19 +0700</pubDate>
-      <guid>https://tomodachii.com/books/probabilistic-graphical-models/chapter-11-3-other-approximations/</guid>
-      <description>&lt;h1 id=&#34;variational-methods&#34;&gt;Variational Methods&lt;/h1&gt;&#xA;&lt;p&gt;Inference methods that can be viewed as strategies for optimizing the energy functional.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Chapter 11 (Pt. 4): Mean Field Approximation</title>
+      <title>Chapter 11 (Pt. 3): Mean Field Approximation</title>
       <link>https://tomodachii.com/books/probabilistic-graphical-models/chapter-11-4-mean-field-approx/</link>
       <pubDate>Wed, 28 May 2025 10:57:03 +0700</pubDate>
       <guid>https://tomodachii.com/books/probabilistic-graphical-models/chapter-11-4-mean-field-approx/</guid>
       <description>&lt;h3 id=&#34;structured-variational&#34;&gt;Structured Variational&lt;/h3&gt;&#xA;&lt;p&gt;Optimize the energy function over a family $ \mathcal{Q} $, which is&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;chosen to be computationally tractable&lt;/li&gt;&#xA;&lt;li&gt;hence, not sufficiently expressive to capture all of the info in $ P_\Phi $.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;define&#34;&gt;&#xA;    &#xA;    &#xA;&#xA;    &#xA;&#xA;    &lt;div class=&#34;define-content&#34;&gt;&lt;p&gt;&lt;strong&gt;Find&lt;/strong&gt; $ Q \in \mathcal{Q} $&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;maximizing&lt;/strong&gt; $ F[\tilde{P_\Phi}, Q] $&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;h1 id=&#34;mean-field-approximation&#34;&gt;Mean Field Approximation&lt;/h1&gt;&#xA;&lt;h3 id=&#34;mean-field-assumption&#34;&gt;Mean Field Assumption&lt;/h3&gt;&#xA;&lt;p&gt;$$&#xA;Q(\mathcal{X}) = \prod_i Q(X_i)&#xA;$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Chapter 12: Particle-Based Approximate Inference</title>
+      <link>https://tomodachii.com/books/probabilistic-graphical-models/chapter-12-particle-based-approximate-inference/</link>
+      <pubDate>Wed, 04 Jun 2025 18:33:28 +0700</pubDate>
+      <guid>https://tomodachii.com/books/probabilistic-graphical-models/chapter-12-particle-based-approximate-inference/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;General framework&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$ P (\mathcal{X}) $&lt;/li&gt;&#xA;&lt;li&gt;$ Y \subseteq \mathcal{X} $&lt;/li&gt;&#xA;&lt;li&gt;$ y \in Val(Y) $&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;forward-sample&#34;&gt;Forward Sample&lt;/h1&gt;&#xA;&lt;details&gt;&#xA;    &lt;summary&gt;Student Example&lt;/summary&gt;&#xA;    &#xA;        &#xA;&#xA;&lt;div class=&#34;image-text-block &#34;&gt;&#xA;    &lt;img src=&#34;https://tomodachii.com/images/books/probabilistic-graphical-models/chapter3/student-ex.png&#34; alt=&#34;&#34; style=&#34;max-width: 50%;&#34;&gt;&#xA;    &lt;div class=&#34;image-text-content&#34;&gt;&#xA;      &lt;p&gt;&lt;strong&gt;Sampling $ D $&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;toss a coin that land heads $ (d^1) $ 40% of the time and tails $ (d^0) $ 60%, assume tail landed $ \rightarrow \xi[D] = d^0 $&lt;/p&gt;&#xA;&lt;br/&gt;&#xA;&lt;p&gt;&lt;strong&gt;Sampling $ I $&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;assume $ \xi[I] = i^1 $&lt;/p&gt;&#xA;&lt;br/&gt;&#xA;&lt;p&gt;&lt;strong&gt;Sampling $ G $&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Given $ d^0, i^1 \rightarrow $ Choose $ P(G \mid d^0, i^1) $ to sample.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Chapter 16: Learning Graphical Models - Overview</title>
