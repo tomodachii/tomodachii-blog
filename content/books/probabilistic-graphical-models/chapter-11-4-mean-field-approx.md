@@ -1,5 +1,5 @@
 +++
-title = 'Chapter 11 (Pt. 4): Mean Field Approximation'
+title = 'Chapter 11 (Pt. 3): Mean Field Approximation'
 date = 2025-05-28T10:57:03+07:00
 draft = false
 description = ""
@@ -10,7 +10,7 @@ authors = ["Daphne Koller", "Nir Friedman"]
 avatar = "/images/avatar.png"
 math = true
 section = "Probabilistic Graphical Models"
-weight = 15
+weight = 14
 postColor = "#0085C8"
 +++
 

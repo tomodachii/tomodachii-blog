@@ -10,7 +10,7 @@ authors = ["Daphne Koller", "Nir Friedman"]
 avatar = "/images/avatar.png"
 math = true
 section = "Probabilistic Graphical Models"
-weight = 17
+weight = 18
 postColor = "#E90808"
 +++
 
