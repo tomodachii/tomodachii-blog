@@ -19,6 +19,48 @@ postColor = "#FF5103"
 * $ P (\mathcal{X}) $
 * $ Y \subseteq \mathcal{X} $
 * $ y \in Val(Y) $
+* $ D = \\{ \xi[1], \dots \xi[M] \\}: M $ samples from $ P, \xi [i] \sim P $
+
+Goal: Estimate $ P(Y) = y $.
+
+Generally: Estimate the expectation of some $ f(x) $ relative to $ P $.
+* To compute $ P(Y = y) $, choose $ f(\xi) = I \\{ \xi (Y) = y \\} $,
+$$
+\begin{align*}
+E_{\xi \sim P}[f(\xi)]
+&\approx E_{\xi \sim D} [f(\xi)] \quad \text{(empirical approximation)}\\\
+&= \frac{1}{M} \sum_{1}^{M} f(\xi) \\\
+&= \frac{1}{M} \sum_{1}^{M} I\\{ \xi(Y) = y \\} = P(Y = y)
+\end{align*}
+$$
+
+{{< toggle title="Indicator function example" >}}
+$$
+I\\{ \xi(Y) = y \\} =
+\begin{cases} 
+    1 \quad \text{if } \xi (Y) = y \\\
+    0 \quad \text{otherwise}
+\end{cases}
+$$
+
+* $ \mathcal{X} = \\{ X_1, X_2, X_3 \\} $
+* one sample/particle: $ \xi = \\{ X_1 = 0, X_2 = 1, X_3 = 1 \\} $
+* $ Y = \\{ X_1, X_3 \\} $
+
+$$
+\xi (Y) = \\{ X_2 = 1, X_3 = 1 \\}
+$$
+If
+$$
+y = \\{ X_2 = 1, X_3 = 1 \\}
+$$
+
+Then
+$$
+I\\{ \xi(Y) = y \\} = 1
+$$
+
+{{< /toggle >}}
 
 # Forward Sample
 {{< toggle title="Student Example" raw="true" width="40%" >}}
@@ -51,3 +93,26 @@ Given $ d^0, i^1 \rightarrow $ Choose $ P(G \mid d^0, i^1) $ to sample.
 ### Sampling from a Discrete Distribution
 TODO: CS 109 or theprobabilitycourse sampling
 
+### Analysis of Error
+* $ D = \\{ \xi[1], \dots, \xi[M] \\} $ generated via Forward-sampling
+* calculate $ P(Y = y) $
+* $ X[i] \sim Bernoulli(P(y)) $, IID. 
+
+$ \rightarrow $ can estimate the expectation of any $ f $
+
+$$
+\hat{E_D} (f) = \frac{1}{M} \sum_{m = 1}{M} f (\xi[m])
+$$
+
+In case of computing $ P(y) $, $ f $ counts \# of times we see $ y $:
+
+$$
+\hat{P_D} (y) = \frac{1}{M} \sum_{m = 1}{M} I \\{ y[m] = m \\}
+$$
+
+* $ y[m] $: denotes $ \xi [m] (Y) $ - the assignment to $ Y $ in the particle $ \xi [m] $
+
+**Hoeffding bound**
+$$
+P_D (\hat{P_D} \notin [P(y)])
+$$

@@ -1,7 +1,7 @@
 +++
 title = 'Preface'
 date = 2025-03-17T21:49:08+07:00
-draft = false
+draft = true
 description = ""
 image = ""
 imageBig = ""
