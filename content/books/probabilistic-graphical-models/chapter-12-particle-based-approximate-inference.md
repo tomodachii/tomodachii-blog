@@ -29,8 +29,8 @@ $$
 \begin{align*}
 E_{\xi \sim P}[f(\xi)]
 &\approx E_{\xi \sim D} [f(\xi)] \quad \text{(empirical approximation)}\\\
-&= \frac{1}{M} \sum_{1}^{M} f(\xi) \\\
-&= \frac{1}{M} \sum_{1}^{M} I\\{ \xi(Y) = y \\} = P(Y = y)
+&= \frac{1}{M} \sum_{1}^{M} f(\xi) = \frac{1}{M} \sum_{1}^{M} I\\{ \xi(Y) = y \\} \\\
+&= \boxed{ E_{\xi \sim D} [f(\xi)] = P(Y = y) }
 \end{align*}
 $$
 
@@ -62,7 +62,11 @@ $$
 
 {{< /toggle >}}
 
-# Forward Sample
+# Forward Sampling
+* Generate random samples $ \xi[1], \dots, \xi[M] $ from the distribution $ P(\mathcal{X}) $
+* difficulties in generating samples from the posterior $ P(\mathcal{X} \mid e) $
+
+## FW-Sampling from a BN
 {{< toggle title="Student Example" raw="true" width="40%" >}}
 
 {{< image-text image="/images/books/probabilistic-graphical-models/chapter3/student-ex.png" raw="true" >}}
@@ -93,26 +97,55 @@ Given $ d^0, i^1 \rightarrow $ Choose $ P(G \mid d^0, i^1) $ to sample.
 ### Sampling from a Discrete Distribution
 TODO: CS 109 or theprobabilitycourse sampling
 
-### Analysis of Error
+## Analysis of Error
 * $ D = \\{ \xi[1], \dots, \xi[M] \\} $ generated via Forward-sampling
-* calculate $ P(Y = y) $
-* $ X[i] \sim Bernoulli(P(y)) $, IID. 
+* Estimate $ P(Y = y) $
+* $ I\\{ \xi [m] (Y) = y \\} \sim Bernoulli(P(y)) $, IID
+    + because $ I = 1 $ with probability $ P (I = 1) = P (\xi [m] (Y) = y) = P(y) $ and $ 0 $ otherwise.
 
 $ \rightarrow $ can estimate the expectation of any $ f $
 
 $$
-\hat{E_D} (f) = \frac{1}{M} \sum_{m = 1}{M} f (\xi[m])
+\hat{E_D} (f) = \frac{1}{M} \sum_{m = 1}^{M} f (\xi[m])
 $$
 
-In case of computing $ P(y) $, $ f $ counts \# of times we see $ y $:
+In case of computing $ P(y) $, $ f $ counts \# of times we see $ y $, we get an estimator:
 
 $$
-\hat{P_D} (y) = \frac{1}{M} \sum_{m = 1}{M} I \\{ y[m] = m \\}
+\hat{P_D} (y) = \frac{1}{M} \sum_{m = 1}^{M} I \\{ y[m] = y \\}
 $$
 
 * $ y[m] $: denotes $ \xi [m] (Y) $ - the assignment to $ Y $ in the particle $ \xi [m] $
 
-**Hoeffding bound**
+We can now apply the Hoeffding bound  to show that this estimate is close to the truth with high probability
+
+btw, what's an estimator?
+
+### Hoeffding bound
 $$
-P_D (\hat{P_D} \notin [P(y)])
+\boxed{ P_D (\hat{P_D} \notin [P(y) - \epsilon, P(y) + \epsilon]) \leq 2 e^{-2M \epsilon^2} }
 $$
+
+We want:
+$$
+P_D (\hat{P_D} \notin [P(y) - \epsilon, P(y) + \epsilon]) \leq \delta 
+$$
+
+* $ \delta $: failure tolarence, a small value.
+
+Thus, we set:
+$$
+\begin{align*}
+&\phantom{\leftrightarrow} 2 e^{-2M \epsilon^2} \leq \delta \\\
+&\Leftrightarrow -2M \epsilon^2 \leq \ln (\delta / 2)\\\
+&\Leftrightarrow \boxed{ M \geq \frac{\ln (2/s)}{2 \epsilon^2} }
+\end{align*}
+$$
+
+This is the *required sample size* to get an estimator that only relies on $ (\epsilon, \delta) $
+* Does not rely on $ P(y) $
+
+## Conditional Probability Queries
+Conditional probabilities of the form $ P(y \mid E = e) $
+
+# Likelihood Weighting and Importance Sampling
