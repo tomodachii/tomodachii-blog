@@ -135,8 +135,8 @@ $$
 \begin{align*}
 E_{\xi \sim P}[f(\xi)]
 &amp;\approx E_{\xi \sim D} [f(\xi)] \quad \text{(empirical approximation)}\\
-&amp;= \frac{1}{M} \sum_{1}^{M} f(\xi) \\
-&amp;= \frac{1}{M} \sum_{1}^{M} I\{ \xi(Y) = y \} = P(Y = y)
+&amp;= \frac{1}{M} \sum_{1}^{M} f(\xi) = \frac{1}{M} \sum_{1}^{M} I\{ \xi(Y) = y \} \\
+&amp;= \boxed{ E_{\xi \sim D} [f(\xi)] = P(Y = y) }
 \end{align*}
 $$</li>
 </ul>
@@ -170,7 +170,12 @@ $$</p>
     
 </details>
 
-<h1 id="forward-sample">Forward Sample</h1>
+<h1 id="forward-sampling">Forward Sampling</h1>
+<ul>
+<li>Generate random samples $ \xi[1], \dots, \xi[M] $ from the distribution $ P(\mathcal{X}) $</li>
+<li>difficulties in generating samples from the posterior $ P(\mathcal{X} \mid e) $</li>
+</ul>
+<h2 id="fw-sampling-from-a-bn">FW-Sampling from a BN</h2>
 <details>
     <summary>Student Example</summary>
     
@@ -200,27 +205,55 @@ $$</p>
 <p><img src="/images/books/probabilistic-graphical-models/chapter12/fw-sampling-algo.png" alt=""></p>
 <h3 id="sampling-from-a-discrete-distribution">Sampling from a Discrete Distribution</h3>
 <p>TODO: CS 109 or theprobabilitycourse sampling</p>
-<h3 id="analysis-of-error">Analysis of Error</h3>
+<h2 id="analysis-of-error">Analysis of Error</h2>
 <ul>
 <li>$ D = \{ \xi[1], \dots, \xi[M] \} $ generated via Forward-sampling</li>
-<li>calculate $ P(Y = y) $</li>
-<li>$ X[i] \sim Bernoulli(P(y)) $, IID.</li>
+<li>Estimate $ P(Y = y) $</li>
+<li>$ I\{ \xi [m] (Y) = y \} \sim Bernoulli(P(y)) $, IID
+<ul>
+<li>because $ I = 1 $ with probability $ P (I = 1) = P (\xi [m] (Y) = y) = P(y) $ and $ 0 $ otherwise.</li>
+</ul>
+</li>
 </ul>
 <p>$ \rightarrow $ can estimate the expectation of any $ f $</p>
 <p>$$
-\hat{E_D} (f) = \frac{1}{M} \sum_{m = 1}{M} f (\xi[m])
+\hat{E_D} (f) = \frac{1}{M} \sum_{m = 1}^{M} f (\xi[m])
 $$</p>
-<p>In case of computing $ P(y) $, $ f $ counts # of times we see $ y $:</p>
+<p>In case of computing $ P(y) $, $ f $ counts # of times we see $ y $, we get an estimator:</p>
 <p>$$
-\hat{P_D} (y) = \frac{1}{M} \sum_{m = 1}{M} I \{ y[m] = m \}
+\hat{P_D} (y) = \frac{1}{M} \sum_{m = 1}^{M} I \{ y[m] = y \}
 $$</p>
 <ul>
 <li>$ y[m] $: denotes $ \xi [m] (Y) $ - the assignment to $ Y $ in the particle $ \xi [m] $</li>
 </ul>
-<p><strong>Hoeffding bound</strong>
-$$
-P_D (\hat{P_D} \notin [P(y)])
+<p>We can now apply the Hoeffding bound  to show that this estimate is close to the truth with high probability</p>
+<p>btw, what&rsquo;s an estimator?</p>
+<h3 id="hoeffding-bound">Hoeffding bound</h3>
+<p>$$
+\boxed{ P_D (\hat{P_D} \notin [P(y) - \epsilon, P(y) + \epsilon]) \leq 2 e^{-2M \epsilon^2} }
 $$</p>
+<p>We want:
+$$
+P_D (\hat{P_D} \notin [P(y) - \epsilon, P(y) + \epsilon]) \leq \delta
+$$</p>
+<ul>
+<li>$ \delta $: failure tolarence, a small value.</li>
+</ul>
+<p>Thus, we set:
+$$
+\begin{align*}
+&amp;\phantom{\leftrightarrow} 2 e^{-2M \epsilon^2} \leq \delta \\
+&amp;\Leftrightarrow -2M \epsilon^2 \leq \ln (\delta / 2)\\
+&amp;\Leftrightarrow \boxed{ M \geq \frac{\ln (2/s)}{2 \epsilon^2} }
+\end{align*}
+$$</p>
+<p>This is the <em>required sample size</em> to get an estimator that only relies on $ (\epsilon, \delta) $</p>
+<ul>
+<li>Does not rely on $ P(y) $</li>
+</ul>
+<h2 id="conditional-probability-queries">Conditional Probability Queries</h2>
+<p>Conditional probabilities of the form $ P(y \mid E = e) $</p>
+<h1 id="likelihood-weighting-and-importance-sampling">Likelihood Weighting and Importance Sampling</h1>
 </div>
         
     </div>
