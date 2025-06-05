@@ -14,9 +14,6 @@
     <loc>https://tomodachii.com/books/density-estimation-for-statistics-and-data-analysis/chapter-1-and-2-introduction/</loc>
     <lastmod>2025-04-03T20:56:10+07:00</lastmod>
   </url><url>
-    <loc>https://tomodachii.com/books/computers-and-intractability/chapter-1-computers-complexity-and-intractability/</loc>
-    <lastmod>2025-04-02T08:20:25+07:00</lastmod>
-  </url><url>
     <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-1-and-2-introduction-and-foundations/</loc>
     <lastmod>2025-03-19T20:33:47+07:00</lastmod>
   </url><url>
@@ -29,8 +26,8 @@
     <loc>https://tomodachii.com/books/probabilistic-machine-learning-an-introduction/chapter-2-probability-univariate-models/</loc>
     <lastmod>2025-04-06T20:58:08+07:00</lastmod>
   </url><url>
-    <loc>https://tomodachii.com/books/gaussian-processes-for-machine-learning/chapter-2-regression/</loc>
-    <lastmod>2025-03-17T23:02:53+07:00</lastmod>
+    <loc>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-3-the-flow-of-association-and-causation-in-graphs/</loc>
+    <lastmod>2025-06-03T08:41:01+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/books/density-estimation-for-statistics-and-data-analysis/chapter-3-the-kernel-method-for-univariate-data/</loc>
     <lastmod>2025-04-03T21:18:46+07:00</lastmod>
@@ -110,8 +107,14 @@
     <loc>https://tomodachii.com/categories/probabilistic-graphical-models/</loc>
     <lastmod>2025-06-04T18:33:28+07:00</lastmod>
   </url><url>
+    <loc>https://tomodachii.com/authors/brady-neal/</loc>
+    <lastmod>2025-06-03T08:41:01+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/categories/causality/</loc>
+    <lastmod>2025-06-03T08:41:01+07:00</lastmod>
+  </url><url>
     <loc>https://tomodachii.com/courses/</loc>
-    <lastmod>2025-06-02T21:52:48+07:00</lastmod>
+    <lastmod>2025-06-03T08:41:01+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/categories/graph-theory/</loc>
     <lastmod>2025-06-02T21:52:48+07:00</lastmod>
@@ -146,17 +149,11 @@
     <loc>https://tomodachii.com/categories/probability/</loc>
     <lastmod>2025-05-23T08:37:13+07:00</lastmod>
   </url><url>
-    <loc>https://tomodachii.com/categories/causality/</loc>
-    <lastmod>2025-05-22T09:23:31+07:00</lastmod>
-  </url><url>
     <loc>https://tomodachii.com/books/causality/chapter-1-introduction-to-probabilities-graphs-causal-models/</loc>
     <lastmod>2025-05-22T09:23:31+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/authors/judea-pearl/</loc>
     <lastmod>2025-05-22T09:23:31+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/authors/brady-neal/</loc>
-    <lastmod>2025-05-21T21:07:02+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/authors/john-n.-tsitsiklis/</loc>
     <lastmod>2025-04-19T18:56:10+07:00</lastmod>
@@ -178,27 +175,6 @@
   </url><url>
     <loc>https://tomodachii.com/books/density-estimation-for-statistics-and-data-analysis/master-note/</loc>
     <lastmod>2025-04-04T15:18:40+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/categories/complexity-theory/</loc>
-    <lastmod>2025-04-02T08:20:25+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/authors/david-s.-johnson/</loc>
-    <lastmod>2025-04-02T08:20:25+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/authors/michael-r.-garey/</loc>
-    <lastmod>2025-04-02T08:20:25+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/authors/carl-edward-rasmussen/</loc>
-    <lastmod>2025-03-17T23:02:53+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/authors/christopher-k.-i.-williams/</loc>
-    <lastmod>2025-03-17T23:02:53+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/categories/gaussian-process/</loc>
-    <lastmod>2025-03-17T23:02:53+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/books/gaussian-processes-for-machine-learning/preface/</loc>
-    <lastmod>2025-03-17T21:49:08+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/random/</loc>
     <lastmod>2025-01-07T22:51:13+07:00</lastmod>

@@ -6,7 +6,7 @@
     <description>Recent content in Courses on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Jun 2025 21:52:48 +0700</lastBuildDate>
+    <lastBuildDate>Tue, 03 Jun 2025 08:41:01 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/courses/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lecture 6: Graph Theory and Coloring</title>
@@ -28,6 +28,13 @@
       <pubDate>Wed, 21 May 2025 21:07:02 +0700</pubDate>
       <guid>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-2-potential-outcomes/</guid>
       <description>&lt;h1 id=&#34;potential-outcomes&#34;&gt;Potential Outcomes&lt;/h1&gt;&#xA;&lt;p&gt;Potential outcome $ Y(t) $ denotes what your outcome would be, if you were to take treatment $ t $.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$ \not= $ observed outcome $ Y $: Not all potential outcomes are observed $ \rightarrow $ potentially observed.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;individual-treatment-effect-ite&#34;&gt;Individual Treatment Effect (ITE)&lt;/h3&gt;&#xA;&lt;p&gt;individual $ i $&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;treatment $ T_i $&lt;/li&gt;&#xA;&lt;li&gt;covariates $ X_i $&lt;/li&gt;&#xA;&lt;li&gt;potential outcome $ Y_i $&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$ Y_i (1) $: potential outcome if you were to take treatment $ T = 1 $.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;$$&#xA;\boxed{ \tau_i \triangleq = Y_i(1) - Y_i(0) } \tag{2.1}&#xA;$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 3: The Flow of Association and Causation in Graphs</title>
+      <link>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-3-the-flow-of-association-and-causation-in-graphs/</link>
+      <pubDate>Tue, 03 Jun 2025 08:41:01 +0700</pubDate>
+      <guid>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-3-the-flow-of-association-and-causation-in-graphs/</guid>
+      <description></description>
     </item>
     <item>
       <title>Lecture 5 &#43; 6 &#43; 7: Discrete Random Variables</title>

@@ -125,7 +125,51 @@
 <li>$ P (\mathcal{X}) $</li>
 <li>$ Y \subseteq \mathcal{X} $</li>
 <li>$ y \in Val(Y) $</li>
+<li>$ D = \{ \xi[1], \dots \xi[M] \}: M $ samples from $ P, \xi [i] \sim P $</li>
 </ul>
+<p>Goal: Estimate $ P(Y) = y $.</p>
+<p>Generally: Estimate the expectation of some $ f(x) $ relative to $ P $.</p>
+<ul>
+<li>To compute $ P(Y = y) $, choose $ f(\xi) = I \{ \xi (Y) = y \} $,
+$$
+\begin{align*}
+E_{\xi \sim P}[f(\xi)]
+&amp;\approx E_{\xi \sim D} [f(\xi)] \quad \text{(empirical approximation)}\\
+&amp;= \frac{1}{M} \sum_{1}^{M} f(\xi) \\
+&amp;= \frac{1}{M} \sum_{1}^{M} I\{ \xi(Y) = y \} = P(Y = y)
+\end{align*}
+$$</li>
+</ul>
+<details>
+    <summary>Indicator function example</summary>
+    
+        <p>$$
+I\{ \xi(Y) = y \} =
+\begin{cases}
+1 \quad \text{if } \xi (Y) = y \\
+0 \quad \text{otherwise}
+\end{cases}
+$$</p>
+<ul>
+<li>$ \mathcal{X} = \{ X_1, X_2, X_3 \} $</li>
+<li>one sample/particle: $ \xi = \{ X_1 = 0, X_2 = 1, X_3 = 1 \} $</li>
+<li>$ Y = \{ X_1, X_3 \} $</li>
+</ul>
+<p>$$
+\xi (Y) = \{ X_2 = 1, X_3 = 1 \}
+$$
+If
+$$
+y = \{ X_2 = 1, X_3 = 1 \}
+$$</p>
+<p>Then
+$$
+I\{ \xi(Y) = y \} = 1
+$$</p>
+ 
+    
+</details>
+
 <h1 id="forward-sample">Forward Sample</h1>
 <details>
     <summary>Student Example</summary>
@@ -156,6 +200,27 @@
 <p><img src="/images/books/probabilistic-graphical-models/chapter12/fw-sampling-algo.png" alt=""></p>
 <h3 id="sampling-from-a-discrete-distribution">Sampling from a Discrete Distribution</h3>
 <p>TODO: CS 109 or theprobabilitycourse sampling</p>
+<h3 id="analysis-of-error">Analysis of Error</h3>
+<ul>
+<li>$ D = \{ \xi[1], \dots, \xi[M] \} $ generated via Forward-sampling</li>
+<li>calculate $ P(Y = y) $</li>
+<li>$ X[i] \sim Bernoulli(P(y)) $, IID.</li>
+</ul>
+<p>$ \rightarrow $ can estimate the expectation of any $ f $</p>
+<p>$$
+\hat{E_D} (f) = \frac{1}{M} \sum_{m = 1}{M} f (\xi[m])
+$$</p>
+<p>In case of computing $ P(y) $, $ f $ counts # of times we see $ y $:</p>
+<p>$$
+\hat{P_D} (y) = \frac{1}{M} \sum_{m = 1}{M} I \{ y[m] = m \}
+$$</p>
+<ul>
+<li>$ y[m] $: denotes $ \xi [m] (Y) $ - the assignment to $ Y $ in the particle $ \xi [m] $</li>
+</ul>
+<p><strong>Hoeffding bound</strong>
+$$
+P_D (\hat{P_D} \notin [P(y)])
+$$</p>
 </div>
         
     </div>
