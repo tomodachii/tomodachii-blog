@@ -109,22 +109,28 @@ $$
 \hat{E_D} (f) = \frac{1}{M} \sum_{m = 1}^{M} f (\xi[m])
 $$
 
-In case of computing $ P(y) $, $ f $ counts \# of times we see $ y $, we get an estimator:
+### Estimator
+{{< define >}}
+Approximation of the desired probability.
+{{< /define >}}
+
+In case of computing $ P(y) $, $ f $ counts \# of times we see $ y $:
 
 $$
-\hat{P_D} (y) = \frac{1}{M} \sum_{m = 1}^{M} I \\{ y[m] = y \\}
+\boxed{ \hat{P_D} (y) = \frac{1}{M} \sum_{m = 1}^{M} I \\{ y[m] = y \\} }
 $$
 
 * $ y[m] $: denotes $ \xi [m] (Y) $ - the assignment to $ Y $ in the particle $ \xi [m] $
 
-We can now apply the Hoeffding bound  to show that this estimate is close to the truth with high probability
-
-btw, what's an estimator?
+$ \Rightarrow $ apply the Hoeffding bound and Chernoff bound to show that this estimate is close to the truth with high probability.
 
 ### Hoeffding bound
+Measures the *absolute error* $ |\hat{P_D} - P(y)| $
 $$
 \boxed{ P_D (\hat{P_D} \notin [P(y) - \epsilon, P(y) + \epsilon]) \leq 2 e^{-2M \epsilon^2} }
 $$
+* $ P_D (.) $: Probability of error (getting a bad sample set)
+    + $ (\hat{P_D} \notin [P(y) - \epsilon, P(y) + \epsilon]) $: the estimator is $ \epsilon $ away from $ p $
 
 We want:
 $$
@@ -142,8 +148,18 @@ $$
 \end{align*}
 $$
 
-This is the *required sample size* to get an estimator that only relies on $ (\epsilon, \delta) $
-* Does not rely on $ P(y) $
+{{< callout type="info" >}}
+If $ M \geq \frac{\ln (2/s)}{2 \epsilon^2} $, we are guaranteed to get a good (within $ \epsilon $) estimator with probability $ \geq 1 - \delta $ that only relies on $ (\epsilon, \delta) $ (does not rely on $ P(y) $).
+{{< /callout >}}
+
+### Chernoff bound
+$$
+\boxed{ P_D (\hat{P_D} \notin P(y)(1 \pm \epsilon)) \leq 2 e^{-2M P(y) \epsilon^2/3} }
+$$
+
+$$
+\Leftrightarrow \boxed{ M \geq 3 \frac{\ln (2/ \delta)}{p \epsilon^3} }
+$$
 
 ## Conditional Probability Queries
 Conditional probabilities of the form $ P(y \mid E = e) $
