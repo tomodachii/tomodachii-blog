@@ -219,19 +219,36 @@ $$</p>
 <p>$$
 \hat{E_D} (f) = \frac{1}{M} \sum_{m = 1}^{M} f (\xi[m])
 $$</p>
-<p>In case of computing $ P(y) $, $ f $ counts # of times we see $ y $, we get an estimator:</p>
+<h3 id="estimator">Estimator</h3>
+<div class="define">
+    
+    
+
+    
+
+    <div class="define-content">Approximation of the desired probability.</div>
+</div>
+
+<p>In case of computing $ P(y) $, $ f $ counts # of times we see $ y $:</p>
 <p>$$
-\hat{P_D} (y) = \frac{1}{M} \sum_{m = 1}^{M} I \{ y[m] = y \}
+\boxed{ \hat{P_D} (y) = \frac{1}{M} \sum_{m = 1}^{M} I \{ y[m] = y \} }
 $$</p>
 <ul>
 <li>$ y[m] $: denotes $ \xi [m] (Y) $ - the assignment to $ Y $ in the particle $ \xi [m] $</li>
 </ul>
-<p>We can now apply the Hoeffding bound  to show that this estimate is close to the truth with high probability</p>
-<p>btw, what&rsquo;s an estimator?</p>
+<p>$ \Rightarrow $ apply the Hoeffding bound and Chernoff bound to show that this estimate is close to the truth with high probability.</p>
 <h3 id="hoeffding-bound">Hoeffding bound</h3>
-<p>$$
+<p>Measures the <em>absolute error</em> $ |\hat{P_D} - P(y)| $
+$$
 \boxed{ P_D (\hat{P_D} \notin [P(y) - \epsilon, P(y) + \epsilon]) \leq 2 e^{-2M \epsilon^2} }
 $$</p>
+<ul>
+<li>$ P_D (.) $: Probability of error (getting a bad sample set)
+<ul>
+<li>$ (\hat{P_D} \notin [P(y) - \epsilon, P(y) + \epsilon]) $: the estimator is $ \epsilon $ away from $ p $</li>
+</ul>
+</li>
+</ul>
 <p>We want:
 $$
 P_D (\hat{P_D} \notin [P(y) - \epsilon, P(y) + \epsilon]) \leq \delta
@@ -247,10 +264,24 @@ $$
 &amp;\Leftrightarrow \boxed{ M \geq \frac{\ln (2/s)}{2 \epsilon^2} }
 \end{align*}
 $$</p>
-<p>This is the <em>required sample size</em> to get an estimator that only relies on $ (\epsilon, \delta) $</p>
-<ul>
-<li>Does not rely on $ P(y) $</li>
-</ul>
+<div class="callout callout-info">
+    <span class="callout-icon">
+        ℹ️
+        
+        
+        
+    </span>
+    <div class="callout-content">If $ M \geq \frac{\ln (2/s)}{2 \epsilon^2} $, we are guaranteed to get a good (within $ \epsilon $) estimator with probability $ \geq 1 - \delta $ that only relies on $ (\epsilon, \delta) $ (does not rely on $ P(y) $).</div>
+</div>
+
+
+<h3 id="chernoff-bound">Chernoff bound</h3>
+<p>$$
+\boxed{ P_D (\hat{P_D} \notin P(y)(1 \pm \epsilon)) \leq 2 e^{-2M P(y) \epsilon^2/3} }
+$$</p>
+<p>$$
+\Leftrightarrow \boxed{ M \geq 3 \frac{\ln (2/ \delta)}{p \epsilon^3} }
+$$</p>
 <h2 id="conditional-probability-queries">Conditional Probability Queries</h2>
 <p>Conditional probabilities of the form $ P(y \mid E = e) $</p>
 <h1 id="likelihood-weighting-and-importance-sampling">Likelihood Weighting and Importance Sampling</h1>
