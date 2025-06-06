@@ -182,7 +182,7 @@ $$</p>
         
 
 <div class="image-text-block ">
-    <img src="/images/books/probabilistic-graphical-models/chapter3/student-ex.png" alt="" style="max-width: 50%;">
+    <img src="/images/books/probabilistic-graphical-models/chapter3/student-ex.png" alt="" style="max-width: 40%;">
     <div class="image-text-content">
       <p><strong>Sampling $ D $</strong></p>
 <p>toss a coin that land heads $ (d^1) $ 40% of the time and tails $ (d^0) $ 60%, assume tail landed $ \rightarrow \xi[D] = d^0 $</p>
@@ -219,7 +219,7 @@ $$</p>
 <p>$$
 \hat{E_D} (f) = \frac{1}{M} \sum_{m = 1}^{M} f (\xi[m])
 $$</p>
-<h3 id="estimator">Estimator</h3>
+<h3 id="fw-sampling-estimator">FW-Sampling Estimator</h3>
 <div class="define">
     
     
@@ -231,7 +231,7 @@ $$</p>
 
 <p>In case of computing $ P(y) $, $ f $ counts # of times we see $ y $:</p>
 <p>$$
-\boxed{ \hat{P_D} (y) = \frac{1}{M} \sum_{m = 1}^{M} I \{ y[m] = y \} }
+\boxed{ \hat{P_D} (y) = \frac{1}{M} \sum_{m = 1}^{M} I \{ y[m] = y \} } \tag{12.2}
 $$</p>
 <ul>
 <li>$ y[m] $: denotes $ \xi [m] (Y) $ - the assignment to $ Y $ in the particle $ \xi [m] $</li>
@@ -285,6 +285,102 @@ $$</p>
 <h2 id="conditional-probability-queries">Conditional Probability Queries</h2>
 <p>Conditional probabilities of the form $ P(y \mid E = e) $</p>
 <h1 id="likelihood-weighting-and-importance-sampling">Likelihood Weighting and Importance Sampling</h1>
+<p>Try: When sampling a node $ X_i $ whose value has been observed, set $ X_i $ to its observed value.</p>
+<div class="image-text-block ">
+    <img src="/images/books/probabilistic-graphical-models/chapter3/student-ex.png" alt="" style="max-width: 35%;">
+    <div class="image-text-content">
+      <p>Assume evidence is $ s^1 $</p>
+<ul>
+<li>Sample $ D, I $ using naive fw-sampling process</li>
+<li>set $ S = s^1 $</li>
+<li>then sample $ G, L $.</li>
+</ul>
+<p>$ \Rightarrow $ all of the samples will have $ S = s^1 $</p>
+
+    </div>
+</div>
+
+<p>Problem:</p>
+<ul>
+<li>The posterior probability of $ i^1 $ (smart student) should be higher when observed $ s^1 $ (high SAT score).</li>
+<li>But in fact, expected # of sample that have $ I = i^1 $ will still be 30%.</li>
+</ul>
+<p>Ituition Example</p>
+<p>$ E = \{ l^0, s^1 \} $</p>
+<p>Assume</p>
+<ul>
+<li>sample $ D = d^1, I = i^0 $</li>
+<li>set $ S = s^1 $</li>
+<li>sample $ G = g^2 $</li>
+<li>set $ L = l^0 $</li>
+</ul>
+<p>The probability that, given $ I = i^0 $, fw-sampling generated $ S = s^1 $:
+$$
+P(s^1 \mid i^0) = 0.05
+$$</p>
+<p>The probability that, given $ G = g^2 $, fw-sampling generated $ L = l^0 $:
+$$
+P(l^0 \mid i^0, g^2) = P(l^0 \mid g^2) \quad (\text{because } L \perp I \mid G) = 0.4
+$$</p>
+<p>Each of these events is the result of an independent coin toss. Thus the weight required for this sample to compensate for the setting of the evidence:
+$$
+P(s^1, l^0 \mid i^0, g^2) = P(s^1 \mid i^0, g^2) \cdot P(l^0 \mid i^0, g^2) = P(s^1 \mid i^0) \cdot P(l^0 \mid g^2) = 0.05 \times 0.4 = 0.02
+$$</p>
+<h2 id="likelihood-weighting">Likelihood Weighting</h2>
+<p>The weight of samples are derived from the likelihood of the evidence accumulated throughout the sampling process.</p>
+<p>This process generates a <em>weighted particle</em>.</p>
+<p>Estimate a conditional probability $ P(y \mid e) $ using LW-Sample $ M $ times $ \rightarrow $ generate a set $ D = \{ \langle \xi[1], w[1] \rangle, \dots, \langle \xi[M], w[M] \rangle \} $ of weighted particles.</p>
+<h3 id="lw-estimator">LW Estimator</h3>
+<p>$$
+\boxed{ \hat{P_D} (y \mid e) = \frac{\sum_{m = 1}^{M} w[m] I\{ y[m] = y \}}{\sum_{m = 1}^{M} w[m]} }
+$$</p>
+<p>This is a generalization of the one used for unweighted particles in (12.2).</p>
+<h2 id="importance-sampling">Importance Sampling</h2>
+<p>Estimate the expectation of a function $ E[f(x)] $ relative to some target distribtuion $ P(X) $</p>
+<ul>
+<li>by generating samples $ x[1], \dots, x[M] $ from $ P $, then estimate</li>
+</ul>
+<p>$$
+\boxed{ E_P[f] \approx \frac{1}{M} \sum_{m = 1}^{M} f( x[m] ) }
+$$</p>
+<div class="callout callout-danger">
+    <span class="callout-icon">
+        
+        
+        
+        ❗
+    </span>
+    <div class="callout-content"><p>$ P $ might be</p>
+<ul>
+<li>a posterior distribution for a BN,</li>
+<li>or a prior distribution for a Markov network.</li>
+</ul>
+<p>$ \rightarrow $ impossible or computationally very expensive to generate sample from $ P $.</p>
+<br/>
+<p>Thus, we might prefer to generate samples from a different distribution $ Q $ a.k.a the <strong>proposal distribution</strong> or <strong>sampling distribution</strong>.</p>
+</div>
+</div>
+
+
+<h3 id="unormalized-importance-sampling">Unormalized Importance Sampling</h3>
+<p>The sampling distribution $ Q $ is incorrect $ \rightarrow $ can&rsquo;t avg the $ f $-value of the samples generated.</p>
+<p>Observe
+$$
+E_{P(X)} [f(X)] = E_{Q(X)} \left[f(X) \frac{P(X)}{Q(X)} \right]
+$$</p>
+<details>
+    <summary>verify</summary>
+    
+        $$
+\begin{align*}
+E_{Q(X)} \left[ f(X) \frac{P(X)}{Q(X)} \right] &amp;= \sum_x Q(x) f(x) \frac{P(x)}{Q(x)}\\
+&amp;= \sum_x P(x) f(x)\\
+&amp;= E_P [f(X)]
+\end{align*}
+$$ 
+    
+</details>
+
 </div>
         
     </div>
