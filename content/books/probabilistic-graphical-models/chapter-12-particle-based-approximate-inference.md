@@ -30,7 +30,7 @@ $$
 E_{\xi \sim P}[f(\xi)]
 &\approx E_{\xi \sim D} [f(\xi)] \quad \text{(empirical approximation)}\\\
 &= \frac{1}{M} \sum_{1}^{M} f(\xi) = \frac{1}{M} \sum_{1}^{M} I\\{ \xi(Y) = y \\} \\\
-&= \boxed{ E_{\xi \sim D} [f(\xi)] = P(Y = y) }
+&= P(Y = y)
 \end{align*}
 $$
 
