@@ -16,13 +16,6 @@
       <description>&lt;h1 id=&#34;definitions&#34;&gt;Definitions&lt;/h1&gt;&#xA;&lt;h3 id=&#34;graphs&#34;&gt;Graphs&lt;/h3&gt;&#xA;&lt;p&gt;$ G = (V, E) $&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$ V $: &lt;strong&gt;non empty&lt;/strong&gt; set of vertices (or nodes)&lt;/li&gt;&#xA;&lt;li&gt;$ E $: edges; set of two-element subsets of $ V $.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;adjacent&#34;&gt;Adjacent&lt;/h3&gt;&#xA;&lt;p&gt;Two nodes $ x_i $ and $ x_j $ are &lt;strong&gt;adjacent&lt;/strong&gt; if $ \{ x_i, x_j \} \in E $.&lt;/p&gt;&#xA;&lt;h3 id=&#34;incident&#34;&gt;Incident&lt;/h3&gt;&#xA;&lt;p&gt;An edge $ e = \{ x_i, x_j \} $ is &lt;strong&gt;incident&lt;/strong&gt; to $ x_i, x_j $.&lt;/p&gt;&#xA;&lt;h3 id=&#34;degree-of-a-node&#34;&gt;Degree of a Node&lt;/h3&gt;&#xA;&lt;p&gt;The # of edges incident to a node.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>1711.02582</title>
-      <link>https://tomodachii.com/papers/1711.02582/</link>
-      <pubDate>Mon, 26 May 2025 10:32:07 +0700</pubDate>
-      <guid>https://tomodachii.com/papers/1711.02582/</guid>
-      <description>&lt;h1 id=&#34;abstract&#34;&gt;Abstract&lt;/h1&gt;&#xA;&lt;p&gt;Estimating causal inference&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;unconfoundedness&lt;/li&gt;&#xA;&lt;li&gt;overlap&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&amp;ldquo;unconfoundedness is more plausible when more covariates are included in the analysis&amp;rdquo;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;covariate overlap is more difficult to satisfy in this setting&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-    <item>
       <title>Lecture 1: Motivation</title>
       <link>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-1-motivation/</link>
       <pubDate>Wed, 16 Apr 2025 07:51:04 +0700</pubDate>
