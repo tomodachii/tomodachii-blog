@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Papers on My New Hugo Site</title>
-    <link>https://tomodachii.com/papers/</link>
-    <description>Recent content in Papers on My New Hugo Site</description>
+    <title>_ on My New Hugo Site</title>
+    <link>https://tomodachii.com/authors/_/</link>
+    <description>Recent content in _ on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 07 Jul 2025 15:20:57 +0700</lastBuildDate>
-    <atom:link href="https://tomodachii.com/papers/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://tomodachii.com/authors/_/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DAGs with NO TEARS: Continuous Optimization for Structure Learning</title>
       <link>https://tomodachii.com/papers/1803.01422/</link>

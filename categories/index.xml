@@ -6,8 +6,22 @@
     <description>Recent content in Categories on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Jun 2025 18:33:28 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 07 Jul 2025 15:20:57 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Causal-Discovery</title>
+      <link>https://tomodachii.com/categories/causal-discovery/</link>
+      <pubDate>Mon, 07 Jul 2025 15:20:57 +0700</pubDate>
+      <guid>https://tomodachii.com/categories/causal-discovery/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DAG</title>
+      <link>https://tomodachii.com/categories/dag/</link>
+      <pubDate>Mon, 07 Jul 2025 15:20:57 +0700</pubDate>
+      <guid>https://tomodachii.com/categories/dag/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Probabilistic-Graphical-Models</title>
       <link>https://tomodachii.com/categories/probabilistic-graphical-models/</link>

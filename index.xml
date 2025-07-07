@@ -6,7 +6,7 @@
     <description>Recent content on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Jun 2025 18:33:28 +0700</lastBuildDate>
+    <lastBuildDate>Mon, 07 Jul 2025 15:20:57 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lecture 6: Graph Theory and Coloring</title>
@@ -196,6 +196,13 @@
       <pubDate>Tue, 15 Apr 2025 14:20:15 +0700</pubDate>
       <guid>https://tomodachii.com/books/probabilistic-graphical-models/chapter-17-parameter-estimation/</guid>
       <description>&lt;h3 id=&#34;scenarios&#34;&gt;Scenarios&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Completely observed&lt;/strong&gt; GMs&#xA;&lt;ul&gt;&#xA;&lt;li&gt;directed.&lt;/li&gt;&#xA;&lt;li&gt;undirected.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Partially or Unobserved&lt;/strong&gt; GMs&#xA;&lt;ul&gt;&#xA;&lt;li&gt;directed.&lt;/li&gt;&#xA;&lt;li&gt;undirected.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;estimation-principles&#34;&gt;Estimation principles&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;MLE.&lt;/li&gt;&#xA;&lt;li&gt;Bayesian estimation.&lt;/li&gt;&#xA;&lt;li&gt;Maximum conditional likelihood.&lt;/li&gt;&#xA;&lt;li&gt;Maximum &amp;ldquo;Margin&amp;rdquo;.&lt;/li&gt;&#xA;&lt;li&gt;Maximum entropy.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;callout callout-info&#34;&gt;&#xA;    &lt;span class=&#34;callout-icon&#34;&gt;&#xA;        ℹ️&#xA;        &#xA;        &#xA;        &#xA;    &lt;/span&gt;&#xA;    &lt;div class=&#34;callout-content&#34;&gt;Learning $=$ estimating the parameters + the topology of the network.&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&#xA;&lt;h1 id=&#34;parameter-learning&#34;&gt;Parameter Learning&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Assume $\mathcal{G}$ is known and fixed,&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;from expert design.&lt;/li&gt;&#xA;&lt;li&gt;from an intermediate outcome of iterative structure learning.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;$D = \{x_1, \dots ,x_N\}$: $N$ &lt;span class=&#34;marked&#34;&gt;independent, identically distributed (iid)&lt;/span&gt;&#xA; training cases.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$x_n = (x_{n, 1}, \dots, x_{n, M})$ is a vector of $M$ values&#xA;&lt;ul&gt;&#xA;&lt;li&gt;the model is observed, every $x_n$ is known&lt;/li&gt;&#xA;&lt;li&gt;or, paritially observed.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Goal: Estimate from $D$.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>DAGs with NO TEARS: Continuous Optimization for Structure Learning</title>
+      <link>https://tomodachii.com/papers/1803.01422/</link>
+      <pubDate>Mon, 07 Jul 2025 15:20:57 +0700</pubDate>
+      <guid>https://tomodachii.com/papers/1803.01422/</guid>
+      <description>&lt;h1 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h1&gt;&#xA;&lt;p&gt;Propose a new approach for &lt;strong&gt;score-based&lt;/strong&gt; learning of DAGs: Converting the traditional &lt;em&gt;combinatorial optimization problem&lt;/em&gt; $ \rightarrow $ &lt;em&gt;continuous program&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\begin{array}{c}&#xA;\displaystyle \min_{W \in R^{d \times d}} F(W) \\&#xA;\text{subject to } G(W) \in \text{DAGs}&#xA;\end{array}&#xA;\quad \Longleftrightarrow \quad&#xA;\begin{array}{c}&#xA;\displaystyle \min_{W \in R^{d \times d}} F(W) \\&#xA;\text{subject to } h(W) = 0&#xA;\end{array}&#xA;\tag{1}&#xA;$$&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$ G(W) $: $d$-node graph induced by $ W $&lt;/li&gt;&#xA;&lt;li&gt;$ W \in R^{d \times d} $: weighted adjacency matrix&lt;/li&gt;&#xA;&lt;li&gt;$ F: R^{d \times d} \to R $: score function&lt;/li&gt;&#xA;&lt;li&gt;$ h: R^{d \times d} \to R $: a smooth function over real matrices, whose level set at zero exactly characterizes acyclic graphs&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;2-background&#34;&gt;2. Background&lt;/h1&gt;&#xA;&lt;p&gt;The basic DAG learning problem is formulated as&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lecture 1 Introduction</title>
