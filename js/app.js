@@ -1,47 +1,41 @@
-// const mode = localStorage.getItem("mode") || "";
-const toggle = document.querySelector(".toggle");
-const body = document.querySelector("body");
-const sun = document.querySelector("#sun");
-const moon = document.querySelector("#moon");
+document.addEventListener("DOMContentLoaded", () => {
+    const toggle = document.querySelector(".toggle");
+    const body = document.querySelector("body");
+    const sun = document.querySelector("#sun");
+    const moon = document.querySelector("#moon");
 
-// document.body.className = mode;
-// Initialize mode from localStorage
-const mode = localStorage.getItem("mode") || "";
-if (mode === "light") {
-    body.classList.add("light");
-    sun.style.display = "block";
-    moon.style.display = "none";
-}
-
-// Toggle event listener
-toggle.addEventListener("click", () => {
-    const currentMode = localStorage.getItem("mode") || "";
-    const newMode = currentMode === "light" ? "" : "light";
-    localStorage.setItem("mode", newMode);
-    body.classList.toggle("light");
-
-    if (newMode === "light") {
+    // Initialize mode
+    const savedMode = localStorage.getItem("mode");
+    const mode = savedMode || "light"; // default to light
+    if (mode === "light") {
+        body.classList.add("light");
         sun.style.display = "block";
         moon.style.display = "none";
     } else {
+        body.classList.remove("light");
         sun.style.display = "none";
         moon.style.display = "block";
     }
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Always enforce light mode
-    body.classList.add("light");
-    localStorage.setItem("mode", "light");
-
-    // Set icons
-    if (sun) sun.style.display = "block";
-    if (moon) moon.style.display = "none";
-
-    // Disable toggle button if it exists
-    const toggle = document.querySelector(".toggle");
-    if (toggle) {
-        // toggle.style.display = "none"; // hide visually
-        toggle.disabled = true; // disable interaction
+    // Save default if not already saved
+    if (!savedMode) {
+        localStorage.setItem("mode", mode);
     }
+
+    // Toggle event listener
+    toggle.addEventListener("click", () => {
+        const currentMode = localStorage.getItem("mode") || "light";
+        const newMode = currentMode === "light" ? "dark" : "light";
+        localStorage.setItem("mode", newMode);
+
+        body.classList.toggle("light");
+
+        if (newMode === "light") {
+            sun.style.display = "block";
+            moon.style.display = "none";
+        } else {
+            sun.style.display = "none";
+            moon.style.display = "block";
+        }
+    });
 });
