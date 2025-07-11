@@ -18,7 +18,7 @@ A matrix times a column vector is a combination of the column of the matrix [21:
 
 The matrix x col = col
 
-This can be understand as applying linear transformation to a vector $[\textcolor{red}{a}, \textcolor{blue}{b}, \textcolor{green}{c}]^T$ to transform this vector from a vector space to another
+This can be understand as applying linear transformation to a vector $[\textcolor{red}{a}, \textcolor{teal}{b}, \textcolor{green}{c}]^T$ to transform this vector from a vector space to another
 
 $$
 \left[
@@ -31,7 +31,7 @@ $$
 \left[
     \begin{array}{c}
     \textcolor{red}{a} \\\
-    \textcolor{blue}{b} \\\
+    \textcolor{teal}{b} \\\
     \textcolor{green}{c}
     \end{array}
 \right]
@@ -48,7 +48,7 @@ $$
     \right]
 }
 +
-\textcolor{blue}{b}
+\textcolor{teal}{b}
 \underset{\text{col 2}}{
     \left[
         \begin{array}{c}
@@ -69,6 +69,15 @@ $$
         \end{array}
     \right]
 }
+\quad
+=\quad
+\left[
+    \begin{array}{c}
+    . \\\
+    . \\\
+    .
+    \end{array}
+\right]
 $$
 
 A row vector times a matrix is a linear combination of rows of the matrix [22:15]
@@ -84,7 +93,7 @@ $$
 \left[
     \begin{array}{c}
     \textcolor{red}{a} \\\
-    \textcolor{blue}{b} \\\
+    \textcolor{teal}{b} \\\
     \textcolor{green}{c}
     \end{array}
 \right]
@@ -101,7 +110,7 @@ $$
     \right]
 }
 +
-\textcolor{blue}{b}
+\textcolor{teal}{b}
 \underset{\text{col 2}}{
     \left[
         \begin{array}{c}
