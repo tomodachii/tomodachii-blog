@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linear-Algebra on My New Hugo Site</title>
+    <link>https://tomodachii.com/categories/linear-algebra/</link>
+    <description>Recent content in Linear-Algebra on My New Hugo Site</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 11 Jul 2025 14:21:34 +0700</lastBuildDate>
+    <atom:link href="https://tomodachii.com/categories/linear-algebra/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lecture 2: Elimination With Matrices</title>
+      <link>https://tomodachii.com/courses/18.06/lecture-2-elimination-with-matrices/</link>
+      <pubDate>Fri, 11 Jul 2025 14:21:34 +0700</pubDate>
+      <guid>https://tomodachii.com/courses/18.06/lecture-2-elimination-with-matrices/</guid>
+      <description>&lt;p&gt;A matrix times a column vector is a combination of the column of the matrix [21:10]&lt;/p&gt;&#xA;&lt;p&gt;The matrix x col = col&lt;/p&gt;&#xA;&lt;p&gt;This can be understand as applying linear transformation to a vector $[\textcolor{red}{a}, \textcolor{blue}{b}, \textcolor{green}{c}]^T$ to transform this vector from a vector space to another&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\left[&#xA;\begin{array}{c c c}&#xA;. &amp;amp; . &amp;amp; . \\&#xA;. &amp;amp; . &amp;amp; . \\&#xA;. &amp;amp; . &amp;amp; .&#xA;\end{array}&#xA;\right]&#xA;\left[&#xA;\begin{array}{c}&#xA;\textcolor{red}{a} \\&#xA;\textcolor{blue}{b} \\&#xA;\textcolor{green}{c}&#xA;\end{array}&#xA;\right]&#xA;\quad&#xA;=\quad&#xA;\textcolor{red}{a}&#xA;\underset{\text{col 1}}{&#xA;\left[&#xA;\begin{array}{c}&#xA;. \\&#xA;. \\&#xA;.&#xA;\end{array}&#xA;\right]&#xA;}&#xA;+&#xA;\textcolor{blue}{b}&#xA;\underset{\text{col 2}}{&#xA;\left[&#xA;\begin{array}{c}&#xA;. \\&#xA;. \\&#xA;.&#xA;\end{array}&#xA;\right]&#xA;}&#xA;+&#xA;\textcolor{green}{c}&#xA;\underset{\text{col 3}}{&#xA;\left[&#xA;\begin{array}{c}&#xA;. \\&#xA;. \\&#xA;.&#xA;\end{array}&#xA;\right]&#xA;}&#xA;$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 3: Multiplication and Inverse Matrix</title>
+      <link>https://tomodachii.com/courses/18.06/lecture-3-multiplication-and-inverse-matrix/</link>
+      <pubDate>Fri, 11 Jul 2025 12:57:28 +0700</pubDate>
+      <guid>https://tomodachii.com/courses/18.06/lecture-3-multiplication-and-inverse-matrix/</guid>
+      <description>&lt;p&gt;$$&#xA;\underset{A}{&#xA;\begin{bmatrix}&#xA;&amp;amp; &amp;amp; &amp;amp; &amp;amp; \\&#xA;&amp;amp; &amp;amp; &amp;amp; &amp;amp; \\&#xA;&amp;amp; &amp;amp; &amp;amp; &amp;amp;&#xA;\end{bmatrix}&#xA;}&#xA;\underset{B}{&#xA;\begin{bmatrix}&#xA;&amp;amp; &amp;amp; &amp;amp; \\&#xA;&amp;amp; &amp;amp; &amp;amp; \\&#xA;&amp;amp; &amp;amp; &amp;amp; \\&#xA;&amp;amp; &amp;amp; &amp;amp;&#xA;\end{bmatrix}&#xA;}&#xA;\quad&#xA;= \quad&#xA;\underset{C = AB}{&#xA;\begin{bmatrix}&#xA;&amp;amp; &amp;amp; &amp;amp; \\&#xA;&amp;amp; &amp;amp; &amp;amp; \\&#xA;&amp;amp; &amp;amp; &amp;amp;&#xA;\end{bmatrix}&#xA;}&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://tomodachii.com/images/courses/18.06/lecture-3/matrix-multiplication-1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

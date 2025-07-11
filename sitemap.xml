@@ -17,11 +17,17 @@
     <loc>https://tomodachii.com/random/20240724-insertion-sort/</loc>
     <lastmod>2024-07-24T19:03:42+07:00</lastmod>
   </url><url>
+    <loc>https://tomodachii.com/courses/18.06/lecture-2-elimination-with-matrices/</loc>
+    <lastmod>2025-07-11T14:21:34+07:00</lastmod>
+  </url><url>
     <loc>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-2-potential-outcomes/</loc>
     <lastmod>2025-05-21T21:07:02+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/books/probabilistic-machine-learning-an-introduction/chapter-2-probability-univariate-models/</loc>
     <lastmod>2025-04-06T20:58:08+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/courses/18.06/lecture-3-multiplication-and-inverse-matrix/</loc>
+    <lastmod>2025-07-11T12:57:28+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-3-the-flow-of-association-and-causation-in-graphs/</loc>
     <lastmod>2025-06-03T08:41:01+07:00</lastmod>
@@ -83,13 +89,25 @@
     <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-17-parameter-estimation/</loc>
     <lastmod>2025-04-15T14:20:15+07:00</lastmod>
   </url><url>
-    <loc>https://tomodachii.com/authors/_/</loc>
-    <lastmod>2025-07-07T15:20:57+07:00</lastmod>
-  </url><url>
     <loc>https://tomodachii.com/authors/</loc>
-    <lastmod>2025-07-07T15:20:57+07:00</lastmod>
+    <lastmod>2025-07-11T14:21:34+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/categories/</loc>
+    <lastmod>2025-07-11T14:21:34+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/courses/</loc>
+    <lastmod>2025-07-11T14:21:34+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/authors/gilbert-strang/</loc>
+    <lastmod>2025-07-11T14:21:34+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/categories/linear-algebra/</loc>
+    <lastmod>2025-07-11T14:21:34+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/</loc>
+    <lastmod>2025-07-11T14:21:34+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/authors/_/</loc>
     <lastmod>2025-07-07T15:20:57+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/categories/causal-discovery/</loc>
@@ -99,9 +117,6 @@
     <lastmod>2025-07-07T15:20:57+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/papers/1803.01422/</loc>
-    <lastmod>2025-07-07T15:20:57+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/</loc>
     <lastmod>2025-07-07T15:20:57+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/papers/</loc>
@@ -123,9 +138,6 @@
     <lastmod>2025-06-03T08:41:01+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/categories/causality/</loc>
-    <lastmod>2025-06-03T08:41:01+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/courses/</loc>
     <lastmod>2025-06-03T08:41:01+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/categories/graph-theory/</loc>
