@@ -6,8 +6,15 @@
     <description>Recent content in Chris Piech on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Apr 2025 21:51:42 +0700</lastBuildDate>
+    <lastBuildDate>Wed, 18 Jun 2025 19:57:37 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/authors/chris-piech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lecture 16: Beta</title>
+      <link>https://tomodachii.com/courses/cs109/lecture-16-beta/</link>
+      <pubDate>Wed, 18 Jun 2025 19:57:37 +0700</pubDate>
+      <guid>https://tomodachii.com/courses/cs109/lecture-16-beta/</guid>
+      <description>&lt;p&gt;Example: Probability of rain tmr&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: My leg itches when it rains and its kinda itchy $ \rightarrow p = .8 $&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: Done complex calculations and have seens 10,451 days like tmr $ \rightarrow p = .8 $&lt;/p&gt;&#xA;&lt;p&gt;Which estimate is better? We don&amp;rsquo;t have a measure for confidence?&lt;/p&gt;&#xA;&lt;h1 id=&#34;belief-in--p--after-9-heads-in-10-flips&#34;&gt;Belief in $ p $ After 9 Heads in 10 Flips?&lt;/h1&gt;&#xA;&lt;p&gt;Flip a coin 10 times, observed 9 H and 1 T, $ p \approx \frac{9}{10} $?&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Lecture 1 Counting</title>
       <link>https://tomodachii.com/courses/cs109/lecture-1-counting/</link>

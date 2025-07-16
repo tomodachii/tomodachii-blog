@@ -29,12 +29,5 @@
       <guid>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-3-the-flow-of-association-and-causation-in-graphs/</guid>
       <description></description>
     </item>
-    <item>
-      <title>Chapter 1: Introduction to Probabilities, Graphs and Causal Models</title>
-      <link>https://tomodachii.com/books/causality/chapter-1-introduction-to-probabilities-graphs-causal-models/</link>
-      <pubDate>Thu, 22 May 2025 09:23:31 +0700</pubDate>
-      <guid>https://tomodachii.com/books/causality/chapter-1-introduction-to-probabilities-graphs-causal-models/</guid>
-      <description>&lt;h1 id=&#34;probability-theory&#34;&gt;Probability Theory&lt;/h1&gt;&#xA;&lt;h2 id=&#34;basic-concepts&#34;&gt;Basic Concepts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;axioms&#34;&gt;Axioms&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;$ 0 \leq P(A) \leq 1 $,&lt;/li&gt;&#xA;&lt;li&gt;$ P (S) = 1 $&lt;/li&gt;&#xA;&lt;li&gt;$ P (A \text{ or } B) = P(A) + P(B) $ if $ A $ and $ B $ are mutually exclusive.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;br/&gt;&#xA;&lt;p&gt;$ (A \cap B) $ and $ (A \cap \lnot B) $ are disjoint events, thus&lt;/p&gt;&#xA;&lt;p&gt;$ A = (A \cap B) \cup (A \cap \lnot B) \rightarrow P(A) = P(A, B) + P(A, \lnot B) $&lt;/p&gt;</description>
-    </item>
   </channel>
 </rss>

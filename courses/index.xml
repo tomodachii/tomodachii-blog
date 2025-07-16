@@ -9,13 +9,6 @@
     <lastBuildDate>Fri, 11 Jul 2025 14:21:34 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/courses/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Lecture 6: Graph Theory and Coloring</title>
-      <link>https://tomodachii.com/courses/6.042j/lecture-6-graph-theory/</link>
-      <pubDate>Mon, 02 Jun 2025 21:52:48 +0700</pubDate>
-      <guid>https://tomodachii.com/courses/6.042j/lecture-6-graph-theory/</guid>
-      <description>&lt;h1 id=&#34;definitions&#34;&gt;Definitions&lt;/h1&gt;&#xA;&lt;h3 id=&#34;graphs&#34;&gt;Graphs&lt;/h3&gt;&#xA;&lt;p&gt;$ G = (V, E) $&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$ V $: &lt;strong&gt;non empty&lt;/strong&gt; set of vertices (or nodes)&lt;/li&gt;&#xA;&lt;li&gt;$ E $: edges; set of two-element subsets of $ V $.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;adjacent&#34;&gt;Adjacent&lt;/h3&gt;&#xA;&lt;p&gt;Two nodes $ x_i $ and $ x_j $ are &lt;strong&gt;adjacent&lt;/strong&gt; if $ \{ x_i, x_j \} \in E $.&lt;/p&gt;&#xA;&lt;h3 id=&#34;incident&#34;&gt;Incident&lt;/h3&gt;&#xA;&lt;p&gt;An edge $ e = \{ x_i, x_j \} $ is &lt;strong&gt;incident&lt;/strong&gt; to $ x_i, x_j $.&lt;/p&gt;&#xA;&lt;h3 id=&#34;degree-of-a-node&#34;&gt;Degree of a Node&lt;/h3&gt;&#xA;&lt;p&gt;The # of edges incident to a node.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Lecture 1: Motivation</title>
       <link>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-1-motivation/</link>
       <pubDate>Wed, 16 Apr 2025 07:51:04 +0700</pubDate>
@@ -79,11 +72,11 @@
       <description>&lt;h1 id=&#34;conditioning-on-an-event&#34;&gt;Conditioning on an Event&lt;/h1&gt;&#xA;&lt;div class=&#34;columns&#34;&gt;&#xA;  &lt;div class=&#34;column&#34;&gt;&#xA;      &lt;p&gt;$$&#xA;p_X (x) = P(X = x)&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\boxed{ p_{X \mid A} (x) = P(X = x \mid A) }&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;P(X \in B) = \sum_{x \in B} p_X (x)&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\boxed{ P(X \in B \mid A) = \sum_{x \in B} p_{X \mid A} (x) }&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\boxed{ \sum_x p_{X \mid A} (x) = 1 }&#xA;$$&lt;/p&gt;&#xA;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;column&#34;&gt;&#xA;      &lt;p&gt;$$&#xA;f_X (x) \cdot \delta \approx P(x \leq X \leq x + \delta)&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Lecture 1 Introduction</title>
-      <link>https://tomodachii.com/courses/ee364a/lecture-1-introduction/</link>
-      <pubDate>Fri, 23 May 2025 14:28:21 +0700</pubDate>
-      <guid>https://tomodachii.com/courses/ee364a/lecture-1-introduction/</guid>
-      <description>&lt;h1 id=&#34;mathematical-optimization&#34;&gt;Mathematical Optimization&lt;/h1&gt;&#xA;&lt;div class=&#34;define&#34;&gt;&#xA;    &#xA;    &#xA;        &lt;span class=&#34;define-icon&#34;&gt;&#xA;            𐰋𐰍𐰃𐰤&#xA;            &#xA;        &lt;/span&gt;&#xA;    &#xA;&#xA;    &#xA;&#xA;    &lt;div class=&#34;define-content&#34;&gt;&lt;p&gt;Optimization problem&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;minimize&lt;/strong&gt; $ f_0(x) $&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;subject to&lt;/strong&gt; $ f_i(x) \leq b_i, \quad i = 1, \dots, m. $&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$ x = (x_1, \dots, x_n) $: (vector) optimization variables.&lt;/li&gt;&#xA;&lt;li&gt;$ f_0: R^n \to R $: objective function.&lt;/li&gt;&#xA;&lt;li&gt;$ f_i: R^n \to R, \quad i = 1, \dots, m $: (inequality) constraint functions.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;br/&gt;&#xA;&lt;p&gt;&lt;strong&gt;optimal solution&lt;/strong&gt; $ x^* $&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;has the smallest value of $ f_0 $&lt;/li&gt;&#xA;&lt;li&gt;satisfies the constraints.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;for any $ z $ with $ f_1(z) \leq b_1, \dots, f_m(z) \leq b_m $, we have $ f_0 (z) \geq f_0(x^*) $.&lt;/p&gt;</description>
+      <title>Lecture 16: Beta</title>
+      <link>https://tomodachii.com/courses/cs109/lecture-16-beta/</link>
+      <pubDate>Wed, 18 Jun 2025 19:57:37 +0700</pubDate>
+      <guid>https://tomodachii.com/courses/cs109/lecture-16-beta/</guid>
+      <description>&lt;p&gt;Example: Probability of rain tmr&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: My leg itches when it rains and its kinda itchy $ \rightarrow p = .8 $&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: Done complex calculations and have seens 10,451 days like tmr $ \rightarrow p = .8 $&lt;/p&gt;&#xA;&lt;p&gt;Which estimate is better? We don&amp;rsquo;t have a measure for confidence?&lt;/p&gt;&#xA;&lt;h1 id=&#34;belief-in--p--after-9-heads-in-10-flips&#34;&gt;Belief in $ p $ After 9 Heads in 10 Flips?&lt;/h1&gt;&#xA;&lt;p&gt;Flip a coin 10 times, observed 9 H and 1 T, $ p \approx \frac{9}{10} $?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lecture 1 Counting</title>

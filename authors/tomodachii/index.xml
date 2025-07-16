@@ -6,15 +6,8 @@
     <description>Recent content in Tomodachii on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Jun 2025 21:52:48 +0700</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jul 2024 19:03:42 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/authors/tomodachii/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Lecture 6: Graph Theory and Coloring</title>
-      <link>https://tomodachii.com/courses/6.042j/lecture-6-graph-theory/</link>
-      <pubDate>Mon, 02 Jun 2025 21:52:48 +0700</pubDate>
-      <guid>https://tomodachii.com/courses/6.042j/lecture-6-graph-theory/</guid>
-      <description>&lt;h1 id=&#34;definitions&#34;&gt;Definitions&lt;/h1&gt;&#xA;&lt;h3 id=&#34;graphs&#34;&gt;Graphs&lt;/h3&gt;&#xA;&lt;p&gt;$ G = (V, E) $&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$ V $: &lt;strong&gt;non empty&lt;/strong&gt; set of vertices (or nodes)&lt;/li&gt;&#xA;&lt;li&gt;$ E $: edges; set of two-element subsets of $ V $.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;adjacent&#34;&gt;Adjacent&lt;/h3&gt;&#xA;&lt;p&gt;Two nodes $ x_i $ and $ x_j $ are &lt;strong&gt;adjacent&lt;/strong&gt; if $ \{ x_i, x_j \} \in E $.&lt;/p&gt;&#xA;&lt;h3 id=&#34;incident&#34;&gt;Incident&lt;/h3&gt;&#xA;&lt;p&gt;An edge $ e = \{ x_i, x_j \} $ is &lt;strong&gt;incident&lt;/strong&gt; to $ x_i, x_j $.&lt;/p&gt;&#xA;&lt;h3 id=&#34;degree-of-a-node&#34;&gt;Degree of a Node&lt;/h3&gt;&#xA;&lt;p&gt;The # of edges incident to a node.&lt;/p&gt;</description>
-    </item>
     <item>
       <title>Insertion Sort</title>
       <link>https://tomodachii.com/random/20240724-insertion-sort/</link>

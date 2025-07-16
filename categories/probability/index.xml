@@ -6,7 +6,7 @@
     <description>Recent content in Probability on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 May 2025 08:37:13 +0700</lastBuildDate>
+    <lastBuildDate>Wed, 18 Jun 2025 19:57:37 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/categories/probability/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Chapter 2: Probability - Univariate Models</title>
@@ -30,13 +30,6 @@
       <description>&lt;h1 id=&#34;cumulative-distribution-function&#34;&gt;Cumulative Distribution Function&lt;/h1&gt;&#xA;&lt;h3 id=&#34;example-39&#34;&gt;Example 3.9&lt;/h3&gt;&#xA;&lt;p&gt;I toss a coin twice. Let X be the number of observed heads. Find the CDF of X.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Answer&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;$X =$ {the number of observed heads}&lt;/p&gt;&#xA;&lt;p&gt;$X \sim Binomial(2, \frac{1}{2})$, $R_X = \{0, 1, 2\}$.&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;p_X(k) = \binom{n}{k} p^k (1 - p)^{n - k}, \quad \text{for } k = 0, 1, 2.&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;F_X(x) = P(X \leq x) = \sum_{k \leq x}p_X(k).&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Chapter 8: Optimization</title>
-      <link>https://tomodachii.com/books/probabilistic-machine-learning-an-introduction/chapter-8-optimization/</link>
-      <pubDate>Fri, 23 May 2025 08:37:13 +0700</pubDate>
-      <guid>https://tomodachii.com/books/probabilistic-machine-learning-an-introduction/chapter-8-optimization/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Find&lt;/strong&gt; $ \theta \in \Theta $&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Minimizing&lt;/strong&gt; loss function $ L: \Theta \to R $&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\theta^* \in \argmin_{\theta \in \Theta} L(\theta)&#xA;$$&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;parameter space: $ \Theta \subseteq R^D $&lt;/li&gt;&#xA;&lt;li&gt;$ D $: # of variables being optimized over.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-    <item>
       <title>Lecture 8: Continuous Random Variables</title>
       <link>https://tomodachii.com/courses/6.041sc/lecture-8-continuous-random-variables/</link>
       <pubDate>Mon, 17 Mar 2025 12:11:38 +0700</pubDate>
@@ -49,6 +42,13 @@
       <pubDate>Sat, 19 Apr 2025 18:56:10 +0700</pubDate>
       <guid>https://tomodachii.com/courses/6.041sc/lecture-9-10-joint-distribution-conditioning-independence/</guid>
       <description>&lt;h1 id=&#34;conditioning-on-an-event&#34;&gt;Conditioning on an Event&lt;/h1&gt;&#xA;&lt;div class=&#34;columns&#34;&gt;&#xA;  &lt;div class=&#34;column&#34;&gt;&#xA;      &lt;p&gt;$$&#xA;p_X (x) = P(X = x)&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\boxed{ p_{X \mid A} (x) = P(X = x \mid A) }&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;P(X \in B) = \sum_{x \in B} p_X (x)&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\boxed{ P(X \in B \mid A) = \sum_{x \in B} p_{X \mid A} (x) }&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\boxed{ \sum_x p_{X \mid A} (x) = 1 }&#xA;$$&lt;/p&gt;&#xA;&#xA;  &lt;/div&gt;&#xA;  &lt;div class=&#34;column&#34;&gt;&#xA;      &lt;p&gt;$$&#xA;f_X (x) \cdot \delta \approx P(x \leq X \leq x + \delta)&#xA;$$&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Lecture 16: Beta</title>
+      <link>https://tomodachii.com/courses/cs109/lecture-16-beta/</link>
+      <pubDate>Wed, 18 Jun 2025 19:57:37 +0700</pubDate>
+      <guid>https://tomodachii.com/courses/cs109/lecture-16-beta/</guid>
+      <description>&lt;p&gt;Example: Probability of rain tmr&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: My leg itches when it rains and its kinda itchy $ \rightarrow p = .8 $&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: Done complex calculations and have seens 10,451 days like tmr $ \rightarrow p = .8 $&lt;/p&gt;&#xA;&lt;p&gt;Which estimate is better? We don&amp;rsquo;t have a measure for confidence?&lt;/p&gt;&#xA;&lt;h1 id=&#34;belief-in--p--after-9-heads-in-10-flips&#34;&gt;Belief in $ p $ After 9 Heads in 10 Flips?&lt;/h1&gt;&#xA;&lt;p&gt;Flip a coin 10 times, observed 9 H and 1 T, $ p \approx \frac{9}{10} $?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lecture 1 Counting</title>

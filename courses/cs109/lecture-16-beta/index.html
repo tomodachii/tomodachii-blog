@@ -8,7 +8,14 @@
     
     <link rel="icon" href="/images/lain-sicp.png">
     <title>Tomodachii</title>
-    <head>
+    <head><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js" integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6" crossorigin="anonymous"></script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>
 </head>
 </head>
 <body>
@@ -83,143 +90,96 @@
 
     <div class="container">
         
-         
-  <div class="list">
-  
-  
+        
+<style>
+    :root {
+      --postColor: #10987F;
+    }
+  </style>
 
-  
-   
-    
-    
-  
-
-  
-      
-      
-          
-      
-  
-      
-      
-  
-      
-      
-  
-
-  
-  
-  
-
-  
-
-  
-    
-      
-    
-  
-
-  
-  
-    
-    
-  
-  
-  
-  
-    
-      
-        
-          
-            
-          
-        
-      
-    
-      
-        
-          
-        
-      
-    
-      
-        
-          
-        
-      
-    
-  
-
-  <div class="section">
-    <button class="toggleButton" onclick="toggleSection('introduction-to-causal-inference-from-a-machine-learning-perspective')">
-      Introduction to Causal Inference from a Machine Learning Perspective
-       by
-        
-          
-          
-            <a href="https://www.bradyneal.com/aboutme" target="_blank" rel="noopener" onclick="event.stopPropagation()">Brady Neal</a>
-          
-        
-      
-    </button>
-  
-    <div id="introduction-to-causal-inference-from-a-machine-learning-perspective" class="sectionContent">
-      
-        <div class="listItem">
-          <div class="listItemTexts">
-            <div class="listItemTitle">
-              <a href="https://tomodachii.com/courses/introduction-to-causal-inference/lecture-1-motivation/">
-                - Lecture 1: Motivation 
-                (<time datetime="Apr 16, 2025">Apr 16, 2025</time>)
-              </a>
+<div class="single">
+    <div class="singleHead">
+        <div class="singleHeadTexts">
+            <h1 class="singleHeadTitle">Lecture 16: Beta</h1>
+            <p class="singleHeadDesc"></p>
+            <div class="singleHeadDetail">
+                
+                <span>
+                    
+                        <a href="https://tomodachii.com/authors/chris-piech/">Chris Piech</a>
+                    
+                </span>
+                
+                    <a href="https://tomodachii.com/categories/probability/" class="singleCategory">probability</a>
+                
             </div>
-          </div>
+            <time>Jun 18, 2025</time>
         </div>
-      
-        <div class="listItem">
-          <div class="listItemTexts">
-            <div class="listItemTitle">
-              <a href="https://tomodachii.com/courses/introduction-to-causal-inference/lecture-2-potential-outcomes/">
-                - Lecture 2: Potential Outcomes 
-                (<time datetime="May 21, 2025">May 21, 2025</time>)
-              </a>
-            </div>
-          </div>
-        </div>
-      
-        <div class="listItem">
-          <div class="listItemTexts">
-            <div class="listItemTitle">
-              <a href="https://tomodachii.com/courses/introduction-to-causal-inference/lecture-3-the-flow-of-association-and-causation-in-graphs/">
-                - Lecture 3: The Flow of Association and Causation in Graphs 
-                (<time datetime="Jun 3, 2025">Jun 3, 2025</time>)
-              </a>
-            </div>
-          </div>
-        </div>
-      
+        
     </div>
-  </div>
-  
-
+    <div class="singleBottom">
+        <div class="singleContent"><p>Example: Probability of rain tmr</p>
+<p><strong>A</strong>: My leg itches when it rains and its kinda itchy $ \rightarrow p = .8 $</p>
+<p><strong>A</strong>: Done complex calculations and have seens 10,451 days like tmr $ \rightarrow p = .8 $</p>
+<p>Which estimate is better? We don&rsquo;t have a measure for confidence?</p>
+<h1 id="belief-in--p--after-9-heads-in-10-flips">Belief in $ p $ After 9 Heads in 10 Flips?</h1>
+<p>Flip a coin 10 times, observed 9 H and 1 T, $ p \approx \frac{9}{10} $?</p>
+<ul>
+<li>A very rough estimate based off 10 coin flips</li>
+<li>the &lsquo;point value&rsquo; $ \frac{9}{10} $ does not have the abilityy to articulate how uncertain it is.</li>
+</ul>
+<p>$ \Rightarrow $ Allows probability of heads to be a r.v itself.</p>
+<br/>
+<p>Let $ X $ be the probability of heads</p>
+<p>$$
+\begin{align*}
+f(X &amp;= x \mid H = 9, T = 1), \quad \quad 0 &lt; x &lt; 1 \\
+&amp;= \frac{P(H = 9, T = 1 \mid X = x) f(X = x)}{\int_0^1 f(H = 9, T = 1 \mid X = x) f(X = x)dx}
+\end{align*}
+$$</p>
+</div>
+        
+    </div>
 </div>
 
-<script>
-function toggleSection(sectionId) {
-  var content = document.getElementById(sectionId);
-  var button = document.querySelector(`[onclick="toggleSection('${sectionId}')"]`);
 
-  if (content.style.display === "block") {
-      content.style.display = "none";
-      button.classList.remove("active");
-  } else {
-      content.style.display = "block";
-      button.classList.add("active");
-  }
-}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        document.querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(function(heading) {
+            if (heading.id) {
+                
+                let copyButton = document.createElement("button");
+                copyButton.innerHTML = `
+                    <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                        <path d="M9 2h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3v2h3a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4H9v2z"></path>
+                        <path d="M14 6H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zM3 4h11a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"></path>
+                    </svg>
+                `;
+                copyButton.classList.add("copy-button");
+    
+                copyButton.onclick = function() {
+                    navigator.clipboard.writeText(window.location.href.split("#")[0] + "#" + heading.id);
+                    copyButton.innerHTML = `
+                        <svg class="copy-icon success" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M20.285 6.715l-9 9a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L10 13.586l8.293-8.293a1 1 0 0 1 1.414 1.422z"></path>
+                        </svg>
+                    `; 
+                    setTimeout(() => copyButton.innerHTML = `
+                        <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M9 2h11a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-3v2h3a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4H9v2z"></path>
+                            <path d="M14 6H3a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1zM3 4h11a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H3a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3z"></path>
+                        </svg>
+                    `, 400);
+                };
+    
+                
+                heading.appendChild(copyButton);
+            }
+        });
+    });
 </script>
 
- 
         <div class="footer">
   <div class="footerLinks">
     <a href="/">Tomodachii</a>

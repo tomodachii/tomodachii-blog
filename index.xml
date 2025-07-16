@@ -9,13 +9,6 @@
     <lastBuildDate>Fri, 11 Jul 2025 14:21:34 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Lecture 6: Graph Theory and Coloring</title>
-      <link>https://tomodachii.com/courses/6.042j/lecture-6-graph-theory/</link>
-      <pubDate>Mon, 02 Jun 2025 21:52:48 +0700</pubDate>
-      <guid>https://tomodachii.com/courses/6.042j/lecture-6-graph-theory/</guid>
-      <description>&lt;h1 id=&#34;definitions&#34;&gt;Definitions&lt;/h1&gt;&#xA;&lt;h3 id=&#34;graphs&#34;&gt;Graphs&lt;/h3&gt;&#xA;&lt;p&gt;$ G = (V, E) $&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$ V $: &lt;strong&gt;non empty&lt;/strong&gt; set of vertices (or nodes)&lt;/li&gt;&#xA;&lt;li&gt;$ E $: edges; set of two-element subsets of $ V $.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;adjacent&#34;&gt;Adjacent&lt;/h3&gt;&#xA;&lt;p&gt;Two nodes $ x_i $ and $ x_j $ are &lt;strong&gt;adjacent&lt;/strong&gt; if $ \{ x_i, x_j \} \in E $.&lt;/p&gt;&#xA;&lt;h3 id=&#34;incident&#34;&gt;Incident&lt;/h3&gt;&#xA;&lt;p&gt;An edge $ e = \{ x_i, x_j \} $ is &lt;strong&gt;incident&lt;/strong&gt; to $ x_i, x_j $.&lt;/p&gt;&#xA;&lt;h3 id=&#34;degree-of-a-node&#34;&gt;Degree of a Node&lt;/h3&gt;&#xA;&lt;p&gt;The # of edges incident to a node.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Lecture 1: Motivation</title>
       <link>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-1-motivation/</link>
       <pubDate>Wed, 16 Apr 2025 07:51:04 +0700</pubDate>
@@ -121,13 +114,6 @@
       <description>&lt;h1 id=&#34;cumulative-distribution-function&#34;&gt;Cumulative Distribution Function&lt;/h1&gt;&#xA;&lt;h3 id=&#34;example-39&#34;&gt;Example 3.9&lt;/h3&gt;&#xA;&lt;p&gt;I toss a coin twice. Let X be the number of observed heads. Find the CDF of X.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Answer&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;$X =$ {the number of observed heads}&lt;/p&gt;&#xA;&lt;p&gt;$X \sim Binomial(2, \frac{1}{2})$, $R_X = \{0, 1, 2\}$.&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;p_X(k) = \binom{n}{k} p^k (1 - p)^{n - k}, \quad \text{for } k = 0, 1, 2.&#xA;$$&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;F_X(x) = P(X \leq x) = \sum_{k \leq x}p_X(k).&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Chapter 8: Optimization</title>
-      <link>https://tomodachii.com/books/probabilistic-machine-learning-an-introduction/chapter-8-optimization/</link>
-      <pubDate>Fri, 23 May 2025 08:37:13 +0700</pubDate>
-      <guid>https://tomodachii.com/books/probabilistic-machine-learning-an-introduction/chapter-8-optimization/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Find&lt;/strong&gt; $ \theta \in \Theta $&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Minimizing&lt;/strong&gt; loss function $ L: \Theta \to R $&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\theta^* \in \argmin_{\theta \in \Theta} L(\theta)&#xA;$$&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;parameter space: $ \Theta \subseteq R^D $&lt;/li&gt;&#xA;&lt;li&gt;$ D $: # of variables being optimized over.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-    <item>
       <title>Chapter 8 the Exponential Family</title>
       <link>https://tomodachii.com/books/probabilistic-graphical-models/chapter-8-the-exponential-family/</link>
       <pubDate>Sat, 26 Apr 2025 22:11:05 +0700</pubDate>
@@ -191,6 +177,13 @@
       <description>&lt;h3 id=&#34;structured-variational&#34;&gt;Structured Variational&lt;/h3&gt;&#xA;&lt;p&gt;Optimize the energy function over a family $ \mathcal{Q} $, which is&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;chosen to be computationally tractable&lt;/li&gt;&#xA;&lt;li&gt;hence, not sufficiently expressive to capture all of the info in $ P_\Phi $.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;define&#34;&gt;&#xA;    &#xA;    &#xA;&#xA;    &#xA;&#xA;    &lt;div class=&#34;define-content&#34;&gt;&lt;p&gt;&lt;strong&gt;Find&lt;/strong&gt; $ Q \in \mathcal{Q} $&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;maximizing&lt;/strong&gt; $ F[\tilde{P_\Phi}, Q] $&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;h1 id=&#34;mean-field-approximation&#34;&gt;Mean Field Approximation&lt;/h1&gt;&#xA;&lt;h3 id=&#34;mean-field-assumption&#34;&gt;Mean Field Assumption&lt;/h3&gt;&#xA;&lt;p&gt;$$&#xA;Q(\mathcal{X}) = \prod_i Q(X_i)&#xA;$$&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Lecture 16: Beta</title>
+      <link>https://tomodachii.com/courses/cs109/lecture-16-beta/</link>
+      <pubDate>Wed, 18 Jun 2025 19:57:37 +0700</pubDate>
+      <guid>https://tomodachii.com/courses/cs109/lecture-16-beta/</guid>
+      <description>&lt;p&gt;Example: Probability of rain tmr&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: My leg itches when it rains and its kinda itchy $ \rightarrow p = .8 $&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;A&lt;/strong&gt;: Done complex calculations and have seens 10,451 days like tmr $ \rightarrow p = .8 $&lt;/p&gt;&#xA;&lt;p&gt;Which estimate is better? We don&amp;rsquo;t have a measure for confidence?&lt;/p&gt;&#xA;&lt;h1 id=&#34;belief-in--p--after-9-heads-in-10-flips&#34;&gt;Belief in $ p $ After 9 Heads in 10 Flips?&lt;/h1&gt;&#xA;&lt;p&gt;Flip a coin 10 times, observed 9 H and 1 T, $ p \approx \frac{9}{10} $?&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Chapter 12: Particle-Based Approximate Inference</title>
       <link>https://tomodachii.com/books/probabilistic-graphical-models/chapter-12-particle-based-approximate-inference/</link>
       <pubDate>Wed, 04 Jun 2025 18:33:28 +0700</pubDate>
@@ -217,20 +210,6 @@
       <pubDate>Mon, 07 Jul 2025 15:20:57 +0700</pubDate>
       <guid>https://tomodachii.com/papers/1803.01422/</guid>
       <description>&lt;h1 id=&#34;1-introduction&#34;&gt;1. Introduction&lt;/h1&gt;&#xA;&lt;p&gt;Propose a new approach for &lt;strong&gt;score-based&lt;/strong&gt; learning of DAGs: Converting the traditional &lt;em&gt;combinatorial optimization problem&lt;/em&gt; $ \rightarrow $ &lt;em&gt;continuous program&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;$$&#xA;\begin{array}{c}&#xA;\displaystyle \min_{W \in R^{d \times d}} F(W) \\&#xA;\text{subject to } G(W) \in \text{DAGs}&#xA;\end{array}&#xA;\quad \Longleftrightarrow \quad&#xA;\begin{array}{c}&#xA;\displaystyle \min_{W \in R^{d \times d}} F(W) \\&#xA;\text{subject to } h(W) = 0&#xA;\end{array}&#xA;\tag{1}&#xA;$$&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$ G(W) $: $d$-node graph induced by $ W $&lt;/li&gt;&#xA;&lt;li&gt;$ W \in R^{d \times d} $: weighted adjacency matrix&lt;/li&gt;&#xA;&lt;li&gt;$ F: R^{d \times d} \to R $: score function&lt;/li&gt;&#xA;&lt;li&gt;$ h: R^{d \times d} \to R $: a smooth function over real matrices, whose level set at zero exactly characterizes acyclic graphs&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;2-background&#34;&gt;2. Background&lt;/h1&gt;&#xA;&lt;p&gt;The basic DAG learning problem is formulated as&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Lecture 1 Introduction</title>
-      <link>https://tomodachii.com/courses/ee364a/lecture-1-introduction/</link>
-      <pubDate>Fri, 23 May 2025 14:28:21 +0700</pubDate>
-      <guid>https://tomodachii.com/courses/ee364a/lecture-1-introduction/</guid>
-      <description>&lt;h1 id=&#34;mathematical-optimization&#34;&gt;Mathematical Optimization&lt;/h1&gt;&#xA;&lt;div class=&#34;define&#34;&gt;&#xA;    &#xA;    &#xA;        &lt;span class=&#34;define-icon&#34;&gt;&#xA;            𐰋𐰍𐰃𐰤&#xA;            &#xA;        &lt;/span&gt;&#xA;    &#xA;&#xA;    &#xA;&#xA;    &lt;div class=&#34;define-content&#34;&gt;&lt;p&gt;Optimization problem&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;minimize&lt;/strong&gt; $ f_0(x) $&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;subject to&lt;/strong&gt; $ f_i(x) \leq b_i, \quad i = 1, \dots, m. $&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;$ x = (x_1, \dots, x_n) $: (vector) optimization variables.&lt;/li&gt;&#xA;&lt;li&gt;$ f_0: R^n \to R $: objective function.&lt;/li&gt;&#xA;&lt;li&gt;$ f_i: R^n \to R, \quad i = 1, \dots, m $: (inequality) constraint functions.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;br/&gt;&#xA;&lt;p&gt;&lt;strong&gt;optimal solution&lt;/strong&gt; $ x^* $&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;has the smallest value of $ f_0 $&lt;/li&gt;&#xA;&lt;li&gt;satisfies the constraints.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;for any $ z $ with $ f_1(z) \leq b_1, \dots, f_m(z) \leq b_m $, we have $ f_0 (z) \geq f_0(x^*) $.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Chapter 1: Introduction to Probabilities, Graphs and Causal Models</title>
-      <link>https://tomodachii.com/books/causality/chapter-1-introduction-to-probabilities-graphs-causal-models/</link>
-      <pubDate>Thu, 22 May 2025 09:23:31 +0700</pubDate>
-      <guid>https://tomodachii.com/books/causality/chapter-1-introduction-to-probabilities-graphs-causal-models/</guid>
-      <description>&lt;h1 id=&#34;probability-theory&#34;&gt;Probability Theory&lt;/h1&gt;&#xA;&lt;h2 id=&#34;basic-concepts&#34;&gt;Basic Concepts&lt;/h2&gt;&#xA;&lt;h3 id=&#34;axioms&#34;&gt;Axioms&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;$ 0 \leq P(A) \leq 1 $,&lt;/li&gt;&#xA;&lt;li&gt;$ P (S) = 1 $&lt;/li&gt;&#xA;&lt;li&gt;$ P (A \text{ or } B) = P(A) + P(B) $ if $ A $ and $ B $ are mutually exclusive.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;br/&gt;&#xA;&lt;p&gt;$ (A \cap B) $ and $ (A \cap \lnot B) $ are disjoint events, thus&lt;/p&gt;&#xA;&lt;p&gt;$ A = (A \cap B) \cup (A \cap \lnot B) \rightarrow P(A) = P(A, B) + P(A, \lnot B) $&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lecture 1 Counting</title>

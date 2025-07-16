@@ -2,9 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tomodachii.com/courses/6.042j/lecture-6-graph-theory/</loc>
-    <lastmod>2025-06-02T21:52:48+07:00</lastmod>
-  </url><url>
     <loc>https://tomodachii.com/courses/introduction-to-causal-inference/lecture-1-motivation/</loc>
     <lastmod>2025-04-16T07:51:04+07:00</lastmod>
   </url><url>
@@ -50,9 +47,6 @@
     <loc>https://tomodachii.com/courses/6.041sc/lecture-5-6-7-discrete-random-variables-examples-and-exercises/</loc>
     <lastmod>2025-03-31T09:22:14+07:00</lastmod>
   </url><url>
-    <loc>https://tomodachii.com/books/probabilistic-machine-learning-an-introduction/chapter-8-optimization/</loc>
-    <lastmod>2025-05-23T08:37:13+07:00</lastmod>
-  </url><url>
     <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-8-the-exponential-family/</loc>
     <lastmod>2025-04-26T22:11:05+07:00</lastmod>
   </url><url>
@@ -79,6 +73,9 @@
   </url><url>
     <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-11-4-mean-field-approx/</loc>
     <lastmod>2025-05-28T10:57:03+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/courses/cs109/lecture-16-beta/</loc>
+    <lastmod>2025-06-18T19:57:37+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/books/probabilistic-graphical-models/chapter-12-particle-based-approximate-inference/</loc>
     <lastmod>2025-06-04T18:33:28+07:00</lastmod>
@@ -122,6 +119,12 @@
     <loc>https://tomodachii.com/papers/</loc>
     <lastmod>2025-07-07T15:20:57+07:00</lastmod>
   </url><url>
+    <loc>https://tomodachii.com/authors/chris-piech/</loc>
+    <lastmod>2025-06-18T19:57:37+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/categories/probability/</loc>
+    <lastmod>2025-06-18T19:57:37+07:00</lastmod>
+  </url><url>
     <loc>https://tomodachii.com/books/</loc>
     <lastmod>2025-06-04T18:33:28+07:00</lastmod>
   </url><url>
@@ -140,47 +143,20 @@
     <loc>https://tomodachii.com/categories/causality/</loc>
     <lastmod>2025-06-03T08:41:01+07:00</lastmod>
   </url><url>
-    <loc>https://tomodachii.com/categories/graph-theory/</loc>
-    <lastmod>2025-06-02T21:52:48+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/authors/tomodachii/</loc>
-    <lastmod>2025-06-02T21:52:48+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/courses/ee364a/lecture-1-introduction/</loc>
-    <lastmod>2025-05-23T14:28:21+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/categories/optimization/</loc>
-    <lastmod>2025-05-23T14:28:21+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/authors/stephen-p.-boyd/</loc>
-    <lastmod>2025-05-23T14:28:21+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/authors/kevin-p.-murphy/</loc>
-    <lastmod>2025-05-23T08:37:13+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/categories/machine-learning/</loc>
-    <lastmod>2025-05-23T08:37:13+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/categories/probability/</loc>
-    <lastmod>2025-05-23T08:37:13+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/books/causality/chapter-1-introduction-to-probabilities-graphs-causal-models/</loc>
-    <lastmod>2025-05-22T09:23:31+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/authors/judea-pearl/</loc>
-    <lastmod>2025-05-22T09:23:31+07:00</lastmod>
-  </url><url>
     <loc>https://tomodachii.com/authors/john-n.-tsitsiklis/</loc>
     <lastmod>2025-04-19T18:56:10+07:00</lastmod>
-  </url><url>
-    <loc>https://tomodachii.com/authors/chris-piech/</loc>
-    <lastmod>2025-04-14T21:51:42+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/courses/cs109/lecture-1-counting/</loc>
     <lastmod>2025-04-14T21:51:42+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/courses/cs109/lecture-21-mle/</loc>
     <lastmod>2025-04-07T16:29:46+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/authors/kevin-p.-murphy/</loc>
+    <lastmod>2025-04-06T20:58:08+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/categories/machine-learning/</loc>
+    <lastmod>2025-04-06T20:58:08+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/authors/b.w.-silverman/</loc>
     <lastmod>2025-04-04T15:18:40+07:00</lastmod>
@@ -195,6 +171,9 @@
     <lastmod>2025-01-07T22:51:13+07:00</lastmod>
   </url><url>
     <loc>https://tomodachii.com/categories/dsa/</loc>
+    <lastmod>2024-07-24T19:03:42+07:00</lastmod>
+  </url><url>
+    <loc>https://tomodachii.com/authors/tomodachii/</loc>
     <lastmod>2024-07-24T19:03:42+07:00</lastmod>
   </url>
 </urlset>
