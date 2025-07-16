@@ -1,7 +1,7 @@
 +++
 title = 'Lecture 1 Introduction'
 date = 2025-05-23T14:28:21+07:00
-draft = false
+draft = true
 description = ""
 image = ""
 imageBig = ""

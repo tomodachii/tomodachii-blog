@@ -1,7 +1,7 @@
 +++
 title = 'Chapter 8: Optimization'
 date = 2025-05-23T08:37:13+07:00
-draft = false
+draft = true
 description = ""
 image = ""
 imageBig = ""
