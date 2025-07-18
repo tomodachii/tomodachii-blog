@@ -409,21 +409,10 @@ details summary {
 
 /* MARKER */
 .marked {
-  position: relative;
-  display: inline-block;
-  padding: 0px 3px;
-  border-radius: 4px;
-  color: #fff;
-}
-
-.marked::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: var(--postColor);
-  opacity: 0.8; /* Adjust transparency */
-  z-index: -1;
-  border-radius: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--postColor);
+  text-decoration-thickness: 2px; /* Optional: control thickness */
+  text-underline-offset: 4px;     /* Optional: control position */
 }
 
 /* END MARKER */
