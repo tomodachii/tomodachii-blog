@@ -120,18 +120,7 @@
         
     </div>
     <div class="singleBottom">
-        <div class="singleContent"><p>PGMs represent joint probability distributions over a set of variables $\mathcal{X}$. Let&rsquo;s use this representation to answer actual queries.
-<div class="callout callout-info">
-    <span class="callout-icon">
-        ℹ️
-        
-        
-        
-    </span>
-    <div class="callout-content">Graphical models are descriptions of decomposable multivariate <span class="marked">functions.</span></div>
-</div>
-
-</p>
+        <div class="singleContent"><p>PGMs represent joint probability distribution over a set of variables $\mathcal{X} \to$ use this representation to answer actual queries.</p>
 <h1 id="queries">Queries</h1>
 <p>A query over a graphical model asks to compute simple statistics over the function such as its minimum or average value.</p>
 <h2 id="conditional-probability-queries">Conditional Probability Queries</h2>
@@ -170,17 +159,6 @@ P(Y, E = e) &amp;= \sum_{W} P(Y, E = e, W) \\
 $$
     </div>
 </div>
-
-<details>
-    <summary>Reduce the factors by evidence $E = e$.</summary>
-    
-        <ul>
-<li><strong>computational optimization</strong>: preprocess the factor to remove irrelevant entries instead of keeping the full factor and evaluating it every time with evidence fixed.</li>
-<li>Reducing factors is just plug-in + table simplification.</li>
-</ul>
- 
-    
-</details>
 
 <details>
     <summary>The sum can grow exponentially in the number of hidden variable.</summary>
@@ -276,6 +254,7 @@ $$</p>
 \boxed{\text{argmax}_Y P(Y \mid E = e) = \text{argmax}_Y \prod_k \phi^{\prime}_k (D^{\prime}_k)}
 $$</p>
 <h1 id="analysis-of-complexity">Analysis of Complexity</h1>
+<p>// TODO</p>
 <h1 id="variable-elimination">Variable Elimination</h1>
 <p>Can use dynamic programming techniques to perform inference even for certain large and complex networks in a reasonable time.</p>
 <details>
@@ -884,9 +863,6 @@ $$</div>
     <a href="/sitemap.xml">sitemap</a>
   </div>
   <div class="social">
-    <a href="https://github.com/tomodachii">
-        github
-    </a>
     
   </div>
 </div>
