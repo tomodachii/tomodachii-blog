@@ -3,6 +3,10 @@ languageCode: en-us
 title: Tomodachii
 theme: PaperMod
 
+pagination:
+  disableAliases: false
+  pagerSize: 10
+
 markup:
   goldmark:
     extensions:
@@ -26,10 +30,12 @@ params:
   ShowToc: true
   ShowPostNavLinks: true
   ShowCodeCopyButtons: true
+  showMenuDivider: true
 
   homeInfoParams:
     Title: "Hello"
-    Content: My learning notes. Hope this helps :')
+    Content: >
+      My notes
 
   socialIcons:
     - name: "github"
@@ -38,6 +44,9 @@ params:
       url: "https://www.instagram.com/insania.zip/"
     - name: "goodreads"
       url: "https://www.goodreads.com/user/show/69183590-do-tuan-hoang"
+
+  assets:
+    favicon: "favicon.png"
 
 outputs:
   home:
