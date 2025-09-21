@@ -1,75 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on My New Hugo Site</title>
     <link>https://tomodachii.com/categories/</link>
     <description>Recent content in Categories on My New Hugo Site</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- 0.150.0</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 Jul 2025 14:21:34 +0700</lastBuildDate>
     <atom:link href="https://tomodachii.com/categories/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Linear-Algebra</title>
-      <link>https://tomodachii.com/categories/linear-algebra/</link>
-      <pubDate>Fri, 11 Jul 2025 14:21:34 +0700</pubDate>
-      <guid>https://tomodachii.com/categories/linear-algebra/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Causal-Discovery</title>
-      <link>https://tomodachii.com/categories/causal-discovery/</link>
-      <pubDate>Mon, 07 Jul 2025 15:20:57 +0700</pubDate>
-      <guid>https://tomodachii.com/categories/causal-discovery/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>DAG</title>
-      <link>https://tomodachii.com/categories/dag/</link>
-      <pubDate>Mon, 07 Jul 2025 15:20:57 +0700</pubDate>
-      <guid>https://tomodachii.com/categories/dag/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Probability</title>
-      <link>https://tomodachii.com/categories/probability/</link>
-      <pubDate>Wed, 18 Jun 2025 19:57:37 +0700</pubDate>
-      <guid>https://tomodachii.com/categories/probability/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Probabilistic-Graphical-Models</title>
-      <link>https://tomodachii.com/categories/probabilistic-graphical-models/</link>
-      <pubDate>Wed, 04 Jun 2025 18:33:28 +0700</pubDate>
-      <guid>https://tomodachii.com/categories/probabilistic-graphical-models/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Causality</title>
-      <link>https://tomodachii.com/categories/causality/</link>
-      <pubDate>Tue, 03 Jun 2025 08:41:01 +0700</pubDate>
-      <guid>https://tomodachii.com/categories/causality/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Machine-Learning</title>
-      <link>https://tomodachii.com/categories/machine-learning/</link>
-      <pubDate>Sun, 06 Apr 2025 20:58:08 +0700</pubDate>
-      <guid>https://tomodachii.com/categories/machine-learning/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Kde</title>
-      <link>https://tomodachii.com/categories/kde/</link>
-      <pubDate>Fri, 04 Apr 2025 15:18:40 +0700</pubDate>
-      <guid>https://tomodachii.com/categories/kde/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Dsa</title>
-      <link>https://tomodachii.com/categories/dsa/</link>
-      <pubDate>Wed, 24 Jul 2024 19:03:42 +0700</pubDate>
-      <guid>https://tomodachii.com/categories/dsa/</guid>
-      <description></description>
-    </item>
   </channel>
 </rss>
