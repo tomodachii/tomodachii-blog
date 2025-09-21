@@ -1,8 +1,7 @@
 ---
-title: "My First Post"
+title: "My Second Post"
 date: 2025-09-21T16:05:55+07:00
 draft: false
-tags: ["computer-science"]
 ---
 
 # Hello

@@ -20,3 +20,42 @@ markup:
 params:
   math: true
   env: production
+  author: ["Me"]
+  ShowShareButtons: true
+  ShowReadingTime: true
+  ShowToc: true
+  ShowPostNavLinks: true
+  ShowCodeCopyButtons: true
+
+  homeInfoParams:
+    Title: "Hello"
+    Content: My learning notes. Hope this helps :')
+
+  socialIcons:
+    - name: "github"
+      url: "https://github.com/"
+    - name: "instagram"
+      url: "https://www.instagram.com/insania.zip/"
+    - name: "goodreads"
+      url: "https://www.goodreads.com/user/show/69183590-do-tuan-hoang"
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
+
+menu:
+  main:
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 10
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 20
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 30
