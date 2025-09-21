@@ -13,7 +13,22 @@
       <link>https://tomodachii.com/posts/my-first-post/</link>
       <pubDate>Sun, 21 Sep 2025 16:05:55 +0700</pubDate>
       <guid>https://tomodachii.com/posts/my-first-post/</guid>
-      <description>$$
+      <description>&lt;h1 id=&#34;hello&#34;&gt;Hello&lt;/h1&gt;
+&lt;h1 id=&#34;something-in-the-middle-ok&#34;&gt;Something in the middle ok?&lt;/h1&gt;
+$$
+\mathcal{L}_{\text{NCE}} = - \frac{1}{N} \sum_{i = 1}^N \left[ \log \sigma (\ell_\theta (\mathbf{x}_i)) + \log(1 - \sigma(\ell (\tilde{\mathbf{x}_i}))) \right]
+$$$$
+a = -b
+$$$$\underbrace{a}_{b} - \underbrace{c}_{d}$$&lt;p&gt;This is inline math: $E = mc^2$.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My Second Post</title>
+      <link>https://tomodachii.com/posts/my-second-post/</link>
+      <pubDate>Sun, 21 Sep 2025 16:05:55 +0700</pubDate>
+      <guid>https://tomodachii.com/posts/my-second-post/</guid>
+      <description>&lt;h1 id=&#34;hello&#34;&gt;Hello&lt;/h1&gt;
+&lt;h1 id=&#34;something-in-the-middle-ok&#34;&gt;Something in the middle ok?&lt;/h1&gt;
+$$
 \mathcal{L}_{\text{NCE}} = - \frac{1}{N} \sum_{i = 1}^N \left[ \log \sigma (\ell_\theta (\mathbf{x}_i)) + \log(1 - \sigma(\ell (\tilde{\mathbf{x}_i}))) \right]
 $$$$
 a = -b
