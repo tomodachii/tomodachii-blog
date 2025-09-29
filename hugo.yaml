@@ -68,3 +68,7 @@ menu:
       name: Search
       url: /search/
       weight: 30
+
+services:
+  googleAnalytics:
+    id: G-XZ8LPFH6ZQ
