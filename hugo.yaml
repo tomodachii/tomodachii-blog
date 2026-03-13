@@ -35,9 +35,9 @@ params:
   showMenuDivider: true
 
   homeInfoParams:
-    Title: "Hello"
+    Title: "Hello, This is Tomodachii! 👋"
     Content: >
-      My notes
+      My notes on pretty much everything I learn, and my thoughts on various topics. Hope you find something useful here!
 
   socialIcons:
     - name: "github"
