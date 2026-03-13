@@ -1,3 +1,19 @@
 {{ if or .Params.math .Site.Params.math }}
 {{ partial "math.html" . }}
 {{ end }}
+
+{{- /* Load site-level Simple Cite stylesheet if present */ -}}
+{{- with resources.Get "scss/hugo-simplecite.scss" -}}
+	{{- $simpleciteStyle := . | css.Sass | resources.Minify | resources.Fingerprint -}}
+	<link rel="stylesheet" type="text/css" href="{{ $simpleciteStyle.Permalink }}">
+{{- end -}}
+
+{{- with resources.Get "scss/figures.scss" -}}
+  {{- $s := . | css.Sass | resources.Minify | resources.Fingerprint -}}
+  <link rel="stylesheet" href="{{ $s.Permalink }}">
+{{- end -}}
+
+{{- with resources.Get "scss/citations.scss" -}}
+	{{- $c := . | css.Sass | resources.Minify | resources.Fingerprint -}}
+	<link rel="stylesheet" href="{{ $c.Permalink }}">
+{{- end -}}

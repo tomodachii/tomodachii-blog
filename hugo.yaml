@@ -1,7 +1,9 @@
 baseURL: https://tomodachii.com/
 languageCode: en-us
 title: Tomodachii
-theme: PaperMod
+theme: 
+ - PaperMod
+ - hugo-simplecite
 
 pagination:
   disableAliases: false
